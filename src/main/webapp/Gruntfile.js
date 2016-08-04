@@ -25,13 +25,24 @@ module.exports = function (grunt) {
                     '!node_modules/**',
                     '!vendor/**',
                     'vendor/**/*.html',
-                    'vendor/**/fonts/*',
+                    '!vendor/**/fonts/*',
                     '!.bowerrc',
                     '!bower.json',
                     '!Gruntfile.js',
                     '!package.json'
                 ],
                 dest: 'dist/'
+            },
+            fonts: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    filter: 'isFile',
+                    src: [
+                        "vendor/**/fonts/*"
+                    ],
+                    dest: 'dist/assets/fonts/'
+                }]
             }
         },
         usemin: {
@@ -54,7 +65,7 @@ module.exports = function (grunt) {
     });
 
     /* Tasks */
-    grunt.registerTask('before-prod', ['clean:dist', 'copy:dist']);
+    grunt.registerTask('before-prod', ['clean:dist', 'copy:dist', 'copy:fonts']);
     grunt.registerTask('generate-prod', ['useminPrepare', 'concat', 'ngAnnotate:tmp', 'cssmin', 'uglify', 'usemin']);
     grunt.registerTask('post-prod', ['clean:tmp']);
     grunt.registerTask('prod', ['before-prod', 'generate-prod', 'post-prod']);
