@@ -1,0 +1,203 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title>${nome.igreja}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="icon" href="assets/img/favicon.ico" />
+
+    <!-- build:css assets/styles/vendor.css -->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="vendor/AngularJS-Toaster/toaster.css" />
+    <link rel="stylesheet" href="vendor/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="vendor/ng-table/dist/ng-table.min.css" />
+    <link rel="stylesheet" href="vendor/fullcalendar/dist/fullcalendar.css"/>
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="vendor/textAngular/dist/textAngular.css"/>
+    <link rel="stylesheet" href="vendor/angular-loading-bar/build/loading-bar.min.css"/>
+    <link rel="stylesheet" href="vendor/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+    <!-- endbuild -->
+    <!-- build:css assets/styles/app.css -->
+    <link rel="stylesheet" href="assets/styles/geral.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/theme.css">
+    <!-- endbuild -->
+
+</head>
+<body class="calvin" ng-app="calvinApp" ng-cloak>
+
+<!--[if lt IE 9]>
+<p class="browserupgrade">Você está utilizando um navegador <strong>desatualizado</strong>. Por favor, <a href="http://browsehappy.com/">atualize
+    seu navegador</a> para aprimorar sua navegação.</p>
+<![endif]-->
+
+<!-- Barra -->
+<div ui-view="navbar" ></div>
+<!--/ Fim da barra -->
+
+<!-- Cabeçalho -->
+<div ui-view='header' ></div>
+
+<!--/ Fim do cabeçalho -->
+<toaster-container toaster-options="{'close-button': true}"></toaster-container>
+<div class="container" ng-class="{'fullscreen':contentFullScreen}">
+    <div ng-class="{'col-md-3 col-sm-4':!contentFullScreen}" ui-view="menu"> </div>
+
+    <div ng-class="{'col-md-9 col-sm-8':!contentFullScreen,'col-sm-12':contentFullScreen,'content':true}" >
+        <ui-breadcrumbs ng-if='!contentFullScreen' class="col-md-12" displayname-property="data.displayName"
+                        template-url="scripts/components/template/breadcrumb.html">
+        </ui-breadcrumbs>
+        <div ui-view='content' ></div>
+    </div>
+
+</div>
+
+
+<!-- Footer -->
+<div class="footer navbar navbar-fixed-bottom">
+    <div class="footer-contact visible-lg col-md-12">
+        <p>${nome.igreja} 
+            <span ng-if="institucional.site">| {{institucional.site}}</span>
+            <span ng-if="institucional.email">| {{institucional.email}}</span>
+            <span ng-if="institucional.endereco.descricao"><br/>{{institucional.endereco.descricao}}</span> 
+            <span ng-if="institucional.endereco.cidade">- {{institucional.endereco.cidade}}</span>
+            <span ng-if="institucional.endereco.estado">- {{institucional.endereco.estado}}</span> 
+            <span ng-if="institucional.endereco.cep">- {{institucional.endereco.cep}}</span></p>
+    </div>
+
+    <div class="footer-copyright col-md-12">
+        <p>
+        </p>
+    </div>
+</div>
+<!-- Fim do footer -->
+
+<!-- build:js scripts/vendor.js -->
+<script src="vendor/modernizr/modernizr.js"></script>
+<script src="vendor/jquery/dist/jquery.js"></script>
+<script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-animate/angular-animate.js"></script>
+<script src="vendor/AngularJS-Toaster/toaster.js"></script>
+<script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="vendor/angular-confirm-modal/angular-confirm.min.js"></script>
+<script src="vendor/angular-locale-pt-br/angular-locale_pt-br.js"></script>
+<script src="vendor/angular-messages/angular-messages.js"></script>
+<script src="vendor/angular-sanitize/angular-sanitize.js"></script>
+<script src="vendor/angular-translate/angular-translate.js"></script>
+<script src="vendor/messageformat/messageformat.js"></script>
+<script src="vendor/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+<script src="vendor/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+<script src="vendor/angular-ui-mask/dist/mask.js"></script>
+<script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="vendor/angular-ui-select/dist/select.js"></script>
+<script src="vendor/angular-utils-ui-breadcrumbs/uiBreadcrumbs.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script src="vendor/checklist-model/checklist-model.js"></script>
+<script src="vendor/FileSaver.js/FileSaver.js"></script>
+<script src="vendor/jquery-mask-plugin/dist/jquery.mask.js"></script>
+<script src="vendor/js-xlsx/dist/xlsx.core.min.js"></script>
+<script src="vendor/json3/lib/json3.js"></script>
+<script src="vendor/ng-file-upload/ng-file-upload.js"></script>
+<script src="vendor/ng-table/dist/ng-table.min.js"></script>
+<script src="vendor/lodash/lodash.js"></script>
+<script src="vendor/restangular/dist/restangular.js"></script>
+<script src="vendor/stringjs/dist/string.min.js"></script>
+<script src="vendor/messageformat/locale/pt.js"></script>
+<script src="vendor/angular-cookies/angular-cookies.min.js"></script>
+<!-- jquery, moment, and angular have to get included before fullcalendar -->
+<script src="vendor/moment/min/moment.min.js"></script>
+<script src="vendor/angular-ui-calendar/src/calendar.js"></script>
+<script src="vendor/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="vendor/fullcalendar/dist/lang/pt-br.js"></script>
+<script src="vendor/fullcalendar/dist/gcal.js"></script>
+<script src="vendor/textAngular/dist/textAngular-rangy.min.js"></script>
+<script src="vendor/textAngular/dist/textAngular-sanitize.min.js"></script>
+<script src="vendor/textAngular/dist/textAngular.min.js"></script>
+<script src="vendor/angular-loading-bar/build/loading-bar.min.js"></script>
+<script src="vendor/angular-input-masks/angular-input-masks-standalone.min.js"></script>
+<script src="vendor/angular-pdf/dist/angular-pdf.min.js"></script>
+<script src="vendor/pdfjs-dist/build/pdf.js"></script>
+<script src="vendor/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+<script src="vendor/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+<script src="vendor/angular-date-time-input/src/dateTimeInput.js"></script>
+<script src="vendor/angular-permission/dist/angular-permission.js"></script>
+<script src="vendor/angular-permission/dist/angular-permission-ng.js"></script>
+<script src="vendor/angular-permission/dist/angular-permission-ui.js"></script>
+
+<!-- endbuild -->
+<!-- build:js scripts/app.js -->
+<script src="scripts/app/config.js"></script>
+<script src="scripts/app/app.js"></script>
+
+<!-- Menu e da Página inicial -->
+<script src="scripts/components/template/navbar/navbar.controller.js"></script>
+<script src="scripts/components/template/menu/menu.controller.js"></script>
+<script src="scripts/components/template/menu/menu-item/menuitem.directive.js"></script>
+
+<!-- Controllers/Sistemas -->
+<script src="scripts/app/agenda/agenda.controller.js"></script>
+<script src="scripts/app/boletim/boletim.controller.js"></script>
+<script src="scripts/app/estudo/estudo.controller.js"></script>
+<script src="scripts/app/institucional/institucional.controller.js"></script>
+<script src="scripts/app/login/login.controller.js"></script>
+<script src="scripts/app/membro/membro.controller.js"></script>
+<script src="scripts/app/ministerio/ministerio.controller.js"></script>
+<script src="scripts/app/notificacao/notificacao.controller.js"></script>
+<script src="scripts/app/perfil/perfil.controller.js"></script>
+<script src="scripts/app/versiculo/versiculo.controller.js"></script>
+<script src="scripts/app/votacao/votacao.controller.js"></script>
+<script src="scripts/app/oracao/oracao.controller.js"></script>
+<script src="scripts/app/evento/evento.controller.js"></script>
+<script src="scripts/app/aplicativo/aplicativo.controller.js"></script>
+<script src="scripts/app/contato/contato.controller.js"></script>
+<script src="scripts/app/home/home.controller.js"></script>
+
+<script src="scripts/service/institucional.service.js"></script>
+<script src="scripts/service/ministerio.service.js"></script>
+<script src="scripts/service/perfil.service.js"></script>
+<script src="scripts/service/membro.service.js"></script>
+<script src="scripts/service/boletim.service.js"></script>
+<script src="scripts/service/estudo.service.js"></script>
+<script src="scripts/service/notificacao.service.js"></script>
+<script src="scripts/service/votacao.service.js"></script>
+<script src="scripts/service/agenda.service.js"></script>
+<script src="scripts/service/versiculo.service.js"></script>
+<script src="scripts/service/acesso.service.js"></script>
+<script src="scripts/service/evento.service.js"></script>
+<script src="scripts/service/oracao.service.js"></script>
+<script src="scripts/service/hino.service.js"></script>
+<script src="scripts/service/aplicativo.service.js"></script>
+
+<!-- endbuild -->
+<!-- build:js scripts/components.js -->
+
+<!-- Componentes -->
+<script src="scripts/components/pdf-viewer/pdf-viewer.directive.js"></script>
+<script src="scripts/components/check-all/checkall.directive.js"></script>
+<script src="scripts/components/check-one/checkone.directive.js"></script>
+<script src="scripts/components/checkbox-list/checkbox-list.directive.js"></script>
+<script src="scripts/components/confirm/confirm.service.js"></script>
+<script src="scripts/components/date/datepicker.directive.js"></script>
+<script src="scripts/components/filters/phonemask.filter.js"></script>
+<script src="scripts/components/filters/simNaoFilter.filter.js"></script>
+<script src="scripts/components/form-endereco/form-endereco.directive.js"></script>
+<script src="scripts/components/form-validator/cpf.validator.directive.js"></script>
+<script src="scripts/components/form-validator/date-expired.validator.directive.js"></script>
+<script src="scripts/components/input-fileupload/input-fileupload.directive.js"></script>
+<script src="scripts/components/input-telefones/input-telefones.directive.js"></script>
+<script src="scripts/components/link-arquivo/link-arquivo.directive.js"></script>
+<script src="scripts/components/modal-form/modal-form.directive.js"></script>
+<script src="scripts/components/pagination/ngtableparams.calvin.js"></script>
+
+<script src="scripts/components/template/field-form-group/field-form-group.directive.js"></script>
+<script src="scripts/components/template/field-label/field-label.directive.js"></script>
+<script src="scripts/components/template/field-message/field-message.directive.js"></script>
+<script src="scripts/components/template/message/message.directive.js"></script>
+<script src="scripts/components/template/message/message.factory.js"></script>
+<!-- endbuild -->
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+/* Theme 1 */
+.calvin .page-header {
+    background-image: url("../img/cabecalho.jpg");
+}
+
+.calvin .menuList li.titleMenu.btnLevelOne {
+    border-top-color: #284081;
+}
+
+.calvin .modal-footer .btn,
+.calvin .comandos .btn {
+    background-color: #008ed5;
+}
+
+.calvin .content .breadcrumb a,
+.calvin .content .breadcrumb span {
+    color: #fff;
+}
+
+.calvin .content .breadcrumb a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.calvin .page-header,
+.calvin .footer .footer-contact,
+.calvin .menuList .boxLevelOne li{
+    background-color: #eeeeee;
+}
+
+.calvin .pageHeader,
+.calvin .pagination > li > a,
+.calvin .ng-table-counts button,
+.calvin .menuList li.titleMenu.btnLevelOne,
+.calvin .menuList .boxLevelOne li.linkActive {
+    background-color: #dddddd;
+}
+
+.calvin .navbar.footer {
+    background-color: #008ed5;
+}
+
+.calvin .navbar {
+    background-color: #767676;
+}
+
+.calvin .footer .footer-copyright,
+.calvin .breadcrumb,
+.calvin .navbar a:hover,
+.calvin .pagination > li.active > a,
+.calvin .ng-table-counts button.active,
+.calvin .menuList .boxLevelOne li.linkActive,
+.calvin .menuList .boxLevelOne li:hover {
+    background-color: #284081;
+}
+
+.calvin .modal-footer .btn,
+.calvin .content .comandos .btn,
+.calvin .menuList .boxLevelOne li.linkActive a,
+.calvin .menuList .boxLevelOne li.linkActive .activeLateralMenu,
+.calvin .menuList .boxLevelOne li:hover a,
+.calvin .menuList .boxLevelOne li:hover .activeLateralMenu {
+    color: #fff
+}
+
+.calvin .menuList .boxLevelOne li a,
+.calvin .menuList .boxLevelOne li .activeLateralMenu {
+    color: #008fd5;
+}
+
+.calvin .pageHeader,
+.calvin .menuList li.titleMenu.btnLevelOne .mudaSetaBox {
+    color: #284081;
+}
+
+.calvin .menuList li.titleMenu.btnLevelOne,
+.calvin .content a,
+.calvin .menuList .boxLevelOne li:hover .idMenu {
+    color: #284081;
+}
+
+.calvin .pagination > li > a,
+.calvin .ng-table-counts button,
+.calvin .content .btn,
+.calvin .navbar.footer,
+.calvin .menuList .form-control,
+.calvin .input-group-addon {
+    color: #7b7b7b;
+}
+
+.calvin .pagination > li:hover > a,
+.calvin .ng-table-counts button:hover {
+    background-color: #e6e6e6;
+    color: #7b7b7b;
+}
+
+
+.calvin .pagination > li > a,
+.calvin .ng-table-counts button {
+    border-color: #ccc !important;
+}
+
+.calvin .pagination > li.disabled > a,
+.calvin .content .input-group-addon .glyphicon,
+.calvin .content .input-group-btn .glyphicon,
+.calvin .menuList .boxLevelOne li .idMenu,
+.calvin .menuList .boxLevelOne li.linkActive .idMenu {
+    color: #dddddd;
+}
+
+.calvin .modal-footer .btn:hover,
+.calvin .comandos .btn:hover {
+    background-color: #284081
+}
+
+.horario {
+    background-color: #dddddd;
+    border-color: #7b7b7b;
+}
+
+.horario:hover {
+    background-color: #ccc;
+}
+
+.modal-header a,
+.horario, 
+.horario:hover {
+    color:#7b7b7b;
+}
+
+.agendamento {
+    background-color: #008ed5;
+    border-color: #7b7b7b;
+}
+
+.agendamento:hover {
+    background-color: #284081;
+}
+
+.calvin .agendamento:hover {
+    color:#fff;
+}
+
+.agendamento.nao_confirmado {
+    background-color: #e4bdc6;
+}
+
+.agendamento.nao_confirmado:hover {
+    background-color: #d50000;
+}

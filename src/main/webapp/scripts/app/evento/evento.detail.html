@@ -1,0 +1,52 @@
+<div>
+    <div >
+        <div class="col-sm-12" >
+            <label translate>evento.nome</label>
+            <div class="form-control"  >{{evento.nome}}</div>
+        </div>
+        <div class="col-sm-12">
+            <label translate>evento.descricao</label>
+            <field-label value="" for="formulario_evento.descricao" ></field-label>
+            <div class="form-control" style="height:200px;overflow:scroll">{{evento.descricao}}</div>
+        </div>
+        <div class="col-sm-6" >
+            <label translate>evento.dataHoraInicio</label>
+            <div class="form-control" >{{evento.dataHoraInicio | date : ('config.pattern.output.dateHour' | translate)}}</div>
+        </div>
+        <div class="col-sm-6" >
+            <label translate>evento.dataHoraTermino</label>
+            <div class="form-control" >{{evento.dataHoraTermino | date : ('config.pattern.output.dateHour' | translate)}}</div>
+        </div>
+    </div>
+    <div class='clearfix'></div>
+    <hr/>
+    
+    <h3 class='col-sm-12'>{{'evento.inscricao.inscricao' | translate}}</h3>
+    <div >
+        <div class="col-sm-6" >
+            <label translate>evento.inscricao.data_inicio</label>
+            <div class="form-control" >{{evento.dataInicioInscricao | date : ('config.pattern.output.dateHour' | translate)}}</div>
+        </div>
+        <div class="col-sm-6" >
+            <label translate>evento.inscricao.data_termino</label>
+            <div class="form-control" >{{evento.dataTerminoInscricao | date : ('config.pattern.output.dateHour' | translate)}}</div>
+        </div>
+        <div class="col-sm-4" >
+            <label translate>evento.inscricao.limite_inscricoes</label>
+            <div class="form-control" >{{evento.limiteInscricoes}}</div>
+        </div>
+        <div class="col-sm-4" >
+            <label translate>evento.inscricao.exige_pagamento</label>
+            <div class="form-control" >{{(evento.exigePagamento ? 'global.sim' : 'global.nao') | translate}}</div>
+        </div>
+        <div class="col-sm-4" ng-if='evento.exigePagamento'>
+            <label translate>evento.inscricao.valor</label>
+            <div class="form-control" >{{evento.valor | currency:'R$ '}}</div>
+        </div>
+    </div>
+    
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ng-disabled='inProgress'  ui-sref="evento">{{'global.voltar' | translate}}</a>
+    </div>
+</div>

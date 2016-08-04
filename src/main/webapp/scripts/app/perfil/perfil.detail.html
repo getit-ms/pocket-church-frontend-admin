@@ -1,0 +1,18 @@
+<div>
+    <div class="col-sm-12" >
+        <label translate>perfil.nome</label>
+        <div class="form-control">{{perfil.nome}}</div>
+    </div>
+    <div class="col-sm-12" >
+        <label translate>perfil.funcionalidades</label>
+        <div class="form-control" style="height: 200px; overflow: scroll" >
+            <span ng-repeat="f in perfil.funcionalidades">
+                {{'funcionalidade.' + f | translate}}<br/>
+            </span>
+        </div>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="perfil">{{'global.voltar' | translate}}</a>
+    </div>
+</div>

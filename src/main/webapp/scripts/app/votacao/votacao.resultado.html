@@ -1,0 +1,9 @@
+<div>
+    <div>
+        <pdf-viewer ng-if='votacao.id' pdf-url="/app/rest/votacao/{{votacao.id}}/resultado" ></pdf-viewer>
+    </div>
+    <div class="comandos">
+        <hr/>
+        <a class="btn btn-default" ui-sref="votacao">{{'global.voltar' | translate}}</a>
+    </div>
+</div>

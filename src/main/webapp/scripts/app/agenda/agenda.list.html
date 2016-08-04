@@ -1,0 +1,40 @@
+<div>
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Pastor</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!agendas.length">
+                    <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
+                </tr>
+                <tr ng-repeat="agenda in agendas">
+                    <td>{{agenda.pastor.nome}}</td>
+                    <td class="col-sm-3 text-center">
+                        <a class="btn btn-default" ng-click="detalhar(agenda)"
+                           title="{{'global.detalhar' | translate}}">
+                            <span class="fa fa-search"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="editar(agenda)"
+                           title="{{'global.editar' | translate}}">
+                            <span class="fa fa-pencil-square-o"></span>
+                        </a>
+                        <a class="btn btn-default" ng-if="agenda.ativo" ng-click="excluir(agenda)"
+                           title="{{'global.excluir' | translate}}">
+                            <span class="fa fa-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ui-sref="cadastro">
+            {{'agenda.cadastrar' | translate}}
+        </a>
+    </div>
+</div>

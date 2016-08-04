@@ -1,0 +1,71 @@
+<div>
+    <form name="busca_oracao_form" ng-submit="busca()" novalidate>
+        <div class="col-sm-6">
+            <div field-form-group="busca_oracao_form.dataInicio">
+                <field-label for='dataInicio' required='false' value='oracao.dataInicio' ></field-label>
+                <calvin-datepicker name='dataInicio' ng-model="filtro.dataInicio"
+                                   date-pattern="{{'config.pattern.input.dateHour' | translate}}"></calvin-datepicker>
+            </div>
+            <div field-form-group="busca_oracao_form.dataTermino">
+                <field-label for='dataTermino' required='false' value='oracao.dataTermino' ></field-label>
+                <calvin-datepicker name='dataTermino' ng-model="filtro.dataTermino"
+                                   date-pattern="{{'config.pattern.input.dateHour' | translate}}"></calvin-datepicker>
+            </div>
+        </div>
+        <div class="col-sm-6" field-form-group="busca_oracao_form.perfs">
+            <field-label for='status' required='false' value='oracao.status.status' ></field-label>
+            <select-checklist name='status' ng-model="filtro.status" hide-filter="true" height="100px"
+                              options="status" var="s" item-label="'oracao.status.' + s | translate"></select-checklist>
+        </div>
+        <div class="col-sm-12 comandos">
+            <hr/>
+            <input value="{{'global.buscar' | translate}}" class="btn btn-default" type="submit" />
+            <hr/>
+        </div>
+    </form>
+    <hr/>
+    <div class="col-sm-12 table-responsive">
+        <table class="table table-striped table-hover" ng-table='tabelaOracoesParams'>
+            <thead>
+                <tr>
+                    <th>{{'oracao.pedido' | translate}}</th>
+                    <th>{{'oracao.solicitante' | translate}}</th>
+                    <th>{{'oracao.dataSolicitacao' | translate}}</th>
+                    <th>{{'oracao.dataAtendimento' | translate}}</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!pedidos.resultados.length">
+                    <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
+                </tr>
+                <tr ng-repeat="pedido in pedidos.resultados">
+                    <td>
+                        {{pedido.pedido}}
+                    </td>
+                    <td>
+                        <a href="mailto:{{pedido.email}}" title="{{pedido.email}}">{{pedido.nome}}</a>
+                        <span ng-if="pediro.nome != perido.solicitante.nome"><br/>({{pedido.solicitante.nome}})</span>
+                    </td>
+                    <td class="text-center">
+                        {{pedido.dataSolicitacao | date:('config.pattern.output.dateHour' | translate)}}
+                    </td>
+                    <td class="text-center">
+                        {{pedido.dataAtendimento | date:('config.pattern.output.dateHour' | translate)}}
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-default"
+                           ng-if="pedido.pendente"
+                           ng-click="atendido(pedido)">
+                            <span class="fa fa-square"></span>
+                        </a>
+                        <a class="btn btn-default" href=""
+                           ng-if="pedido.atendido">
+                            <span class="fa fa-check-square"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

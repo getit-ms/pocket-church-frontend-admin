@@ -1,0 +1,27 @@
+<form id="formulario_acesso" name="formulario_acesso" novalidate ng-submit="salvar(this.formulario_acesso)"> 
+    <div class="col-md-6">
+        <field-label value='membro.nome' required="false"></field-label>
+        <input ng-model="acesso.membro.nome" class="form-control" readonly />
+    </div>
+    <div class="col-md-6">
+        <field-label value='membro.email' required="false"></field-label>
+        <input ng-model="acesso.membro.email" class="form-control" readonly />
+    </div>
+    <div class="col-md-6" field-form-control='formulario_acesso.perfis'>
+        <field-label value='membro.acesso.perfis' for='formulario_acesso.perfis'></field-label>
+        <select-checklist name='perfis' requierd ng-model="acesso.perfis" 
+                          options="perfis" var="p" item-label="p.nome" track-by="p.id"></select-checklist>
+        <field-message field='formulario_acesso.perfis'></field-message>
+    </div>
+    <div class="col-md-6" ng-show="exigeMinisterios()" field-form-control='formulario_acesso.ministerios'>
+        <field-label value='membro.acesso.ministerios' for='formulario_acesso.ministerios'></field-label>
+        <select-checklist name='ministerios' required ng-model="acesso.ministerios" sort='true'
+                          options="ministerios" var="m" item-label="m.nome" track-by="m.id"></select-checklist>
+        <field-message field='formulario_acesso.ministerios'></field-message>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <input type="submit" class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+        <a class="btn btn-default" ui-sref="membro">{{'global.cancelar' | translate}}</a>
+    </div>
+</form>

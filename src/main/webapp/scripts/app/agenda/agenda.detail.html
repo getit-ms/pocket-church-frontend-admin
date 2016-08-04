@@ -1,0 +1,15 @@
+<div>
+    <div class="col-sm-6 form-group" >
+        <label translate >agenda.pastor</label>
+        <span class='form-control'>{{agenda.pastor.nome}}</span>
+    </div>
+    <div class="col-sm-12" ng-controller="AgendaController" ng-if='agenda.id' >
+        <label translate>agenda.calendario</label>
+        <div ui-calendar='calendario' class='calendar' 
+             ng-model='eventSources' name="calendario" calendar="agenda" ></div>
+    </div>
+    <div class="col-sm-12 comandos" >
+        <hr/>
+        <a ng-disabled='inProgress' class="btn btn-default" ui-sref="agenda">{{'global.voltar' | translate}}</a>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div>
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>{{'perfil.perfil' | translate}}</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!perfis.length">
+                    <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
+                </tr>
+                <tr ng-repeat="perfil in perfis">
+                    <td>{{perfil.nome}}</td>
+                    <td class="col-sm-3 text-center">
+                        <a class="btn btn-default" ng-click="detalhar(perfil)"
+                           title="{{'global.detalhar' | translate}}">
+                            <span class="fa fa-search"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="editar(perfil)"
+                           title="{{'global.editar' | translate}}">
+                            <span class="fa fa-pencil-square-o"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="excluir(perfil)"
+                           title="{{'global.excluir' | translate}}">
+                            <span class="fa fa-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ui-sref="perfil.cadastro">
+            {{'perfil.cadastrar' | translate }}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<form id='formulario_estudo' name='formulario_estudo' ng-submit="salvar(this.formulario_estudo)" novalidate>
+    <div class="col-sm-12" field-form-group='formulario_estudo.titulo' >
+        <field-label value='estudo.titulo' for='formulario_estudo.titulo' ></field-label>
+        <input name='titulo' ng-model="estudo.titulo" class="form-control" required />
+        <field-message field='formulario_estudo.titulo'></field-message>
+    </div>
+    <div class="col-sm-6" field-form-group='formulario_estudo.autor' >
+        <field-label value='estudo.autor' for='formulario_estudo.autor' ></field-label>
+        <input name='autor' ng-model="estudo.autor" class="form-control" required />
+        <field-message field='formulario_estudo.autor'></field-message>
+    </div>
+    <div class="col-sm-6" field-form-group='formulario_estudo.dataPublicacao'>
+        <field-label value='estudo.publicacao' for='formulario_estudo.dataPublicacao' required='false'></field-label>
+        <calvin-datepicker name='dataPublicacao' ng-model="estudo.dataPublicacao" 
+                           date-pattern="{{'config.pattern.input.dateHour' | translate}}"></calvin-datepicker>
+        <field-message field='formulario_estudo.dataPublicacao'></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group='formulario_estudo.texto'>
+        <field-label value='estudo.texto' for='formulario_estudo.texto' ></field-label>
+        <div name='texto' text-angular ng-model="estudo.texto" 
+             ta-text-editor-class="form-control" required 
+             ta-html-editor-class="form-control"></div>
+        <field-message field='formulario_estudo.texto'></field-message>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <input type='submit' ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="estudo">{{'global.cancelar' | translate}}</a>
+    </div>
+</form>

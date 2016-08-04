@@ -1,0 +1,39 @@
+<form id="formulario_membro" name="formulario_membro" novalidate ng-submit="salvar(this.formulario_membro)">
+    <div class="col-md-6" field-form-group='formulario_membro.nome'>
+        <field-label value="membro.nome" for="formulario_membro.nome" required="true"></field-label>
+        <input name='nome' ng-model="membro.nome"  class="form-control" required />
+        <field-message field='formulario_membro.nome'></field-message>
+    </div>
+    <div class="col-md-6" field-form-group='formulario_membro.email'>
+        <field-label value="membro.email" for="formulario_membro.email" required="true"></field-label>
+        <input name='email' ng-model="membro.email"  class="form-control" required />
+        <field-message field='formulario_membro.email'></field-message>
+    </div>
+    <div class="col-md-6" field-form-group="formulario_membro.nascimento">
+        <field-label value="membro.nascimento" for="formulario_membro.nascimento" required="false"></field-label>
+        <calvin-datepicker date-pattern="{{'config.pattern.input.date' | translate}}" name="nascimento" 
+                           ng-model="membro.dataNascimento"  type="date" min-view='day' ></calvin-datepicker>
+        <field-message field="formulario_membro.nascimento"></field-message>
+    </div>
+    <div class="col-md-6">
+        <div ng-if='!membro.visitante' field-form-group='formulario_membro.pastor'>
+            <input name='pastor' type="checkbox" ng-model="membro.pastor"  />
+            <field-label value="membro.pastor" required='false' for="formulario_membro.pastor"></field-label>
+        </div>
+        <div ng-if='!membro.pastor && !membro.membro && !membro.admin' field-form-group='formulario_membro.visitante'>
+            <input name='visitante' type="checkbox" ng-model="membro.visitante"  />
+            <field-label value="membro.visitante" required='false' for="formulario_membro.visitante"></field-label>
+        </div>
+    </div>
+    <form-endereco ng-model="membro.endereco" ></form-endereco>
+    <div class="col-sm-12" field-form-group='formulario_membro.telefones'>
+        <field-label value="membro.telefones" required='false' for="formulario_membro.telefones"></field-label>
+        <input-telefones name='telefones' ng-model="membro.telefones" name='telefones' ></input-telefones>
+        <field-message field='formulario_membro.telefones'></field-message>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <input type="submit" ng-disabled='inProgress'  class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+        <a class="btn btn-default" ng-disabled='inProgress'  ui-sref="contato">{{'global.cancelar' | translate}}</a>
+    </div>
+<form>

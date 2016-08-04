@@ -1,0 +1,22 @@
+<div>
+    <div class="col-sm-12" >
+        <label translate>estudo.titulo</label>
+        <div class="form-control">{{estudo.titulo}}</div>
+    </div>
+    <div class="col-sm-6" >
+        <label translate>estudo.autor</label>
+        <div class="form-control">{{estudo.autor}}</div>
+    </div>
+    <div class="col-sm-6" >
+        <field-label value='estudo.publicacao' for='formulario_estudo.dataPublicacao' required='false'></field-label>
+        <div class="form-control">{{estudo.dataPublicacao | date:('config.pattern.output.dateHour' | translate)}}</div>
+    </div>
+    <div class="col-sm-12" >
+        <label translate>estudo.texto</label>
+        <p class='form-control text' ng-bind-html='estudo.texto'></p>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="estudo">{{'global.voltar' | translate}}</a>
+    </div>
+</div>

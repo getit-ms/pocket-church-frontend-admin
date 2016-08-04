@@ -1,0 +1,14 @@
+<div class="col-sm-12">
+    <p ng-bind-html="'home.mensagem_boas_vindas' | translate:'{igreja:\'${nome.igreja}\'}'"></p>
+    <p>{{'home.versiculo' | translate}}</p>
+    <p>{{'home.bom_trabalho' | translate}}</p>
+    
+    <div id="toast-container" ng-if="status.notificacoes.length">
+        <div ng-repeat="notificacao in status.notificacoes" class="toast toast-warning" >
+            <div class="toast-title">{{'home.alerta' | translate}}</div>
+            <div class="toast-message">
+                <div>{{ notificacao.mensagem | translate:notificacao.args }}</div>
+            </div>
+        </div>
+    </div>
+</div>

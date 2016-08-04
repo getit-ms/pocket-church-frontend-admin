@@ -1,0 +1,50 @@
+<div class="modal-header">
+    <div class="col-md-10">
+        <h4 class="modal-title" translate><b>{{params.title}}</b></h4>
+    </div>
+    <div class="col-md-2">
+        <a href="" class="pull-right" ng-disabled='inProgress' ng-click="cancel()"><span class="fa fa-close"></span></a>
+    </div>
+    <br/>
+</div>
+
+<div id="form-modal" class="modal-body" ng-if="params.form">
+    <form ng-attr-id="{{params.form}}" ng-attr-name="{{params.form}}" ng-submit="submitForm()" novalidate>
+        <ng-include src="params.templateUrl"></ng-include>
+        <div class="clearfix"></div>
+        <br/>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" ng-disabled='inProgress' title="{{(params.btnOk || 'global.confirmar') | translate}}" translate>{{params.btnOk || 'global.confirmar'}}</button>
+            <button type="button" ng-hide="params.alert" ng-disabled='inProgress' class="btn btn-clean" ng-click="cancel()" title="{{(params.btnCancelar || 'global.cancelar') | translate}}" translate>{{params.btnCancelar || 'global.cancelar'}}</button>
+        </div>
+    </form>
+</div>
+
+<div id="form-modal" class="modal-body" ng-if="params.freeForm">
+    <form ng-attr-id="{{params.freeForm}}" ng-attr-name="{{params.freeForm}}" ng-submit="submitForm()" novalidate>
+        <ng-include src="params.templateUrl"></ng-include>
+        <div class="clearfix"></div>
+    </form>
+</div>
+
+<div id="alert-modal" class="modal-body" ng-if="params.alert">
+    <ng-include src="params.templateUrl"></ng-include>
+    <div class="clearfix"></div>
+    <br/>
+    <div class="modal-footer">
+        <button type="button" ng-click="ok()" ng-disabled='inProgress' class="btn btn-primary" title="{{(params.btnCancelar || 'global.confirmar') | translate}}" translate>{{params.btnOk || 'global.confirmar'}}</button>
+        <button ng-hide="params.alert" ng-disabled='inProgress' class="btn btn-clean" ng-click="cancel()" title="{{(params.btnCancelar || 'global.cancelar') | translate}}" translate>{{params.btnCancelar || 'global.cancelar'}}</button>
+    </div>
+</div>
+
+<div id="download-modal" class="modal-body" ng-if="params.download">
+    <form ng-attr-id="{{params.form}}" ng-attr-name="{{params.form}}" ng-submit="submitForm()" novalidate>
+        <ng-include src="params.templateUrl"></ng-include>
+        <div class="clearfix"></div>
+        <br/>
+        <div class="modal-footer">
+            <a ng-href="{{downloadLink()}}" target="_blank" class="btn btn-primary" title="{{(params.btnOk || 'global.download') | translate}}" translate>{{params.btnOk || 'global.download'}}</a>
+            <button type="button" ng-disabled='inProgress' ng-hide="params.alert" class="btn btn-clean" ng-click="cancel()" title="{{(params.btnCancelar || 'global.cancelar') | translate}}" translate>{{params.btnCancelar || 'global.cancelar'}}</button>
+        </div>
+    </form>
+</div>

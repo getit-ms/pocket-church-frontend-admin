@@ -1,0 +1,454 @@
+{
+    "config":{
+        "pattern":{
+            "input":{
+                "date":"DD/MM/YYYY",
+                "dateHour":"DD/MM/YYYY HH:mm",
+                "hour":"HH:mm"
+            },
+            "output":{
+                "date":"dd/MM/yyyy",
+                "dateHour":"dd/MM/yyyy HH:mm",
+                "hour":"HH:mm"
+            }
+        },
+        "mask":{
+            "date":"99/99/9999",
+            "hour":"99:99",
+            "cep":"99.999-999",
+            "telefone":"(99) 99999 999?9"
+        }
+    },
+    "global":{
+        "versao":"Versão",
+        "home":"Início",
+        "salvar":"Salvar",
+        "cancelar":"Cancelar",
+        "buscar":"Buscar",
+        "voltar":"Voltar",
+        "editar":"Alterar",
+        "detalhar":"Detalhar",
+        "excluir":"Excluir",
+        "fechar":"Fechar",
+        "todos":"Todos",
+        "enviar":"Enviar",
+        "sim":"Sim",
+        "nao":"Não",
+        "confirmar":"Confirmar",
+        "selecione":"Selecione",
+        "confirmacao_exclusao":"Confirmação de Exclusão",
+        "menu":{
+            "MANTER_MINISTERIOS":{
+                "label":"Ministérios",
+                "state":"ministerio",
+                "icon":"cubes"
+            },
+            "MANTER_PERFIS":{
+                "label":"Perfis",
+                "state":"perfil",
+                "icon":"sitemap"
+            },
+            "MANTER_BOLETINS":{
+                "label":"Boletins",
+                "state":"boletim",
+                "icon":"file-text"
+            },
+            "MANTER_DADOS_INSTITUCIONAIS":{
+                "label":"Dados Institucionais",
+                "state":"institucional",
+                "icon":"cube"
+            },
+            "MANTER_ESTUDOS":{
+                "label":"Estudos",
+                "state":"estudo",
+                "icon":"book"
+            },
+            "ENVIAR_NOTIFICACOES":{
+                "label":"Notificações",
+                "state":"notificacao",
+                "icon":"list-ul"
+            },
+            "MANTER_MEMBROS":{
+                "label":"Contatos da Igreja",
+                "state":"contato",
+                "icon":"users"
+            },
+            "MANTER_VOTACOES":{
+                "label":"Votações",
+                "state":"votacao",
+                "icon":"check-square"
+            },
+            "CONSULTAR_PEDIDOS_ORACAO":{
+                "label":"Pedidos de Oração",
+                "state":"oracao",
+                "icon":"heart"
+            },
+            "MANTER_AGENDA":{
+                "label":"Agendas",
+                "state":"agenda",
+                "icon":"calendar"
+            },
+            "MANTER_EVENTOS":{
+                "label":"Eventos",
+                "state":"evento",
+                "icon":"calendar-check-o"
+            },
+            "MANTER_VERSICULOS_DIARIOS":{
+                "label":"Versículos Diários",
+                "state":"versiculo",
+                "icon":"sticky-note"
+            },
+            "GERENCIAR_FUNCIONALIDADES_APLICATIVO":{
+                "label":"Aplicativo",
+                "state":"aplicativo",
+                "icon":"mobile"
+            },
+            "GERENCIAR_ACESSO_MEMBROS":{
+                "label":"Acesso de Membros",
+                "state":"membro",
+                "icon":"user-plus"
+            },
+            "geral":"Geral",
+            "login":"Login",
+            "logout":"Logout"
+        },
+        "elemento":{
+            "agenda":"a agenda de",
+            "boletim":"o boletim",
+            "estudo":"o estudo",
+            "evento":"o evento",
+            "membro":"o contato/membro",
+            "ministerio":"o ministério",
+            "perfil":"o perfil",
+            "versiculo":"o versículo",
+            "votacao":"a votação"
+        }
+    },
+    "mensagens":{
+        "MSG-001":"Ação efetuada com sucesso",
+        "MSG-002":"Alguns campos não foram preenchidos corretamente",
+        "MSG-003":"Horário indisponível",
+        "MSG-004":"Horário inválido",
+        "MSG-005":"Os horários {{ini1}}-{{fim1}} e {{ini2}}-{{fim2}} chocam entre si",
+        "MSG-006":"Campo obrigatório",
+        "MSG-007":"Período inválido",
+        "MSG-008":"Nenhum registro encontrado",
+        "MSG-009":"Notificações enviadas com sucesso",
+        "MSG-010":"Valor muito extenso",
+        "MSG-011":"Valor muito curto",
+        "MSG-012":"CPF inválido",
+        "MSG-013":"E-mail inválido",
+        "MSG-014":"Data inválida",
+        "MSG-015":"Você não pode editar seu próprio acesso",
+        "MSG-016":"Deseja realmente excluir {{elemento}} '{{descricao}}'?",
+        "MSG-017":"Deseja realmente marcar esse pedido de oração como atendido?",
+        "MSG-018":"Deseja realmente enviar essa notificação?",
+        "MSG-019":"Deseja realmente retirar o acesso de {{membro}}?",
+        "MSG-020":"Deseja realmente remover esse horário nesse dia?",
+        "MSG-021":"Deseja realmente remover esse horário desse dia em diante?",
+        "MSG-022":"Deseja realmente remover esse horário dentro desse período?",
+        "MSG-023":"Deseja realmente remover esse horário?",
+        "MSG-024":"Deseja realmente retirar o acesso de administrador de {{membro}}?",
+        "MSG-025":"E-mail já cadastrado",
+        "MSG-026":"Período inválido",
+        "MSG-027":"A inscrição deve ser encerrada antes do término do evento.",
+        "MSG-030":"A Confirmação da Senha não confere com a Nova Senha.",
+        "MSG-031":"Senha alterada com sucesso! Realize o login com sua nova senha.",
+        "MSG-036":"Existe(m) {{quantidade}} pedido(s) de oração não atendido(s). Acesse a funcionalidade \"Pedidos de Oração\" para continuar.",
+        "MSG-039":"Esse membro possui uma agenda de aconselhamentos ativa. Não é permitido retirar o indicador de pastor enquanto houver agendas de aconselhamentos ativas associadas ao membro.",
+        "MSG-040":"Parabéns, <b>{{nome}}</b>!<br/>Sua senha foi redefinida e a nova foi enviada para seu e-mail.",
+        "MSG-041":"Esse evento não pode ser excluído por já possuir inscrições associadas a ele.",
+        "MSG-403":"Não autorizado",
+        "MSG-600":"Membro inválido",
+        "MSG-601":"Igreja inválida",
+        "MSG-602":"Dispositivo inválido",
+        "MSG-603":"Chave de autenticação inválida",
+        "MSG-604":"Dados inválidos",
+        "MSG-606":"E-mail e/ou senha inválido(s)"
+    },
+    "home":{
+        "inicio":"Sistema Administrativo",
+        "mensagem_boas_vindas":"Seja bem-vindo(a) ao sistema administrativo para o aplicativo <b>{{igreja}}</b>. Este é um ambiente gerenciador desenvolvido para auxiliar nas funções de cadastro, consulta, atualização e administração dos dados disponíveis pelo aplicativo móvel de sua igreja.",
+        "versiculo":"\"E, quanto fizerdes por palavras ou por obras, fazei tudo em nome do Senhor Jesus, dando por ele graças a Deus Pai.\" Colossenses 3:17.",
+        "bom_trabalho":"Bom trabalho!",
+        "alerta":"Alerta"
+    },
+    "login":{
+        "fechar_janela":"Fechar Janela",
+        "password":"Senha",
+        "username":"E-mail",
+        "autenticar":"Autenticar",
+        "processando":"Processando...",
+        "autenticacao":"Autenticação",
+        "redefinicao_senha":"Redefinição de Senha",
+        "erro_redefinicao":"Não foi possível redefinir sua senha. Tente uma nova solicitação."
+    },
+    "institucional":{
+        "dados_institucionais":"Dados Institucionais",
+        "email":"E-mail",
+        "site":"Site",
+        "telefones":"Telefones",
+        "quem_somos":"Quem Somos",
+        "home_aplicativo":"Tela Incial do Aplicativo",
+        "imagem_divulgacao":"Imagem de Divulgação",
+        "instrucoes_para_imagem":"Instruções para a Imagem",
+        "instrucoes_imagem_divulgacao":"A imagem de divulgação deve ter as dimensões: 2096px por 2096px (para ocupar toda a tela de entrada, seja para visualização no formato horizontal ou vertical. Devido às diferentes dimensões dos aparelhos, as marcas e elementos textuais só serão visíveis dentro de uma área de 1010px de largura por 545px de altura, centralizado horizontalmente e distante 544px do topo da imagem.",
+        "facebook":"Facebook",
+        "twitter":"Twitter",
+        "youtube":"YouTube",
+        "pinterest":"Pinterest",
+        "google-plus":"Google Plus",
+        "instagram":"Instagram"
+    },
+    "endereco":{
+        "descricao":"Endereço",
+        "cep":"CEP",
+        "cidade":"Cidade",
+        "uf":"UF"
+    },
+    "ministerio":{
+        "nome":"Nome",
+        "cadastro":"Cadastro de Ministério",
+        "editar":"Alterar Ministério",
+        "detalhar":"Detalhar Ministério",
+        "ministerio":"Ministério",
+        "ministerios":"Ministérios",
+        "cadastrar":"Cadastrar Ministério"
+    },
+    "perfil":{
+        "perfil":"Perfil",
+        "perfis":"Perfis",
+        "cadastrar":"Cadastrar Perfil",
+        "editar":"Alterar Perfil",
+        "detalhar":"Detalhar Perfil",
+        "nome":"Nome",
+        "funcionalidades":"Funcionalidades"
+    },
+    "funcionalidade":{
+        "MANTER_MINISTERIOS":"Ministérios",
+        "MANTER_PERFIS":"Perfis",
+        "MANTER_MEMBROS":"Contatos da Igreja",
+        "MANTER_BOLETINS":"Boletins",
+        "MANTER_DADOS_INSTITUCIONAIS":"Dados Institucionais",
+        "MANTER_ESTUDOS":"Estudos",
+        "ENVIAR_NOTIFICACOES":"Notificações",
+        "MANTER_VOTACOES":"Votações",
+        "CONSULTAR_PEDIDOS_ORACAO":"Pedidos de Oração",
+        "CONSULTAR_AGENDAMENTOS":"Agendamentos",
+        "MANTER_AGENDA":"Agendas",
+        "MANTER_EVENTOS":"Eventos",
+        "MANTER_VERSICULOS_DIARIOS":"Versículos Diários",
+        "GERENCIAR_ACESSO_MEMBROS":"Acesso de Membros",
+        "GERENCIAR_FUNCIONALIDADES_APLICATIVO":"Aplicativo",
+        "CONSULTAR_CONTATOS_IGREJA":"Contatos",
+        "REALIZAR_VOTACAO":"Votações",
+        "PEDIR_ORACAO":"Pedidos de Oração",
+        "AGENDAR_ACONSELHAMENTO":"Aconselhamentos",
+        "REALIZAR_INSCRICAO_EVENTO":"Eventos"
+    },
+    "contato":{
+        "contatos":"Contatos da Igreja",
+        "cadastrar":"Cadastrar Novo Contato",
+        "editar":"Alterar Contato",
+        "detalhar":"Detalhar Contato"
+    },
+    "aplicativo":{
+        "aplicativo":"Aplicativo",
+        "funcionalidades":"Funcionalidades"
+    },
+    "membro":{
+        "conceder_acesso":"Conceder Acesso",
+        "nome":"Nome",
+        "perfis":"Perfis",
+        "nascimento":"Data de Nascimento",
+        "email":"E-mail",
+        "acesso":{
+            "perfis":"Perfis",
+            "ministerios":"Ministérios"
+        },
+        "pastor":"É Pastor?",
+        "visitante":"É Visitante?",
+        "telefones":"Telefones",
+        "membro":"Membro",
+        "membros":"Acesso de Membros",
+        "admin":"Admin",
+        "dar_acesso":"Dar Acesso",
+        "retirar_acesso":"Retirar Acesso",
+        "confirmacao_retirada_acesso":"Confirmação de Retirada de Acesso"
+    },
+    "boletim":{
+        "titulo":"Título",
+        "boletim":"Boletim",
+        "data_boletim":"Data do Boletim",
+        "boletins":"Boletins",
+        "cadastrar":"Cadastrar Boletim",
+        "editar":"Alterar Boletim",
+        "detalhar":"Detalhar Boletim",
+        "excluir":"Excluir Boletim",
+        "publicacao":"Data da Publicação"
+    },
+    "estudo":{
+        "titulo":"Título",
+        "estudos":"Estudos",
+        "publicacao":"Data de Publicação",
+        "autor":"Autor",
+        "cadastrar":"Cadastrar Estudo",
+        "editar":"Alterar Estudo",
+        "detalhar":"Detalhar Estudo",
+        "data":"Data do Estudo",
+        "texto":"Texto"
+    },
+    "notificacao":{
+        "mensagem":"Mensagem",
+        "notificacoes":"Notificações",
+        "ministerios":"Ministérios Alvo",
+        "confirmacao_envio":"Confirmação de Envio",
+        "caracteres_restantes":"{{quantidade}} caracteres restantes."
+    },
+    "votacao":{
+        "cadastrar":"Cadastrar Votação",
+        "editar":"Alterar Votação",
+        "detalhar":"Detalhar Votação",
+        "votacoes":"Votações",
+        "nome":"Nome",
+        "descricao":"Descrição",
+        "escolhaMultipla":"Escolha Múltipla",
+        "questoes":"Questões",
+        "vigencia":"Período",
+        "dataInicio":"Data de Início",
+        "resultados":"Resultados",
+        "dataTermino":"Data de Término",
+        "ministerios":"Ministérios Alvo",
+        "escolhaMultipla":"Escolha Múltipla?",
+        "resultado":"Resultado da Votação",
+        "questao":{
+            "questao":"Questão",
+            "mais":"Incluir Pergunta",
+            "remover":"Remover questão",
+            "votos":"Votos"
+        },
+        "opcao":{
+            "opcao":"Opção",
+            "mais":"Mais Opções",
+            "remover":"Remover opção"
+        }
+    },
+    "agenda":{
+        "cadastrar":"Cadastrar Agenda",
+        "pastor":"Pastor",
+        "agendas":"Agendas",
+        "editar":"Alterar Agenda",
+        "excluir":"Excluir Agenda",
+        "detalhar":"Detalhar Agenda",
+        "horarios":"Horários",
+        "telefones":"Telefone(s)",
+        "folgas":"Folgas",
+        "calendario":"Calendário",
+        "diaSemana":{
+            "DOMINGO":"Dom",
+            "SEGUNDA":"Seg",
+            "TERCA":"Ter",
+            "QUARTA":"Qua",
+            "QUINTA":"Qui",
+            "SEXTA":"Sex",
+            "SABADO":"Sáb"
+        },
+        "horario":{
+            "titulo":"Horário Disponível",
+            "disponibilidade":"Horário disponível nos seguintes dias: ",
+            "remover":"Remover horários",
+            "agendar_para":"Agendar para: ",
+            "adicionar":"Adicionar Horário",
+            "remover_dia":"Nesse dia",
+            "remover_futuros":"Desse dia em diante",
+            "remover_todos":"Todos",
+            "diasSemana":"Dias da Semana",
+            "horario":"Horário",
+            "periodo":"Período"
+        },
+        "folga":{
+            "titulo":"Folga",
+            "adicionar":"Adicionar Folga",
+            "remover":"Remover Folga"
+        },
+        "agendamento":{
+            "titulo":"Horário Agendado",
+            "confirmar":"Confirmar Agendamento",
+            "cancelar":"Cancelar Agendamento"
+        }
+    },
+    "oracao":{
+        "dataSolicitacao":"Data de Solicitação",
+        "dataAtendimento":"Data de Encaminhamento",
+        "solicitante":"Solicitante",
+        "pedido":"Pedido",
+        "pedidos_oracao":"Pedidos de Oração",
+        "confirmacao_atendimento":"Confirmação de Encaminhamento",
+        "status":{
+            "status":"Status",
+            "PENDENTE":"Pendente",
+            "ATENDIDO":"Atendido"
+        },
+        "dataInicio":"Data de Início",
+        "dataTermino":"Data de Término"
+    },
+    "versiculo":{
+        "versiculo":"Versículo",
+        "versiculos":"Versículos Diários",
+        "status":{
+            "status":"Situação",
+            "ATIVO":"Ativo",
+            "DESABILITADO":"Desabiliado",
+            "HABILITADO":"Habilitado"
+        },
+        "cadastrar":"Cadastrar Versículo"
+    },
+    "evento":{
+        "dataHora":"Data/Hora",
+        "nome":"Nome",
+        "evento":"Eventos",
+        "eventos":"Eventos",
+        "status":{
+            "status":"Situação",
+            "EM_EDICAO":"Em Edição",
+            "PUBLICADO":"Publicado"
+        },
+        "inscricoes":"Listar Inscrições",
+        "inscricao":{
+            "inscricao":"Inscrição",
+            "data_inicio":"Data de Início",
+            "data_termino":"Data de Término",
+            "exige_pagamento":"Exige Pagamento",
+            "valor":"Valor (R$)",
+            "inscrito":"Inscrito",
+            "limite_inscricoes":"Limite de Inscrições",
+            "data":"Data",
+            "status":{
+                "status":"Status",
+                "PENDENTE":"Pendente",
+                "CONFIRMADA":"Confirmada",
+                "CANCELADA":"Cancelada"
+            }
+        },
+        "dataHoraInicio":"Data/Hora de Início",
+        "dataHoraTermino":"Data/Hora de Término",
+        "cadastrar":"Cadastrar Evento",
+        "editar":"Alterar Evento",
+        "detalhar":"Detalhar Evento",
+        "excluir":"Excluir Evento",
+        "descricao":"Descrição"
+    },
+    "hino":{
+        "cadastrar":"Cadastrar Hino",
+        "numero":"Nº",
+        "nome":"Nome",
+        "texto":"Texto"
+    }
+}
+
+
+
+
+
+
+

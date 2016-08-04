@@ -1,0 +1,33 @@
+<div>
+    <div class="col-md-6">
+        <label translate>membro.nome</label>
+        <div class="form-control" >{{membro.nome}}</div>
+    </div>
+    <div class="col-md-6">
+        <label translate>membro.email</label>
+        <div class="form-control" >{{membro.email}}</div>
+    </div>
+    <div class="col-md-6" >
+        <label translate>membro.nascimento</label>
+        <div class="form-control" >{{membro.dataNascimento| date:('config.pattern.output.date' | translate)}}</div>
+    </div>
+    <div class="col-md-6">
+        <div ng-if='!membro.visitante' >
+            <label translate>membro.pastor</label>
+            <div class="form-control" >{{(membro.pastor ? 'global.sim' : 'global.nao') | translate}}</div>
+        </div>
+        <div ng-if='!membro.pastor && !membro.membro && !membro.admin' >
+            <label translate>membro.visitante</label>
+            <div class="form-control" >{{(membro.visitante ? 'global.sim' : 'global.nao') | translate}}</div>
+        </div>
+    </div>
+    <form-endereco ng-model="membro.endereco" readonly='true' ></form-endereco>
+    <div ng-if='membro.telefones.length' class="col-sm-12" >
+        <label translate>membro.telefones</label>
+        <input-telefones name='telefones'  ng-model="membro.telefones" readonly='true' name='telefones' ></input-telefones>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ng-disabled='inProgress'  ui-sref="contato">{{'global.voltar' | translate}}</a>
+    </div>
+<form>

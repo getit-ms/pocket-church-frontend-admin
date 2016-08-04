@@ -1,0 +1,12 @@
+<form id='ministerio_form' name='ministerio_form' ng-submit="salvar(this.ministerio_form)" novalidate>
+    <div class="col-sm-12" field-form-group="ministerio_form.nome">
+        <field-label for='nome' value='ministerio.nome' required="true"></field-label>
+        <input name='nome' required ng-model="ministerio.nome" class="form-control"/>
+        <field-message field='ministerio_form.nome'></field-message>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <input type='submit' ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}">
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="ministerio">{{'global.cancelar' | translate}}</a>
+    </div>
+</form>

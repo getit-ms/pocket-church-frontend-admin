@@ -1,0 +1,7 @@
+<li ui-sref-active="linkActive">
+    <a ui-sref="{{state}}" href="">
+        <span class="fa fa-{{menuIcon}}" style="width: 20px"></span>
+        {{menuName | translate}}
+        <span ng-show="$parent.$state.includes(state)" class="glyphicon glyphicon-triangle-right activeLateralMenu"></span></a>
+    </a>
+</li>
