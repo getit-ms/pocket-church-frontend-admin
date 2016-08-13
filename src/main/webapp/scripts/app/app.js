@@ -220,6 +220,7 @@ calvinApp.run(['$http', '$templateCache', '$rootScope', function($http, $templat
             $rootScope.inProgress = false;
             return data;
         });
+        
     }]
 );
 
