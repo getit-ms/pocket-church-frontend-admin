@@ -1,0 +1,18 @@
+<div>
+    <div class="col-sm-4" >
+        <label translate>cifra.numero</label>
+        <div class="form-control" >{{cifra.numero}}</div>
+    </div>
+    <div class="col-sm-8" >
+        <label translate>cifra.titulo</label>
+        <div class="form-control" >{{cifra.titulo}}</div>
+    </div>
+    <div class="col-sm-12" >
+        <label translate>cifra.cifra</label>
+        <pdf-viewer pdf-url="/app/rest/arquivo/download/{{cifra.cifra.id}}?{{headers}}" ></pdf-viewer>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="cifra">{{'global.voltar' | translate}}</a>
+    </div>
+</div>

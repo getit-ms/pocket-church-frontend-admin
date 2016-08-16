@@ -22,5 +22,9 @@ calvinApp.service('acessoService', ['Restangular', function(Restangular){
         this.buscaStatus = function(){
             return this.api().one('status').get().$object;
         };
+
+        this.buscaReleaseNotes = function(){
+            return this.api().one('releaseNotes/ADMINISTRATIVO').getList().$object;
+        };
 }]);
         

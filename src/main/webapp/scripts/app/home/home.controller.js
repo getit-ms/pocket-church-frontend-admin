@@ -17,6 +17,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $rootScope.hideBreadcrumb = false;
                     
                     $scope.status = acessoService.buscaStatus();
+                    $scope.releases = acessoService.buscaReleaseNotes();
                 }
             }
         }

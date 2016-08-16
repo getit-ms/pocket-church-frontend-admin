@@ -12,6 +12,11 @@
         </select-checklist>
         <field-message field='formulario_notificacao.ministeriosAlvo'></field-message>
     </div>
+    <div class="col-sm-6">
+        <field-label value='notificacao.ministerios' for='formulario_notificacao.apenas_membros'></field-label><br/>
+        <input type='radio' ng-value="true" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.sim' | translate}}
+        <input type='radio' ng-value="false" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.nao' | translate}}
+    </div>
     <div class="col-sm-12 comandos">
         <hr/>
         <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'global.enviar' | translate}}" />

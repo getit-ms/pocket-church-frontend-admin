@@ -11,4 +11,13 @@
             </div>
         </div>
     </div>
+
+    <div class="release-notes">
+        <span ng-repeat="release in releases">
+            {{release.versao}} - {{release.data | date:('config.pattern.output.date' | translate)}}<br/>
+            {{release.descricao}}<br/>
+            <br/>
+            --
+        </span>
+    </div>
 </div>

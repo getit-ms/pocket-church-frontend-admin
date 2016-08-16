@@ -40,7 +40,7 @@ function configureHttpInterceptors($httpProvider){
                     }
                     
                     request.headers.Igreja = $_serverCode;
-                    request.headers.Dispositivo = $_clientKey;
+                    request.headers.Dispositivo = $cookies.get('uuid');
                     
                     if ($cookies.get('Authorization')){
                         request.headers.Authorization = $cookies.get('Authorization');
@@ -138,6 +138,13 @@ calvinApp.run(['$rootScope', 'PermissionStore', '$cookies', 'acessoService', 'in
                 funcionalidades: acesso.funcionalidades
             };
         });
+    }
+
+    if (!$cookies.get('uuid')){
+        $cookies.put('uuid', 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        }));
     }
 }]);
 calvinApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',

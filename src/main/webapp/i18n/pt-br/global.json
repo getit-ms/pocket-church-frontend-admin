@@ -53,6 +53,11 @@
                 "state":"boletim",
                 "icon":"file-text"
             },
+            "MANTER_CIFRAS":{
+                "label":"Cifras",
+                "state":"cifra",
+                "icon":"file-audio-o"
+            },
             "MANTER_DADOS_INSTITUCIONAIS":{
                 "label":"Dados Institucionais",
                 "state":"institucional",
@@ -115,6 +120,7 @@
         "elemento":{
             "agenda":"a agenda de",
             "boletim":"o boletim",
+            "cifra":"a cifra",
             "estudo":"o estudo",
             "evento":"o evento",
             "membro":"o contato/membro",
@@ -229,6 +235,7 @@
         "MANTER_PERFIS":"Perfis",
         "MANTER_MEMBROS":"Contatos da Igreja",
         "MANTER_BOLETINS":"Boletins",
+        "MANTER_CIFRAS":"Cifras",
         "MANTER_DADOS_INSTITUCIONAIS":"Dados Institucionais",
         "MANTER_ESTUDOS":"Estudos",
         "ENVIAR_NOTIFICACOES":"Notificações",
@@ -287,6 +294,16 @@
         "excluir":"Excluir Boletim",
         "publicacao":"Data da Publicação"
     },
+    "cifra":{
+        "numero":"Número",
+        "titulo":"Título",
+        "cifra":"Cifra",
+        "cifras":"Cifras",
+        "cadastrar":"Cadastrar Cifra",
+        "editar":"Alterar Cifra",
+        "detalhar":"Detalhar Cifra",
+        "excluir":"Excluir Cifra"
+    },
     "estudo":{
         "titulo":"Título",
         "estudos":"Estudos",
@@ -303,7 +320,8 @@
         "notificacoes":"Notificações",
         "ministerios":"Ministérios Alvo",
         "confirmacao_envio":"Confirmação de Envio",
-        "caracteres_restantes":"{{quantidade}} caracteres restantes."
+        "caracteres_restantes":"{{quantidade}} caracteres restantes.",
+        "apenas_membros":"Notificar apenas membros logados?"
     },
     "votacao":{
         "cadastrar":"Cadastrar Votação",

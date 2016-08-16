@@ -1,0 +1,42 @@
+<div>
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover" ng-table='tabelaCifras'>
+            <thead>
+            <tr>
+                <th>{{'cifra.numero' | translate}}</th>
+                <th>{{'cifra.titulo' | translate}}</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="!cifras.resultados.length">
+                <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
+            </tr>
+            <tr ng-repeat="cifra in cifras.resultados">
+                <td class="text-right">{{cifra.numero}}</td>
+                <td>{{cifra.titulo}}</td>
+                <td class="col-sm-3 text-center">
+                    <a class="btn btn-default" ng-click="detalhar(cifra)"
+                       title="{{'global.detalhar' | translate}}">
+                        <span class="fa fa-search"></span>
+                    </a>
+                    <a class="btn btn-default" ng-click="editar(cifra)"
+                       title="{{'global.editar' | translate}}">
+                        <span class="fa fa-pencil-square-o"></span>
+                    </a>
+                    <a class="btn btn-default" ng-click="excluir(cifra)"
+                       title="{{'global.excluir' | translate}}">
+                        <span class="fa fa-trash"></span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ui-sref="cifra.cadastro">
+            {{'cifra.cadastrar' | translate}}
+        </a>
+    </div>
+</div>
