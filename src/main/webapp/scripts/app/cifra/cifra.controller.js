@@ -5,7 +5,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         data:{
             displayName: 'cifra.cifras',
             permissions:{
-                only: ['MANTER_cifras'],
+                only: ['MANTER_CIFRAS'],
                 redirectTo: 'login'
             }
         },

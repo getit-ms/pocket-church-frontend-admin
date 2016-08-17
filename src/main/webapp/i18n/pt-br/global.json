@@ -235,7 +235,7 @@
         "MANTER_PERFIS":"Perfis",
         "MANTER_MEMBROS":"Contatos da Igreja",
         "MANTER_BOLETINS":"Boletins",
-        "MANTER_CIFRAS":"Cifras",
+        "MANTER_CIFRAS":"Cânticos",
         "MANTER_DADOS_INSTITUCIONAIS":"Dados Institucionais",
         "MANTER_ESTUDOS":"Estudos",
         "ENVIAR_NOTIFICACOES":"Notificações",
@@ -297,12 +297,12 @@
     "cifra":{
         "numero":"Número",
         "titulo":"Título",
-        "cifra":"Cifra",
-        "cifras":"Cifras",
-        "cadastrar":"Cadastrar Cifra",
-        "editar":"Alterar Cifra",
-        "detalhar":"Detalhar Cifra",
-        "excluir":"Excluir Cifra"
+        "cifra":"Cântico",
+        "cifras":"Cânticos",
+        "cadastrar":"Cadastrar Cântico",
+        "editar":"Alterar Cântico",
+        "detalhar":"Detalhar Cântico",
+        "excluir":"Excluir Cântico"
     },
     "estudo":{
         "titulo":"Título",
@@ -409,6 +409,27 @@
         },
         "dataInicio":"Data de Início",
         "dataTermino":"Data de Término"
+    },
+    "chamado":{
+        "chamado":"Sugestão/Reclamação",
+        "chamados":"Sugestões e Reclamações",
+        "status":{
+            "status":"Situação",
+            "NOVO":"Novo",
+            "EM_ANALISE":"Em Análise",
+            "ACEITO":"Aceito",
+            "REJEITADO":"Rejeitado",
+            "EM_ATENDIMENTO":"Em Atendimento",
+            "CONCLUIDO":"Concluído",
+            "CANCELADO":"Cancelado",
+        },
+        "tipo":{
+            "tipo":"Tipo",
+            "SUGESTAO":"Sugestão",
+            "REPORTE_ERRO":"Reporte de Erro",
+            "RECLAMACAO":"Reclamação"
+        },
+        "cadastrar":"Cadastrar Sugestão/Reclamação"
     },
     "versiculo":{
         "versiculo":"Versículo",
