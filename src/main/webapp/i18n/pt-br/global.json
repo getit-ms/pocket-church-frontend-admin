@@ -170,7 +170,8 @@
         "MSG-602":"Dispositivo inválido",
         "MSG-603":"Chave de autenticação inválida",
         "MSG-604":"Dados inválidos",
-        "MSG-606":"E-mail e/ou senha inválido(s)"
+        "MSG-606":"E-mail e/ou senha inválido(s)",
+        "MSG-607":"Sistema PagSeguro indisponível. Tente novamente mais tarde."
     },
     "home":{
         "inicio":"Sistema Administrativo",
@@ -413,6 +414,7 @@
     "chamado":{
         "chamado":"Sugestão/Reclamação",
         "chamados":"Sugestões e Reclamações",
+        "descricao":"Descrição",
         "status":{
             "status":"Situação",
             "NOVO":"Novo",
