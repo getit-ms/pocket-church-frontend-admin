@@ -1,0 +1,27 @@
+<form id='formulario_configuracao' name='formulario_configuracao' ng-submit="salvar(this.formulario_configuracao)" novalidate>
+    <div class="col-md-12" field-form-group='formulario_configuracao.habilitadoPagSeguro'>
+        <field-label value='configuracao.habilita_pagseguro' for='formulario_configuracao.habilitadoPagSeguro'></field-label><br/>
+        <input type='radio' ng-value="true" name="habilitadoPagSeguro" ng-model="configuracao.habilitadoPagSeguro" required />{{'global.sim' | translate}}
+        <input type='radio' ng-value="false" name="habilitadoPagSeguro" ng-model="configuracao.habilitadoPagSeguro" required />{{'global.nao' | translate}}
+        <field-message field='formulario_configuracao.habilitadoPagSeguro'></field-message>
+    </div>
+    <div class="col-md-6" field-form-group='formulario_configuracao.userPagSeguro'>
+        <field-label required="configuracao.habilitadoPagSeguro" value='configuracao.usuario_pagseguro' for='formulario_configuracao.userPagSeguro'></field-label>
+        <input type="text" name='userPagSeguro' ng-disabled="!configuracao.habilitadoPagSeguro"
+               ng-model="configuracao.userPagSeguro" class="form-control" maxlength="150" 
+               ng-required="configuracao.habilitadoPagSeguro" ></textarea>
+        <field-message field='formulario_configuracao.userPagSeguro'></field-message>
+    </div>
+    <div class="col-md-6" field-form-group='formulario_configuracao.tokenPagSeguro'>
+        <field-label required="configuracao.habilitadoPagSeguro" value='configuracao.token_pagseguro' for='formulario_configuracao.tokenPagSeguro'></field-label>
+        <input type="text" name='tokenPagSeguro' ng-disabled="!configuracao.habilitadoPagSeguro"
+               ng-model="configuracao.tokenPagSeguro" class="form-control" maxlength="150" 
+               ng-required="configuracao.habilitadoPagSeguro"></textarea>
+        <field-message field='formulario_configuracao.tokenPagSeguro'></field-message>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'global.enviar' | translate}}" />
+        <a class="btn btn-default" ng-disabled='inProgress' ng-click="carrega()" >{{'global.cancelar' | translate}}</a>
+    </div>
+</form>

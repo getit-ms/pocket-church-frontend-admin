@@ -54,7 +54,7 @@
                 "icon":"file-text"
             },
             "MANTER_CIFRAS":{
-                "label":"Cifras",
+                "label":"Cânticos",
                 "state":"cifra",
                 "icon":"file-audio-o"
             },
@@ -103,6 +103,11 @@
                 "state":"versiculo",
                 "icon":"sticky-note"
             },
+            "CONFIGURAR":{
+                "label":"Configurações",
+                "state":"configuracao",
+                "icon":"cog"
+            },
             "GERENCIAR_FUNCIONALIDADES_APLICATIVO":{
                 "label":"Aplicativo",
                 "state":"aplicativo",
@@ -120,7 +125,7 @@
         "elemento":{
             "agenda":"a agenda de",
             "boletim":"o boletim",
-            "cifra":"a cifra",
+            "cifra":"a Cântico",
             "estudo":"o estudo",
             "evento":"o evento",
             "membro":"o contato/membro",
@@ -178,7 +183,8 @@
         "mensagem_boas_vindas":"Seja bem-vindo(a) ao sistema administrativo para o aplicativo <b>{{igreja}}</b>. Este é um ambiente gerenciador desenvolvido para auxiliar nas funções de cadastro, consulta, atualização e administração dos dados disponíveis pelo aplicativo móvel de sua igreja.",
         "versiculo":"\"E, quanto fizerdes por palavras ou por obras, fazei tudo em nome do Senhor Jesus, dando por ele graças a Deus Pai.\" Colossenses 3:17.",
         "bom_trabalho":"Bom trabalho!",
-        "alerta":"Alerta"
+        "alerta":"Alerta",
+        "novidades":"Novidades"
     },
     "login":{
         "fechar_janela":"Fechar Janela",
@@ -252,6 +258,7 @@
         "REALIZAR_VOTACAO":"Votações",
         "PEDIR_ORACAO":"Pedidos de Oração",
         "AGENDAR_ACONSELHAMENTO":"Aconselhamentos",
+        "CONFIGURAR":"Configurações",
         "REALIZAR_INSCRICAO_EVENTO":"Eventos"
     },
     "contato":{
@@ -322,7 +329,14 @@
         "ministerios":"Ministérios Alvo",
         "confirmacao_envio":"Confirmação de Envio",
         "caracteres_restantes":"{{quantidade}} caracteres restantes.",
-        "apenas_membros":"Notificar apenas membros logados?"
+        "apenas_membros":"Notificar apenas membros logados?",
+        "apenas_membros":"Apenas Membros?"
+    },
+    "configuracao":{
+        "configuracoes":"Configurações",
+        "habilita_pagseguro":"Habilita PagSeguro",
+        "usuario_pagseguro":"Usuário PagSeguro",
+        "token_pagseguro":"Token PagSeguro"
     },
     "votacao":{
         "cadastrar":"Cadastrar Votação",
@@ -423,7 +437,7 @@
             "REJEITADO":"Rejeitado",
             "EM_ATENDIMENTO":"Em Atendimento",
             "CONCLUIDO":"Concluído",
-            "CANCELADO":"Cancelado",
+            "CANCELADO":"Cancelado"
         },
         "tipo":{
             "tipo":"Tipo",

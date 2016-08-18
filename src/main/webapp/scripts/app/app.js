@@ -105,13 +105,15 @@ calvinApp.run(['$rootScope', 'PermissionStore', '$cookies', 'acessoService', 'in
         'MANTER_MEMBROS',
         'GERENCIAR_ACESSO_MEMBROS',
         'MANTER_BOLETINS',
+        'MANTER_CIFRAS',
         'MANTER_ESTUDOS',
         'MANTER_VOTACOES',
         'CONSULTAR_PEDIDOS_ORACAO',
         'MANTER_AGENDA',
         'MANTER_EVENTOS',
         'ENVIAR_NOTIFICACOES',
-        'MANTER_VERSICULOS_DIARIOS'
+        'MANTER_VERSICULOS_DIARIOS',
+        'CONFIGURAR'
     ];
     
     PermissionStore

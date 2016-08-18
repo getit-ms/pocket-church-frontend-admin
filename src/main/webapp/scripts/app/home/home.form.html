@@ -12,12 +12,5 @@
         </div>
     </div>
 
-    <div class="release-notes">
-        <span ng-repeat="release in releases">
-            {{release.versao}} - {{release.data | date:('config.pattern.output.date' | translate)}}<br/>
-            {{release.descricao}}<br/>
-            <br/>
-            --
-        </span>
-    </div>
+    <div class="release-notes" ng-if="releases.length"><h3>{{'home.novidades' | translate}}</h3><span ng-repeat="release in releases"><b>{{release.versao}} - {{release.data | date:('config.pattern.output.date' | translate)}}</b><br/>{{release.descricao}}<hr ng-if="releases.indexOf(release) < releases.length-1"></span></div>
 </div>

@@ -4,9 +4,8 @@
             <thead>
                 <tr>
                     <th>{{'chamado.chamado' | translate}}</th>
-                    <th>{{'chamado.tipo.tipo' | translate}}</th>
-                    <th>{{'chamado.status.status' | translate}}</th>
-                    <th></th>
+                    <th class="text-center">{{'chamado.tipo.tipo' | translate}}</th>
+                    <th class="text-center">{{'chamado.status.status' | translate}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,8 +14,8 @@
                 </tr>
                 <tr ng-repeat="chamado in chamados.resultados">
                     <td>{{chamado.descricao}}</td>
-                    <td>{{'chamado.tipo.' + chamado.tipo | translate}}</td>
-                    <td>{{'chamado.status.' + chamado.status | translate}}</td>
+                    <td class="text-center">{{'chamado.tipo.' + chamado.tipo | translate}}</td>
+                    <td class="text-center">{{'chamado.status.' + chamado.status | translate}}</td>
                 </tr>
             </tbody>
         </table>
