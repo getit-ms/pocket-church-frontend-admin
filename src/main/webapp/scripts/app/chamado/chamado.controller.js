@@ -3,9 +3,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         parent: 'home',
         url: 'chamado/',
         data:{
-            displayName: 'chamado.chamados',
+            displayName: 'chamado.suporte',
             permissions:{
-                only: ['HOME'],
+                only: ['ABERTURA_CHAMADO_SUPORTE'],
                 redirectTo: 'login'
             }
         },

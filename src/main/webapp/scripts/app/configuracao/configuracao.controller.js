@@ -12,9 +12,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/configuracao/configuracao.form.html',
-                controller: function(configuracaoService, message, $scope, $state, confirmDialog){
+                controller: function(configuracaoService, message, $scope){
                     $scope.carrega = function(){
-                        $scope.configuracao = configuracaoService.buscaPagamento();
+                        $scope.configuracao = configuracaoService.busca();
                     };
 
                     $scope.salvar = function(form){
@@ -23,7 +23,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             return;
                         }
                         
-                        configuracaoService.salvaPagamento($scope.configuracao, function(configuracao){
+                        configuracaoService.salva($scope.configuracao, function(configuracao){
                             message({type:'success',body:'mensagens.MSG-001'});
                             $scope.carrega();
                         });

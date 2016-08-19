@@ -16,7 +16,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.ministerios = ministerioService.buscaAcessiveis();
                     
                     $scope.carrega = function(){
-                        $scope.notificacao = {};
+                        $scope.notificacao = {apenasMembros:false};
                     };
 
                     $scope.enviar = function(form){
@@ -34,6 +34,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             notificacaoService.envia($scope.notificacao, function(notificacao){
                                 message({type:'success',body:'mensagens.MSG-009'});
                                 $scope.carrega();
+                                form.$submitted = false;
                             });
                         });
                     };

@@ -1,23 +1,48 @@
 <form id='formulario_configuracao' name='formulario_configuracao' ng-submit="salvar(this.formulario_configuracao)" novalidate>
-    <div class="col-md-12" field-form-group='formulario_configuracao.habilitadoPagSeguro'>
+    <div class="col-sm-12">
+        {{'configuracao.mensagem_pagseguro' | translate}}
+    </div>
+    <div class="col-sm-12" field-form-group='formulario_configuracao.habilitadoPagSeguro'>
         <field-label value='configuracao.habilita_pagseguro' for='formulario_configuracao.habilitadoPagSeguro'></field-label><br/>
         <input type='radio' ng-value="true" name="habilitadoPagSeguro" ng-model="configuracao.habilitadoPagSeguro" required />{{'global.sim' | translate}}
         <input type='radio' ng-value="false" name="habilitadoPagSeguro" ng-model="configuracao.habilitadoPagSeguro" required />{{'global.nao' | translate}}
         <field-message field='formulario_configuracao.habilitadoPagSeguro'></field-message>
     </div>
-    <div class="col-md-6" field-form-group='formulario_configuracao.userPagSeguro'>
+    <div class="col-sm-6" field-form-group='formulario_configuracao.userPagSeguro'>
         <field-label required="configuracao.habilitadoPagSeguro" value='configuracao.usuario_pagseguro' for='formulario_configuracao.userPagSeguro'></field-label>
         <input type="text" name='userPagSeguro' ng-disabled="!configuracao.habilitadoPagSeguro"
                ng-model="configuracao.userPagSeguro" class="form-control" maxlength="150" 
                ng-required="configuracao.habilitadoPagSeguro" ></textarea>
         <field-message field='formulario_configuracao.userPagSeguro'></field-message>
     </div>
-    <div class="col-md-6" field-form-group='formulario_configuracao.tokenPagSeguro'>
+    <div class="col-sm-6" field-form-group='formulario_configuracao.tokenPagSeguro'>
         <field-label required="configuracao.habilitadoPagSeguro" value='configuracao.token_pagseguro' for='formulario_configuracao.tokenPagSeguro'></field-label>
         <input type="text" name='tokenPagSeguro' ng-disabled="!configuracao.habilitadoPagSeguro"
                ng-model="configuracao.tokenPagSeguro" class="form-control" maxlength="150" 
                ng-required="configuracao.habilitadoPagSeguro"></textarea>
         <field-message field='formulario_configuracao.tokenPagSeguro'></field-message>
+    </div>
+    <div class="col-sm-12">
+        <hr/>
+        {{'configuracao.mensagem_pushs' | translate}}
+    </div>
+    <div class="col-sm-6" field-form-group='formulario_configuracao.tituloVersiculoDiario'>
+        <field-label value='configuracao.titulo_versiculo_diario' required="false" for='formulario_configuracao.tituloVersiculoDiario'></field-label>
+        <input type="text" name='tituloVersiculoDiario' ng-model="configuracao.tituloVersiculoDiario" class="form-control" maxlength="30" ></textarea>
+        <field-message field='formulario_configuracao.tituloVersiculoDiario'></field-message>
+    </div>
+    <div class="col-sm-6">
+        <div field-form-group='formulario_configuracao.tituloAniversario'>
+            <field-label value='configuracao.titulo_aniversario' required="false" for='formulario_configuracao.tituloAniversario'></field-label>
+            <input type="text" name='tituloAniversario' ng-model="configuracao.tituloAniversario" class="form-control" maxlength="30" ></textarea>
+            <field-message field='formulario_configuracao.tituloAniversario'></field-message>
+        </div>
+        <div field-form-group='formulario_configuracao.textoAniversario'>
+            <field-label value='configuracao.texto_aniversario' required="false" for='formulario_configuracao.textoAniversario'></field-label>
+            <textarea rows='5' type="text" name='textoAniversario' ng-model="configuracao.textoAniversario" class="form-control" maxlength="150" ></textarea>
+            <field-message field='formulario_configuracao.textoAniversario'></field-message>
+            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoAniversario.length} }}</span>
+        </div>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>

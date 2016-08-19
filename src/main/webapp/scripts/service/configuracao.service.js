@@ -3,12 +3,12 @@ calvinApp.service('configuracaoService', ['Restangular', function(Restangular){
             return Restangular.all('configuracao');
         };
         
-        this.buscaPagamento = function(){
-            return this.api().one('pagamento').get().$object;
+        this.busca = function(){
+            return this.api().get('').$object;
         };
         
-        this.salvaPagamento = function(pagamento, callback){
-            this.api().one('pagamento').customPUT(pagamento).then(callback);
+        this.salva = function(configuracao, callback){
+            this.api().customPUT(configuracao).then(callback);
         };
         
 }]);
