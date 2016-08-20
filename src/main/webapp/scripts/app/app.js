@@ -29,8 +29,8 @@ var calvinApp = angular.module('calvinApp',
 ]);
 
 function configureHttpInterceptors($httpProvider){
-    $httpProvider.interceptors.push(['$q', '$cookies', 'message', 'backendErrors', 
-        function($q, $cookies, message, backendErrors) {
+    $httpProvider.interceptors.push(['$q', 'message', 'backendErrors', 
+        function($q, message, backendErrors) {
             return {
                 request: function(request){
                     if (request.method === 'DELETE'){
@@ -40,13 +40,20 @@ function configureHttpInterceptors($httpProvider){
                     }
                     
                     request.headers.Igreja = $_serverCode;
-                    request.headers.Dispositivo = $cookies.get('uuid');
+                    request.headers.Dispositivo = localStorage.getItem('uuid');
                     
-                    if ($cookies.get('Authorization')){
-                        request.headers.Authorization = $cookies.get('Authorization');
+                    if (localStorage.getItem('Authorization')){
+                        request.headers.Authorization = localStorage.getItem('Authorization');
                     }
                     
                     return request;
+                },
+                response: function(response){
+                    if (response.headers('Set-Authorization')){
+                        localStorage.setItem('Authorization', response.headers('Set-Authorization'));
+                    }
+                    
+                    return response;
                 },
                 responseError: function (rejection) {
                     var responseInterceptors = {
@@ -94,8 +101,8 @@ function configureHttpInterceptors($httpProvider){
         return requestData;
     });
 };
-calvinApp.run(['$rootScope', 'PermissionStore', '$cookies', 'acessoService', 'institucionalService', '$state',
-    function($rootScope, PermissionStore, $cookies, acessoService, institucionalService, $state){
+calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalService', '$state',
+    function($rootScope, PermissionStore, acessoService, institucionalService, $state){
 
     $rootScope.todasFuncionalidades = [
         'MANTER_DADOS_INSTITUCIONAIS',
@@ -117,6 +124,26 @@ calvinApp.run(['$rootScope', 'PermissionStore', '$cookies', 'acessoService', 'in
         'ABERTURA_CHAMADO_SUPORTE'
     ];
     
+    
+    $rootScope.acesso = angular.fromJson(localStorage.getItem('acesso'));
+    
+    if (localStorage.getItem('Authorization') && !$rootScope.usuario){
+        acessoService.carrega(function(acesso){
+            $rootScope.acesso = {
+                usuario: acesso.membro,
+                funcionalidades: acesso.funcionalidades
+            };
+            localStorage.setItem('acesso', angular.toJson($rootScope.acesso));
+        });
+    }
+
+    if (!localStorage.getItem('uuid')){
+        localStorage.setItem('uuid', 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        }));
+    }
+        
     PermissionStore
         .definePermission('HOME', function (permissionName, transitionProperties) {
             return $rootScope.acesso ? true : false;
@@ -129,27 +156,12 @@ calvinApp.run(['$rootScope', 'PermissionStore', '$cookies', 'acessoService', 'in
                 return $rootScope.acesso && $rootScope.acesso.funcionalidades.indexOf(permissionName) >= 0 ? true : false;
             });
     }
-        
+    
     if (!$rootScope.institucional){
         $rootScope.institucional = institucionalService.carrega();
     }
-    
-    if ($cookies.get('Authorization') && !$rootScope.usuario){
-        acessoService.carrega(function(acesso){
-            $rootScope.acesso = {
-                usuario: acesso.membro,
-                funcionalidades: acesso.funcionalidades
-            };
-        });
-    }
-
-    if (!$cookies.get('uuid')){
-        $cookies.put('uuid', 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-            return v.toString(16);
-        }));
-    }
 }]);
+
 calvinApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider) {
 
@@ -207,10 +219,10 @@ calvinApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'Rest
         $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
         $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
     }]
-).controller('LogoutController', function($rootScope, $scope, $cookies, $state, acessoService){
+).controller('LogoutController', function($rootScope, $scope, $state, acessoService){
     $scope.logout = function(){
         $rootScope.acesso = null;
-        $cookies.put('Authorization', '');
+        localStorage.removeItem('Authorization');
         $state.go('login');
     };
 });

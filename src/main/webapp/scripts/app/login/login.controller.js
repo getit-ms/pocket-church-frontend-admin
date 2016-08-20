@@ -8,7 +8,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/login/login.form.html',
-                controller: function($scope, $rootScope, $state, message, acessoService, $cookies){
+                controller: function($scope, $rootScope, $state, message, acessoService){
                     $scope.auth = {username:'',password:''};
                     $scope.efetuarLogin = function(form){
                         if (form.$invalid){
@@ -17,10 +17,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         }
                         
                         $rootScope.acesso = null;
-                        $cookies.put('Authorization', '');
+                        localStorage.removeItem('Authorization');
         
                         acessoService.login($scope.auth, function(acesso){
-                            $cookies.put('Authorization', acesso.auth);
                             $rootScope.acesso = {
                                 usuario: acesso.membro,
                                 funcionalidades: acesso.funcionalidades

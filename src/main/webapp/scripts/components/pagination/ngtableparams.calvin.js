@@ -64,7 +64,7 @@ calvinApp.run(['ngTableEventsChannel', '$rootScope', function(ngTableEventsChann
 	 * @param data
 	 */
 	function checkEmptyPage(tableParams, data){
-            if(data.length === 0 && tableParams.page() !== 1){
+            if(data && data.length === 0 && tableParams.page() !== 1){
                 tableParams.page(tableParams.page()-1);
                 tableParams.reload();
             }

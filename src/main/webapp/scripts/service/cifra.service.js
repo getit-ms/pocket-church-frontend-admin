@@ -11,6 +11,10 @@ calvinApp.service('cifraService', ['Restangular', function(Restangular){
             return this.api().get(id).$object;
         };
         
+        this.letra = function(id, callback){
+            this.api().one('letra/' + id).get().then(callback);
+        };
+        
         this.remove = function(id, callback){
             this.api().one('/' + id).remove().then(callback);
         };

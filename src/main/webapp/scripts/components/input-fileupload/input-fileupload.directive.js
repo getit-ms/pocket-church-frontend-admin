@@ -3,10 +3,11 @@ calvinApp.directive('inputFileupload', function(){
         restrict: 'E',
         scope:{
             ngModel: '=',
-            readonly: '='
+            readonly: '=',
+            onUpload: '='
         },
         templateUrl: 'scripts/components/input-fileupload/input-fileupload.html',
-        controller: function($scope, Restangular, Upload){
+        controller: function($scope, Upload){
             $scope.submetendo = false;
             
             $scope.realizaUpload = function(file){
@@ -16,6 +17,10 @@ calvinApp.directive('inputFileupload', function(){
                 }).then(function(arquivo){
                     $scope.submetendo = false;
                     $scope.ngModel = arquivo.data;
+                    
+                    if ($scope.onUpload){
+                        $scope.onUpload(arquivo.data);
+                    }
                 }, function (resp) {
                     $scope.submetendo = false;
                 }, function (evt) {

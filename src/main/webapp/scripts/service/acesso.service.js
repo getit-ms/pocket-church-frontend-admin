@@ -3,8 +3,8 @@ calvinApp.service('acessoService', ['Restangular', function(Restangular){
             return Restangular.all('acesso');
         };
         
-        this.carrega = function(callback){
-            this.api().get('').then(callback);
+        this.carrega = function(success, error){
+            this.api().get('').then(success, error);
         };
         
         this.alteraSenha = function(dados, callback){

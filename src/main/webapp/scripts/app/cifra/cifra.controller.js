@@ -13,7 +13,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/cifra/cifra.list.html',
                 controller: function(cifraService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
-                    $scope.tabelacifras = new NgTableParamsCalvin(function($defer, params){
+                    $scope.tabelaCifras = new NgTableParamsCalvin(function($defer, params){
                         cifraService.busca({
                             pagina: params.parameters().page,
                             total: params.parameters().count
@@ -25,7 +25,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     });
                     
                     $scope.busca = function(){
-                        $scope.tabelacifras.reload();
+                        $scope.tabelaCifras.reload();
                     };
 
                     $scope.detalhar = function(cifra){
@@ -60,6 +60,14 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 templateUrl: 'scripts/app/cifra/cifra.form.html',
                 controller: function(cifraService, $scope, $state, message){
                     $scope.cifra = {};
+                    
+                    $scope.carregaLetra = function(arquivo){
+                        cifraService.letra(arquivo.id, function(cifra){
+                            if (!formulario_cifra.letra.$dirty){
+                                $scope.cifra.letra = cifra.letra;
+                            }
+                        });
+                    };
                     
                     $scope.salvar = function(form){
                         if (form.$invalid){

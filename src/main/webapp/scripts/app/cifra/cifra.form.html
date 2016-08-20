@@ -1,18 +1,23 @@
 <form id="formulario_cifra" name="formulario_cifra" novalidate ng-submit="salvar(this.formulario_cifra)" >
-    <div class="col-sm-4" field-form-group='formulario_cifra.numero'>
-        <field-label value="cifra.numero" for="formulario_cifra.numero" required="true"></field-label>
-        <input name="numero" class="form-control" ng-model="cifra.numero" required ></calvin-datepicker>
-        <field-message field="formulario_cifra.numero"></field-message>
-    </div>
-    <div class="col-sm-8" field-form-group='formulario_cifra.titulo'>
+    <div class="col-sm-6" field-form-group='formulario_cifra.titulo'>
         <field-label value="cifra.titulo" for="formulario_cifra.titulo" required="true"></field-label>
-        <input name="titulo" class="form-control" ng-model="cifra.titulo" required ></calvin-datepicker>
+        <input name="titulo" class="form-control" ng-model="cifra.titulo" required />
         <field-message field="formulario_cifra.titulo"></field-message>
+    </div>
+    <div class="col-sm-6" field-form-group='formulario_cifra.autor'>
+        <field-label value="cifra.autor" for="formulario_cifra.autor" required="true"></field-label>
+        <input name="autor" class="form-control" ng-model="cifra.autor" required />
+        <field-message field="formulario_cifra.autor"></field-message>
     </div>
     <div class="col-sm-12" field-form-group="formulario_cifra.cifra">
         <field-label value="cifra.cifra" for="formulario_cifra.cifra" required="true"></field-label>
-        <input-fileupload name='cifra' ng-model="cifra.cifra" required ></input-fileupload>
+        <input-fileupload name='cifra' ng-model="cifra.cifra" on-upload='carregaLetra' required ></input-fileupload>
         <field-message field="formulario_cifra.cifra"></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group='formulario_cifra.letra'>
+        <field-label value="cifra.letra" for="formulario_cifra.letra" required="true"></field-label>
+        <textarea name="letra" rows='10' class="form-control" ng-model="cifra.letra" required ></textarea>
+        <field-message field="formulario_cifra.letra"></field-message>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>

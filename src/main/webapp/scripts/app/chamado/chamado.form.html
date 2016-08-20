@@ -1,4 +1,7 @@
 <form id="formulario_chamado" name="formulario_chamado" novalidate ng-submit="salvar()">
+    <div class="col-sm-12" >
+        {{'chamado.chamado_mensagem' | translate}}
+    </div>
     <div class="col-sm-12" field-form-group="formulario_chamado.chamado">
         <field-label value="chamado.descricao"></field-label>
         <textarea name="chamado" required ng-model="chamado.descricao" class="form-control" ></textarea>
