@@ -12,8 +12,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/institucional/institucional.form.html',
-                controller: function(institucionalService, $scope, $rootScope, message, $cookies){
-                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + $cookies.get('Authorization');
+                controller: function(institucionalService, $scope, $rootScope, message){
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization');
                     
                     $scope.carrega = function(){
                         $scope.institucional = institucionalService.carrega();

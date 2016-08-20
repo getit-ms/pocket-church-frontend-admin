@@ -11,8 +11,8 @@ calvinApp.service('cifraService', ['Restangular', function(Restangular){
             return this.api().get(id).$object;
         };
         
-        this.letra = function(id, callback){
-            this.api().one('letra/' + id).get().then(callback);
+        this.letra = function(id, success, eror){
+            this.api().one('letra/' + id).get().then(success, eror);
         };
         
         this.remove = function(id, callback){

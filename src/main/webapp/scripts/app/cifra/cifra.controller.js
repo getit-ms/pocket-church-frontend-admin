@@ -62,11 +62,15 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.cifra = {};
                     
                     $scope.carregaLetra = function(arquivo){
-                        cifraService.letra(arquivo.id, function(cifra){
-                            if (!formulario_cifra.letra.$dirty){
+                        if (!$scope.formulario_cifra.letra.$dirty){
+                            $scope.formulario_cifra.letra.disabled = true;
+                            cifraService.letra(arquivo.id, function(cifra){
                                 $scope.cifra.letra = cifra.letra;
-                            }
-                        });
+                                $scope.formulario_cifra.letra.disabled = false;
+                            }, function(){
+                                $scope.formulario_cifra.letra.disabled = false;
+                            });
+                        }
                     };
                     
                     $scope.salvar = function(form){
@@ -95,6 +99,18 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 controller: function(cifraService, $scope, message, cifra, $state){
                     $scope.cifra = cifra;
 
+                    $scope.carregaLetra = function(arquivo){
+                        if (!$scope.formulario_cifra.letra.$dirty){
+                            $scope.formulario_cifra.letra.disabled = true;
+                            cifraService.letra(arquivo.id, function(cifra){
+                                $scope.cifra.letra = cifra.letra;
+                                $scope.formulario_cifra.letra.disabled = false;
+                            }, function(){
+                                $scope.formulario_cifra.letra.disabled = false;
+                            });
+                        }
+                    };
+                    
                     $scope.salvar = function(form){
                         if (form.$invalid){
                             message({type:'error',body:'mensagens.MSG-002'});
@@ -123,9 +139,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/cifra/cifra.detail.html',
-                controller: function(cifra, $scope, $cookies){
+                controller: function(cifra, $scope){
                     $scope.cifra = cifra;
-                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + $cookies.get('Authorization');
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization');
                 },
                 resolve: {
                     cifra: function(cifraService, $stateParams){

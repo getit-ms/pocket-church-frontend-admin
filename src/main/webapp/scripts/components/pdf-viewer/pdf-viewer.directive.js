@@ -5,11 +5,11 @@ calvinApp.directive('pdfViewer', function(){
             pdfUrl: '@'
         },
         templateUrl: 'scripts/components/pdf-viewer/pdf-viewer.html',
-        controller: ['$scope', '$cookies', '$http', '$window', function($scope, $cookies, $http, $window){
+        controller: ['$scope', '$http', '$window', function($scope, $http, $window){
             $scope.httpHeaders = {
                 Igreja: $_serverCode,
                 Dispositivo: $_clientKey,
-                Authorization: $cookies.get('Authorization')
+                Authorization: localStorage.getItem('Authorization')
             };
             
             $scope.salvar = function(){
