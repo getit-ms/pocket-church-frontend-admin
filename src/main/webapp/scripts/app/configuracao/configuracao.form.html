@@ -49,7 +49,7 @@
             <field-label value='configuracao.texto_boletim' required="false" for='formulario_configuracao.textoBoletim'></field-label>
             <textarea rows='5' type="text" name='textoBoletim' ng-model="configuracao.textoBoletim" class="form-control" maxlength="150" ></textarea>
             <field-message field='formulario_configuracao.textoBoletim'></field-message>
-            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoAniversario.length} }}</span>
+            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoBoletim.length} }}</span>
         </div>
     </div>
     <div class="col-sm-6" field-form-group='formulario_configuracao.tituloVersiculoDiario'>
