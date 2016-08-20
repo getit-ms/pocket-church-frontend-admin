@@ -26,11 +26,6 @@
         <hr/>
         {{'configuracao.mensagem_pushs' | translate}}
     </div>
-    <div class="col-sm-6" field-form-group='formulario_configuracao.tituloVersiculoDiario'>
-        <field-label value='configuracao.titulo_versiculo_diario' required="false" for='formulario_configuracao.tituloVersiculoDiario'></field-label>
-        <input type="text" name='tituloVersiculoDiario' ng-model="configuracao.tituloVersiculoDiario" class="form-control" maxlength="30" ></textarea>
-        <field-message field='formulario_configuracao.tituloVersiculoDiario'></field-message>
-    </div>
     <div class="col-sm-6">
         <div field-form-group='formulario_configuracao.tituloAniversario'>
             <field-label value='configuracao.titulo_aniversario' required="false" for='formulario_configuracao.tituloAniversario'></field-label>
@@ -43,6 +38,24 @@
             <field-message field='formulario_configuracao.textoAniversario'></field-message>
             <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoAniversario.length} }}</span>
         </div>
+    </div>
+    <div class="col-sm-6">
+        <div field-form-group='formulario_configuracao.tituloBoletim'>
+            <field-label value='configuracao.titulo_boletim' required="false" for='formulario_configuracao.tituloBoletim'></field-label>
+            <input type="text" name='tituloBoletim' ng-model="configuracao.tituloBoletim" class="form-control" maxlength="30" ></textarea>
+            <field-message field='formulario_configuracao.tituloBoletim'></field-message>
+        </div>
+        <div field-form-group='formulario_configuracao.textoBoletim'>
+            <field-label value='configuracao.texto_boletim' required="false" for='formulario_configuracao.textoBoletim'></field-label>
+            <textarea rows='5' type="text" name='textoBoletim' ng-model="configuracao.textoBoletim" class="form-control" maxlength="150" ></textarea>
+            <field-message field='formulario_configuracao.textoBoletim'></field-message>
+            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoAniversario.length} }}</span>
+        </div>
+    </div>
+    <div class="col-sm-6" field-form-group='formulario_configuracao.tituloVersiculoDiario'>
+        <field-label value='configuracao.titulo_versiculo_diario' required="false" for='formulario_configuracao.tituloVersiculoDiario'></field-label>
+        <input type="text" name='tituloVersiculoDiario' ng-model="configuracao.tituloVersiculoDiario" class="form-control" maxlength="30" ></textarea>
+        <field-message field='formulario_configuracao.tituloVersiculoDiario'></field-message>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>

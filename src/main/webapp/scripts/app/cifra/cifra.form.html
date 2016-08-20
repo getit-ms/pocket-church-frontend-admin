@@ -1,12 +1,12 @@
 <form id="formulario_cifra" name="formulario_cifra" novalidate ng-submit="salvar(this.formulario_cifra)" >
     <div class="col-sm-6" field-form-group='formulario_cifra.titulo'>
         <field-label value="cifra.titulo" for="formulario_cifra.titulo" required="true"></field-label>
-        <input name="titulo" class="form-control" ng-model="cifra.titulo" required />
+        <input name="titulo" class="form-control" ng-model="cifra.titulo" maxlength="150" required />
         <field-message field="formulario_cifra.titulo"></field-message>
     </div>
     <div class="col-sm-6" field-form-group='formulario_cifra.autor'>
         <field-label value="cifra.autor" for="formulario_cifra.autor" required="true"></field-label>
-        <input name="autor" class="form-control" ng-model="cifra.autor" required />
+        <input name="autor" class="form-control" ng-model="cifra.autor" maxlength="150" required />
         <field-message field="formulario_cifra.autor"></field-message>
     </div>
     <div class="col-sm-12" field-form-group="formulario_cifra.cifra">
