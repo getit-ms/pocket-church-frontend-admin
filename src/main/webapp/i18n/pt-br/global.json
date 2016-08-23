@@ -443,8 +443,13 @@
         "chamado":"Chamado",
         "chamados":"Chamados",
         "solicitante":"Solicitante",
+        "igreja":"Igreja",
+        "email":"E-mail",
         "suporte":"Suporte",
         "descricao":"Descrição",
+        "data_solicitacao":"Solicitação",
+        "data_resposta":"Resposta",
+        "data_conclusao":"Conclusão",
         "status":{
             "status":"Situação",
             "NOVO":"Novo",
@@ -456,6 +461,7 @@
             "CANCELADO":"Cancelado"
         },
         "cadastrar":"Abrir Chamado",
+        "detalhar":"Detalhar Chamado",
         "chamado_mensagem":"Descreva o problema ou dúvida na caixa abaixo. Nossa equipe entrará em contato num prazo máximo de 48 horas a contar da abertura do chamado. Chamados de erros ou problemas podem requerer um prazo adicional para disponibilização da correção."
     },
     "versiculo":{

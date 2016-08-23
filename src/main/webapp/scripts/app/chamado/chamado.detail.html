@@ -1,0 +1,42 @@
+<div>
+    <div class="col-sm-8">
+        <label translate>chamado.codigo</label>
+        <span class="form-control">{{chamado.codigo}}</span>
+    </div>
+    <div class="col-sm-8">
+        <label translate>chamado.status.status</label>
+        <span class="form-control">{{'chamado.status.' + chamado.status | translate}}</span>
+    </div>
+    <div class="col-sm-4">
+        <label translate>chamado.solicitante</label>
+        <span class="form-control">{{chamado.membroSolicitante.nome}}</span>
+    </div>
+    <div class="col-sm-4">
+        <label translate>chamado.email</label>
+        <span class="form-control">{{chamado.membroSolicitante.email}}</span>
+    </div>
+    <div class="col-sm-4">
+        <label translate>chamado.igreja</label>
+        <span class="form-control">${nome.igreja}</span>
+    </div>
+    <div class="col-sm-4">
+        <label translate>chamado.data_solicitacao</label>
+        <span class="form-control">{{evento.dataSolicitacao | date : ('config.pattern.output.dateHour' | translate)}}</span>
+    </div>
+    <div class="col-sm-4">
+        <label translate>chamado.data_resposta</label>
+        <span class="form-control">{{evento.dataResposta | date : ('config.pattern.output.dateHour' | translate)}}</span>
+    </div>
+    <div class="col-sm-4">
+        <label translate>chamado.data_conclusao</label>
+        <span class="form-control">{{evento.dataConclusao | date : ('config.pattern.output.dateHour' | translate)}}</span>
+    </div>
+    <div class="col-sm-12" field-form-group="formulario_chamado.chamado">
+        <label translate>chamado.descricao</label>
+        <div class="form-control" >{{chamado.descricao}}</div>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="chamado">{{'global.cancelar' | translate}}</a>
+    </div>
+</div>

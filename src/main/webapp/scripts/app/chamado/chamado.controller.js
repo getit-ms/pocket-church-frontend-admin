@@ -12,7 +12,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/chamado/chamado.list.html',
-                controller: function(chamadoService, $scope, NgTableParamsCalvin){
+                controller: function(chamadoService, $scope, $state, NgTableParamsCalvin){
                     $scope.filtro = {};
                     
                     $scope.tabelaChamados = new NgTableParamsCalvin(function($defer, params){
@@ -29,6 +29,10 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.busca = function(){
                         $scope.tabelaChamados.reload();
                     };
+
+                    $scope.detalhar = function(chamado){
+                        $state.go('chamado.detalhar', {id:chamado.id});
+                    }
 
                     $scope.busca();
                 }
@@ -53,6 +57,25 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }
             }
         }
-    });         
+    }).state('chamado.detalhar', {
+        parent: 'chamado',
+        url: ':id/',
+        data:{
+            displayName: 'chamado.detalhar'
+        },
+        views:{
+            'content@':{
+                templateUrl: 'scripts/app/chamado/chamado.detail.html',
+                controller: function($scope, chamado){
+                    $scope.chamado = chamado
+                },
+                resolve: {
+                    membro: function($stateParams, chamadoService){
+                        return chamadoService.carrega($stateParams.id);
+                    }
+                }
+            }
+        }
+    });
 }]);
         

@@ -2,6 +2,18 @@
     <div class="col-sm-12" >
         {{'chamado.chamado_mensagem' | translate}}
     </div>
+    <div class="col-sm-4">
+        <label translate>chamado.solicitante</label>
+        <span class="form-control">{{usuario.nome}}</span>
+    </div>
+    <div class="col-sm-4">
+        <label translate>chamado.email</label>
+        <span class="form-control">{{usuario.email}}</span>
+    </div>
+    <div class="col-sm-4">
+        <label translate>chamado.igreja</label>
+        <span class="form-control">${nome.igreja}</span>
+    </div>
     <div class="col-sm-12" field-form-group="formulario_chamado.chamado">
         <field-label value="chamado.descricao"></field-label>
         <textarea rows="10" name="chamado" required ng-model="chamado.descricao" class="form-control" ></textarea>
@@ -9,7 +21,7 @@
     </div>
     <div class="col-sm-12 comandos">
         <hr/>
-        <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+        <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'chamado.cadastrar' | translate}}" />
         <a class="btn btn-default" ng-disabled='inProgress' ui-sref="chamado">{{'global.cancelar' | translate}}</a>
     </div>
 </div>

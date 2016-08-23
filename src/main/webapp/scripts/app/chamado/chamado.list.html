@@ -4,9 +4,12 @@
             <thead>
                 <tr>
                     <th class="text-right">{{'chamado.chamado' | translate}}</th>
-                    <th>{{'chamado.chamado' | translate}}</th>
                     <th>{{'chamado.solicitante' | translate}}</th>
+                    <th class="text-center">{{'chamado.data_solicitacao' | translate}}</th>
+                    <th class="text-center">{{'chamado.data_resposta' | translate}}</th>
+                    <th class="text-center">{{'chamado.data_conclusao' | translate}}</th>
                     <th class="text-center">{{'chamado.status.status' | translate}}</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -15,9 +18,17 @@
                 </tr>
                 <tr ng-repeat="chamado in chamados.resultados">
                     <td class="text-right">{{chamado.codigo}}</td>
-                    <td>{{chamado.descricao}}</td>
                     <td>{{chamado.membroSolicitante.nome}}</td>
+                    <td class="text-center">{{evento.dataSolicitacao | date : ('config.pattern.output.dateHour' | translate)}}</td>
+                    <td class="text-center">{{evento.dataResposta | date : ('config.pattern.output.dateHour' | translate)}}</td>
+                    <td class="text-center">{{evento.dataConclusao | date : ('config.pattern.output.dateHour' | translate)}}</td>
                     <td class="text-center">{{'chamado.status.' + chamado.status | translate}}</td>
+                    <th class="text-center">
+                        <button class="btn btn-default" ng-click="detalhar(chamado)"
+                                title="{{'chamado.detalhar' | translate}}">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </th>
                 </tr>
             </tbody>
         </table>
