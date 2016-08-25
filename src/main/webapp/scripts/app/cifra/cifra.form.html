@@ -10,8 +10,8 @@
         <field-message field="formulario_cifra.autor"></field-message>
     </div>
     <div class="col-sm-12" field-form-group="formulario_cifra.cifra">
-        <field-label value="cifra.cifra" for="formulario_cifra.cifra" required="true"></field-label>
-        <input-fileupload name='cifra' ng-model="cifra.cifra" on-upload='carregaLetra' required ></input-fileupload>
+        <field-label value="cifra.arquivo_cifra" for="formulario_cifra.cifra" required="true"></field-label>
+        <input-fileupload name='cifra' ng-model="cifra.cifra" types="['application/pdf']" on-upload='carregaLetra' required ></input-fileupload>
         <field-message field="formulario_cifra.cifra"></field-message>
     </div>
     <div class="col-sm-12" field-form-group='formulario_cifra.letra'>

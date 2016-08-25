@@ -1,18 +1,18 @@
-<form id="formulario_chamado" name="formulario_chamado" novalidate ng-submit="salvar()">
+<form id="formulario_chamado" name="formulario_chamado" novalidate ng-submit="salvar(this.formulario_chamado)">
     <div class="col-sm-12" >
         {{'chamado.chamado_mensagem' | translate}}
     </div>
     <div class="col-sm-4">
         <label translate>chamado.solicitante</label>
-        <span class="form-control">{{usuario.nome}}</span>
+        <input disabled class="form-control" value="{{acesso.usuario.nome}}" />
     </div>
     <div class="col-sm-4">
         <label translate>chamado.email</label>
-        <span class="form-control">{{usuario.email}}</span>
+        <input disabled class="form-control" value="{{acesso.usuario.email}}" />
     </div>
     <div class="col-sm-4">
         <label translate>chamado.igreja</label>
-        <span class="form-control">${nome.igreja}</span>
+        <input disabled class="form-control" value="${nome.igreja}" />
     </div>
     <div class="col-sm-12" field-form-group="formulario_chamado.chamado">
         <field-label value="chamado.descricao"></field-label>

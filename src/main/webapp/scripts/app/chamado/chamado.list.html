@@ -19,16 +19,16 @@
                 <tr ng-repeat="chamado in chamados.resultados">
                     <td class="text-right">{{chamado.codigo}}</td>
                     <td>{{chamado.membroSolicitante.nome}}</td>
-                    <td class="text-center">{{evento.dataSolicitacao | date : ('config.pattern.output.dateHour' | translate)}}</td>
-                    <td class="text-center">{{evento.dataResposta | date : ('config.pattern.output.dateHour' | translate)}}</td>
-                    <td class="text-center">{{evento.dataConclusao | date : ('config.pattern.output.dateHour' | translate)}}</td>
+                    <td class="text-center">{{chamado.dataSolicitacao | date : ('config.pattern.output.dateHour' | translate)}}</td>
+                    <td class="text-center">{{chamado.dataResposta | date : ('config.pattern.output.dateHour' | translate)}}</td>
+                    <td class="text-center">{{chamado.dataConclusao | date : ('config.pattern.output.dateHour' | translate)}}</td>
                     <td class="text-center">{{'chamado.status.' + chamado.status | translate}}</td>
-                    <th class="text-center">
+                    <td class="text-center">
                         <button class="btn btn-default" ng-click="detalhar(chamado)"
                                 title="{{'chamado.detalhar' | translate}}">
                             <i class="fa fa-search"></i>
                         </button>
-                    </th>
+                    </td>
                 </tr>
             </tbody>
         </table>

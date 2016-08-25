@@ -10,5 +10,9 @@ calvinApp.service('chamadoService', ['Restangular', function(Restangular){
         this.cadastra = function(chamado, callback){
             this.api().customPOST(chamado).then(callback);
         };
+        
+        this.carrega = function(id){
+            return this.api().get(id).$object;
+        };
 }]);
         

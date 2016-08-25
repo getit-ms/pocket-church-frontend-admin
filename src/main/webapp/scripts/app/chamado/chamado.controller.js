@@ -32,7 +32,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
 
                     $scope.detalhar = function(chamado){
                         $state.go('chamado.detalhar', {id:chamado.id});
-                    }
+                    };
 
                     $scope.busca();
                 }
@@ -48,7 +48,12 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/chamado/chamado.form.html',
                 controller: function(chamadoService, $state, $scope, message){
-                    $scope.salvar = function(){
+                    $scope.salvar = function(form){
+                        if (form.$invalid){
+                            message({type:'error',body:'mensagens.MSG-002'});
+                            return;
+                        }
+                        
                         chamadoService.cadastra($scope.chamado, function(chamado){
                             message({type:'success',body:'mensagens.MSG-001'});
                             $state.go('chamado');
@@ -67,10 +72,10 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/chamado/chamado.detail.html',
                 controller: function($scope, chamado){
-                    $scope.chamado = chamado
+                    $scope.chamado = chamado;
                 },
                 resolve: {
-                    membro: function($stateParams, chamadoService){
+                    chamado: function($stateParams, chamadoService){
                         return chamadoService.carrega($stateParams.id);
                     }
                 }

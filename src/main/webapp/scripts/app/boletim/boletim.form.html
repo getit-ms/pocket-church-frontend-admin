@@ -17,8 +17,8 @@
         <field-message field="formulario_boletim.dataPublicacao"></field-message>
     </div>
     <div class="col-sm-12" field-form-group="formulario_boletim.boletim">
-        <field-label value="boletim.boletim" for="formulario_boletim.boletim" required="true"></field-label>
-        <input-fileupload name='boletim' ng-model="boletim.boletim" required ></input-fileupload>
+        <field-label value="boletim.arquivo_boletim" for="formulario_boletim.boletim" required="true"></field-label>
+        <input-fileupload name='boletim' ng-model="boletim.boletim" types="['application/pdf']" required ></input-fileupload>
         <field-message field="formulario_boletim.boletim"></field-message>
     </div>
     <div class="col-sm-12 comandos">

@@ -175,6 +175,7 @@
         "MSG-039":"Esse membro possui uma agenda de aconselhamentos ativa. Não é permitido retirar o indicador de pastor enquanto houver agendas de aconselhamentos ativas associadas ao membro.",
         "MSG-040":"Parabéns, <b>{{nome}}</b>!<br/>Sua senha foi redefinida e a nova foi enviada para seu e-mail.",
         "MSG-041":"Esse evento não pode ser excluído por já possuir inscrições associadas a ele.",
+        "MSG-043":"Arquivo inválido! Por favor selecione um arquivo do formato solicitado.",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -301,6 +302,7 @@
     "boletim":{
         "titulo":"Título",
         "boletim":"Boletim",
+        "arquivo_boletim":"Boletim (PDF)",
         "data_boletim":"Data do Boletim",
         "boletins":"Boletins",
         "cadastrar":"Cadastrar Boletim",
@@ -313,6 +315,7 @@
         "titulo":"Título",
         "autor":"Autor",
         "letra":"Letra",
+        "arquivo_cifra":"Cântico (PDF)",
         "cifra":"Cântico",
         "cifras":"Cânticos",
         "cadastrar":"Cadastrar Cântico",
@@ -440,6 +443,7 @@
         "dataTermino":"Data de Término"
     },
     "chamado":{
+        "codigo":"Código",
         "chamado":"Chamado",
         "chamados":"Chamados",
         "solicitante":"Solicitante",

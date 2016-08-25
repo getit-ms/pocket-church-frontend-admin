@@ -1,39 +1,40 @@
 <div>
-    <div class="col-sm-8">
+    <div class="col-sm-4">
         <label translate>chamado.codigo</label>
-        <span class="form-control">{{chamado.codigo}}</span>
-    </div>
-    <div class="col-sm-8">
-        <label translate>chamado.status.status</label>
-        <span class="form-control">{{'chamado.status.' + chamado.status | translate}}</span>
+        <input class="form-control" value="{{chamado.codigo}}" disabled />
     </div>
     <div class="col-sm-4">
+        <label translate>chamado.status.status</label>
+        <input class="form-control" value="{{'chamado.status.' + chamado.status | translate}}" disabled />
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-sm-4">
         <label translate>chamado.solicitante</label>
-        <span class="form-control">{{chamado.membroSolicitante.nome}}</span>
+        <input class="form-control" value="{{chamado.membroSolicitante.nome}}" disabled />
     </div>
     <div class="col-sm-4">
         <label translate>chamado.email</label>
-        <span class="form-control">{{chamado.membroSolicitante.email}}</span>
+        <input class="form-control" value="{{chamado.membroSolicitante.email}}" disabled />
     </div>
     <div class="col-sm-4">
         <label translate>chamado.igreja</label>
-        <span class="form-control">${nome.igreja}</span>
+        <input class="form-control" value="${nome.igreja}" disabled />
     </div>
     <div class="col-sm-4">
         <label translate>chamado.data_solicitacao</label>
-        <span class="form-control">{{evento.dataSolicitacao | date : ('config.pattern.output.dateHour' | translate)}}</span>
+        <input class="form-control" value="{{chamado.dataSolicitacao | date : ('config.pattern.output.dateHour' | translate)}}" disabled />
     </div>
     <div class="col-sm-4">
         <label translate>chamado.data_resposta</label>
-        <span class="form-control">{{evento.dataResposta | date : ('config.pattern.output.dateHour' | translate)}}</span>
+        <input class="form-control" value="{{chamado.dataResposta | date : ('config.pattern.output.dateHour' | translate)}}" disabled />
     </div>
     <div class="col-sm-4">
         <label translate>chamado.data_conclusao</label>
-        <span class="form-control">{{evento.dataConclusao | date : ('config.pattern.output.dateHour' | translate)}}</span>
+        <input class="form-control" value="{{chamado.dataConclusao | date : ('config.pattern.output.dateHour' | translate)}}" disabled />
     </div>
     <div class="col-sm-12" field-form-group="formulario_chamado.chamado">
         <label translate>chamado.descricao</label>
-        <div class="form-control" >{{chamado.descricao}}</div>
+        <textarea disabled rows="10" class="form-control" >{{chamado.descricao}}</textarea>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>
