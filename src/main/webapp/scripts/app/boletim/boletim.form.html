@@ -21,6 +21,7 @@
         <input-fileupload name='boletim' ng-model="boletim.boletim" types="['application/pdf']" required ></input-fileupload>
         <field-message field="formulario_boletim.boletim"></field-message>
     </div>
+    <div ng-if='!boletim.divulgado' class="col-sm-12">{{'boletim.mensagem_push' | translate}}</div>
     <div class="col-sm-12 comandos">
         <hr/>
         <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />

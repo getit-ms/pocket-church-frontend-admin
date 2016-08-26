@@ -302,6 +302,7 @@
     "boletim":{
         "titulo":"Título",
         "boletim":"Boletim",
+        "mensagem_push":"Uma notificação será enviada automaticamente para os usuários do aplicativo após o horário de publicação do boletim.",		
         "arquivo_boletim":"Boletim (PDF)",
         "data_boletim":"Data do Boletim",
         "boletins":"Boletins",
