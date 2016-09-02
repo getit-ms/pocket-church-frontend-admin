@@ -344,7 +344,7 @@
         "apenas_membros":"Apenas Membros?"
     },
     "configuracao":{
-        "mensagem_pagseguro":"O pagamento via PagSeguro é disponibilizado no aplicativo no momento da inscrição em um evento. Caso a igreja possua um cadastro no PagSeguro e deseja utilizar essa forma de pagamento, as propriedades abaixo devem ser configuradas adequeadamente. Em caso de dúvidas entre em contato com o Suporte.",
+        "mensagem_pagseguro":"O pagamento via PagSeguro é disponibilizado no aplicativo no momento da inscrição em um evento. Caso a igreja possua um cadastro no PagSeguro e deseja utilizar essa forma de pagamento, as propriedades abaixo devem ser configuradas adequeadamente. A URL para integração informada no PagSeguro é https://getitmobilesolutions.com/app/pagseguro/${chave.igreja}. Em caso de dúvidas entre em contato com o Suporte.",
         "mensagem_pushs":"As mensagens definidas aqui substituirão as mensagens padrões do aplicativo. Para voltar às mensagens padrões basta apagar os valores dos campos. Em caso de dúvidas entre em contato com o Suporte.",
         "titulo_versiculo_diario":"Título do Push do Versículo Diário",
         "titulo_aniversario":"Título do Push de Aniversário",
