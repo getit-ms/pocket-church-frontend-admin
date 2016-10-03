@@ -17,7 +17,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         }
                         
                         $rootScope.acesso = null;
-                        localStorage.removeItem('Authorization');
+                        localStorage.removeItem('Authorization.' + $_serverCode);
         
                         acessoService.login($scope.auth, function(acesso){
                             $rootScope.acesso = {

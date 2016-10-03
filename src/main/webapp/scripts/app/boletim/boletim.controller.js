@@ -117,7 +117,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 templateUrl: 'scripts/app/boletim/boletim.detail.html',
                 controller: function(boletim, $scope){
                     $scope.boletim = boletim;
-                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization');
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                 },
                 resolve: {
                     boletim: function(boletimService, $stateParams){

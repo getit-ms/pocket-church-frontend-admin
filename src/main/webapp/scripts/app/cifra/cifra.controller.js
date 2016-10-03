@@ -37,7 +37,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     };
 
                     $scope.excluir = function(cifra){
-                        confirmExclusao('cifra', cifra.cifra.nome, function(){
+                        confirmExclusao('cifra', cifra.titulo, function(){
                             cifraService.remove(cifra.id, function(cifra){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $scope.busca();
@@ -141,7 +141,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 templateUrl: 'scripts/app/cifra/cifra.detail.html',
                 controller: function(cifra, $scope){
                     $scope.cifra = cifra;
-                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization');
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                 },
                 resolve: {
                     cifra: function(cifraService, $stateParams){

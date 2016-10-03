@@ -18,7 +18,7 @@
                 </tr>
                 <tr ng-repeat="chamado in chamados.resultados">
                     <td class="text-right">{{chamado.codigo}}</td>
-                    <td>{{chamado.membroSolicitante.nome}}</td>
+                    <td>{{chamado.nomeSolicitante}} - {{chamado.emailSolicitante}}</td>
                     <td class="text-center">{{chamado.dataSolicitacao | date : ('config.pattern.output.dateHour' | translate)}}</td>
                     <td class="text-center">{{chamado.dataResposta | date : ('config.pattern.output.dateHour' | translate)}}</td>
                     <td class="text-center">{{chamado.dataConclusao | date : ('config.pattern.output.dateHour' | translate)}}</td>

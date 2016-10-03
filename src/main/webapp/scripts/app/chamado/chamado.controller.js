@@ -48,6 +48,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/chamado/chamado.form.html',
                 controller: function(chamadoService, $state, $scope, message){
+                    $scope.chamado = {nomeSolicitante:$scope.acesso.usuario.nome,emailSolicitante:$scope.acesso.usuario.nome};
+                    
                     $scope.salvar = function(form){
                         if (form.$invalid){
                             message({type:'error',body:'mensagens.MSG-002'});

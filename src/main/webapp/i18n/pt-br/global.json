@@ -19,7 +19,45 @@
             "telefone":"(99) 99999 999?9"
         }
     },
+    "ajuda":{
+        "ajuda":"Ajuda",
+        "media":{
+            "aplicativo":"/app/ajuda/pt-br/aplicativo",
+            "boletim":"/app/ajuda/pt-br/boletim",
+            "chamado":"/app/ajuda/pt-br/chamado",   
+            "cifra":"/app/ajuda/pt-br/cifra",
+            "configuracao":"/app/ajuda/pt-br/configuracao",
+            "contato":"/app/ajuda/pt-br/contato",
+            "estudo":"/app/ajuda/pt-br/estudo",
+            "institucional":"/app/ajuda/pt-br/institucional",
+            "membro":"/app/ajuda/pt-br/membro",
+            "ministerio":"/app/ajuda/pt-br/ministerio",
+            "notificacao":"/app/ajuda/pt-br/notificacao",
+            "oracao":"/app/ajuda/pt-br/oracao",
+            "perfil":"/app/ajuda/pt-br/perfil",
+            "versiculo":"/app/ajuda/pt-br/versiculo"
+        },
+        "youtube":{
+            "aplicativo":"",
+            "boletim":"",
+            "chamado":"",   
+            "cifra":"",
+            "configuracao":"",
+            "contato":"",
+            "estudo":"",
+            "institucional":"",
+            "membro":"",
+            "ministerio":"",
+            "notificacao":"",
+            "oracao":"",
+            "perfil":"",
+            "versiculo":""
+        }
+    },
     "global":{
+        "video":{
+            "mensagem_youtube":"Caso não esteja conseguindo visualizar, clique aqui para assistir o vídeo no YouTube."
+        },
         "versao":"Versão",
         "home":"Início",
         "salvar":"Salvar",
@@ -209,7 +247,7 @@
         "site":"Site",
         "telefones":"Telefones",
         "quem_somos":"Quem Somos",
-        "home_aplicativo":"Tela Incial do Aplicativo",
+        "home_aplicativo":"Tela Inicial do Aplicativo",
         "imagem_divulgacao":"Imagem de Divulgação",
         "instrucoes_para_imagem":"Instruções para a Imagem",
         "instrucoes_imagem_divulgacao":"A imagem de divulgação deve ter as dimensões: 2096px por 2096px (para ocupar toda a tela de entrada, seja para visualização no formato horizontal ou vertical. Devido às diferentes dimensões dos aparelhos, as marcas e elementos textuais só serão visíveis dentro de uma área de 1010px de largura por 545px de altura, centralizado horizontalmente e distante 544px do topo da imagem.",
@@ -475,7 +513,7 @@
         "status":{
             "status":"Situação",
             "ATIVO":"Ativo",
-            "DESABILITADO":"Desabiliado",
+            "DESABILITADO":"Desabilitado",
             "HABILITADO":"Habilitado"
         },
         "cadastrar":"Cadastrar Versículo"

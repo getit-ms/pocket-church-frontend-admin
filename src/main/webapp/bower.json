@@ -43,7 +43,8 @@
     "angular-loading-bar": "~0.9.0",
     "angular-bootstrap-datetimepicker": "~1.0.1",
     "angular-date-time-input": "~1.1.0",
-    "angular-permission": "~3.2.1"
+    "angular-permission": "~3.2.1",
+    "video.js": "~5.13.0"
   },
   "resolutions": {
     "fullcalendar": "~2.7.3",

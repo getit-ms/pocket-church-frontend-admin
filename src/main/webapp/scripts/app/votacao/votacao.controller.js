@@ -141,7 +141,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     templateUrl: 'scripts/app/votacao/votacao.resultado.html',
                     controller: function($scope, votacaoService, $stateParams){
                         $scope.votacao = votacaoService.carrega($stateParams.id);
-                        $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization');
+                        $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                     }
                 }
             }

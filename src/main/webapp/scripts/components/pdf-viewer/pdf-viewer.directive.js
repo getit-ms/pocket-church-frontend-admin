@@ -9,7 +9,7 @@ calvinApp.directive('pdfViewer', function(){
             $scope.httpHeaders = {
                 Igreja: $_serverCode,
                 Dispositivo: $_clientKey,
-                Authorization: localStorage.getItem('Authorization')
+                Authorization: localStorage.getItem('Authorization.' + $_serverCode)
             };
             
             $scope.salvar = function(){

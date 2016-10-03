@@ -39,17 +39,17 @@ function configureHttpInterceptors($httpProvider){
                     }
                     
                     request.headers.Igreja = $_serverCode;
-                    request.headers.Dispositivo = localStorage.getItem('uuid');
+                    request.headers.Dispositivo = localStorage.getItem('uuid.' + $_serverCode);
                     
-                    if (localStorage.getItem('Authorization')){
-                        request.headers.Authorization = localStorage.getItem('Authorization');
+                    if (localStorage.getItem('Authorization.' + $_serverCode)){
+                        request.headers.Authorization = localStorage.getItem('Authorization.' + $_serverCode);
                     }
                     
                     return request;
                 },
                 response: function(response){
                     if (response.headers('Set-Authorization')){
-                        localStorage.setItem('Authorization', response.headers('Set-Authorization'));
+                        localStorage.setItem('Authorization.' + $_serverCode, response.headers('Set-Authorization'));
                     }
                     
                     return response;
@@ -124,20 +124,20 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
     ];
     
     
-    $rootScope.acesso = angular.fromJson(localStorage.getItem('acesso'));
+    $rootScope.acesso = angular.fromJson(localStorage.getItem('acesso.' + $_serverCode));
     
-    if (localStorage.getItem('Authorization') && !$rootScope.usuario){
+    if (localStorage.getItem('Authorization.' + $_serverCode) && !$rootScope.acesso){
         acessoService.carrega(function(acesso){
             $rootScope.acesso = {
                 usuario: acesso.membro,
                 funcionalidades: acesso.funcionalidades
             };
-            localStorage.setItem('acesso', angular.toJson($rootScope.acesso));
+            localStorage.setItem('acesso.' + $_serverCode, angular.toJson($rootScope.acesso));
         });
     }
 
-    if (!localStorage.getItem('uuid')){
-        localStorage.setItem('uuid', 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    if (!localStorage.getItem('uuid.' + $_serverCode)){
+        localStorage.setItem('uuid.' + $_serverCode, 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
             var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
             return v.toString(16);
         }));
@@ -221,7 +221,8 @@ calvinApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'Rest
 ).controller('LogoutController', function($rootScope, $scope, $state, acessoService){
     $scope.logout = function(){
         $rootScope.acesso = null;
-        localStorage.removeItem('Authorization');
+        localStorage.removeItem('Authorization.' + $_serverCode);
+        localStorage.removeItem('acesso.' + $_serverCode);
         $state.go('login');
     };
 });
