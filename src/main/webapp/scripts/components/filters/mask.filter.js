@@ -43,7 +43,7 @@ calvinApp
             });
 
             ngModel.$formatters.unshift(function(value){
-                return $filter('processo')(value);
+                return $filter('telefone')(value);
             });
         }
     };
