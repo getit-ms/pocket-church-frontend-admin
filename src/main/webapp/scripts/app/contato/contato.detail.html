@@ -7,19 +7,21 @@
         <label translate>membro.email</label>
         <div class="form-control" >{{membro.email}}</div>
     </div>
-    <div class="col-md-6" >
+    <div class="col-md-4" >
         <label translate>membro.nascimento</label>
         <div class="form-control" >{{membro.dataNascimento| date:('config.pattern.output.date' | translate)}}</div>
     </div>
-    <div class="col-md-6">
-        <div ng-if='!membro.visitante' >
-            <label translate>membro.pastor</label>
-            <div class="form-control" >{{(membro.pastor ? 'global.sim' : 'global.nao') | translate}}</div>
-        </div>
-        <div ng-if='!membro.pastor && !membro.membro && !membro.admin' >
-            <label translate>membro.visitante</label>
-            <div class="form-control" >{{(membro.visitante ? 'global.sim' : 'global.nao') | translate}}</div>
-        </div>
+    <div ng-if='!membro.visitante' class="col-md-4" >
+        <label translate>membro.pastor</label>
+        <div class="form-control" >{{(membro.pastor ? 'global.sim' : 'global.nao') | translate}}</div>
+    </div>
+    <div ng-if='!membro.pastor && !membro.membro && !membro.admin' class="col-md-4">
+        <label translate>membro.visitante</label>
+        <div class="form-control" >{{(membro.visitante ? 'global.sim' : 'global.nao') | translate}}</div>
+    </div>
+    <div class="col-md-4">
+        <label translate>membro.dados_disponiveis</label>
+        <div class="form-control" >{{(membro.dadosDisponiveis ? 'global.sim' : 'global.nao') | translate}}</div>
     </div>
     <form-endereco ng-model="membro.endereco" readonly='true' ></form-endereco>
     <div ng-if='membro.telefones.length' class="col-sm-12" >

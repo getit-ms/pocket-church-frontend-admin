@@ -66,7 +66,7 @@
             <span ng-if="institucional.endereco.descricao"><br/>{{institucional.endereco.descricao}}</span> 
             <span ng-if="institucional.endereco.cidade">- {{institucional.endereco.cidade}}</span>
             <span ng-if="institucional.endereco.estado">- {{institucional.endereco.estado}}</span> 
-            <span ng-if="institucional.endereco.cep">- {{institucional.endereco.cep}}</span></p>
+            <span ng-if="institucional.endereco.cep">- {{institucional.endereco.cep | mask:('config.mask.cep' | translate)}}</span></p>
     </div>
 
     <div class="footer-copyright col-md-12">
@@ -188,8 +188,8 @@
 <script src="scripts/components/checkbox-list/checkbox-list.directive.js"></script>
 <script src="scripts/components/confirm/confirm.service.js"></script>
 <script src="scripts/components/date/datepicker.directive.js"></script>
-<script src="scripts/components/filters/phonemask.filter.js"></script>
 <script src="scripts/components/filters/simNaoFilter.filter.js"></script>
+<script src="scripts/components/filters/mask.filter.js"></script>
 <script src="scripts/components/form-endereco/form-endereco.directive.js"></script>
 <script src="scripts/components/form-validator/cpf.validator.directive.js"></script>
 <script src="scripts/components/form-validator/date-expired.validator.directive.js"></script>

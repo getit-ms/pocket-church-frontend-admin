@@ -214,6 +214,7 @@
         "MSG-040":"Parabéns, <b>{{nome}}</b>!<br/>Sua senha foi redefinida e a nova foi enviada para seu e-mail.",
         "MSG-041":"Esse evento não pode ser excluído por já possuir inscrições associadas a ele.",
         "MSG-043":"Arquivo inválido! Por favor selecione um arquivo do formato solicitado.",
+        "MSG-044":"O usuário optou por não disponibilizar os dados dele.",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -305,7 +306,11 @@
         "AGENDAR_ACONSELHAMENTO":"Aconselhamentos",
         "CONFIGURAR":"Configurações",
         "ABERTURA_CHAMADO_SUPORTE":"Suporte",
-        "REALIZAR_INSCRICAO_EVENTO":"Eventos"
+        "REALIZAR_INSCRICAO_EVENTO":"Eventos",
+        "CONSULTAR_CIFRAS":"Cifras",
+        "CONSULTAR_HINARIO":"Hinário",
+        "LISTAR_BOLETINS":"Boletins",
+        "LISTAR_ESTUDOS":"Estudos"
     },
     "contato":{
         "contatos":"Contatos da Igreja",
@@ -335,7 +340,8 @@
         "admin":"Admin",
         "dar_acesso":"Dar Acesso",
         "retirar_acesso":"Retirar Acesso",
-        "confirmacao_retirada_acesso":"Confirmação de Retirada de Acesso"
+        "confirmacao_retirada_acesso":"Confirmação de Retirada de Acesso",
+        "dados_disponiveis":"Dados visíveis pelo aplicativo?"
     },
     "boletim":{
         "titulo":"Título",

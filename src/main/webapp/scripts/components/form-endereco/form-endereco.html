@@ -7,8 +7,8 @@
     <div class="col-sm-4">
         <label>{{'endereco.cep' | translate}}</label>
         <input ng-model="ngModel.cep" ng-if="!readonly" class="form-control" 
-               ui-mask="{{'config.mask.cep' | translate}}" model-view-value="true" />
-        <div class="form-control" ng-if="readonly">{{ngModel.cep}}</div>
+               mask="{{'config.mask.cep' | translate}}" />
+        <div class="form-control" ng-if="readonly">{{ngModel.cep | mask:('config.mask.cep' | translate)}}</div>
     </div>
     <div class="col-sm-4">
         <label>{{'endereco.cidade' | translate}}</label>

@@ -2,8 +2,7 @@
     <thread>
         <tr ng-if='!readonly'>
             <th class="input-group">
-                <input class="form-control" ng-model="telefone.numero" 
-                       ui-mask="{{'config.mask.telefone' | translate}}" model-view-value="true" />
+                <input class="form-control" ng-model="telefone.numero" telefone  />
                 <a class="input-group-addon btn btn-default" ng-click="adicionarTelefone()">
                     <span class="fa fa-plus" ></span>
                 </a>
@@ -11,9 +10,9 @@
         </tr>
     </thread>
     <tbody>
-        <tr ng-repeat="telefone in ngModel">
+        <tr ng-repeat="tel in ngModel">
             <td>
-                {{telefone}}
+                {{tel | telefone}}
                 <a class="btn btn-default pull-right" ng-if="!readonly"
                    ng-click="removerTelefone(telefone)">
                     <span class="fa fa-trash"></span>
