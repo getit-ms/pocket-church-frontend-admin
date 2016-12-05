@@ -1,0 +1,17 @@
+image: gafsel/java-postgres-build
+
+pipelines:
+  default:
+    - step:
+        script:
+          - git config --global user.name 'Pipeline Bitbucket'
+          - git config --global user.email 'gafsel@gmail.com'
+          - apt-get update && apt-get install -y sshpass npm postgres-client
+          - npm install --global bower
+          - echo "*:*:$PGUSER:$PGPASS:calvinista\n" > ~/.pgpass
+          - psql -U "$PGUSER" -d calvinista -t -A -c 'select chave_igreja, nome from tb_igreja where status = 0' > igrejas.txt
+          - cat igrejas.txt
+#          - sshpass -p d5gNA4Mbl6nzcC scp -o StrictHostKeyChecking=no app/target/calvinista-app.ear root@getitmobilesolutions.com:/tmp/
+#          - sshpass -p d5gNA4Mbl6nzcC ssh -o StrictHostKeyChecking=no root@getitmobilesolutions.com '/opt/glassfish4/glassfish/bin/asadmin undeploy calvinista-app' 
+#          - sshpass -p d5gNA4Mbl6nzcC ssh -o StrictHostKeyChecking=no root@getitmobilesolutions.com '/opt/glassfish4/glassfish/bin/asadmin deploy /tmp/calvinista-app.ear' 
+#          - sshpass -p d5gNA4Mbl6nzcC ssh -o StrictHostKeyChecking=no root@getitmobilesolutions.com 'rm /tmp/calvinista-app.ear' 
