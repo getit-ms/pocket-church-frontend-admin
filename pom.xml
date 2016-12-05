@@ -141,7 +141,7 @@
 						<artifactId>maven-release-plugin</artifactId>
 						<version>2.5.3</version>
 						<configuration>
-							<tagNameFormat>prod-@{project.version}</tagNameFormat>
+							<tagNameFormat>hml-@{project.version}</tagNameFormat>
 						</configuration>
 					</plugin>
 				</plugins>
