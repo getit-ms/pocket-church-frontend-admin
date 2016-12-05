@@ -7,7 +7,7 @@ pipelines:
           - git config --global user.name "$GIT_USER"
           - git config --global user.email "$GIT_EMAIL"
           - apt-get update && apt-get install -y sshpass # && apt-get install -y npm
-          - npm install --global bower
+#          - npm install --global bower
           - echo "*:*:$PGUSER:$PGPASS:calvinista" > ~/.pgpass
           - chmod 600 ~/.pgpass
           - psql -h "$PGHOST" -U "$PGUSER" -d calvinista -t -A -c 'select chave_igreja, nome from tb_igreja where status = 0' > igrejas.txt
