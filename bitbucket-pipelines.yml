@@ -4,13 +4,13 @@ pipelines:
   default:
     - step:
         script:
-          - git config --global user.name 'Pipeline Bitbucket'
-          - git config --global user.email 'gafsel@gmail.com'
+          - git config --global user.name "$GIT_USER"
+          - git config --global user.email "$GIT_EMAIL"
           - apt-get update && apt-get install -y sshpass && apt-get install -y npm && apt-get install -y postgresql-client
           - npm install --global bower
           - echo "*:*:$PGUSER:$PGPASS:calvinista" > ~/.pgpass
           - chmod 600 ~/.pgpass
-          - psql -U "$PGUSER" -d calvinista -t -A -c 'select chave_igreja, nome from tb_igreja where status = 0' > igrejas.txt
+          - psql -h "$PGHOST" -U "$PGUSER" -d calvinista -t -A -c 'select chave_igreja, nome from tb_igreja where status = 0' > igrejas.txt
           - cat igrejas.txt
 #          - sshpass -p d5gNA4Mbl6nzcC scp -o StrictHostKeyChecking=no app/target/calvinista-app.ear root@getitmobilesolutions.com:/tmp/
 #          - sshpass -p d5gNA4Mbl6nzcC ssh -o StrictHostKeyChecking=no root@getitmobilesolutions.com '/opt/glassfish4/glassfish/bin/asadmin undeploy calvinista-app' 
