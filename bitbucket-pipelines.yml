@@ -8,7 +8,8 @@ pipelines:
           - git config --global user.email 'gafsel@gmail.com'
           - apt-get update && apt-get install -y sshpass npm postgresql-client
           - npm install --global bower
-          - echo "*:*:$PGUSER:$PGPASS:calvinista\n" > ~/.pgpass
+          - echo "*:*:$PGUSER:$PGPASS:calvinista" > ~/.pgpass
+          - chmod 600 ~/.pgpass
           - psql -U "$PGUSER" -d calvinista -t -A -c 'select chave_igreja, nome from tb_igreja where status = 0' > igrejas.txt
           - cat igrejas.txt
 #          - sshpass -p d5gNA4Mbl6nzcC scp -o StrictHostKeyChecking=no app/target/calvinista-app.ear root@getitmobilesolutions.com:/tmp/
