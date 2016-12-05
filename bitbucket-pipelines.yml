@@ -6,7 +6,7 @@ pipelines:
         script:
           - git config --global user.name 'Pipeline Bitbucket'
           - git config --global user.email 'gafsel@gmail.com'
-          - apt-get update && apt-get install -y sshpass npm postgres-client
+          - apt-get update && apt-get install -y sshpass npm postgresql-client
           - npm install --global bower
           - echo "*:*:$PGUSER:$PGPASS:calvinista\n" > ~/.pgpass
           - psql -U "$PGUSER" -d calvinista -t -A -c 'select chave_igreja, nome from tb_igreja where status = 0' > igrejas.txt
