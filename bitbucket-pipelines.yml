@@ -13,14 +13,14 @@ pipelines:
             - chmod 600 ~/.pgpass
             - psql -h "$PGHOST" -U "$PGUSER" -d calvinista -t -A -c 'select chave_igreja, nome from tb_igreja where status = 0' > igrejas.txt
             - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/calvinista-design" /tmp/calvinista-design
-            - echo '#!/bin/bash\n' > deploy.sh
-            - echo 'cp -Rf /tmp/calvinista-design/tst/admin/* src/main/webapp/' >> deploy.sh
-            - echo 'mvn package -Pprod -Dchave.igreja=$1 -Dnome.igreja="$2"\n' >> deploy.sh
-            - echo 'sshpass -p "$DEPLOY_PASS" scp -o StrictHostKeyChecking=no "target/$1.war" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/"\n' >> deploy.sh
-            - echo 'sshpass -p "$DEPLOY_PASS" ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" "/opt/glassfish4/glassfish/bin/asadmin undeploy $1" || echo "$1 não estava em execução" \n' >> deploy.sh
-            - echo 'sshpass -p "$DEPLOY_PASS" ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" "/opt/glassfish4/glassfish/bin/asadmin deploy /tmp/$1.war" \n' >> deploy.sh
-            - chmod u+x deploy.sh
-            - awk -F'|' '{system("./deploy.sh " $1 " " $2)}' igrejas.txt
+            - echo '#!/bin/bash\n' > /tmp/deploy.sh
+            - echo 'cp -Rf /tmp/calvinista-design/tst/admin/* src/main/webapp/' >> /tmp/deploy.sh
+            - echo 'mvn package -Pprod -Dchave.igreja=$1 -Dnome.igreja="$2"\n' >> /tmp/deploy.sh
+            - echo 'sshpass -p "$DEPLOY_PASS" scp -o StrictHostKeyChecking=no "target/$1.war" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/"\n' >> /tmp/deploy.sh
+            - echo 'sshpass -p "$DEPLOY_PASS" ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" "/opt/glassfish4/glassfish/bin/asadmin undeploy $1" || echo "$1 não estava em execução" \n' >> /tmp/deploy.sh
+            - echo 'sshpass -p "$DEPLOY_PASS" ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" "/opt/glassfish4/glassfish/bin/asadmin deploy /tmp/$1.war" \n' >> /tmp/deploy.sh
+            - chmod u+x /tmp/deploy.sh
+            - awk -F'|' '{system("/tmp/deploy.sh " $1 " " $2)}' igrejas.txt
     hml-*:
       - step:
           script:
