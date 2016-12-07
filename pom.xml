@@ -21,8 +21,8 @@
 
     <scm>
         <connection>scm:git:https://bitbucket.org/getit-team/calvinista-frontend-admin</connection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
     
     <dependencies>
     </dependencies>
@@ -135,17 +135,17 @@
             <id>homol</id>
             <build>
                 <defaultGoal>release:prepare release:perform</defaultGoal>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-release-plugin</artifactId>
-						<version>2.5.3</version>
-						<configuration>
-							<tagNameFormat>hml-@{project.version}</tagNameFormat>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.5.3</version>
+                        <configuration>
+                            <tagNameFormat>hml-@{project.version}</tagNameFormat>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
             <properties>
                 <chave.igreja>tst</chave.igreja>
                 <nome.igreja>Pocket Church</nome.igreja>
@@ -199,14 +199,14 @@
                             </execution>
                         </executions>
                     </plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-release-plugin</artifactId>
-						<version>2.5.3</version>
-						<configuration>
-							<tagNameFormat>prod-@{project.version}</tagNameFormat>
-						</configuration>
-					</plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.5.3</version>
+                        <configuration>
+                            <tagNameFormat>prod-@{project.version}</tagNameFormat>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>

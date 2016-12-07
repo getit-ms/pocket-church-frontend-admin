@@ -16,7 +16,25 @@
                 <tr ng-repeat="boletim in boletins.resultados">
                     <td>{{boletim.titulo}}</td>
                     <td class='text-center'>{{boletim.data | date : ('config.pattern.output.date' | translate)}}</td>
-                    <td class='text-center'>{{boletim.dataPublicacao | date : ('config.pattern.output.dateHour' | translate)}}</td>
+                    <td class='text-center'>
+                        <label ng-if='boletim.processando' class='label label-warning'>
+                            <i class='fa fa-refresh '></i>
+                            {{'boletim.processando' | translate}}
+                        </label>
+                        <label ng-if='boletim.agendado' class='label label-info'
+                               title="{{'boletim.agendado' | translate}}">
+                            <i class='fa fa-clock-o'></i>
+                            {{boletim.dataPublicacao | date : ('config.pattern.output.dateHour' | translate)}}
+                        </label>
+                        <label ng-if='boletim.publicado' class='label label-success'>
+                            <i class='fa fa-check '></i>
+                            {{'boletim.publicado' | translate}}
+                        </label>
+                        <label ng-if='boletim.rejeitado' class='label label-danger'>
+                            <i class='fa fa-exclamation-triangle '></i>
+                            {{'boletim.rejeitado' | translate}}
+                        </label>
+                    </td>
                     <td class="col-sm-3 text-center">
                         <a class="btn btn-default" ng-click="detalhar(boletim)"
                            title="{{'global.detalhar' | translate}}">

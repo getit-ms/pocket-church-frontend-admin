@@ -12,6 +12,10 @@ body * {
     min-width: 800px;
 }
 
+table tr td {
+    vertical-align: middle !important;
+}
+
 .release-notes {
 	white-space: pre-line;
 	background: #f3f3f3;

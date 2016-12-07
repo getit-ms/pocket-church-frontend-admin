@@ -354,7 +354,11 @@
         "editar":"Alterar Boletim",
         "detalhar":"Detalhar Boletim",
         "excluir":"Excluir Boletim",
-        "publicacao":"Data da Publicação"
+        "publicacao":"Data da Publicação",
+        "publicado":"Publicado",
+        "agendado":"Agendado",
+        "processando":"Processando",
+        "rejeitado":"Falha no Processamento"
     },
     "cifra":{
         "titulo":"Título",
