@@ -20,7 +20,7 @@ pipelines:
             - echo 'sshpass -p "$DEPLOY_PASS" ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" "/opt/glassfish4/glassfish/bin/asadmin undeploy $1" || echo "$1 não estava em execução" \n' >> deploy.sh
             - echo 'sshpass -p "$DEPLOY_PASS" ssh -o StrictHostKeyChecking=no "$DEPLOY_USER@$DEPLOY_HOST" "/opt/glassfish4/glassfish/bin/asadmin deploy /tmp/$1.war" \n' >> deploy.sh
             - chmod u+x deploy.sh
-            - awk -F'|' '{system("./deploy.sh" $1 " " $2)}' igrejas.txt
+            - awk -F'|' '{system("./deploy.sh " $1 " " $2)}' igrejas.txt
     hml-*:
       - step:
           script:
