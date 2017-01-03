@@ -20,6 +20,9 @@
                         <label ng-if='boletim.processando' class='label label-warning'>
                             <i class='fa fa-refresh '></i>
                             {{'boletim.processando' | translate}}
+                            <span ng-if="boletim.porcentagemProcessamento > 0">
+                                ({{boletim.porcentagemProcessamento}}%)
+                            </span>
                         </label>
                         <label ng-if='boletim.agendado' class='label label-info'
                                title="{{'boletim.agendado' | translate}}">
