@@ -37,6 +37,11 @@
         <hr/>
         <field-label value="institucional.instrucoes_para_imagem" required="false"></field-label>
         <label>{{'institucional.instrucoes_imagem_divulgacao' | translate}}</label>
+        <hr/>
+        <field-label value='institucional.descricao_divulgacao' for='institucional_form.descricao_divulgacao'></field-label>
+        <textarea name='descricao_divulgacao' required rows="5" ng-model="institucional.textoDivulgacao" class="form-control" maxlength="500" ></textarea>
+        <field-message field='institucional_form.descricao_divulgacao'></field-message>
+        <span>{{'global.caracteres_restantes' | translate:{quantidade:500-institucional.textoDivulgacao.length} }}</span>
     </div>
     <div class="col-sm-6">
         <div ng-repeat="redeSocial in redesSociais" >
