@@ -53,6 +53,19 @@
             <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoBoletim.length} }}</span>
         </div>
     </div>
+    <div class="col-sm-6">
+        <div field-form-group='formulario_configuracao.tituloEstudo'>
+            <field-label value='configuracao.titulo_estudo' required="false" for='formulario_configuracao.tituloEstudo'></field-label>
+            <input type="text" name='tituloEstudo' ng-model="configuracao.tituloEstudo" class="form-control" maxlength="30" ></textarea>
+            <field-message field='formulario_configuracao.tituloEstudo'></field-message>
+        </div>
+        <div field-form-group='formulario_configuracao.textoEstudo'>
+            <field-label value='configuracao.texto_estudo' required="false" for='formulario_configuracao.textoEstudo'></field-label>
+            <textarea rows='5' type="text" name='textoEstudo' ng-model="configuracao.textoEstudo" class="form-control" maxlength="150" ></textarea>
+            <field-message field='formulario_configuracao.textoEstudo'></field-message>
+            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoEstudo.length} }}</span>
+        </div>
+    </div>
     <div class="col-sm-6" field-form-group='formulario_configuracao.tituloVersiculoDiario'>
         <field-label value='configuracao.titulo_versiculo_diario' required="false" for='formulario_configuracao.tituloVersiculoDiario'></field-label>
         <input type="text" name='tituloVersiculoDiario' ng-model="configuracao.tituloVersiculoDiario" class="form-control" maxlength="30" ></textarea>

@@ -67,6 +67,7 @@
         "editar":"Alterar",
         "detalhar":"Detalhar",
         "excluir":"Excluir",
+        "opcional":"Opcional",
         "fechar":"Fechar",
         "todos":"Todos",
         "enviar":"Enviar",
@@ -137,6 +138,11 @@
                 "state":"evento",
                 "icon":"calendar-check-o"
             },
+            "MANTER_EBD":{
+                "label":"EBD",
+                "state":"ebd",
+                "icon":"calendar-check-o"
+            },
             "MANTER_VERSICULOS_DIARIOS":{
                 "label":"Versículos Diários",
                 "state":"versiculo",
@@ -172,6 +178,7 @@
             "cifra":"a Cântico",
             "estudo":"o estudo",
             "evento":"o evento",
+            "ebd":"o EBD",
             "membro":"o contato/membro",
             "ministerio":"o ministério",
             "perfil":"o perfil",
@@ -401,6 +408,8 @@
         "texto_aniversario":"Texto do Push de Aniversário",
         "titulo_boletim":"Título do Push de Boletins",
         "texto_boletim":"Texto do Push de Boletins",
+        "titulo_estudo":"Título do Push de Estudos",
+        "texto_estudo":"Texto do Push de Estudos",
         "configuracoes":"Configurações",
         "habilita_pagseguro":"Habilita PagSeguro",
         "usuario_pagseguro":"Usuário PagSeguro",
@@ -413,7 +422,6 @@
         "votacoes":"Votações",
         "nome":"Nome",
         "descricao":"Descrição",
-        "escolhaMultipla":"Escolha Múltipla",
         "questoes":"Questões",
         "vigencia":"Período",
         "dataInicio":"Data de Início",
@@ -550,6 +558,7 @@
             "inscrito":"Inscrito",
             "limite_inscricoes":"Limite de Inscrições",
             "data":"Data",
+            "exportar":"Exportar",
             "status":{
                 "status":"Status",
                 "PENDENTE":"Pendente",
@@ -563,6 +572,43 @@
         "editar":"Alterar Evento",
         "detalhar":"Detalhar Evento",
         "excluir":"Excluir Evento",
+        "descricao":"Descrição",
+        "cancelamento_inscricao":"Cancelamento de Inscrição"
+    },
+    "ebd":{
+        "dataHora":"Data/Hora",
+        "nome":"Nome",
+        "ebd":"Curso",
+        "ebds":"Escola Bíblica Dominical",
+        "status":{
+            "status":"Situação",
+            "EM_EDICAO":"Em Edição",
+            "PUBLICADO":"Publicado"
+        },
+        "inscricoes":"Listar Inscrições",
+        "inscricao":{
+            "inscricao":"Inscrição",
+            "data_inicio":"Data de Início",
+            "data_termino":"Data de Término",
+            "exige_pagamento":"Exige Pagamento",
+            "valor":"Valor (R$)",
+            "inscrito":"Inscrito",
+            "limite_inscricoes":"Limite de Inscrições",
+            "data":"Data",
+            "exportar":"Exportar",
+            "status":{
+                "status":"Status",
+                "PENDENTE":"Pendente",
+                "CONFIRMADA":"Confirmada",
+                "CANCELADA":"Cancelada"
+            }
+        },
+        "dataHoraInicio":"Data/Hora de Início",
+        "dataHoraTermino":"Data/Hora de Término",
+        "cadastrar":"Cadastrar Curso",
+        "editar":"Alterar Curso",
+        "detalhar":"Detalhar Curso",
+        "excluir":"Excluir Curso",
         "descricao":"Descrição",
         "cancelamento_inscricao":"Cancelamento de Inscrição"
     },

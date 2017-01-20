@@ -1,49 +1,49 @@
 calvinApp.config(['$stateProvider', function($stateProvider){
-    $stateProvider.state('evento', {
+    $stateProvider.state('ebd', {
         parent: 'home',
-        url: 'evento/',
+        url: 'ebd/',
         data:{
-            displayName: 'evento.eventos',
+            displayName: 'ebd.ebds',
             permissions:{
-                only: ['MANTER_EVENTOS'],
+                only: ['MANTER_EBDS'],
                 redirectTo: 'login'
             }
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/evento/evento.list.html',
-                controller: function(eventoService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
+                templateUrl: 'scripts/app/ebd/ebd.list.html',
+                controller: function(ebdService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
                     $scope.filtro = {};
                     
-                    $scope.tabelaEventos = new NgTableParamsCalvin(function($defer, params){
+                    $scope.tabelaEBDs = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
                         $scope.filtro.total = params.parameters().count;
-                        eventoService.busca($scope.filtro, function(eventos){
-                            $scope.eventos = eventos;
-                            params.total(eventos.totalResultados);
-                            $defer.resolve(eventos.resultados);
+                        ebdService.busca($scope.filtro, function(ebds){
+                            $scope.ebds = ebds;
+                            params.total(ebds.totalResultados);
+                            $defer.resolve(ebds.resultados);
                         });
                     });
                     
                     $scope.busca = function(){
-                        $scope.tabelaEventos.reload();
+                        $scope.tabelaEBDs.reload();
                     };
 
-                    $scope.detalhar = function(evento){
-                        $state.go('evento.view', {id: evento.id});
+                    $scope.detalhar = function(ebd){
+                        $state.go('ebd.view', {id: ebd.id});
                     };
 
-                    $scope.editar = function(evento){
-                        $state.go('evento.edicao', {id: evento.id});
+                    $scope.editar = function(ebd){
+                        $state.go('ebd.edicao', {id: ebd.id});
                     };
 
-                    $scope.inscritos = function(evento){
-                        $state.go('evento.inscricoes', {id: evento.id});
+                    $scope.inscritos = function(ebd){
+                        $state.go('ebd.inscricoes', {id: ebd.id});
                     };
 
-                    $scope.excluir = function(evento){
-                        confirmExclusao('evento', evento.nome, function(){
-                            eventoService.remove(evento.id, function(evento){
+                    $scope.excluir = function(ebd){
+                        confirmExclusao('ebd', ebd.nome, function(){
+                            ebdService.remove(ebd.id, function(ebd){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $scope.busca();
                             });
@@ -54,17 +54,17 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }
             }
         }
-    }).state('evento.cadastro', {
-        parent: 'evento',
+    }).state('ebd.cadastro', {
+        parent: 'ebd',
         url: 'novo/',
         data:{
-            displayName: 'evento.cadastrar'
+            displayName: 'ebd.cadastrar'
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/evento/evento.form.html',
-                controller: function(eventoService, $scope, $state, message){
-                    $scope.evento = {};
+                templateUrl: 'scripts/app/ebd/ebd.form.html',
+                controller: function(ebdService, $scope, $state, message){
+                    $scope.ebd = {};
                     
                     $scope.salvar = function(form){
                         if (form.$invalid){
@@ -72,25 +72,25 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             return;
                         }
                         
-                        eventoService.cadastra($scope.evento, function(evento){
+                        ebdService.cadastra($scope.ebd, function(ebd){
                             message({type:'success',body:'mensagens.MSG-001'});
-                            $state.go('evento');
+                            $state.go('ebd');
                         });
                     };
                 }
             }
         }
-    }).state('evento.edicao', {
-        parent: 'evento',
+    }).state('ebd.edicao', {
+        parent: 'ebd',
         url: ':id/',
         data:{
-            displayName: 'evento.editar'
+            displayName: 'ebd.editar'
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/evento/evento.form.html',
-                controller: ['eventoService', '$scope', 'message', '$state', 'evento', function(eventoService, $scope, message, $state, evento){
-                    $scope.evento = evento;
+                templateUrl: 'scripts/app/ebd/ebd.form.html',
+                controller: ['ebdService', '$scope', 'message', '$state', 'ebd', function(ebdService, $scope, message, $state, ebd){
+                    $scope.ebd = ebd;
 
                     $scope.salvar = function(form){
                         if (form.$invalid){
@@ -98,58 +98,58 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             return;
                         }
                         
-                        eventoService.atualiza($scope.evento, function(evento){
+                        ebdService.atualiza($scope.ebd, function(ebd){
                             message({type:'success',body:'mensagens.MSG-001'});
-                            $state.go('evento');
+                            $state.go('ebd');
                         });
                     };
                 }],
                 resolve:{
-                    evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                    ebd: ['ebdService', '$stateParams', function(ebdService, $stateParams){
+                        return ebdService.carrega($stateParams.id);
                     }]
                 }
             }
         }
-    }).state('evento.view', {
-        parent: 'evento',
+    }).state('ebd.view', {
+        parent: 'ebd',
         url: ':id/view/',
         data:{
-            displayName: 'evento.detalhar'
+            displayName: 'ebd.detalhar'
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/evento/evento.detail.html',
-                controller: ['$scope', 'evento', function($scope, evento){
-                    $scope.evento = evento;
+                templateUrl: 'scripts/app/ebd/ebd.detail.html',
+                controller: ['$scope', 'ebd', function($scope, ebd){
+                    $scope.ebd = ebd;
                 }],
                 resolve: {
-                    evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                    ebd: ['ebdService', '$stateParams', function(ebdService, $stateParams){
+                        return ebdService.carrega($stateParams.id);
                     }]
                 }
             }
         }
-    }).state('evento.inscricoes', {
-        parent: 'evento',
+    }).state('ebd.inscricoes', {
+        parent: 'ebd',
         url: ':id/inscricoes/',
         data:{
-            displayName: 'evento.inscricoes'
+            displayName: 'ebd.inscricoes'
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/evento/inscritos.list.html',
-                controller: function(evento, eventoService, $scope, message, NgTableParamsCalvin, $stateParams, confirmDialog){
+                templateUrl: 'scripts/app/ebd/inscritos.list.html',
+                controller: function(ebd, ebdService, $scope, message, NgTableParamsCalvin, $stateParams, confirmDialog){
                     $scope.filtro = {};
 
-                    $scope.evento = evento;
+                    $scope.ebd = ebd;
 
                     $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                     
                     $scope.tabelaInscricoes = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
                         $scope.filtro.total = params.parameters().count;
-                        eventoService.buscaInscricoes($stateParams.id, $scope.filtro, function(inscricoes){
+                        ebdService.buscaInscricoes($stateParams.id, $scope.filtro, function(inscricoes){
                             $scope.inscricoes = inscricoes.resultados;
                             params.total(inscricoes.totalResultados);
                             $defer.resolve(inscricoes.resultados);
@@ -161,7 +161,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     };
                     
                     $scope.confirmar = function(inscricao){
-                        eventoService.confirmaInscricao($stateParams.id, inscricao.id, function(inscricao){
+                        ebdService.confirmaInscricao($stateParams.id, inscricao.id, function(inscricao){
                             message({type:'success',body:'mensagens.MSG-001'});
                             $scope.busca();
                         });
@@ -169,7 +169,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     
                     $scope.cancelar = function(inscricao){
                         confirmDialog({
-                            title:'evento.cancelamento_inscricao',
+                            title:'ebd.cancelamento_inscricao',
                             text:'mensagens.MSG-045',
                             ok:'global.sim',
                             cancel:'global.nao',
@@ -177,7 +177,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                                 inscrito: inscricao.nomeInscrito
                             }
                         }).then(function(){
-                            eventoService.cancelaInscricao($stateParams.id, inscricao.id, function(inscricao){
+                            ebdService.cancelaInscricao($stateParams.id, inscricao.id, function(inscricao){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $scope.busca();
                             });
@@ -185,8 +185,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     };
                 },
                 resolve:{
-                    evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                    ebd: ['ebdService', '$stateParams', function(ebdService, $stateParams){
+                        return ebdService.carrega($stateParams.id);
                     }]
                 }
             }

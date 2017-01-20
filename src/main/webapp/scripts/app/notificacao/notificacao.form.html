@@ -1,13 +1,22 @@
 <form id='formulario_notificacao' name='formulario_notificacao' ng-submit="enviar(this.formulario_notificacao)" novalidate>
-    <div class="col-md-6" field-form-group='formulario_notificacao.mensagem'>
-        <field-label value='notificacao.mensagem' for='formulario_notificacao.mensagem'></field-label>
-        <textarea name='mensagem' required rows="5" ng-model="notificacao.mensagem" class="form-control" maxlength="150" ></textarea>
-        <field-message field='formulario_notificacao.mensagem'></field-message>
-        <span>{{'global.caracteres_restantes' | translate:{quantidade:150-notificacao.mensagem.length} }}</span>
-        <hr/>
-        <field-label value='notificacao.apenas_membros' for='formulario_notificacao.apenas_membros'></field-label><br/>
-        <input type='radio' ng-value="true" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.sim' | translate}}
-        <input type='radio' ng-value="false" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.nao' | translate}}
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-md-12" field-form-group='formulario_notificacao.titulo'>
+                <field-label value='notificacao.titulo' for='formulario_notificacao.titulo'></field-label>
+                <textarea name='titulo' placeholder="{{'global.opcional' | translate}}" ng-model="notificacao.titulo" class="form-control" maxlength="30" ></textarea>
+                <field-message field='formulario_notificacao.titulo'></field-message>
+            </div>
+            <div class="col-md-12" field-form-group='formulario_notificacao.mensagem'>
+                <field-label value='notificacao.mensagem' for='formulario_notificacao.mensagem'></field-label>
+                <textarea name='mensagem' required rows="5" ng-model="notificacao.mensagem" class="form-control" maxlength="150" ></textarea>
+                <field-message field='formulario_notificacao.mensagem'></field-message>
+                <span>{{'global.caracteres_restantes' | translate:{quantidade:150-notificacao.mensagem.length} }}</span>
+                <hr/>
+                <field-label value='notificacao.apenas_membros' for='formulario_notificacao.apenas_membros'></field-label><br/>
+                <input type='radio' ng-value="true" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.sim' | translate}}
+                <input type='radio' ng-value="false" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.nao' | translate}}
+            </div>
+        </div>
     </div>
     <div class="col-md-6" field-form-group='formulario_notificacao.ministeriosAlvo'>
         <field-label value='notificacao.ministerios' for='formulario_notificacao.ministeriosAlvo'></field-label>

@@ -1,0 +1,51 @@
+<div>
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover" ng-table='tabelaEBDs'>
+            <thead>
+                <tr>
+                    <th>{{'ebd.nome' | translate}}</th>
+                    <th class='text-center'>{{'ebd.dataHora' | translate}}</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!ebds.resultados.length">
+                    <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
+                </tr>
+                <tr ng-repeat="ebd in ebds.resultados">
+                    <td>{{ebd.nome}}</td>
+                    <td class='text-center'>
+                        {{ebd.dataHoraInicio | date : ('config.pattern.output.dateHour' | translate)}} - {{ebd.dataHoraTermino | date : ('config.pattern.output.dateHour' | translate)}}
+                    </td>
+                    <td class="col-sm-3 text-center">
+                        <a class="btn btn-default" ng-click="detalhar(ebd)"
+                           title="{{'global.detalhar' | translate}}">
+                            <span class="fa fa-search"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="editar(ebd)"
+                           title="{{'global.editar' | translate}}">
+                            <span class="fa fa-pencil-square-o"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="excluir(ebd)"
+                           title="{{'global.excluir' | translate}}">
+                            <span class="fa fa-trash"></span>
+                        </a>
+                    </td>
+                    <td class="col-sm-1 text-center">
+                        <a class="btn btn-default" ng-click="inscritos(ebd)"
+                           title="{{'ebd.inscricao.inscricao' | translate}}">
+                            <span class="fa fa-list"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ui-sref="ebd.cadastro">
+            {{'ebd.cadastrar' | translate}}
+        </a>
+    </div>
+</div>
