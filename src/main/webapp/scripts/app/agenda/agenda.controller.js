@@ -93,7 +93,12 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                                 freeForm: 'formulario_horario',
                                 resolve: {
                                     evento: evento,
-                                    $scope: $scope
+                                    callback: function(){
+                                        return function(){
+                                            message({type:'success',body:'mensagens.MSG-001'});
+                                            uiCalendarConfig.calendars['agenda'].fullCalendar('refetchEvents');
+                                        }
+                                    }
                                 }
                             })();
                         };
@@ -112,10 +117,6 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             eventClick: $scope.showEvent
                         };
                         
-                        $scope.callback = function(obj){
-                            message({type:'success',body:'mensagens.MSG-001'});
-                            uiCalendarConfig.calendars['agenda'].fullCalendar('refetchEvents');
-                        };
                     },
                     resolve: {
                         agenda: function(agendaService, $stateParams){
@@ -146,7 +147,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                                 freeForm: 'formulario_horario',
                                 resolve: {
                                     evento: evento,
-                                    $scope: $scope
+                                    callback: function(){}
                                 }
                             })();
                         };
@@ -196,8 +197,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
     
         $scope.clear();
     
-    }]).controller('ModalHorario', ['$state', '$scope', 'agendaService', 'membroService', 'evento', 'message', 'confirmDialog',
-        function($state, $scope, agendaService, membroService, evento, message, confirmDialog){
+    }]).controller('ModalHorario', ['$scope', 'agendaService', 'membroService', 'evento', 'message', 'confirmDialog', 'callback',
+        function($scope, agendaService, membroService, evento, message, confirmDialog, callback){
 
         $scope.horario = $scope.agendamento = $scope.folga = null;
         
@@ -206,9 +207,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         }
         
         $scope.modalCallbak = function(){
-            $scope.callback();
+            callback();
             $scope.modalInstance.close();
-        }
+        };
         
         $scope.inicio = new Date(evento.start);
         $scope.fim = new Date(evento.end);

@@ -13,7 +13,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/evento/evento.list.html',
                 controller: function(eventoService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
-                    $scope.filtro = {};
+                    $scope.filtro = {tipo:'EVENTO'};
                     
                     $scope.tabelaEventos = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
@@ -64,7 +64,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/evento/evento.form.html',
                 controller: function(eventoService, $scope, $state, message){
-                    $scope.evento = {};
+                    $scope.evento = {tipo:'EVENTO'};
                     
                     $scope.salvar = function(form){
                         if (form.$invalid){

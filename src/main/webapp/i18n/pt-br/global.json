@@ -15,8 +15,7 @@
         "mask":{
             "date":"99/99/9999",
             "hour":"99:99",
-            "cep":"99.999-999",
-            "telefone":"(99) 99999 999?9"
+            "cep":"99.999-999"
         }
     },
     "ajuda":{
@@ -141,7 +140,7 @@
             "MANTER_EBD":{
                 "label":"EBD",
                 "state":"ebd",
-                "icon":"calendar-check-o"
+                "icon":"file-text-o"
             },
             "MANTER_VERSICULOS_DIARIOS":{
                 "label":"Versículos Diários",
@@ -152,6 +151,11 @@
                 "label":"Configurações",
                 "state":"configuracao",
                 "icon":"cog"
+            },
+            "CONFIGURAR_YOUTUBE":{
+                "label":"YouTube",
+                "state":"youtube",
+                "icon":"youtube"
             },
             "GERENCIAR_FUNCIONALIDADES_APLICATIVO":{
                 "label":"Aplicativo",
@@ -222,7 +226,8 @@
         "MSG-041":"Esse evento não pode ser excluído por já possuir inscrições associadas a ele.",
         "MSG-043":"Arquivo inválido! Por favor selecione um arquivo do formato solicitado.",
         "MSG-044":"O usuário optou por não disponibilizar os dados dele.",
-        "MSG-045":"Deseja realmente cancelar a inscrição de {{inscrito}}?.",
+        "MSG-045":"Deseja realmente cancelar a inscrição de {{inscrito}}?",
+        "MSG-046":"Houve um problema ao tentar conectar com o YouTube. Tente novamente e se o problema persistir conecte o administrador do sistema.",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -306,6 +311,7 @@
         "CONSULTAR_AGENDAMENTOS":"Agendamentos",
         "MANTER_AGENDA":"Agendas",
         "MANTER_EVENTOS":"Eventos",
+        "MANTER_EBD":"EBD",
         "MANTER_VERSICULOS_DIARIOS":"Versículos Diários",
         "GERENCIAR_ACESSO_MEMBROS":"Acesso de Membros",
         "GERENCIAR_FUNCIONALIDADES_APLICATIVO":"Aplicativo",
@@ -316,6 +322,7 @@
         "CONFIGURAR":"Configurações",
         "ABERTURA_CHAMADO_SUPORTE":"Suporte",
         "REALIZAR_INSCRICAO_EVENTO":"Eventos",
+        "REALIZAR_INSCRICAO_EBD":"EBD",
         "CONSULTAR_CIFRAS":"Cifras",
         "CONSULTAR_HINARIO":"Hinário",
         "LISTAR_BOLETINS":"Boletins",
@@ -397,7 +404,7 @@
         "notificacoes":"Notificações",
         "ministerios":"Ministérios Alvo",
         "confirmacao_envio":"Confirmação de Envio",
-        "apenas_membros":"Notificar apenas membros logados?",
+        "notificar_apenas_membros":"Notificar apenas membros logados?",
         "apenas_membros":"Apenas Membros?"
     },
     "configuracao":{
@@ -617,6 +624,10 @@
         "numero":"Nº",
         "nome":"Nome",
         "texto":"Texto"
+    },
+    "youtube":{
+        "vincular_conta":"Vincular Conta",
+        "mensagem_youtube":"O vínculo da conta é feito através de permissões para leitura dos dados do canal da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias."
     }
 }
 

@@ -1,0 +1,21 @@
+<div>
+    <div class="col-sm-12">
+        <button class="btn btn-default pull-right" ng-disabled='inProgress' ng-click="vincularConta()">
+            {{'youtube.vincular_conta' | translate}}
+        </button>
+        
+        {{'youtube.mensagem_youtube' | translate}}
+    </div>
+    
+    <div class="col-sm-12" ng-if="videos.lengtha">
+        <div class="row">
+            <div ng-class="{'col-sm-6':!video.aoVivo,'col-sm-12':video.aoVivo}" ng-repeat="video in videos" >
+                <a href="https://www.youtube.com/watch?v={{video.id}}" target="_blank" >
+                    <img src="{{video.thumbnail}}" alt="{{video.titulo}}" width="100%" />
+                    <h2>{{video.titulo}} <label ng-if="video.aoVivo" class="label label-success pull-right" traslate>youtube.ao_vivo</label></h2>
+                    <p>{{video.descricao}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -117,9 +117,11 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
         'CONSULTAR_PEDIDOS_ORACAO',
         'MANTER_AGENDA',
         'MANTER_EVENTOS',
+        'MANTER_EBD',
         'ENVIAR_NOTIFICACOES',
         'MANTER_VERSICULOS_DIARIOS',
         'CONFIGURAR',
+        'CONFIGURAR_YOUTUBE',
         'ABERTURA_CHAMADO_SUPORTE'
     ];
     
