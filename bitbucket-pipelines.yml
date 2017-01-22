@@ -29,7 +29,7 @@ pipelines:
           script:
             - apt-get update
             - cd ..
-            - cd git clone https://gafsel:discador01@bitbucket.org/gafsel/gafs-base.git
+            - git clone https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/gafsel/gafs-base.git
             - mvn clean install
             - cd $BITBUCKET_CLONE_DIR
             - apt-get install -y sshpass npm && ln -s /usr/bin/nodejs /usr/bin/node
