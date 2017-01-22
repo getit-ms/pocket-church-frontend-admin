@@ -326,7 +326,8 @@
         "CONSULTAR_CIFRAS":"Cifras",
         "CONSULTAR_HINARIO":"Hinário",
         "LISTAR_BOLETINS":"Boletins",
-        "LISTAR_ESTUDOS":"Estudos"
+        "LISTAR_ESTUDOS":"Estudos",
+        "YOUTUBE":"Vídeos"
     },
     "contato":{
         "contatos":"Contatos da Igreja",
@@ -627,7 +628,8 @@
     },
     "youtube":{
         "vincular_conta":"Vincular Conta",
-        "mensagem_youtube":"O vínculo da conta é feito através de permissões para leitura dos dados do canal da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias."
+        "mensagem_youtube":"O vínculo da conta é feito através de permissões para leitura dos dados do canal da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
+        "configuracoes":"Configurações YouTube"
     }
 }
 
