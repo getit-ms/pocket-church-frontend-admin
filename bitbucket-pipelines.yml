@@ -1,13 +1,15 @@
-image: gafsel/java-postgres-build
+image: maven:3.3.3
 
 pipelines:
   tags:
     prod-*:
       - step:
           script:
-            - git config --global user.name "$GIT_USER"
-            - git config --global user.email "$GIT_EMAIL"
             - apt-get update
+            - cd ..
+            - cd git clone https://gafsel:discador01@bitbucket.org/gafsel/gafs-base.git
+            - mvn clean install
+            - cd $BITBUCKET_CLONE_DIR
             - apt-get install -y sshpass npm && ln -s /usr/bin/nodejs /usr/bin/node
             - npm install --global bower
             - echo "*:*:$PGUSER:$PGPASS:calvinista" > ~/.pgpass
@@ -25,9 +27,11 @@ pipelines:
     hml-*:
       - step:
           script:
-            - git config --global user.name "$GIT_USER"
-            - git config --global user.email "$GIT_EMAIL"
             - apt-get update
+            - cd ..
+            - cd git clone https://gafsel:discador01@bitbucket.org/gafsel/gafs-base.git
+            - mvn clean install
+            - cd $BITBUCKET_CLONE_DIR
             - apt-get install -y sshpass npm && ln -s /usr/bin/nodejs /usr/bin/node
             - npm install --global bower
             - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/calvinista-design" /tmp/calvinista-design
