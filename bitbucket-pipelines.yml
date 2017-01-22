@@ -30,6 +30,7 @@ pipelines:
             - apt-get update
             - cd ..
             - git clone https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/gafsel/gafs-base.git
+            - cd gafs-base
             - mvn clean install
             - cd $BITBUCKET_CLONE_DIR
             - apt-get install -y sshpass npm && ln -s /usr/bin/nodejs /usr/bin/node
