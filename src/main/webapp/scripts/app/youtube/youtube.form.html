@@ -7,7 +7,7 @@
         {{'youtube.mensagem_youtube' | translate}}
     </div>
     
-    <div class="col-sm-12" ng-if="videos.lengtha">
+    <div class="col-sm-12" ng-if="videos.length">
         <div class="row">
             <div ng-class="{'col-sm-6':!video.aoVivo,'col-sm-12':video.aoVivo}" ng-repeat="video in videos" >
                 <a href="https://www.youtube.com/watch?v={{video.id}}" target="_blank" >
