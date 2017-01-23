@@ -16,7 +16,7 @@ calvinApp.service('youtubeService', ['Restangular', function(Restangular){
         };
         
         this.inicia = function(code, callback){
-            this.api().one('configuracao/' + code).put().then(callback);
+            this.api().one('configuracao').customPUT({code:code}).then(callback);
         };
 }]);
         

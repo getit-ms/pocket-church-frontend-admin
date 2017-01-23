@@ -13,7 +13,6 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/youtube/youtube.form.html',
                 controller: function(youtubeService, message, $scope, $stateParams){
-                    
                     $scope.carrega = function(){
                         $scope.youtube = youtubeService.configuracao();
                         $scope.videos = youtubeService.busca();
