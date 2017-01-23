@@ -8,10 +8,14 @@
     </div>
     
     <div class="col-sm-12" ng-if="videos.length">
+        <hr/>
+    
         <div class="row">
-            <div ng-class="{'col-sm-6':!video.aoVivo,'col-sm-12':video.aoVivo}" ng-repeat="video in videos" >
+            <div ng-class="{'col-sm-3':!video.aoVivo,'col-sm-12':video.aoVivo}" ng-repeat="video in videos" >
                 <a href="https://www.youtube.com/watch?v={{video.id}}" target="_blank" >
-                    <img src="{{video.thumbnail}}" alt="{{video.titulo}}" width="100%" />
+                    <img src="{{video.thumbnail}}" alt="{{video.titulo}}" width="100%" ng-if="!video.aoVivo" />
+                    <iframe id="ytplayer" type="text/html" width="100%" height="360" ng-if="video.aoVivo"
+                            src="http://www.youtube.com/embed/{{video.id}}?autoplay=1" frameborder="0"></iframe>
                     <h2>{{video.titulo}} <label ng-if="video.aoVivo" class="label label-success pull-right" traslate>youtube.ao_vivo</label></h2>
                     <p>{{video.descricao}}</p>
                 </a>
