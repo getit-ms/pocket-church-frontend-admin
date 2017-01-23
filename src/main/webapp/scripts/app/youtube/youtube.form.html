@@ -12,8 +12,7 @@
     
         <div class="row">
             <div ng-class="{'col-sm-3':!video.aoVivo,'col-sm-12':video.aoVivo}" ng-repeat="video in videos" >
-                <iframe id="ytplayer" type="text/html" width="100%" height="360" ng-if="video.aoVivo"
-                        src="http://www.youtube.com/embed/{{video.id}}?autoplay=1" frameborder="0"></iframe>
+                <youtube-video video-id="video.id"></youtube-video>
                 <a href="https://www.youtube.com/watch?v={{video.id}}" target="_blank" ng-if="!video.aoVivo" >
                     <img src="{{video.thumbnail}}" alt="{{video.titulo}}" width="100%" />
                 </a>
