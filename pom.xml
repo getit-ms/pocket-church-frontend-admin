@@ -170,6 +170,21 @@
                         <version>1.4.0</version>
                         <executions>
                             <execution>
+                                <id>bower-install</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <workingDirectory>${webapp.base}</workingDirectory>
+                                    <executable>bower</executable>
+                                    <arguments>
+                                        <argument>install</argument>
+                                        <argument>--allow-root</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
                                 <id>grunt-prod</id>
                                 <phase>prepare-package</phase>
                                 <goals>
