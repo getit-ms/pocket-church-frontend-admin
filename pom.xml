@@ -164,13 +164,28 @@
                             <warSourceDirectory>${basedir}/src/main/webapp/dist</warSourceDirectory>
                         </configuration>
                     </plugin>
-                    <!-- plugin>
+                    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
                         <version>1.4.0</version>
                         <executions>
                             <execution>
-                                <id>grund-prod</id>
+                                <id>grunt-install</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <workingDirectory>${webapp.base}</workingDirectory>
+                                    <executable>grunt</executable>
+                                    <arguments>
+                                        <argument>install</argument>
+                                        <argument>--allow-root</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>grunt-prod</id>
                                 <phase>prepare-package</phase>
                                 <goals>
                                     <goal>exec</goal>
@@ -184,7 +199,7 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>grund-cleandist</id>
+                                <id>grunt-cleandist</id>
                                 <phase>install</phase>
                                 <goals>
                                     <goal>exec</goal>
@@ -198,7 +213,7 @@
                                 </configuration>
                             </execution>
                         </executions>
-                    </plugin -->
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-release-plugin</artifactId>
