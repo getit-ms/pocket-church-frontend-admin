@@ -4,7 +4,7 @@
     
     <groupId>br.gafs.getit.calvinista</groupId>
     <artifactId>calvinista-web-admin</artifactId>
-    <version>2.12.14-SNAPSHOT</version>
+    <version>2.12.13-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>calvinista-frontend-admin</name>
@@ -21,7 +21,7 @@
 
     <scm>
         <connection>scm:git:https://bitbucket.org/getit-team/calvinista-frontend-admin</connection>
-        <tag>prod-2.12.9</tag>
+        <tag>prod-2.12.13</tag>
     </scm>
     
     <dependencies>
@@ -48,6 +48,14 @@
                 <version>2.3</version>
                 <configuration>
                     <warSourceDirectory>${webapp.base}</warSourceDirectory>
+                    <warSourceExcludes>
+                        <exclude>**/node_modules/**</exclude>
+                        <exclude>**/dist/**</exclude>
+                        <exclude>.bowerrc</exclude>
+                        <exclude>bower.json</exclude>
+                        <exclude>Gruntfile.js</exclude>
+                        <exclude>package.json</exclude>
+                    </warSourceExcludes>
                     <webResources>
                         <resource>
                             <filtering>true</filtering>
@@ -55,6 +63,7 @@
                             <excludes>
                                 <exclude>**/vendor/**</exclude>
                                 <exclude>**/node_modules/**</exclude>
+                                <exclude>**/dist/**</exclude>
                                 <exclude>**.eot</exclude>
                                 <exclude>**.svg</exclude>
                                 <exclude>**.ttf</exclude>
