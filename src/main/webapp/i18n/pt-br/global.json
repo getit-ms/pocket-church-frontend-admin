@@ -215,6 +215,7 @@
         "MSG-041":"Esse evento não pode ser excluído por já possuir inscrições associadas a ele.",
         "MSG-043":"Arquivo inválido! Por favor selecione um arquivo do formato solicitado.",
         "MSG-044":"O usuário optou por não disponibilizar os dados dele.",
+        "MSG-044":"Deseja realmente cancelar a inscrição de {inscrito}?",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -561,7 +562,8 @@
         "editar":"Alterar Evento",
         "detalhar":"Detalhar Evento",
         "excluir":"Excluir Evento",
-        "descricao":"Descrição"
+        "descricao":"Descrição",
+        "cancelamento_inscricao":"Cancelamento de Inscrição"
     },
     "hino":{
         "cadastrar":"Cadastrar Hino",
