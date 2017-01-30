@@ -20,7 +20,7 @@ calvinApp.service('eventoService', ['Restangular', function(Restangular){
         };
         
         this.cancelaInscricao = function(id, inscricao, callback){
-            this.api().one(id + '/cancelar/' + inscricao).put().then(callback);
+            this.api().one(id + '/cancelar/' + inscricao).remove().then(callback);
         };
         
         this.remove = function(id, callback){
