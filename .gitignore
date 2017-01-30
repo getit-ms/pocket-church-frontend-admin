@@ -1,2 +1,7 @@
-/target/
+**/target/**
 **/vendor/**
+**/node_modules/**
+**/dist/**
+
+**.iml
+**/.idea/**

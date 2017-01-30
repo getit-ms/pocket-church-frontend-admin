@@ -160,6 +160,23 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         $scope.tabelaInscricoes.reload();
                     };
                     
+                    $scope.cancelar = function(inscricao){
+                        confirmDialog({
+                            title:'evento.cancelamento_inscricao',
+                            text:'mensagens.MSG-045',
+                            ok:'global.sim',
+                            cancel:'global.nao',
+                            params:{
+                                inscrito: inscricao.nomeInscrito
+                            }
+                        }).then(function(){
+                            eventoService.cancelaInscricao($stateParams.id, inscricao.id, function(inscricao){
+                                message({type:'success',body:'mensagens.MSG-001'});
+                                $scope.busca();
+                            });
+                        });
+                    };
+                    
                     $scope.confirmar = function(inscricao){
                         eventoService.confirmaInscricao($stateParams.id, inscricao.id, function(inscricao){
                             message({type:'success',body:'mensagens.MSG-001'});

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>br.gafs.getit.calvinista</groupId>
     <artifactId>calvinista-web-admin</artifactId>
     <version>3.0.14-SNAPSHOT</version>
@@ -16,14 +16,14 @@
         <build.date>${maven.build.timestamp}</build.date>
         <webapp.base>src/main/webapp</webapp.base>
         <chave.igreja>tst</chave.igreja>
-        <nome.igreja>CALVIN - Igreja Teste</nome.igreja>
+        <nome.igreja>GET IT - Pocket Church</nome.igreja>
     </properties>
 
     <scm>
         <connection>scm:git:https://bitbucket.org/getit-team/calvinista-frontend-admin</connection>
-        <tag>hml-3.0.9</tag>
+        <tag>HEAD</tag>
     </scm>
-    
+
     <dependencies>
     </dependencies>
 
@@ -47,15 +47,31 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
+                    <warSourceDirectory>${webapp.base}</warSourceDirectory>
+                    <warSourceExcludes>
+                        **/node_modules/**,
+                        **/dist/**,
+                        .bowerrc,
+                        bower.json,
+                        Gruntfile.js,
+                        package.json
+                    </warSourceExcludes>
                     <webResources>
                         <resource>
                             <filtering>true</filtering>
-                            <directory>src/main/webapp</directory>
+                            <directory>${webapp.base}</directory>
                             <excludes>
                                 <exclude>**/vendor/**</exclude>
+                                <exclude>**/node_modules/**</exclude>
+                                <exclude>**/dist/**</exclude>
+                                <exclude>**/*.eot</exclude>
+                                <exclude>**/*.svg</exclude>
+                                <exclude>**/*.ttf</exclude>
+                                <exclude>**/*.woff</exclude>
+                                <exclude>**/*.woff2</exclude>
                             </excludes>
                         </resource>
-                    </webResources>    
+                    </webResources>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
@@ -70,6 +86,7 @@
                             <goal>copy</goal>
                         </goals>
                         <configuration>
+                            <warSourceDirectory>${webapp.base}</warSourceDirectory>
                             <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                             <outputDirectory>${endorsed.dir}</outputDirectory>
                             <silent>true</silent>
@@ -97,7 +114,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <workingDirectory>${webapp.base}</workingDirectory>
+                            <workingDirectory>src/main/webapp</workingDirectory>
                             <executable>bower</executable>
                             <arguments>
                                 <argument>install</argument>
@@ -133,19 +150,6 @@
         </profile>
         <profile>
             <id>homol</id>
-            <build>
-                <defaultGoal>release:prepare release:perform</defaultGoal>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>2.5.3</version>
-                        <configuration>
-                            <tagNameFormat>hml-@{project.version}</tagNameFormat>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
             <properties>
                 <chave.igreja>tst</chave.igreja>
                 <nome.igreja>Pocket Church</nome.igreja>
@@ -154,49 +158,77 @@
         <profile>
             <id>prod</id>
             <build>
-                <defaultGoal>release:prepare release:perform</defaultGoal>
                 <plugins>
-                    <!-- plugin>
+                    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
                         <version>1.4.0</version>
                         <executions>
                             <execution>
-                                <id>grund-prod</id>
+                                <id>bower-install</id>
                                 <phase>prepare-package</phase>
                                 <goals>
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <workingDirectory>${webapp.base}</workingDirectory>
+                                    <workingDirectory>src/main/webapp</workingDirectory>
+                                    <executable>bower</executable>
+                                    <arguments>
+                                        <argument>install</argument>
+                                        <argument>--allow-root</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm-install</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <workingDirectory>src/main/webapp</workingDirectory>
+                                    <executable>npm</executable>
+                                    <arguments>
+                                        <argument>install</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>grunt-prod</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <workingDirectory>src/main/webapp</workingDirectory>
                                     <executable>grunt</executable>
                                     <arguments>
                                         <argument>prod</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
-                            <execution>
-                                <id>grund-cleandist</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <workingDirectory>${webapp.base}</workingDirectory>
-                                    <executable>grunt</executable>
-                                    <arguments>
-                                        <argument>clean:dist</argument>
-                                    </arguments>
-                                </configuration>
-                            </execution>
                         </executions>
-                    </plugin -->
+                    </plugin>
+                </plugins>
+            </build>
+            <properties>
+                <webapp.base>src/main/webapp/dist</webapp.base>
+            </properties>
+        </profile>
+        <profile>
+            <id>deploy</id>
+            <properties>
+                <enviroment>homol</enviroment>
+            </properties>
+            <build>
+                <defaultGoal>release:prepare release:perform</defaultGoal>
+                <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-release-plugin</artifactId>
                         <version>2.5.3</version>
                         <configuration>
-                            <tagNameFormat>prod-@{project.version}</tagNameFormat>
+                            <tagNameFormat>${enviroment}-@{project.version}</tagNameFormat>
                         </configuration>
                     </plugin>
                 </plugins>
