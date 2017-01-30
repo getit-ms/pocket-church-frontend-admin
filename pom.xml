@@ -49,12 +49,12 @@
                 <configuration>
                     <warSourceDirectory>${webapp.base}</warSourceDirectory>
                     <warSourceExcludes>
-                        <exclude>**/node_modules/**</exclude>
-                        <exclude>**/dist/**</exclude>
-                        <exclude>.bowerrc</exclude>
-                        <exclude>bower.json</exclude>
-                        <exclude>Gruntfile.js</exclude>
-                        <exclude>package.json</exclude>
+                        **/node_modules/**,
+                        **/dist/**,
+                        .bowerrc,
+                        bower.json,
+                        Gruntfile.js,
+                        package.json
                     </warSourceExcludes>
                     <webResources>
                         <resource>
