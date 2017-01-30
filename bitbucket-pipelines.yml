@@ -9,6 +9,8 @@ pipelines:
             - apt-get install -y sshpass && apt-get install -y npm && ln -s /usr/bin/nodejs /usr/bin/node
             - npm install --global bower grunt
             - cd src/main/webapp && npm install && cd ../../..
+            - git config --global user.name "$GIT_USER"
+            - git config --global user.email "$GIT_EMAIL"
             - mvn -Pprod -B
     build-homologacao:
       - step:
@@ -17,6 +19,8 @@ pipelines:
             - apt-get install -y sshpass && apt-get install -y npm && ln -s /usr/bin/nodejs /usr/bin/node
             - npm install --global bower grunt
             - cd src/main/webapp && npm install && cd ../../..
+            - git config --global user.name "$GIT_USER"
+            - git config --global user.email "$GIT_EMAIL"
             - mvn -Phomol -B
   tags:
     prod-*:
