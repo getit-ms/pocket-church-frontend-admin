@@ -5,9 +5,8 @@ pipelines:
     prod-*:
       - step:
           script:
-            - git config --global user.name "$GIT_USER"
-            - git config --global user.email "$GIT_EMAIL"
-            - apt-get update && apt-get install -y sshpass && apt-get install -y npm
+            - apt-get update
+            - apt-get install -y sshpass && apt-get install -y npm
             - npm install --global bower
             - echo "*:*:$PGUSER:$PGPASS:calvinista" > ~/.pgpass
             - chmod 600 ~/.pgpass
@@ -24,9 +23,8 @@ pipelines:
     hml-*:
       - step:
           script:
-            - git config --global user.name "$GIT_USER"
-            - git config --global user.email "$GIT_EMAIL"
-            - apt-get update && apt-get install -y sshpass && apt-get install -y npm
+            - apt-get update
+            - apt-get install -y sshpass && apt-get install -y npm
             - npm install --global bower
             - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/calvinista-design" /tmp/calvinista-design
             - cp -Rf /tmp/calvinista-design/tst/admin/* src/main/webapp/
