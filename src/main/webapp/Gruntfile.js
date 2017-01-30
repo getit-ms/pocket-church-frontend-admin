@@ -25,7 +25,6 @@ module.exports = function (grunt) {
                     '!node_modules/**',
                     '!vendor/**',
                     'vendor/**/*.html',
-                    '!vendor/**/fonts/*',
                     '!.bowerrc',
                     '!bower.json',
                     '!Gruntfile.js',

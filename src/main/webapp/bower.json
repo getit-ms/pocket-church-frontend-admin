@@ -1,7 +1,7 @@
 {
-  "name": "calvin-app",
+  "name": "pocket-church-admin",
   "version": "0.0.0",
-  "description": "Calvin",
+  "description": "Pocket Church ADMIN",
   "private": true,
   "license": "private",
   "dependencies": {

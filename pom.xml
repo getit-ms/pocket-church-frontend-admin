@@ -161,7 +161,7 @@
                         <artifactId>maven-war-plugin</artifactId>
                         <version>2.6</version>
                         <configuration>
-                            <warSourceDirectory>${basedir}/src/main/webapp/dist</warSourceDirectory>
+                            <warSourceDirectory>${webapp.base}/dist</warSourceDirectory>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -209,20 +209,6 @@
                                     <executable>grunt</executable>
                                     <arguments>
                                         <argument>prod</argument>
-                                    </arguments>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>grunt-cleandist</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <workingDirectory>${webapp.base}</workingDirectory>
-                                    <executable>grunt</executable>
-                                    <arguments>
-                                        <argument>clean:dist</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
