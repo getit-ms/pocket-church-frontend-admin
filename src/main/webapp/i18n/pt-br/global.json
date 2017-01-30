@@ -76,6 +76,9 @@
         "selecione":"Selecione",
         "confirmacao_exclusao":"Confirmação de Exclusão",
         "caracteres_restantes":"{{quantidade}} caracteres restantes.",
+        "exportar_pdf":"Exportar PDF",
+        "exportar_word":"Exportar Word",
+        "exportar_excel":"Exportar Excel",
         "menu":{
             "MANTER_MINISTERIOS":{
                 "label":"Ministérios",
@@ -568,7 +571,6 @@
             "inscrito":"Inscrito",
             "limite_inscricoes":"Limite de Inscrições",
             "data":"Data",
-            "exportar":"Exportar",
             "status":{
                 "status":"Status",
                 "PENDENTE":"Pendente",
