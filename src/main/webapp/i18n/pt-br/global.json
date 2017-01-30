@@ -327,7 +327,8 @@
         "CONSULTAR_HINARIO":"Hinário",
         "LISTAR_BOLETINS":"Boletins",
         "LISTAR_ESTUDOS":"Estudos",
-        "YOUTUBE":"Vídeos"
+        "YOUTUBE":"Cultos e Vídeos",
+        "BIBLIA":"Bíblia"
     },
     "contato":{
         "contatos":"Contatos da Igreja",
@@ -401,6 +402,7 @@
         "texto":"Texto"
     },
     "notificacao":{
+        "titulo":"Título",
         "mensagem":"Mensagem",
         "notificacoes":"Notificações",
         "ministerios":"Ministérios Alvo",

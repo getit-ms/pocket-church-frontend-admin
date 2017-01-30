@@ -12,7 +12,7 @@
     
         <div class="row">
             <div ng-class="{'col-sm-3':!video.aoVivo,'col-sm-12':video.aoVivo}" ng-repeat="video in videos" >
-                <youtube-video video-id="video.id"></youtube-video>
+                <youtube-video video-id="video.id" ng-if="video.aoVivo"></youtube-video>
                 <a href="https://www.youtube.com/watch?v={{video.id}}" target="_blank" ng-if="!video.aoVivo" >
                     <img src="{{video.thumbnail}}" alt="{{video.titulo}}" width="100%" />
                 </a>
