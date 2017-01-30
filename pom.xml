@@ -47,12 +47,14 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
+                    <warSourceDirectory>${webapp.base}</warSourceDirectory>
                     <webResources>
                         <resource>
                             <filtering>true</filtering>
-                            <directory>src/main/webapp</directory>
+                            <directory>${webapp.base}</directory>
                             <excludes>
                                 <exclude>**/vendor/**</exclude>
+                                <exclude>**/node_modules/**</exclude>
                             </excludes>
                         </resource>
                     </webResources>    
@@ -70,6 +72,7 @@
                             <goal>copy</goal>
                         </goals>
                         <configuration>
+                            <warSourceDirectory>${webapp.base}</warSourceDirectory>
                             <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                             <outputDirectory>${endorsed.dir}</outputDirectory>
                             <silent>true</silent>
@@ -97,7 +100,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <workingDirectory>${webapp.base}</workingDirectory>
+                            <workingDirectory>src/main/webapp</workingDirectory>
                             <executable>bower</executable>
                             <arguments>
                                 <argument>install</argument>
@@ -157,14 +160,6 @@
                 <defaultGoal>release:prepare release:perform</defaultGoal>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>2.6</version>
-                        <configuration>
-                            <warSourceDirectory>${webapp.base}/dist</warSourceDirectory>
-                        </configuration>
-                    </plugin>
-                    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
                         <version>1.4.0</version>
@@ -176,7 +171,7 @@
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <workingDirectory>${webapp.base}</workingDirectory>
+                                    <workingDirectory>src/main/webapp</workingDirectory>
                                     <executable>bower</executable>
                                     <arguments>
                                         <argument>install</argument>
@@ -191,7 +186,7 @@
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <workingDirectory>${webapp.base}</workingDirectory>
+                                    <workingDirectory>src/main/webapp</workingDirectory>
                                     <executable>npm</executable>
                                     <arguments>
                                         <argument>install</argument>
@@ -205,7 +200,7 @@
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <workingDirectory>${webapp.base}</workingDirectory>
+                                    <workingDirectory>src/main/webapp</workingDirectory>
                                     <executable>grunt</executable>
                                     <arguments>
                                         <argument>prod</argument>
@@ -224,6 +219,9 @@
                     </plugin>
                 </plugins>
             </build>
+            <properties>
+                <webapp.base>src/main/webapp/dist</webapp.base>
+            </properties>
         </profile>
     </profiles>
 </project>
