@@ -1,6 +1,23 @@
 image: gafsel/java-postgres-build
 
 pipelines:
+  custom:
+    build-producao:
+      - step:
+          script:
+            - apt-get update
+            - apt-get install -y sshpass && apt-get install -y npm && ln -s /usr/bin/nodejs /usr/bin/node
+            - npm install --global bower grunt
+            - cd src/main/webapp && npm install && cd ../../..
+            - mvn -Pprod -B
+    build-homologacao:
+      - step:
+          script:
+            - apt-get update
+            - apt-get install -y sshpass && apt-get install -y npm && ln -s /usr/bin/nodejs /usr/bin/node
+            - npm install --global bower grunt
+            - cd src/main/webapp && npm install && cd ../../..
+            - mvn -Phomol -B
   tags:
     prod-*:
       - step:

@@ -16,7 +16,7 @@
         <build.date>${maven.build.timestamp}</build.date>
         <webapp.base>src/main/webapp</webapp.base>
         <chave.igreja>tst</chave.igreja>
-        <nome.igreja>CALVIN - Igreja Teste</nome.igreja>
+        <nome.igreja>GET IT - Pocket Church</nome.igreja>
     </properties>
 
     <scm>
@@ -55,6 +55,11 @@
                             <excludes>
                                 <exclude>**/vendor/**</exclude>
                                 <exclude>**/node_modules/**</exclude>
+                                <exclude>**.eot</exclude>
+                                <exclude>**.svg</exclude>
+                                <exclude>**.ttf</exclude>
+                                <exclude>**.woff</exclude>
+                                <exclude>**.woff2</exclude>
                             </excludes>
                         </resource>
                     </webResources>    
