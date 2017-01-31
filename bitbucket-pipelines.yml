@@ -1,4 +1,4 @@
-image: maven:3.3.3
+image: gafsel/java-postgres-build
 
 pipelines:
   tags:
