@@ -49,8 +49,8 @@
                 <configuration>
                     <warSourceDirectory>${webapp.base}</warSourceDirectory>
                     <warSourceExcludes>
-                        **/node_modules/**,
-                        **/dist/**,
+                        **/webapp/node_modules/**,
+                        **/webapp/dist/**,
                         .bowerrc,
                         bower.json,
                         Gruntfile.js,
@@ -63,7 +63,7 @@
                             <excludes>
                                 <exclude>**/vendor/**</exclude>
                                 <exclude>**/node_modules/**</exclude>
-                                <exclude>**/dist/**</exclude>
+                                <exclude>**/webapp/dist/**</exclude>
                                 <exclude>**/*.eot</exclude>
                                 <exclude>**/*.svg</exclude>
                                 <exclude>**/*.ttf</exclude>
