@@ -1,11 +1,50 @@
 <div>
     <div class="col-sm-12">
-        <button class="btn btn-default pull-right" ng-disabled='inProgress' ng-click="vincularConta()">
+        <button class="btn btn-default pull-right" 
+                ng-disabled='inProgress' 
+                ng-click="vincularConta()"
+                ng-if="!youtube.configurado">
             {{'youtube.vincular_conta' | translate}}
         </button>
         
         {{'youtube.mensagem_youtube' | translate}}
     </div>
+    
+    <form id='formulario_youtube' name='formulario_youtube' ng-if="youtube.configurado"
+          ng-submit="salvar(this.formulario_youtube)" novalidate>
+        <div class="col-sm-6">
+            <div field-form-group='formulario_youtube.tituloAoVivo'>
+                <field-label value='youtube.titulo_ao_vivo' required="false" for='formulario_youtube.tituloAoVivo'></field-label>
+                <input type="text" name='tituloAoVivo' ng-model="youtube.tituloAoVivo" class="form-control" maxlength="30" />
+                <field-message field='formulario_youtube.tituloAoVivo'></field-message>
+            </div>
+            <div field-form-group='formulario_youtube.textoAoVivo'>
+                <field-label value='youtube.texto_ao_vivo' required="false" for='formulario_youtube.textoAoVivo'></field-label>
+                <textarea rows='5' type="text" name='textoAoVivo' ng-model="youtube.textoAoVivo" class="form-control" maxlength="150" ></textarea>
+                <field-message field='formulario_youtube.textoAoVivo'></field-message>
+                <span>{{'global.caracteres_restantes' | translate:{quantidade:150-youtube.textoAoVivo.length} }}</span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div field-form-group='formulario_youtube.tituloAgendado'>
+                <field-label value='youtube.titulo_agendado' required="false" for='formulario_youtube.tituloAgendado'></field-label>
+                <input type="text" name='tituloAgendado' ng-model="youtube.tituloAgendado" class="form-control" maxlength="30" />
+                <field-message field='formulario_youtube.tituloAgendado'></field-message>
+            </div>
+            <div field-form-group='formulario_youtube.textoAgendado'>
+                <field-label value='youtube.texto_agendado' required="false" for='formulario_youtube.textoAgendado'></field-label>
+                <textarea rows='5' type="text" name='textoAgendado' ng-model="youtube.textoAgendado" class="form-control" maxlength="150" ></textarea>
+                <field-message field='formulario_youtube.textoAgendado'></field-message>
+                <span>{{'global.caracteres_restantes' | translate:{quantidade:150-youtube.textoAgendado.length} }}</span>
+            </div>
+        </div>
+        <div class="col-sm-12 comandos">
+            <hr/>
+            <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+            <a class="btn btn-default" ng-disabled='inProgress' ng-click="carrega()" >{{'global.cancelar' | translate}}</a>
+        </div>
+        
+    </form>
     
     <div class="col-sm-12" ng-if="videos.length">
         <hr/>

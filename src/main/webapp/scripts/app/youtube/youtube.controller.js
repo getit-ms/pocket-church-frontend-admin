@@ -23,6 +23,18 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             location.href = response.url;
                         });
                     };
+                    
+                    $scope.salvar = function(form){
+                        if (form.$invalid){
+                            message({type:'error',body:'mensagens.MSG-002'});
+                            return;
+                        }
+                        
+                        youtubeService.salva($scope.youtube, function(configuracao){
+                            message({type:'success',body:'mensagens.MSG-001'});
+                            $scope.carrega();
+                        });
+                    };
 
                     if ($stateParams.code){
                         youtubeService.inicia($stateParams.code, function(){
