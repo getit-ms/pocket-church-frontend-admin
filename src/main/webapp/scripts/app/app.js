@@ -111,6 +111,7 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
         'MANTER_MEMBROS',
         'GERENCIAR_ACESSO_MEMBROS',
         'MANTER_BOLETINS',
+        'MANTER_PLANOS_LEITURA_BIBLICA',
         'MANTER_CIFRAS',
         'MANTER_ESTUDOS',
         'MANTER_VOTACOES',
