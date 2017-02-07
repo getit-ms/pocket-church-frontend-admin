@@ -190,7 +190,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             }
         
             agendaService.cadastraHorario($scope.agenda.id, $scope.horario, function(){
-                $scope.callback();
+                if ($scope.callback){
+                    $scope.callback();
+                }
                 $scope.clear();
             });
         };
