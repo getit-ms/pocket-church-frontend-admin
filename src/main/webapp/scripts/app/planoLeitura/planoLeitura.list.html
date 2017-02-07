@@ -1,5 +1,9 @@
 <div>
     <form name="busca_plano_leitura_form" ng-submit="busca()" novalidate>
+        <div class="col-sm-12" field-form-group="busca_plano_leitura_form.descricao">
+            <field-label for='descricao' required='false' value='plano_leitura.descricao' ></field-label>
+            <input name='descricao' class="form-control" ng-model="filtro.descricao" />
+        </div>
         <div class="col-sm-6" field-form-group="busca_plano_leitura_form.data_inicio">
             <field-label for='data_inicio' required='false' value='plano_leitura.data_inicio' ></field-label>
             <calvin-datepicker date-pattern="{{'config.pattern.input.date' | translate}}" name="data_inicio" 
@@ -9,10 +13,6 @@
             <field-label for='data_termino' required='false' value='plano_leitura.data_termino' ></field-label>
             <calvin-datepicker date-pattern="{{'config.pattern.input.date' | translate}}" name="data_termino" 
                                ng-model="filtro.dataTermino"  type="date" min-view='day' ></calvin-datepicker>
-        </div>
-        <div class="col-sm-6" field-form-group="busca_plano_leitura_form.descricao">
-            <field-label for='descricao' required='false' value='plano_leitura.descricao' ></field-label>
-            <input name='descricao' class="form-control" ng-model="filtro.descricao" />
         </div>
         <div class="col-sm-12 comandos">
             <hr/>

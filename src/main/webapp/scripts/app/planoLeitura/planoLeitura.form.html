@@ -20,9 +20,10 @@
     </div>
     <div class="col-md-12">
         <br/>
-        <uib-tabset>
+        <uib-tabset class="nav-pills">
             <uib-tab heading="{{ano}}" ng-repeat="(ano, meses) in agrupamento">
-                <uib-tabset>
+                <hr/>
+                <uib-tabset class="nav-pills">
                     <uib-tab heading="{{'plano_leitura.mes.' + mes | translate}}"
                              ng-repeat="(mes, dias) in meses">
                         <table class="table table-stripped">

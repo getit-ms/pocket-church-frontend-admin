@@ -4,9 +4,17 @@
                 ng-disabled='inProgress' 
                 ng-click="vincularConta()"
                 ng-if="!youtube.configurado">
+            <i class="fa fa-link"></i>
             {{'youtube.vincular_conta' | translate}}
         </button>
-        
+        <button class="btn btn-default pull-right"
+                ng-disabled='inProgress'
+                ng-click="desvincularConta()"
+                ng-if="youtube.configurado">
+            <i class="fa fa-remove"></i>
+            {{'youtube.desativar_integracao' | translate}}
+        </button>
+
         {{'youtube.mensagem_youtube' | translate}}
     </div>
     

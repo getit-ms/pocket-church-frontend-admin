@@ -12,7 +12,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/youtube/youtube.form.html',
-                controller: function(youtubeService, message, $scope, $stateParams){
+                controller: function(youtubeService, message, $scope, $stateParams, confirmDialog){
                     $scope.carrega = function(){
                         $scope.youtube = youtubeService.configuracao();
                         $scope.videos = youtubeService.busca();
@@ -23,7 +23,21 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             location.href = response.url;
                         });
                     };
-                    
+
+                    $scope.desvincularConta = function(){
+                        confirmDialog({
+                            title:'youtube.desativar_integracao',
+                            text:'mensagens.MSG-047',
+                            ok:'global.sim',
+                            cancel:'global.nao'
+                        }).then(function(){
+                            youtubeService.disable(function(){
+                                message({type:'success',body:'mensagens.MSG-001'});
+                                $scope.carrega();
+                            });
+                        });
+                    };
+
                     $scope.salvar = function(form){
                         if (form.$invalid){
                             message({type:'error',body:'mensagens.MSG-002'});
