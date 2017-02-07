@@ -5,11 +5,11 @@
     </div>
     <div class="col-md-6" >
         <label translate>plano_leitura.data_inicio</label>
-        <div class="form-control">{{planoLeitura.dataInicio | ('config.pattern.output.date' | translate)}}</div>
+        <div class="form-control">{{planoLeitura.dataInicio | translate:('config.pattern.output.date' | translate)}}</div>
     </div>
     <div class="col-md-6" >
         <label translate>plano_leitura.data_inicio</label>
-        <div class="form-control">{{planoLeitura.dataTermino | ('config.pattern.output.date' | translate)}}</div>
+        <div class="form-control">{{planoLeitura.dataTermino | translate:('config.pattern.output.date' | translate)}}</div>
     </div>
     <div class="col-md-12">
         <br/>
