@@ -3,14 +3,14 @@
         <button class="btn btn-default pull-right" 
                 ng-disabled='inProgress' 
                 ng-click="vincularConta()"
-                ng-if="!youtube.configurado">
+                ng-show="!youtube.configurado">
             <i class="fa fa-link"></i>
             {{'youtube.vincular_conta' | translate}}
         </button>
         <button class="btn btn-default pull-right"
                 ng-disabled='inProgress'
                 ng-click="desvincularConta()"
-                ng-if="youtube.configurado">
+                ng-show="youtube.configurado">
             <i class="fa fa-remove"></i>
             {{'youtube.desativar_integracao' | translate}}
         </button>
@@ -18,7 +18,7 @@
         {{'youtube.mensagem_youtube' | translate}}
     </div>
     
-    <form id='formulario_youtube' name='formulario_youtube' ng-if="youtube.configurado"
+    <form id='formulario_youtube' name='formulario_youtube' ng-show="youtube.configurado"
           ng-submit="salvar(this.formulario_youtube)" novalidate>
         <div class="col-sm-6">
             <div field-form-group='formulario_youtube.tituloAoVivo'>
@@ -54,7 +54,7 @@
         
     </form>
     
-    <div class="col-sm-12" ng-if="videos.length">
+    <div class="col-sm-12" ng-show="videos.length">
         <hr/>
     
         <div class="row">
