@@ -3,12 +3,12 @@ calvinApp.service('youtubeService', ['Restangular', function(Restangular){
             return Restangular.all('youtube');
         };
         
-        this.busca = function(){
-            return this.api().getList().$object;
+        this.busca = function(callback){
+            this.api().getList().then(callback);
         };
         
-        this.configuracao = function(){
-            return this.api().one('configuracao').get().$object;
+        this.configuracao = function(callback){
+            this.api().one('configuracao').get().then(callback);
         };
         
         this.url = function(callback){
