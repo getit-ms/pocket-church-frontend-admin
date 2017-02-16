@@ -143,7 +143,7 @@
             "MANTER_EBD":{
                 "label":"EBD",
                 "state":"ebd",
-                "icon":"file-text-o"
+                "icon":"mortar-board"
             },
             "MANTER_VERSICULOS_DIARIOS":{
                 "label":"Versículos Diários",
@@ -168,7 +168,7 @@
             "MANTER_PLANOS_LEITURA_BIBLICA":{
                 "label":"Leitura Bíblica",
                 "state":"planoLeitura",
-                "icon":"book"
+                "icon":"calendar-check-o"
             },
             "GERENCIAR_ACESSO_MEMBROS":{
                 "label":"Acesso de Membros",
