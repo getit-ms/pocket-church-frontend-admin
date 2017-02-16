@@ -1,10 +1,43 @@
 <div>
-    <div class="col-md-6">
-        <label translate>plano_leitura.nome</label>
-        <div class="form-control" >{{planoLeitura.descricao}}</div>
+    <div class="col-md-12" >
+        <label translate>plano_leitura.descricao</label>
+        {{planoLeitura.descricao}}
+    </div>
+    <div class="col-md-6" >
+        <label translate>plano_leitura.data_inicio</label>
+        <div class="form-control">{{planoLeitura.dataInicio | translate:('config.pattern.output.date' | translate)}}</div>
+    </div>
+    <div class="col-md-6" >
+        <label translate>plano_leitura.data_inicio</label>
+        <div class="form-control">{{planoLeitura.dataTermino | translate:('config.pattern.output.date' | translate)}}</div>
+    </div>
+    <div class="col-md-12">
+        <br/>
+        <uib-tabset class="nav-pills">
+            <uib-tab heading="{{ano}}" ng-repeat="(ano, meses) in agrupamento">
+                <hr/>
+                <uib-tabset class="nav-pills">
+                    <uib-tab heading="{{'plano_leitura.mes.' + mes | translate}}"
+                             ng-repeat="(mes, dias) in meses">
+                        <table class="table table-stripped">
+                            <tr>
+                                <th class="col-sm-1 text-right" translate>plano_leitura.dia</th>
+                                <th translate>plano_leitura.descricao</th>
+                            </tr>
+                            <tr ng-repeat="dia in dias">
+                                <th class="col-sm-1 text-right">{{dia.data.getDate()}}</th>
+                                <td>
+                                    {[dia.descricao}}
+                                </td>
+                            </tr>
+                        </table>
+                    </uib-tab>
+                </uib-tabset>
+            </uib-tab>
+        </uib-tabset>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>
-        <a class="btn btn-default" ng-disabled='inProgress'  ui-sref="planoLeitura">{{'global.voltar' | translate}}</a>
+        <a class="btn btn-default" ng-disabled='inProgress'  ui-sref="planoLeitura">{{'global.cancelar' | translate}}</a>
     </div>
-<form>
+    <div>

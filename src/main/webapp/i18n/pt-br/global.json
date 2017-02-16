@@ -237,6 +237,7 @@
         "MSG-044":"O usuário optou por não disponibilizar os dados dele.",
         "MSG-045":"Deseja realmente cancelar a inscrição de {{inscrito}}?",
         "MSG-046":"Houve um problema ao tentar conectar com o YouTube. Tente novamente e se o problema persistir conecte o administrador do sistema.",
+        "MSG-047":"Desjea realmente desativar a integração com o YouTube?",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -642,7 +643,12 @@
     "youtube":{
         "vincular_conta":"Vincular Conta",
         "mensagem_youtube":"O vínculo da conta é feito através de permissões para leitura dos dados do canal da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
-        "configuracoes":"Configurações YouTube"
+        "configuracoes":"Configurações YouTube",
+        "titulo_ao_vivo":"Título do Push de Vídeos Ao Vivo",
+        "texto_ao_vivo":"Texto do Push de Vídeos Ao Vivo",
+        "titulo_agendado":"Título do Push de Vídeos Agendados",
+        "texto_agendado":"Texto do Push de Vídeos Agendados",
+        "desativar_integracao":"Desativar Integração"
     },
     "plano_leitura":{
         "data_inicio":"Data de Início",
@@ -651,6 +657,7 @@
         "dia":"Dia",
         "descricao":"Descrição",
         "cadastrar":"Cadastrar Plano de Leitura Bíblica",
+        "editar":"Editar Plano de Leitura Bíblica",
         "mes":{
             "0":"Jan",
             "1":"Fev",
