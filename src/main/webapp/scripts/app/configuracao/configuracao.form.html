@@ -71,6 +71,11 @@
         <input type="text" name='tituloVersiculoDiario' ng-model="configuracao.tituloVersiculoDiario" class="form-control" maxlength="30" />
         <field-message field='formulario_configuracao.tituloVersiculoDiario'></field-message>
     </div>
+    <div class="col-sm-6" field-form-group='formulario_configuracao.tituloLembreteLeituraBiblica'>
+        <field-label value='configuracao.titulo_lembrete_leitura_biblica' required="false" for='formulario_configuracao.tituloLembreteLeituraBiblica'></field-label>
+        <input type="text" name='tituloLembreteLeituraBiblica' ng-model="configuracao.tituloLembreteLeituraBiblica" class="form-control" maxlength="30" />
+        <field-message field='formulario_configuracao.tituloLembreteLeituraBiblica'></field-message>
+    </div>
     <div class="col-sm-12 comandos">
         <hr/>
         <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
