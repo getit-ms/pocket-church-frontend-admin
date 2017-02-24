@@ -1,15 +1,15 @@
 <div>
     <div class="col-md-12" >
         <label translate>plano_leitura.descricao</label>
-        {{planoLeitura.descricao}}
+        <div class="form-control">{{planoLeitura.descricao}}</div>
     </div>
     <div class="col-md-6" >
         <label translate>plano_leitura.data_inicio</label>
-        <div class="form-control">{{planoLeitura.dataInicio | translate:('config.pattern.output.date' | translate)}}</div>
+        <div class="form-control">{{planoLeitura.dataInicio | date('config.pattern.output.date' | translate)}}</div>
     </div>
     <div class="col-md-6" >
         <label translate>plano_leitura.data_inicio</label>
-        <div class="form-control">{{planoLeitura.dataTermino | translate:('config.pattern.output.date' | translate)}}</div>
+        <div class="form-control">{{planoLeitura.dataTermino | date('config.pattern.output.date' | translate)}}</div>
     </div>
     <div class="col-md-12">
         <br/>
@@ -27,7 +27,7 @@
                             <tr ng-repeat="dia in dias">
                                 <th class="col-sm-1 text-right">{{dia.data.getDate()}}</th>
                                 <td>
-                                    {[dia.descricao}}
+                                    {{dia.descricao}}
                                 </td>
                             </tr>
                         </table>
