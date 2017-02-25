@@ -14,7 +14,17 @@
         <input name='site' ng-model="institucional.site" class="form-control" />
         <field-message field='institucional_form.site' ></field-message>
     </div>
-    <form-endereco ng-model="institucional.endereco" ></form-endereco>
+    <a ng-repeat-start="endereco in institucional.enderecos" 
+       ng-if="institucional.enderecos.length > 1"
+       class="btn btn-default pull-right" ng-click="removeEndereco(endereco)">
+        <i class="fa fa-trash"></i>
+    </a>
+    <form-endereco ng-repeat-end
+                   ng-model="endereco" required="institucional.enderecos.length > 1" ></form-endereco>
+    <div class="col-sm-12 text-right">
+        <a href="" ng-click="addEndereco()"
+           class="btn btn-default" translate>institucional.adicionar_endereco</a>
+    </div>
     <div class="col-sm-12" field-form-group='institucional_form.telefones'>
         <field-label for='telefones' value='institucional.telefones' required="false"></field-label>
         <input-telefones name='telefones' ng-model="institucional.telefones" ></input-telefones>

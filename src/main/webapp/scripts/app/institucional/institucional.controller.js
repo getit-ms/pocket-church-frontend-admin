@@ -17,6 +17,23 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     
                     $scope.carrega = function(){
                         $scope.institucional = institucionalService.carrega();
+                        if (!$scope.institucional.enderecos){
+                            $scope.institucional.enderecos = [];
+                            
+                            if ($scope.institucional.endereco){
+                                $scope.institucional.enderecos.push($scope.institucional.endereco);
+                            }
+                        }
+                    };
+                    
+                    $scope.addEndereco = function(){
+                        $scope.institucional.endereco.push({});
+                    };
+                    
+                    $scope.removeEndereco = function(endereco){
+                        if ($scope.institucional.enderecos.length > 1){
+                            $scope.institucional.enderecos.splice($scope.institucional.enderecos.indexOf(endereco), 1);
+                        }
                     };
                     
                     $scope.redesSociais = [

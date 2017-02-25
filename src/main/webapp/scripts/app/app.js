@@ -164,7 +164,11 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
     }
 }]);
 
-calvinApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
+calvinApp.
+        run(['$translatePartialLoader', function($translatePartialLoader){
+            $translatePartialLoader.addPart('global');
+        }]).
+        config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', '$translateProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, $translateProvider) {
 
         // Configurando interceptor de autenticação
@@ -188,9 +192,6 @@ calvinApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'Rest
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translatePartialLoader', function ($translatePartialLoader) {
-                        $translatePartialLoader.addPart('global');
-                }],
                 mainTranslatePartialLoader: ['$translate', function ($translate){
                         return $translate.refresh();
                 }] 

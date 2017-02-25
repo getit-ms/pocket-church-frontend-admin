@@ -3,7 +3,8 @@ calvinApp.directive('formEndereco', function(){
         restrict: 'E',
         scope:{
             ngModel: '=',
-            readonly: '='
+            readonly: '=',
+            required: '='
         },
         templateUrl: 'scripts/components/form-endereco/form-endereco.html',
         controller: function($scope){
