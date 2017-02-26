@@ -1,24 +1,24 @@
 <div>
-    <div class="col-sm-12">
+    <div class="col-sm-12 form-group">
         <field-label for='site' value='endereco.descricao' required="required"></field-label>
         <input ng-model="ngModel.descricao" ng-if="!readonly" 
                class="form-control" ng-required="required" />
         <div class="form-control" ng-if="readonly">{{ngModel.descricao}}</div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 form-group">
         <field-label for='site' value='endereco.cep' required="required"></field-label>
         <input ng-model="ngModel.cep" ng-if="!readonly" class="form-control" 
                mask="{{'config.mask.cep' | translate}}"
                ng-required="required"/>
         <div class="form-control" ng-if="readonly">{{ngModel.cep | mask:('config.mask.cep' | translate)}}</div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 form-group">
         <field-label for='site' value='endereco.cidade' required="required"></field-label>
         <input ng-model="ngModel.cidade" ng-if="!readonly" 
                class="form-control" ng-required="required" />
         <div class="form-control" ng-if="readonly">{{ngModel.cidade}}</div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 form-group">
         <field-label for='site' value='endereco.uf' required="required"></field-label>
         <select ng-model="ngModel.estado" ng-if="!readonly" ng-required="required" 
                 class="form-control" ng-options='uf for uf in ufs'>

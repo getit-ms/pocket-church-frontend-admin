@@ -267,6 +267,7 @@
     },
     "institucional":{
         "dados_institucionais":"Dados Institucionais",
+        "adicionar_endereco":"Adicionar Endereço",
         "email":"E-mail",
         "site":"Site",
         "telefones":"Telefones",
