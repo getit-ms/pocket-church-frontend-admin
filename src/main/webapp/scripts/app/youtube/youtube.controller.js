@@ -16,10 +16,12 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.carrega = function(){
                         youtubeService.configuracao(function(youtube){
                             $scope.youtube = youtube;
+                            $scope.$apply();
                         });
                         
                         youtubeService.busca(function(videos){
                             $scope.videos = videos;
+                            $scope.$apply();
                         });
                     };
 
@@ -61,13 +63,16 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             code = decodeURIComponent(code);
                         }
 
-                        youtubeService.inicia(code, function(){
-                            message({type:'success',body:'mensagens.MSG-001'});
-                            $scope.carrega(); 
-                        });
-                    }else{
-                        $scope.carrega();
+                        if (!$scope.$parent[code]){
+                            $scope.$parent[code] = true;
+                            youtubeService.inicia(code, function(){
+                                message({type:'success',body:'mensagens.MSG-001'});
+                                $scope.carrega();
+                            });
+                        }
                     }
+
+                    $scope.carrega();
                 }
             }
         }
