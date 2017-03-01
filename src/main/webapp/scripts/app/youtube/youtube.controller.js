@@ -12,19 +12,15 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/youtube/youtube.form.html',
-                controller: function(youtubeService, message, $scope, $stateParams, confirmDialog){
-                    $scope.youtube = {};
-                    $scope.videos = [];
-
+                controller: function(youtubeService, message, $scope, $state, $stateParams, confirmDialog){
                     $scope.carrega = function(){
 
                         youtubeService.configuracao(function(youtube){
-                            angular.extend($scope.youtube,youtube);
+                            $scope.youtube = youtube;
                         });
                         
                         youtubeService.busca(function(videos){
-                            $scope.videos.splice($scope.videos.length);
-                            videos.forEach($scope.videos.push);
+                            $scope.videos = videos;
                         });
                     };
 
@@ -70,7 +66,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             $scope.$parent[code] = true;
                             youtubeService.inicia(code, function(){
                                 message({type:'success',body:'mensagens.MSG-001'});
-                                $scope.carrega();
+                                $state.go('youtube', {}, {reload:true});
                             });
                         }
                     }
