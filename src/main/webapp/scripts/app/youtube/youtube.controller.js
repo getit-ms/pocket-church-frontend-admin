@@ -56,7 +56,12 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     };
 
                     if ($stateParams.code){
-                        youtubeService.inicia($stateParams.code, function(){
+                        var code = $stateParams.code;
+                        if (code.indexOf('%') >= 0){
+                            code = decodeURI(code);
+                        }
+
+                        youtubeService.inicia(code, function(){
                             message({type:'success',body:'mensagens.MSG-001'});
                             $scope.carrega(); 
                         });
