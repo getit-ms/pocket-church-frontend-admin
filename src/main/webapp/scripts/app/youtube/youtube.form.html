@@ -1,5 +1,5 @@
 <div>
-    <div class="col-sm-12">
+    <div>
         <button class="btn btn-default pull-right" 
                 ng-disabled='inProgress' 
                 ng-click="vincularConta()"
@@ -15,7 +15,7 @@
             {{'youtube.desativar_integracao' | translate}}
         </button>
 
-        {{'youtube.mensagem_youtube' | translate}}
+        <span ng-show="!youtube.configurado">{{'youtube.mensagem_youtube' | translate}}</span>
     </div>
     
     <form id='formulario_youtube' name='formulario_youtube' ng-show="youtube.configurado"
