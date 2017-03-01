@@ -58,7 +58,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     if ($stateParams.code){
                         var code = $stateParams.code;
                         if (code.indexOf('%') >= 0){
-                            code = decodeURI(code);
+                            code = decodeURIComponent(code);
                         }
 
                         youtubeService.inicia(code, function(){
