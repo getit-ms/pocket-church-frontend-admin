@@ -29,9 +29,9 @@
             <field-label value="membro.dados_disponiveis" required='false' for="formulario_membro.dados_disponiveis"></field-label>
         </div>
     </div>
-    <form-endereco ng-model="membro.endereco" ></form-endereco>
+    <form-endereco ng-model="membro.endereco" required="false" ></form-endereco>
     <div class="col-sm-12" field-form-group='formulario_membro.telefones'>
-        <field-label value="membro.telefones" required='false' for="formulario_membro.telefones"></field-label>
+        <field-label value="membro.telefones" required='false' for="formulario_membro.telefones" ></field-label>
         <input-telefones name='telefones' ng-model="membro.telefones" name='telefones' ></input-telefones>
         <field-message field='formulario_membro.telefones'></field-message>
     </div>
