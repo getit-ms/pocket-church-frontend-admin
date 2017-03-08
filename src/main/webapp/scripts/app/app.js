@@ -160,7 +160,9 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
     }
     
     if (!$rootScope.institucional){
-        $rootScope.institucional = institucionalService.carrega();
+        institucionalService.carrega(function(institucional){
+            $rootScope.institucional = institucional;
+        });
     }
 }]);
 

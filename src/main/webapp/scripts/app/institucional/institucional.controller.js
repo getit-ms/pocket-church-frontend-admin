@@ -16,16 +16,20 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                     
                     $scope.carrega = function(){
-                        $scope.institucional = institucionalService.carrega();
-                        
-                        if (!$scope.institucional.enderecos){
-                            $scope.institucional.enderecos = [];
-                        }
-                        
-                        if ($scope.institucional.endereco){
-                            $scope.institucional.enderecos.push($scope.institucional.endereco);
+                        institucionalService.carrega(function(institucional){
+                            $scope.institucional = institucional;
+                            
+                            if (!$scope.institucional.enderecos){
+                                $scope.institucional.enderecos = [];
+
+                                if ($scope.institucional.endereco){
+                                    $scope.institucional.enderecos.push($scope.institucional.endereco);
+                                }
+                            }
+
                             $scope.institucional.endereco = undefined;
-                        }
+                        });
+                        
                     };
                     
                     $scope.addEndereco = function(){

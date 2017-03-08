@@ -3,8 +3,8 @@ calvinApp.service('institucionalService', ['Restangular', function(Restangular){
             return Restangular.one('institucional');
         };
         
-        this.carrega = function(){
-            return this.api().get('').$object;
+        this.carrega = function(callback){
+            this.api().get('').then(callback);
         };
         
         this.atualiza = function(institucional, callback){
