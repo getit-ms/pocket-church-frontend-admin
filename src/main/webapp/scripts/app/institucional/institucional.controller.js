@@ -20,13 +20,12 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         
                         if (!$scope.institucional.enderecos){
                             $scope.institucional.enderecos = [];
-                            
-                            if ($scope.institucional.endereco){
-                                $scope.institucional.enderecos.push($scope.institucional.endereco);
-                            }
                         }
                         
-                        $scope.institucional.endereco = null;
+                        if ($scope.institucional.endereco){
+                            $scope.institucional.enderecos.push($scope.institucional.endereco);
+                            $scope.institucional.endereco = undefined;
+                        }
                     };
                     
                     $scope.addEndereco = function(){
