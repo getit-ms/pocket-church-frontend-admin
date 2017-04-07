@@ -13,7 +13,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/ebd/ebd.list.html',
                 controller: function(eventoService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
-                    $scope.filtro = {tipo:'EBD'};
+                    $scope.filtro = {tipo:'EBD',dataTermino:new Date()};
                     
                     $scope.tabelaEBDs = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
