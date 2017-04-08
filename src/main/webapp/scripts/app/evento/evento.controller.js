@@ -13,7 +13,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/evento/evento.list.html',
                 controller: function(eventoService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
-                    $scope.filtro = {tipo:'EVENTO',dataTermino:new Date()};
+                    $scope.filtro = {tipo:'EVENTO'};
                     
                     $scope.tabelaEventos = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
@@ -31,6 +31,10 @@ calvinApp.config(['$stateProvider', function($stateProvider){
 
                     $scope.detalhar = function(evento){
                         $state.go('evento.view', {id: evento.id});
+                    };
+
+                    $scope.copiar = function(evento){
+                        $state.go('evento.copy', {id: evento.id});
                     };
 
                     $scope.editar = function(evento){
@@ -106,9 +110,39 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }],
                 resolve:{
                     evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                        return eventoService.carrega($stateParams.id).$object;
                     }]
                 }
+            }
+        }
+    }).state('evento.copy', {
+        parent: 'evento',
+        url: ':id/copy/',
+        data:{
+            displayName: 'evento.cadastrar'
+        },
+        views:{
+            'content@':{
+                templateUrl: 'scripts/app/evento/evento.form.html',
+                controller: ['eventoService', '$scope', 'message', '$state', '$stateParams', 
+                            function(eventoService, $scope, message, $state, $stateParams){
+                    eventoService.carrega($stateParams.id).then(function(evento){
+                        $scope.evento = evento;
+                        $scope.evento.id = undefined;
+                    });
+
+                    $scope.salvar = function(form){
+                        if (form.$invalid){
+                            message({type:'error',body:'mensagens.MSG-002'});
+                            return;
+                        }
+                        
+                        eventoService.cadastra($scope.evento, function(evento){
+                            message({type:'success',body:'mensagens.MSG-001'});
+                            $state.go('evento');
+                        });
+                    };
+                }]
             }
         }
     }).state('evento.view', {
@@ -125,7 +159,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }],
                 resolve: {
                     evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                        return eventoService.carrega($stateParams.id).$object;
                     }]
                 }
             }
@@ -203,7 +237,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 },
                 resolve:{
                     evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                        return eventoService.carrega($stateParams.id).$object;
                     }]
                 }
             }

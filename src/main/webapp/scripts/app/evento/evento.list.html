@@ -18,7 +18,7 @@
                     <td class='text-center'>
                         {{evento.dataHoraInicio | date : ('config.pattern.output.dateHour' | translate)}} - {{evento.dataHoraTermino | date : ('config.pattern.output.dateHour' | translate)}}
                     </td>
-                    <td class="col-sm-3 text-center">
+                    <td class="col-sm-4 text-center">
                         <a class="btn btn-default" ng-click="detalhar(evento)"
                            title="{{'global.detalhar' | translate}}">
                             <span class="fa fa-search"></span>
@@ -26,6 +26,10 @@
                         <a class="btn btn-default" ng-click="editar(evento)"
                            title="{{'global.editar' | translate}}">
                             <span class="fa fa-pencil-square-o"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="copiar(evento)"
+                           title="{{'global.copiar' | translate}}">
+                            <span class="fa fa-clone"></span>
                         </a>
                         <a class="btn btn-default" ng-click="excluir(evento)"
                            title="{{'global.excluir' | translate}}">

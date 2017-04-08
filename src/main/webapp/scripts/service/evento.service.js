@@ -12,7 +12,7 @@ calvinApp.service('eventoService', ['Restangular', function(Restangular){
         };
         
         this.carrega = function(id){
-            return this.api().get(id).$object;
+            return this.api().get(id);
         };
         
         this.confirmaInscricao = function(id, inscricao, callback){

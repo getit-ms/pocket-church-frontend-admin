@@ -37,6 +37,10 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         $state.go('ebd.edicao', {id: ebd.id});
                     };
 
+                    $scope.copiar = function(ebd){
+                        $state.go('ebd.copy', {id: ebd.id});
+                    };
+
                     $scope.inscritos = function(ebd){
                         $state.go('ebd.inscricoes', {id: ebd.id});
                     };
@@ -106,9 +110,39 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }],
                 resolve:{
                     ebd: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                        return eventoService.carrega($stateParams.id).$object;
                     }]
                 }
+            }
+        }
+    }).state('ebd.copy', {
+        parent: 'ebd',
+        url: ':id/copy/',
+        data:{
+            displayName: 'ebd.cadastrar'
+        },
+        views:{
+            'content@':{
+                templateUrl: 'scripts/app/ebd/ebd.form.html',
+                controller: ['eventoService', '$scope', 'message', '$state', '$stateParams', 
+                            function(eventoService, $scope, message, $state, $stateParams){
+                    eventoService.carrega($stateParams.id).then(function(ebd){
+                        $scope.ebd = ebd;
+                        $scope.ebd.id = undefined;
+                    });
+
+                    $scope.salvar = function(form){
+                        if (form.$invalid){
+                            message({type:'error',body:'mensagens.MSG-002'});
+                            return;
+                        }
+                        
+                        eventoService.cadastra($scope.ebd, function(ebd){
+                            message({type:'success',body:'mensagens.MSG-001'});
+                            $state.go('ebd');
+                        });
+                    };
+                }]
             }
         }
     }).state('ebd.view', {
@@ -125,7 +159,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }],
                 resolve: {
                     ebd: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                        return eventoService.carrega($stateParams.id).$object;
                     }]
                 }
             }
@@ -186,7 +220,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 },
                 resolve:{
                     ebd: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id);
+                        return eventoService.carrega($stateParams.id).$object;
                     }]
                 }
             }
