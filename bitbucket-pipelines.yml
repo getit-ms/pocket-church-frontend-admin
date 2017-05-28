@@ -15,9 +15,9 @@ pipelines:
             - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/calvinista-design" /tmp/calvinista-design
             - mvn clean package
             - cp -R src/main/webapp src/main/webapp-origin
-            - echo '#!/bin/bash\n' > /tmp/deploy.sh
-            - echo 'rm -Rf src/main/webapp\n' > /tmp/deploy.sh
-            - echo 'cp -R src/main/webapp-origin src/main/webapp\n' > /tmp/deploy.sh
+            - echo '#!/bin/bash\n' >> /tmp/deploy.sh
+            - echo 'rm -Rf src/main/webapp\n' >> /tmp/deploy.sh
+            - echo 'cp -R src/main/webapp-origin src/main/webapp\n' >> /tmp/deploy.sh
             - echo 'cp -Rf /tmp/calvinista-design/$1/admin/* src/main/webapp/' >> /tmp/deploy.sh
             - echo 'mvn package -Pprod -Dchave.igreja=$1 -Dnome.igreja="$2" || exit 1\n' >> /tmp/deploy.sh
             - echo 'sshpass -p "$DEPLOY_PASS" scp -o StrictHostKeyChecking=no "target/$1.war" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/" || exit 1\n' >> /tmp/deploy.sh
