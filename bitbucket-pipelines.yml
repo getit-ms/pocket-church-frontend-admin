@@ -15,7 +15,7 @@ pipelines:
             - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/calvinista-design" /tmp/calvinista-design
             - mvn clean package
             - cp -R src/main/webapp src/main/webapp-origin
-            - awk -F'|' '{system("sh /tmp/build_deploy.sh \"" $1 "\" \"" $2 "\"")}' igrejas.txt
+            - awk -F'|' '{system("sh build_deploy.sh \"" $1 "\" \"" $2 "\"")}' igrejas.txt
     hml-*:
       - step:
           script:
