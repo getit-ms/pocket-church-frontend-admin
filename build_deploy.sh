@@ -1,8 +1,9 @@
 #!/bin/bash
 
-rm -Rf src/main/webapp
-cp -R src/main/webapp-origin src/main/webapp
-cp -Rf /tmp/calvinista-design/$1/admin/* src/main/webapp/
+git checkout -f . || exit 1
+git clean -fd || exit 1
+
+cp -Rf /tmp/calvinista-design/$1/admin/* src/main/webapp/ || exit 1
 
 mvn package -Pprod -Dchave.igreja=$1 -Dnome.igreja="$2" || exit 1
 
