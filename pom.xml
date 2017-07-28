@@ -4,7 +4,7 @@
 
     <groupId>br.gafs.getit.calvinista</groupId>
     <artifactId>calvinista-web-admin</artifactId>
-    <version>3.2.6-SNAPSHOT</version>
+    <version>3.2.7-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>calvinista-frontend-admin</name>
