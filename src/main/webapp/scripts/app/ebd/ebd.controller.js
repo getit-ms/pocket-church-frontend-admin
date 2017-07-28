@@ -14,7 +14,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 templateUrl: 'scripts/app/ebd/ebd.list.html',
                 controller: function(eventoService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
                     $scope.filtro = {tipo:'EBD',dataTermino:new Date()};
-                    
+
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
+
                     $scope.tabelaEBDs = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
                         $scope.filtro.total = params.parameters().count;
@@ -172,7 +174,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         parent: 'ebd',
         url: ':id/inscricao/',
         data:{
-            displayName: 'ebd.inscricao'
+            displayName: 'ebd.inscricao.inscricao'
         },
         views:{
             'content@':{

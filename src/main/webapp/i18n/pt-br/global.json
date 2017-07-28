@@ -569,6 +569,7 @@
         "nome":"Nome",
         "evento":"Eventos",
         "eventos":"Eventos",
+        "exportar_inscritos":"Exportar Inscritos",
         "status":{
             "status":"Situação",
             "EM_EDICAO":"Em Edição",
@@ -604,6 +605,7 @@
         "dataHora":"Data/Hora",
         "nome":"Nome",
         "ebd":"Curso",
+        "exportar_inscritos":"Exportar Inscritos",
         "ebds":"Escola Bíblica Dominical",
         "status":{
             "status":"Situação",

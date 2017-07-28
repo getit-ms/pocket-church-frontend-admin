@@ -14,7 +14,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 templateUrl: 'scripts/app/evento/evento.list.html',
                 controller: function(eventoService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
                     $scope.filtro = {tipo:'EVENTO'};
-                    
+
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
+
                     $scope.tabelaEventos = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
                         $scope.filtro.total = params.parameters().count;
@@ -172,7 +174,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         parent: 'evento',
         url: ':id/inscricao/',
         data:{
-            displayName: 'evento.inscricao'
+            displayName: 'evento.inscricao.inscricao'
         },
         views:{
             'content@':{
