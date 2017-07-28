@@ -194,7 +194,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
 
                         eventoService.inscricao($scope.evento.id, [$scope.inscricao], function(){
                             message({type:'success',body:'mensagens.MSG-001'});
-                            $state.go('evento');
+                            $scope.busca();
+                            $scope.inscricao = {};
                         });
                     };
 
