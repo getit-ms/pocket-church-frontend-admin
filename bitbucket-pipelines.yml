@@ -7,7 +7,7 @@ pipelines:
           script:
             - apt-get update
             - apt-get install -y sshpass npm && ln -s /usr/bin/nodejs /usr/bin/node
-            - npm install --global bower grunt
+            - npm install --global bower@1.6.5 grunt@1.2.0
             - cd src/main/webapp && npm install && cd ../../..
             - echo "*:*:$PGUSER:$PGPASS:calvinista" > ~/.pgpass
             - chmod 600 ~/.pgpass
