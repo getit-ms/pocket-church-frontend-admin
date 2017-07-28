@@ -36,10 +36,14 @@
                             <span class="fa fa-trash"></span>
                         </a>
                     </td>
-                    <td class="col-sm-1 text-center">
+                    <td class="col-sm-2 text-center">
                         <a class="btn btn-default" ng-click="inscritos(ebd)"
                            title="{{'ebd.inscricao.inscricao' | translate}}">
                             <span class="fa fa-list"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="inscricao(ebd)"
+                           title="{{'evento.inscricao.inscricao' | translate}}">
+                            <span class="fa fa-user-plus"></span>
                         </a>
                     </td>
                 </tr>
@@ -50,6 +54,11 @@
         <hr/>
         <a class="btn btn-default" ui-sref="ebd.cadastro">
             {{'ebd.cadastrar' | translate}}
+        </a>
+        <a class="btn btn-default pull-right" target="_blank"
+           href="/app/rest/ebd/inscricoes/EBD.xls?{{headers}}">
+            <i class="fa fa-lg fa-file-excel-o" ></i>
+            {{'ebd.exportar_inscricoes' | translate}}
         </a>
     </div>
 </div>

@@ -45,6 +45,10 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         $state.go('ebd.inscricoes', {id: ebd.id});
                     };
 
+                    $scope.inscricao = function(ebd){
+                        $state.go('ebd.inscricao', {id: ebd.id});
+                    };
+
                     $scope.excluir = function(ebd){
                         confirmExclusao('ebd', ebd.nome, function(){
                             eventoService.remove(ebd.id, function(ebd){
@@ -159,6 +163,40 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }],
                 resolve: {
                     ebd: ['eventoService', '$stateParams', function(eventoService, $stateParams){
+                        return eventoService.carrega($stateParams.id).$object;
+                    }]
+                }
+            }
+        }
+    }).state('ebd.inscricao', {
+        parent: 'ebd',
+        url: ':id/inscricao/',
+        data:{
+            displayName: 'ebd.inscricao'
+        },
+        views:{
+            'content@':{
+                templateUrl: 'scripts/app/ebd/inscricao.form.html',
+                controller: ['$scope', 'ebd', 'eventoService', 'message', '$state',
+                    function($scope, ebd, evetoService, message, $state){
+                        $scope.ebd = ebd;
+
+                        $scope.inscricao = {};
+
+                        $scope.submeter = function(form) {
+                            if (form.$invalid){
+                                message({type:'error',body:'mensagens.MSG-002'});
+                                return;
+                            }
+
+                            evetoService.inscricao($scope.ebd.id, [$scope.inscricao], function(){
+                                message({type:'success',body:'mensagens.MSG-001'});
+                                $state.go('evento');
+                            });
+                        }
+                    }],
+                resolve: {
+                    evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
                         return eventoService.carrega($stateParams.id).$object;
                     }]
                 }

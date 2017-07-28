@@ -45,6 +45,10 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         $state.go('evento.inscricoes', {id: evento.id});
                     };
 
+                    $scope.inscricao = function(evento){
+                        $state.go('evento.inscricao', {id: evento.id});
+                    };
+
                     $scope.excluir = function(evento){
                         confirmExclusao('evento', evento.nome, function(){
                             eventoService.remove(evento.id, function(evento){
@@ -156,6 +160,40 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 templateUrl: 'scripts/app/evento/evento.detail.html',
                 controller: ['$scope', 'evento', function($scope, evento){
                     $scope.evento = evento;
+                }],
+                resolve: {
+                    evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
+                        return eventoService.carrega($stateParams.id).$object;
+                    }]
+                }
+            }
+        }
+    }).state('evento.inscricao', {
+        parent: 'evento',
+        url: ':id/inscricao/',
+        data:{
+            displayName: 'evento.inscricao'
+        },
+        views:{
+            'content@':{
+                templateUrl: 'scripts/app/evento/inscricao.form.html',
+                controller: ['$scope', 'evento', 'eventoService', 'message', '$state',
+                                function($scope, evento, evetoService, message, $state){
+                    $scope.evento = evento;
+
+                    $scope.inscricao = {}
+
+                    $scope.submeter = function(form) {
+                        if (form.$invalid){
+                            message({type:'error',body:'mensagens.MSG-002'});
+                            return;
+                        }
+
+                        evetoService.inscricao($scope.evento.id, [$scope.inscricao], function(){
+                            message({type:'success',body:'mensagens.MSG-001'});
+                            $state.go('evento');
+                        });
+                    }
                 }],
                 resolve: {
                     evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
