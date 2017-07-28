@@ -4,11 +4,6 @@
             <label translate>evento.nome</label>
             <div class="form-control"  >{{evento.nome}}</div>
         </div>
-        <div class="col-sm-12">
-            <label translate>evento.descricao</label>
-            <field-label value="" for="formulario_inscricao.descricao" ></field-label>
-            <div class="form-control" style="height:200px;overflow:scroll">{{evento.descricao}}</div>
-        </div>
         <div class="col-sm-6" >
             <label translate>evento.dataHoraInicio</label>
             <div class="form-control" >{{evento.dataHoraInicio | date : ('config.pattern.output.dateHour' | translate)}}</div>

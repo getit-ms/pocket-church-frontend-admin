@@ -4,11 +4,6 @@
             <label translate>ebd.nome</label>
             <div class="form-control"  >{{ebd.nome}}</div>
         </div>
-        <div class="col-sm-12">
-            <label translate>ebd.descricao</label>
-            <field-label value="" for="formulario_inscricao.descricao" ></field-label>
-            <div class="form-control" style="height:200px;overflow:scroll">{{ebd.descricao}}</div>
-        </div>
         <div class="col-sm-6" >
             <label translate>ebd.dataHoraInicio</label>
             <div class="form-control" >{{ebd.dataHoraInicio | date : ('config.pattern.output.dateHour' | translate)}}</div>
