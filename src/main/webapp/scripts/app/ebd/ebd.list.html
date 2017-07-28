@@ -41,10 +41,11 @@
                            title="{{'ebd.inscricao.inscricao' | translate}}">
                             <span class="fa fa-list"></span>
                         </a>
-                        <a class="btn btn-default" ng-click="inscricao(ebd)"
-                           title="{{'evento.inscricao.inscricao' | translate}}">
+                        <button class="btn btn-default" ng-click="inscricao(ebd)"
+                                disabled="{{!ebd.inscricoesAbertas}}"
+                                title="{{'evento.inscricao.inscricao' | translate}}">
                             <span class="fa fa-user-plus"></span>
-                        </a>
+                        </button>
                     </td>
                 </tr>
             </tbody>

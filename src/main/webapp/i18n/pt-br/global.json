@@ -228,6 +228,7 @@
         "MSG-025":"E-mail já cadastrado",
         "MSG-026":"Período inválido",
         "MSG-027":"A inscrição deve ser encerrada antes do término do evento.",
+        "MSG-028":"As inscrições para esse evento foram encerradas.",
         "MSG-030":"A Confirmação da Senha não confere com a Nova Senha.",
         "MSG-031":"Senha alterada com sucesso! Realize o login com sua nova senha.",
         "MSG-036":"Existe(m) {{quantidade}} pedido(s) de oração não atendido(s). Acesse a funcionalidade \"Pedidos de Oração\" para continuar.",
