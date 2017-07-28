@@ -574,6 +574,7 @@
         "nome_inscrito":"Nome do Inscrito",
         "email_inscrito":"E-mail do Inscrito",
         "telefone_inscrito":"Telefone do Inscrito",
+        "nova_inscricao":"Nova Inscrição",
         "status":{
             "status":"Situação",
             "EM_EDICAO":"Em Edição",
@@ -614,6 +615,7 @@
         "email_inscrito":"E-mail do Inscrito",
         "telefone_inscrito":"Telefone do Inscrito",
         "ebds":"Escola Bíblica Dominical",
+        "nova_inscricao":"Nova Inscrição",
         "status":{
             "status":"Situação",
             "EM_EDICAO":"Em Edição",

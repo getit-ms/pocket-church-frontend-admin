@@ -182,20 +182,6 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 controller: ['$scope', 'ebd', 'eventoService', 'message', '$state',
                     function($scope, ebd, evetoService, message, $state){
                         $scope.ebd = ebd;
-
-                        $scope.inscricao = {};
-
-                        $scope.submeter = function(form) {
-                            if (form.$invalid){
-                                message({type:'error',body:'mensagens.MSG-002'});
-                                return;
-                            }
-
-                            evetoService.inscricao($scope.ebd.id, [$scope.inscricao], function(){
-                                message({type:'success',body:'mensagens.MSG-001'});
-                                $state.go('evento');
-                            });
-                        }
                     }],
                 resolve: {
                     evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
@@ -217,6 +203,20 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.filtro = {};
 
                     $scope.ebd = ebd;
+
+                    $scope.inscricao = {};
+
+                    $scope.inscrever = function(form) {
+                        if (form.$invalid){
+                            message({type:'error',body:'mensagens.MSG-002'});
+                            return;
+                        }
+
+                        eventoService.inscricao($scope.ebd.id, [$scope.inscricao], function(){
+                            message({type:'success',body:'mensagens.MSG-001'});
+                            $state.go('evento');
+                        });
+                    };
 
                     $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                     

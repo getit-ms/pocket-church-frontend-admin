@@ -170,40 +170,6 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }
             }
         }
-    }).state('evento.inscricao', {
-        parent: 'evento',
-        url: ':id/inscricao/',
-        data:{
-            displayName: 'evento.inscricao.inscricao'
-        },
-        views:{
-            'content@':{
-                templateUrl: 'scripts/app/evento/inscricao.form.html',
-                controller: ['$scope', 'evento', 'eventoService', 'message', '$state',
-                                function($scope, evento, evetoService, message, $state){
-                    $scope.evento = evento;
-
-                    $scope.inscricao = {}
-
-                    $scope.submeter = function(form) {
-                        if (form.$invalid){
-                            message({type:'error',body:'mensagens.MSG-002'});
-                            return;
-                        }
-
-                        evetoService.inscricao($scope.evento.id, [$scope.inscricao], function(){
-                            message({type:'success',body:'mensagens.MSG-001'});
-                            $state.go('evento');
-                        });
-                    }
-                }],
-                resolve: {
-                    evento: ['eventoService', '$stateParams', function(eventoService, $stateParams){
-                        return eventoService.carrega($stateParams.id).$object;
-                    }]
-                }
-            }
-        }
     }).state('evento.inscricoes', {
         parent: 'evento',
         url: ':id/inscricoes/',
@@ -217,6 +183,20 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.filtro = {};
 
                     $scope.evento = evento;
+
+                    $scope.inscricao = {}
+
+                    $scope.inscrever = function(form) {
+                        if (form.$invalid){
+                            message({type:'error',body:'mensagens.MSG-002'});
+                            return;
+                        }
+
+                        eventoService.inscricao($scope.evento.id, [$scope.inscricao], function(){
+                            message({type:'success',body:'mensagens.MSG-001'});
+                            $state.go('evento');
+                        });
+                    };
 
                     $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                     

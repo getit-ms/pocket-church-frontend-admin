@@ -15,6 +15,34 @@
     </div>
     <div class='clearfix'></div>
     <hr/>
+    <form name="formulario_inscricao" novalidate ng-submit="inscrever(this.formulario_inscricao)" ng-if="evento.inscricoesAbertas">
+        <h3 class='col-sm-12'>{{'evento.inscricao.nova_inscricao' | translate}}</h3>
+        <div>
+            <div class="col-sm-4" field-form-group='formulario_inscricao.nomeInscrito'>
+                <field-label value="inscricao.nome_inscrito" for="formulario_inscricao.nomeInscrito" required="true"></field-label>
+                <input name="nomeInscrito" class='form-control' ng-model="inscricao.nomeInscrito" required />
+                <field-message field="formulario_inscricao.nomeInscrito"></field-message>
+            </div>
+            <div class="col-sm-4" field-form-group='formulario_inscricao.emailInscrito'>
+                <field-label value="inscricao.email_inscrito" for="formulario_inscricao.emailInscrito" required="true"></field-label>
+                <input name="emailInscrito" type="email" class='form-control' ng-model="inscricao.emailInscrito" required />
+                <field-message field="formulario_inscricao.emailInscrito"></field-message>
+            </div>
+            <div class="col-sm-4" field-form-group='formulario_inscricao.telefoneInscrito'>
+                <field-label value="inscricao.telefone_inscrito" for="formulario_inscricao.telefoneInscrito" required="true"></field-label>
+                <input name="telefoneInscrito" type="tel" telefone class='form-control' ng-model="inscricao.telefoneInscrito" required />
+                <field-message field="formulario_inscricao.telefoneInscrito"></field-message>
+            </div>
+        </div>
+
+        <div class="col-sm-12 comandos">
+            <hr/>
+            <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+        </div>
+
+        <div class='clearfix'></div>
+        <hr/>
+    </form>
 
     <h2 class='col-sm-12'>
         {{'evento.inscricao' | translate}}
