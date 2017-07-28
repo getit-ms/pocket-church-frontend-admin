@@ -570,6 +570,9 @@
         "evento":"Eventos",
         "eventos":"Eventos",
         "exportar_inscritos":"Exportar Inscritos",
+        "nome_inscrito":"Nome do Inscrito",
+        "email_inscrito":"E-mail do Inscrito",
+        "telefone_inscrito":"Telefone do Inscrito",
         "status":{
             "status":"Situação",
             "EM_EDICAO":"Em Edição",
@@ -606,6 +609,9 @@
         "nome":"Nome",
         "ebd":"Curso",
         "exportar_inscritos":"Exportar Inscritos",
+        "nome_inscrito":"Nome do Inscrito",
+        "email_inscrito":"E-mail do Inscrito",
+        "telefone_inscrito":"Telefone do Inscrito",
         "ebds":"Escola Bíblica Dominical",
         "status":{
             "status":"Situação",
