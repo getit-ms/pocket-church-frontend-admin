@@ -51,7 +51,7 @@
         <a class="btn btn-default" ui-sref="evento.cadastro">
             {{'evento.cadastrar' | translate}}
         </a>
-        <a class="btn btn-default pull-right" target="_blank"
+        <a class="btn btn-default pull-right" target="_blank" ng-if="headers"
            href="/app/rest/evento/inscricoes/EVENTO.xls?{{headers}}">
             <i class="fa fa-lg fa-file-excel-o" ></i>
             {{'evento.exportar_inscritos' | translate}}

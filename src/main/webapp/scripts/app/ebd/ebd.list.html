@@ -51,7 +51,7 @@
         <a class="btn btn-default" ui-sref="ebd.cadastro">
             {{'ebd.cadastrar' | translate}}
         </a>
-        <a class="btn btn-default pull-right" target="_blank"
+        <a class="btn btn-default pull-right" target="_blank" ng-if="headers"
            href="/app/rest/evento/inscricoes/EBD.xls?{{headers}}">
             <i class="fa fa-lg fa-file-excel-o" ></i>
             {{'ebd.exportar_inscritos' | translate}}
