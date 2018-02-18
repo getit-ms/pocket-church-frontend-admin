@@ -137,7 +137,7 @@
                 "icon":"heart"
             },
             "MANTER_AGENDA":{
-                "label":"Agendas",
+                "label":"Aconselhamentos",
                 "state":"agenda",
                 "icon":"calendar"
             },

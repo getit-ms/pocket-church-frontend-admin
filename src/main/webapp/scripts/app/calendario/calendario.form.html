@@ -19,11 +19,9 @@
     </div>
 
     <div class="col-sm-12" ng-if="eventos.eventos.length">
-        <hr/>
-    
-        <div class="row">
+        <div>
             <div ng-repeat="evento in eventos.eventos" >
-                <h2>{{evento.inicio | date:'dd/MM/yyyy HH:mm'}}</h2>
+                <h2>{{evento.inicio | date:'dd/MM/yyyy HH:mm'}} - {{evento.termino | date:'dd/MM/yyyy HH:mm'}}</h2>
                 <p>{{evento.descricao}}</p>
             </div>
         </div>

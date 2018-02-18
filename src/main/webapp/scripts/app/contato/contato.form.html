@@ -30,8 +30,8 @@
         </div>
     </div>
     <div class="col-sm-12" field-form-group="formulario_membro.foto">
-        <field-label value="membro.foto_membro" for="formulario_membro.foto" required="true"></field-label>
-        <input-fileupload name='foto' ng-model="membro.foto" types="['image/jpeg','image/png','image/gif']" required ></input-fileupload>
+        <field-label value="membro.foto_membro" for="formulario_membro.foto" required="false" ></field-label>
+        <input-fileupload name='foto' ng-model="membro.foto" types="['image/jpeg','image/png','image/gif']" ></input-fileupload>
         <field-message field="formulario_membro.foto"></field-message>
     </div>
     <form-endereco ng-model="membro.endereco" required="false" ></form-endereco>

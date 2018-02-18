@@ -110,7 +110,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/estudo/estudo.form.html',
-                controller: function(estudoService, $scope, message, $state, $filter, estudo){
+                controller: function(estudoService, $scope, message, $state, $filter, estudo, modalService){
                     $scope.estudo = estudo;
 
                     $scope.buscaCategorias = function() {

@@ -22,6 +22,11 @@
                                name="dataHoraTermino" ng-model="ebd.dataHoraTermino" required ></calvin-datepicker>
             <field-message field="formulario_ebd.dataHoraTermino"></field-message>
         </div>
+        <div class="col-sm-12" field-form-group="formulario_ebd.banner">
+            <field-label value="membro.banner_membro" for="formulario_ebd.banner" required="false" ></field-label>
+            <input-fileupload name='banner' ng-model="ebd.banner" types="['image/jpeg','image/png','image/gif']" ></input-fileupload>
+            <field-message field="formulario_ebd.banner"></field-message>
+        </div>
     </div>
     <div class='clearfix'></div>
     <hr/>
