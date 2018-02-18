@@ -11,7 +11,15 @@
         <field-label value='estudo.publicacao' for='formulario_estudo.dataPublicacao' required='false'></field-label>
         <div class="form-control">{{estudo.dataPublicacao | date:('config.pattern.output.dateHour' | translate)}}</div>
     </div>
-    <div class="col-sm-12" >
+    <div class="col-sm-6" >
+        <labe translate>estudo.categoria</labe>
+        <div class="form-control">{{estudo.categoria.nome}}</div>
+    </div>
+    <div class="col-md-12" ng-if="estudo.pdf">
+        <label translate>estudo.arquivo_estudo</label>
+        <div class="form-control" ><link-arquivo ng-model="estudo.pdf" ></link-arquivo></div>
+    </div>
+    <div class="col-sm-12" ng-if="!estudo.pdf" >
         <label translate>estudo.texto</label>
         <p class='form-control text' ng-bind-html='estudo.texto'></p>
     </div>

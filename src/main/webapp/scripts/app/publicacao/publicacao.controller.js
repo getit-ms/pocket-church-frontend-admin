@@ -1,9 +1,9 @@
 calvinApp.config(['$stateProvider', function($stateProvider){
-    $stateProvider.state('boletim', {
+    $stateProvider.state('publicacao', {
         parent: 'home',
-        url: 'boletim/',
+        url: 'publicacao/',
         data:{
-            displayName: 'boletim.boletins',
+            displayName: 'publicacao.publicacoes',
             permissions:{
                 only: ['MANTER_BOLETINS'],
                 redirectTo: 'login'
@@ -11,17 +11,17 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/boletim/boletim.list.html',
+                templateUrl: 'scripts/app/publicacao/publicacao.list.html',
                 controller: function(boletimService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
                     $scope.tabelaBoletins = new NgTableParamsCalvin(function($defer, params){
                         boletimService.busca({
                             pagina: params.parameters().page,
                             total: params.parameters().count,
-                            tipo: 'BOLETIM'
-                        }, function(boletins){
-                            $scope.boletins = boletins;
-                            params.total(boletins.totalResultados);
-                            $defer.resolve(boletins.resultados);
+                            tipo: 'PUBLICACAO'
+                        }, function(publicacoes){
+                            $scope.publicacoes = publicacoes;
+                            params.total(publicacoes.totalResultados);
+                            $defer.resolve(publicacoes.resultados);
                         });
                     });
                     
@@ -29,17 +29,17 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         $scope.tabelaBoletins.reload();
                     };
 
-                    $scope.detalhar = function(boletim){
-                        $state.go('boletim.view', {id: boletim.id});
+                    $scope.detalhar = function(publicacao){
+                        $state.go('publicacao.view', {id: publicacao.id});
                     };
 
-                    $scope.editar = function(boletim){
-                        $state.go('boletim.edicao', {id: boletim.id});
+                    $scope.editar = function(publicacao){
+                        $state.go('publicacao.edicao', {id: publicacao.id});
                     };
 
-                    $scope.excluir = function(boletim){
-                        confirmExclusao('boletim', boletim.boletim.nome, function(){
-                            boletimService.remove(boletim.id, function(boletim){
+                    $scope.excluir = function(publicacao){
+                        confirmExclusao('publicacao', publicacao.publicacao.nome, function(){
+                            boletimService.remove(publicacao.id, function(publicacao){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $scope.busca();
                             });
@@ -50,17 +50,17 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 }
             }
         }
-    }).state('boletim.cadastro', {
-        parent: 'boletim',
+    }).state('publicacao.cadastro', {
+        parent: 'publicacao',
         url: 'novo/',
         data:{
-            displayName: 'boletim.cadastrar'
+            displayName: 'publicacao.cadastrar'
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/boletim/boletim.form.html',
+                templateUrl: 'scripts/app/publicacao/publicacao.form.html',
                 controller: function(boletimService, $scope, $state, message){
-                    $scope.boletim = {tipo:'BOLETIM'};
+                    $scope.publicacao = {tipo:'PUBLICACAO'};
                     
                     $scope.salvar = function(form){
                         if (form.$invalid){
@@ -68,25 +68,25 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             return;
                         }
                         
-                        boletimService.cadastra($scope.boletim, function(boletim){
+                        boletimService.cadastra($scope.publicacao, function(publicacao){
                             message({type:'success',body:'mensagens.MSG-001'});
-                            $state.go('boletim');
+                            $state.go('publicacao');
                         });
                     };
                 }
             }
         }
-    }).state('boletim.edicao', {
-        parent: 'boletim',
+    }).state('publicacao.edicao', {
+        parent: 'publicacao',
         url: ':id/',
         data:{
-            displayName: 'boletim.editar'
+            displayName: 'publicacao.editar'
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/boletim/boletim.form.html',
-                controller: function(boletimService, $scope, message, boletim, $state){
-                    $scope.boletim = boletim;
+                templateUrl: 'scripts/app/publicacao/publicacao.form.html',
+                controller: function(boletimService, $scope, message, publicacao, $state){
+                    $scope.publicacao = publicacao;
 
                     $scope.salvar = function(form){
                         if (form.$invalid){
@@ -94,34 +94,34 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             return;
                         }
                         
-                        boletimService.atualiza(this.boletim, function(boletim){
+                        boletimService.atualiza(this.publicacao, function(publicacao){
                             message({type:'success',body:'mensagens.MSG-001'});
-                            $state.go('boletim');
+                            $state.go('publicacao');
                         });
                     };
                 },
                 resolve: {
-                    boletim: function(boletimService, $stateParams){
+                    publicacao: function(boletimService, $stateParams){
                         return boletimService.carrega($stateParams.id);
                     }
                 }
             }
         }
-    }).state('boletim.view', {
-        parent: 'boletim',
+    }).state('publicacao.view', {
+        parent: 'publicacao',
         url: ':id/view/',
         data:{
-            displayName: 'boletim.detalhar'
+            displayName: 'publicacao.detalhar'
         },
         views:{
             'content@':{
-                templateUrl: 'scripts/app/boletim/boletim.detail.html',
-                controller: function(boletim, $scope){
-                    $scope.boletim = boletim;
+                templateUrl: 'scripts/app/publicacao/publicacao.detail.html',
+                controller: function(publicacao, $scope){
+                    $scope.publicacao = publicacao;
                     $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                 },
                 resolve: {
-                    boletim: function(boletimService, $stateParams){
+                    publicacao: function(boletimService, $stateParams){
                         return boletimService.carrega($stateParams.id);
                     }
                 }

@@ -1,0 +1,65 @@
+<div>
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover" ng-table='tabelaBoletins'>
+            <thead>
+                <tr>
+                    <th>{{'publicacao.titulo' | translate}}</th>
+                    <th>{{'publicacao.data_publicacao' | translate}}</th>
+                    <th>{{'publicacao.data_publicacao' | translate}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!publicacoes.resultados.length">
+                    <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
+                </tr>
+                <tr ng-repeat="publicacao in publicacoes.resultados">
+                    <td>{{publicacao.titulo}}</td>
+                    <td class='text-center'>{{publicacao.data | date : ('config.pattern.output.date' | translate)}}</td>
+                    <td class='text-center'>
+                        <label ng-if='publicacao.processando' class='label label-warning'>
+                            <i class='fa fa-refresh '></i>
+                            {{'publicacao.processando' | translate}}
+                            <span ng-if="publicacao.porcentagemProcessamento > 0">
+                                ({{publicacao.porcentagemProcessamento}}%)
+                            </span>
+                        </label>
+                        <label ng-if='publicacao.agendado' class='label label-info'
+                               title="{{'publicacao.agendado' | translate}}">
+                            <i class='fa fa-clock-o'></i>
+                            {{publicacao.dataPublicacao | date : ('config.pattern.output.dateHour' | translate)}}
+                        </label>
+                        <label ng-if='publicacao.publicado' class='label label-success'>
+                            <i class='fa fa-check '></i>
+                            {{'publicacao.publicado' | translate}}
+                        </label>
+                        <label ng-if='publicacao.rejeitado' class='label label-danger'>
+                            <i class='fa fa-exclamation-triangle '></i>
+                            {{'publicacao.rejeitado' | translate}}
+                        </label>
+                    </td>
+                    <td class="col-sm-3 text-center">
+                        <a class="btn btn-default" ng-click="detalhar(publicacao)"
+                           title="{{'global.detalhar' | translate}}">
+                            <span class="fa fa-search"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="editar(publicacao)"
+                           title="{{'global.editar' | translate}}">
+                            <span class="fa fa-pencil-square-o"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="excluir(publicacao)"
+                           title="{{'global.excluir' | translate}}">
+                            <span class="fa fa-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ui-sref="publicacao.cadastro">
+            {{'publicacao.cadastrar' | translate}}
+        </a>
+    </div>
+</div>

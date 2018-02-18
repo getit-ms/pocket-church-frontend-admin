@@ -1,0 +1,31 @@
+<div>
+    <div class="col-sm-12">
+        <button class="btn btn-default pull-right" 
+                ng-disabled='inProgress' 
+                ng-click="vincularConta()"
+                ng-show="!calendario.configurado">
+            <i class="fa fa-link"></i>
+            {{'calendario.vincular_conta' | translate}}
+        </button>
+        <button class="btn btn-default pull-right"
+                ng-disabled='inProgress'
+                ng-click="desvincularConta()"
+                ng-show="calendario.configurado">
+            <i class="fa fa-remove"></i>
+            {{'calendario.desativar_integracao' | translate}}
+        </button>
+
+        <span ng-show="!calendario.configurado">{{'calendario.mensagem_calendario' | translate}}</span>
+    </div>
+
+    <div class="col-sm-12" ng-if="eventos.eventos.length">
+        <hr/>
+    
+        <div class="row">
+            <div ng-repeat="evento in eventos.eventos" >
+                <h2>{{evento.inicio | date:'dd/MM/yyyy HH:mm'}}</h2>
+                <p>{{evento.descricao}}</p>
+            </div>
+        </div>
+    </div>
+</div>

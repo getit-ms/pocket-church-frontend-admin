@@ -59,20 +59,45 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/estudo/estudo.form.html',
-                controller: function(estudoService, message, $scope, $state){
+                controller: function(estudoService, message, $scope, $filter, $state, modalService){
                     $scope.estudo = {autor:$scope.acesso.usuario.nome};
-                    
+
+                    $scope.buscaCategorias = function() {
+                        estudoService.buscaCategorias(function(categorias) {
+                            $scope.categorias = categorias;
+                        });
+                    };
+
+                    $scope.cadastrarCategoria = function() {
+                        $scope.modalInstance = modalService.prepare($scope, {
+                            title: $filter('translate')('estudo.cadastrar_categoria_estudo'),
+                            controller: 'ModalCategoriaEstudo',
+                            templateUrl: 'scripts/app/estudo/modal/categoria.form.html',
+                            freeForm: 'formulario_categoria',
+                            resolve: {
+                                callback: function(){
+                                    return function(){
+                                        message({type:'success',body:'mensagens.MSG-001'});
+                                        $scope.buscaCategorias();
+                                    }
+                                }
+                            }
+                        })();
+                    };
+
                     $scope.salvar = function(form){
                         if (form.$invalid){
                             message({type:'error', body:'mensagens.MSG-002'});
                             return;
                         }
-                        
+
                         estudoService.cadastra($scope.estudo, function(estudo){
                             message({type:'success', body:'mensagens.MSG-001'});
                             $state.go('estudo');
                         });
                     };
+
+                    $scope.buscaCategorias();
                 }
             }
         }
@@ -85,8 +110,31 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/estudo/estudo.form.html',
-                controller: function(estudoService, $scope, message, $state, estudo){
+                controller: function(estudoService, $scope, message, $state, $filter, estudo){
                     $scope.estudo = estudo;
+
+                    $scope.buscaCategorias = function() {
+                        estudoService.buscaCategorias(function(categorias) {
+                            $scope.categorias = categorias;
+                        });
+                    };
+
+                    $scope.cadastrarCategoria = function() {
+                        $scope.modalInstance = modalService.prepare($scope, {
+                            title: $filter('translate')('estudo.cadastrar_categoria_estudo'),
+                            controller: 'ModalCategoriaEstudo',
+                            templateUrl: 'scripts/app/estudo/modal/categoria.form.html',
+                            freeForm: 'formulario_categoria',
+                            resolve: {
+                                callback: function(){
+                                    return function(){
+                                        message({type:'success',body:'mensagens.MSG-001'});
+                                        $scope.buscaCategorias();
+                                    }
+                                }
+                            }
+                        })();
+                    };
 
                     $scope.salvar = function(form){
                         if (form.$invalid){
@@ -99,6 +147,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             $state.go('estudo');
                         });
                     };
+
+                    $scope.buscaCategorias();
                 },
                 resolve: {
                     estudo: function(estudoService, $stateParams){
@@ -127,5 +177,21 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             }
         }
     });         
+}]).controller('ModalCategoriaEstudo', ['$scope', 'estudoService', 'callback', function($scope, estudoService, callback){
+
+    $scope.categoria = {};
+
+    $scope.submitForm = function() {
+        if (!$scope.categoria.nome){
+            message({type:'error', body:'mensagens.MSG-002'});
+            return;
+        }
+
+        estudoService.cadastraCategoria($scope.categoria, function(){
+            callback();
+            $scope.modalInstance.close();
+        });
+    }
+
 }]);
         

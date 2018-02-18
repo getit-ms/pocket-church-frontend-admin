@@ -1,0 +1,22 @@
+<div>
+    <div class="col-sm-12" >
+        <label translate>publicacao.titulo</label>
+        <div class="form-control" >{{publicacao.titulo}}</div>
+    </div>
+    <div class="col-sm-6" >
+        <label translate>publicacao.data_publicacao</label>
+        <div class="form-control" >{{publicacao.data | date:('config.pattern.output.date' | translate)}}</div>
+    </div>
+    <div class="col-sm-6" >
+        <label translate>publicacao.data_publicacao</label>
+        <div class="form-control" >{{publicacao.dataPublicacao | date:('config.pattern.output.dateHour' | translate)}}</div>
+    </div>
+    <div class="col-sm-12" >
+        <label translate>publicacao.publicacao</label>
+        <pdf-viewer pdf-url="/app/rest/arquivo/download/{{publicacao.publicacao.id}}?{{headers}}" ></pdf-viewer>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="publicacao">{{'global.voltar' | translate}}</a>
+    </div>
+</div>

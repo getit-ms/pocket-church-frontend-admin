@@ -23,6 +23,10 @@
         <label translate>membro.dados_disponiveis</label>
         <div class="form-control" >{{(membro.dadosDisponiveis ? 'global.sim' : 'global.nao') | translate}}</div>
     </div>
+    <div class="col-md-12">
+        <label translate>membro.foto_membro</label>
+        <div class="form-control" ><link-arquivo ng-model="membro.foto" ></link-arquivo></div>
+    </div>
     <form-endereco ng-model="membro.endereco" readonly='true' ></form-endereco>
     <div ng-if='membro.telefones.length' class="col-sm-12" >
         <label translate>membro.telefones</label>
@@ -32,4 +36,4 @@
         <hr/>
         <a class="btn btn-default" ng-disabled='inProgress'  ui-sref="contato">{{'global.voltar' | translate}}</a>
     </div>
-<form>
+<div>

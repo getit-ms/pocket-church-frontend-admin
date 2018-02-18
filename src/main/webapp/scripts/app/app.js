@@ -111,6 +111,7 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
         'MANTER_MEMBROS',
         'GERENCIAR_ACESSO_MEMBROS',
         'MANTER_BOLETINS',
+        'MANTER_PUBLICACOES',
         'MANTER_PLANOS_LEITURA_BIBLICA',
         'MANTER_CIFRAS',
         'MANTER_ESTUDOS',
@@ -123,6 +124,7 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
         'MANTER_VERSICULOS_DIARIOS',
         'CONFIGURAR',
         'CONFIGURAR_YOUTUBE',
+        'CONFIGURAR_GOOGLE_CALENDAR',
         'ABERTURA_CHAMADO_SUPORTE'
     ];
     

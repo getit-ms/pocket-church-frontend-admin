@@ -54,5 +54,10 @@
         <a class="btn btn-default" ui-sref="contato.cadastro">
             {{'contato.cadastrar' | translate}}
         </a>
+        <a class="btn btn-default pull-right" target="_blank" ng-if="headers"
+           href="/app/rest/membro/exportar.xls?{{headers}}">
+            <i class="fa fa-lg fa-file-excel-o" ></i>
+            {{'contato.exportar_contatos' | translate}}
+        </a>
     </div>
 </div>

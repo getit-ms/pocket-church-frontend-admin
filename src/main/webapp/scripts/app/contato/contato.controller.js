@@ -15,6 +15,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 controller: function($scope, membroService, perfilService, $state, message, confirmExclusao, NgTableParamsCalvin){
                     $scope.filtro = {nome:'',email:'',perfil:[]};
 
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
+
                     $scope.tabelaMembros = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
                         $scope.filtro.total = params.parameters().count;

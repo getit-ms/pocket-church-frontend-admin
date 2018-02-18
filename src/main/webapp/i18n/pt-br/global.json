@@ -96,6 +96,11 @@
                 "state":"boletim",
                 "icon":"file-text"
             },
+            "MANTER_PUBLICACOES":{
+                "label":"Publicações",
+                "state":"publicacao",
+                "icon":"copy"
+            },
             "MANTER_CIFRAS":{
                 "label":"Cânticos",
                 "state":"cifra",
@@ -161,6 +166,11 @@
                 "state":"youtube",
                 "icon":"youtube"
             },
+            "CONFIGURAR_GOOGLE_CALENDAR":{
+                "label":"Google Calendar",
+                "state":"calendario",
+                "icon":"calendar"
+            },
             "GERENCIAR_FUNCIONALIDADES_APLICATIVO":{
                 "label":"Aplicativo",
                 "state":"aplicativo",
@@ -188,6 +198,7 @@
         "elemento":{
             "agenda":"a agenda de",
             "boletim":"o boletim",
+            "publicacao":"a publicação",
             "cifra":"a Cântico",
             "estudo":"o estudo",
             "evento":"o evento",
@@ -240,6 +251,9 @@
         "MSG-045":"Deseja realmente cancelar a inscrição de {{inscrito}}?",
         "MSG-046":"Houve um problema ao tentar conectar com o YouTube. Tente novamente e se o problema persistir conecte o administrador do sistema.",
         "MSG-047":"Desjea realmente desativar a integração com o YouTube?",
+        "MSG-048":"Categoria já cadastrada.",
+        "MSG-049":"Houve um problema ao tentar conectar com o Google Calendar. Tente novamente e se o problema persistir conecte o administrador do sistema.",
+        "MSG-050":"Desjea realmente desativar a integração com o Google Calendar?",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -321,8 +335,7 @@
         "ENVIAR_NOTIFICACOES":"Notificações",
         "MANTER_VOTACOES":"Votações",
         "CONSULTAR_PEDIDOS_ORACAO":"Pedidos de Oração",
-        "CONSULTAR_AGENDAMENTOS":"Agendamentos",
-        "MANTER_AGENDA":"Agendas",
+        "MANTER_AGENDA":"Aconselhamentos",
         "MANTER_EVENTOS":"Eventos",
         "MANTER_EBD":"EBD",
         "MANTER_VERSICULOS_DIARIOS":"Versículos Diários",
@@ -336,6 +349,7 @@
         "AGENDAR_ACONSELHAMENTO":"Aconselhamentos",
         "CONFIGURAR":"Configurações",
         "CONFIGURAR_YOUTUBE":"YouTube",
+        "CONFIGURAR_GOOGLE_CALENDAR":"Google Calendar",
         "ABERTURA_CHAMADO_SUPORTE":"Suporte",
         "REALIZAR_INSCRICAO_EVENTO":"Eventos",
         "REALIZAR_INSCRICAO_EBD":"EBD",
@@ -344,19 +358,24 @@
         "LISTAR_BOLETINS":"Boletins",
         "LISTAR_ESTUDOS":"Estudos",
         "YOUTUBE":"Cultos e Vídeos",
-        "BIBLIA":"Bíblia"
+        "BIBLIA":"Bíblia",
+        "MANTER_PUBLICACOES":"Manter Publicações",
+        "AGENDA":"Agenda da Igreja",
+        "LISTAR_PUBLICACOES":"Listar Publicações"
     },
     "contato":{
         "contatos":"Contatos da Igreja",
         "cadastrar":"Cadastrar Novo Contato",
         "editar":"Alterar Contato",
-        "detalhar":"Detalhar Contato"
+        "detalhar":"Detalhar Contato",
+        "exportar_contatos":"Exportar Contatos"
     },
     "aplicativo":{
         "aplicativo":"Aplicativo",
         "funcionalidades":"Funcionalidades"
     },
     "membro":{
+        "foto_membro":"Foto",
         "conceder_acesso":"Conceder Acesso",
         "nome":"Nome",
         "perfis":"Perfis",
@@ -376,6 +395,23 @@
         "retirar_acesso":"Retirar Acesso",
         "confirmacao_retirada_acesso":"Confirmação de Retirada de Acesso",
         "dados_disponiveis":"Dados visíveis pelo aplicativo?"
+    },
+    "publicacao":{
+        "titulo":"Título",
+        "publicacao":"Publicação",
+        "mensagem_push":"Uma notificação será enviada automaticamente para os usuários do aplicativo após o horário de publicação da publicação.",
+        "arquivo_publicacao":"Publicação (PDF)",
+        "data_boletim":"Data da Publicação",
+        "publicacoes":"Publicações",
+        "cadastrar":"Cadastrar Publicação",
+        "editar":"Alterar Publicação",
+        "detalhar":"Detalhar Publicação",
+        "excluir":"Excluir Publicação",
+        "data_publicacao":"Data da Publicação",
+        "publicado":"Publicado",
+        "agendado":"Agendado",
+        "processando":"Processando",
+        "rejeitado":"Falha no Processamento"
     },
     "boletim":{
         "titulo":"Título",
@@ -407,10 +443,13 @@
         "excluir":"Excluir Cântico"
     },
     "estudo":{
+        "arquivo_estudo":"Arquivo",
         "titulo":"Título",
         "estudos":"Estudos",
         "publicacao":"Data de Publicação",
         "autor":"Autor",
+        "categoria":"Catgoria",
+        "cadastrar_categoria_estudo":"Cadastrar Nova Categoria de Estudo",
         "cadastrar":"Cadastrar Estudo",
         "editar":"Alterar Estudo",
         "detalhar":"Detalhar Estudo",
@@ -435,6 +474,8 @@
         "texto_aniversario":"Texto do Push de Aniversário",
         "titulo_boletim":"Título do Push de Boletins",
         "texto_boletim":"Texto do Push de Boletins",
+        "titulo_publicacao":"Título do Push de Publicações",
+        "texto_publicacao":"Texto do Push de Publicações",
         "titulo_estudo":"Título do Push de Estudos",
         "texto_estudo":"Texto do Push de Estudos",
         "configuracoes":"Configurações",
@@ -472,7 +513,7 @@
     "agenda":{
         "cadastrar":"Cadastrar Agenda",
         "pastor":"Pastor",
-        "agendas":"Agendas",
+        "agendas":"Agendas de Aconselhamento",
         "editar":"Alterar Agenda",
         "excluir":"Excluir Agenda",
         "detalhar":"Detalhar Agenda",
@@ -662,6 +703,12 @@
         "texto_ao_vivo":"Texto do Push de Vídeos Ao Vivo",
         "titulo_agendado":"Título do Push de Vídeos Agendados",
         "texto_agendado":"Texto do Push de Vídeos Agendados",
+        "desativar_integracao":"Desativar Integração"
+    },
+    "calendario":{
+        "vincular_conta":"Vincular Conta",
+        "mensagem_calendario":"O vínculo da conta é feito através de permissões para leitura dos dados da agenda da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
+        "configuracoes":"Configurações Google Calendar",
         "desativar_integracao":"Desativar Integração"
     },
     "plano_leitura":{

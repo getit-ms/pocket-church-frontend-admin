@@ -15,10 +15,28 @@
                            date-pattern="{{'config.pattern.input.dateHour' | translate}}"></calvin-datepicker>
         <field-message field='formulario_estudo.dataPublicacao'></field-message>
     </div>
-    <div class="col-sm-12" field-form-group='formulario_estudo.texto'>
+    <div class="col-sm-6" form-group-field="formulario_estudo.categoria">
+        <field-label for="formulario_estudo.categoria" value="estudo.categoria"></field-label>
+        <div class="input-group">
+            <select ng-model="estudo.categoria" required class="form-control" name="categoria"
+                    ng-options='categoria as categoria.nome for categoria in categorias track by categoria.id'>
+                <option>{{'global.selecione' | translate}}</option>
+            </select>
+            <a class="input-group-addon btn btn-default" ng-click="cadastrarCategoria()">
+                <span class="fa fa-plus" ></span>
+            </a>
+        </div>
+        <field-message field="formulario_estudo.categoria" ></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group="formulario_estudo.pdf">
+        <field-label value="estudo.arquivo_estudo" for="formulario_estudo.pdf" ></field-label>
+        <input-fileupload name='pdf' ng-model="estudo.pdf" types="['application/pdf']" ></input-fileupload>
+        <field-message field="formulario_estudo.pdf"></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group='formulario_estudo.texto' ng-if="!estudo.pdf">
         <field-label value='estudo.texto' for='formulario_estudo.texto' ></field-label>
         <div name='texto' text-angular ng-model="estudo.texto" 
-             ta-text-editor-class="form-control" required 
+             ta-text-editor-class="form-control" ng-required="!estudo.pdf"
              ta-html-editor-class="form-control"></div>
         <field-message field='formulario_estudo.texto'></field-message>
     </div>

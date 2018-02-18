@@ -54,6 +54,19 @@
         </div>
     </div>
     <div class="col-sm-6">
+        <div field-form-group='formulario_configuracao.tituloPublicacao'>
+            <field-label value='configuracao.titulo_publicacao' required="false" for='formulario_configuracao.tituloPublicacao'></field-label>
+            <input type="text" name='tituloPublicacao' ng-model="configuracao.tituloPublicacao" class="form-control" maxlength="30" />
+            <field-message field='formulario_configuracao.tituloPublicacao'></field-message>
+        </div>
+        <div field-form-group='formulario_configuracao.textoPublicacao'>
+            <field-label value='configuracao.texto_publicacao' required="false" for='formulario_configuracao.textoBoletim'></field-label>
+            <textarea rows='5' type="text" name='textoPublicacao' ng-model="configuracao.textoPublicacao" class="form-control" maxlength="150" ></textarea>
+            <field-message field='formulario_configuracao.textoPublicacao'></field-message>
+            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoPublicacao.length} }}</span>
+        </div>
+    </div>
+    <div class="col-sm-6">
         <div field-form-group='formulario_configuracao.tituloEstudo'>
             <field-label value='configuracao.titulo_estudo' required="false" for='formulario_configuracao.tituloEstudo'></field-label>
             <input type="text" name='tituloEstudo' ng-model="configuracao.tituloEstudo" class="form-control" maxlength="30" />
