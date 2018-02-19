@@ -99,7 +99,7 @@
             "MANTER_PUBLICACOES":{
                 "label":"Publicações",
                 "state":"publicacao",
-                "icon":"copy"
+                "icon":"clipboard"
             },
             "MANTER_CIFRAS":{
                 "label":"Cânticos",
@@ -169,7 +169,7 @@
             "CONFIGURAR_GOOGLE_CALENDAR":{
                 "label":"Google Calendar",
                 "state":"calendario",
-                "icon":"calendar"
+                "icon":"calendar-o"
             },
             "GERENCIAR_FUNCIONALIDADES_APLICATIVO":{
                 "label":"Aplicativo",
@@ -651,6 +651,7 @@
         "dataHora":"Data/Hora",
         "nome":"Nome",
         "ebd":"Curso",
+        "banner_ebd":"Banner de Apresentação",
         "exportar_inscritos":"Exportar Inscritos",
         "ebds":"Escola Bíblica Dominical",
         "status":{
