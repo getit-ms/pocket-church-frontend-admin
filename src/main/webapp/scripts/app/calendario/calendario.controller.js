@@ -17,11 +17,16 @@ calvinApp.config(['$stateProvider', function($stateProvider){
 
                         calendarioService.configuracao(function(calendario){
                             $scope.calendario = calendario;
+
+                            calendarioService.busca({tamanho:10}, function(eventos){
+                                $scope.eventos = eventos;
+                            });
+
+                            calendarioService.buscaVisoes(function(visoes) {
+                                $scope.visoes = visoes;
+                            })
                         });
-                        
-                        calendarioService.busca({tamanho:10}, function(eventos){
-                            $scope.eventos = eventos;
-                        });
+
                     };
 
                     $scope.vincularConta = function(){

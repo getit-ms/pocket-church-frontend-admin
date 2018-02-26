@@ -18,6 +18,24 @@
         <span ng-show="!calendario.configurado">{{'calendario.mensagem_calendario' | translate}}</span>
     </div>
 
+    <form id='formulario_calendar' name='formulario_calendar' ng-show="calendario.configurado"
+          ng-submit="salvar(this.formulario_calendar)" novalidate>
+        <div class="col-sm-6">
+            <div field-form-group='formulario_calendar.calendarios'>
+                <field-label value='calendario.calendarios' required="false" for='formulario_calendar.calendarios'></field-label>
+                <select-checklist name='calendarios' required ng-model="calendario.idCalendario" sort='true'
+                                  options="visoes" var="v" item-label="v.nome" track-by="v.id"></select-checklist>
+                <field-message field='formulario_calendar.calendarios'></field-message>
+            </div>
+        </div>
+
+        <div class="col-sm-12 comandos">
+            <hr/>
+            <input type="submit" ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+            <a class="btn btn-default" ng-disabled='inProgress' ng-click="carrega()" >{{'global.cancelar' | translate}}</a>
+        </div>
+    </form>
+
     <div class="col-sm-12" ng-if="eventos.eventos.length">
         <div>
             <div ng-repeat="evento in eventos.eventos" >

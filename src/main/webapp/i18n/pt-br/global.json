@@ -710,7 +710,8 @@
         "vincular_conta":"Vincular Conta",
         "mensagem_calendario":"O vínculo da conta é feito através de permissões para leitura dos dados da agenda da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
         "configuracoes":"Configurações Google Calendar",
-        "desativar_integracao":"Desativar Integração"
+        "desativar_integracao":"Desativar Integração",
+        "calendarios":"Calendários"
     },
     "plano_leitura":{
         "data_inicio":"Data de Início",
