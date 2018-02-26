@@ -24,7 +24,7 @@
             <div field-form-group='formulario_calendar.calendarios'>
                 <field-label value='calendario.calendarios' required="false" for='formulario_calendar.calendarios'></field-label>
                 <select-checklist name='calendarios' required ng-model="calendario.idCalendario" sort='true'
-                                  options="visoes" var="v" item-label="v.nome" track-by="v.id"></select-checklist>
+                                  options="visoes" var="v" item-label="v.nome" item-value="v.id" track-by="v.id"></select-checklist>
                 <field-message field='formulario_calendar.calendarios'></field-message>
             </div>
         </div>
