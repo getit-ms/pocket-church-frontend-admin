@@ -38,7 +38,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     };
 
                     $scope.excluir = function(publicacao){
-                        confirmExclusao('publicacao', publicacao.publicacao.nome, function(){
+                        confirmExclusao('publicacao', publicacao.titulo, function(){
                             boletimService.remove(publicacao.id, function(publicacao){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $scope.busca();
