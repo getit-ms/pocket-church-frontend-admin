@@ -4,12 +4,6 @@
         <input name="titulo" class="form-control" ng-model="publicacao.titulo" required ></calvin-datepicker>
         <field-message field="formulario_publicacao.titulo"></field-message>
     </div>
-    <div class="col-sm-6" field-form-group='formulario_publicacao.data'>
-        <field-label value="publicacao.data_publicacao" for="formulario_publicacao.data" required="true"></field-label>
-        <calvin-datepicker date-pattern="{{'config.pattern.input.date' | translate}}" name="data" 
-                           ng-model="publicacao.data" type="date" min-view='day' required ></calvin-datepicker>
-        <field-message field="formulario_publicacao.data"></field-message>
-    </div>
     <div class="col-sm-6" field-form-group='formulario_publicacao.dataPublicacao'>
         <field-label value="publicacao.data_publicacao" for="formulario_publicacao.dataPublicacao" required="true"></field-label>
         <calvin-datepicker date-pattern="{{'config.pattern.input.dateHour' | translate}}" name="dataPublicacao" 

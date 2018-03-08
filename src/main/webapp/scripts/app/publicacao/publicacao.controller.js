@@ -60,7 +60,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/publicacao/publicacao.form.html',
                 controller: function(boletimService, $scope, $state, message){
-                    $scope.publicacao = {tipo:'PUBLICACAO'};
+                    $scope.publicacao = {tipo:'PUBLICACAO',data:new Date()};
                     
                     $scope.salvar = function(form){
                         if (form.$invalid){

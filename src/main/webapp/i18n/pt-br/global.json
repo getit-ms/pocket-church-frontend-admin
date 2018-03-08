@@ -399,6 +399,7 @@
     "publicacao":{
         "titulo":"Título",
         "publicacao":"Publicação",
+        "situacao":"Situação",
         "mensagem_push":"Uma notificação será enviada automaticamente para os usuários do aplicativo após o horário de publicação da publicação.",
         "arquivo_publicacao":"Publicação (PDF)",
         "data_boletim":"Data da Publicação",
@@ -416,6 +417,7 @@
     "boletim":{
         "titulo":"Título",
         "boletim":"Boletim",
+        "situacao":"Situação",
         "mensagem_push":"Uma notificação será enviada automaticamente para os usuários do aplicativo após o horário de publicação do boletim.",		
         "arquivo_boletim":"Boletim (PDF)",
         "data_boletim":"Data do Boletim",

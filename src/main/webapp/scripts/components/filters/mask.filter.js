@@ -56,21 +56,24 @@ function unmask(value, smask, $element, ngModel){
             smask = smask(value);
         }
 
-        var maxLength = smask.replace(/[^9]/g, '').length;
-        if (value.length > maxLength){
-            value = value.substring(value.length - maxLength);
+        if (smask) {
+            var maxLength = smask.replace(/[^9]/g, '').length;
+            if (value.length > maxLength){
+                value = value.substring(value.length - maxLength);
+            }
+
+            $element.val(mask(value, smask));
+
+            if (value.length < maxLength){
+                ngModel.$setValidity('mask', false);
+                return undefined;
+            }
         }
-
-        $element.val(mask(value, smask));
-
-        if (value.length < maxLength){
-            ngModel.$setValidity('mask', false);
-            return;
-        }
-
-        ngModel.$setValidity('mask', true);
-        return value;
     }
+
+    ngModel.$setValidity('mask', true);
+
+    return value;
 }
 
 function validaCnpj(str){
