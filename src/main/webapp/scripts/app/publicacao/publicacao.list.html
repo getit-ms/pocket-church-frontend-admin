@@ -15,7 +15,9 @@
                 </tr>
                 <tr ng-repeat="publicacao in publicacoes.resultados">
                     <td>{{publicacao.titulo}}</td>
-                    <td class='text-center'>{{publicacao.data | date : ('config.pattern.output.date' | translate)}}</td>
+                    <td class='text-center'>
+                        <span ng-if='publicacao.publicado'>{{publicacao.dataPublicacao | date : ('config.pattern.output.dateHour' | translate)}}</span>
+                    </td>
                     <td class='text-center'>
                         <label ng-if='publicacao.processando' class='label label-warning'>
                             <i class='fa fa-refresh '></i>
