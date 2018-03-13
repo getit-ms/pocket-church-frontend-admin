@@ -25,9 +25,11 @@
             "boletim":"/app/ajuda/boletim",
             "chamado":"/app/ajuda/chamado",   
             "cifra":"/app/ajuda/cifra",
+            "cantico":"/app/ajuda/cantico",
             "configuracao":"/app/ajuda/configuracao",
             "contato":"/app/ajuda/contato",
             "estudo":"/app/ajuda/estudo",
+            "noticia":"/app/ajuda/noticia",
             "institucional":"/app/ajuda/institucional",
             "membro":"/app/ajuda/membro",
             "ministerio":"/app/ajuda/ministerio",
@@ -41,9 +43,11 @@
             "boletim":"",
             "chamado":"",   
             "cifra":"",
+            "cantico":"",
             "configuracao":"",
             "contato":"",
             "estudo":"",
+            "noticia":"",
             "institucional":"",
             "membro":"",
             "ministerio":"",
@@ -106,6 +110,11 @@
                 "state":"cifra",
                 "icon":"file-audio-o"
             },
+            "MANTER_CANTICOS":{
+                "label":"Cânticos",
+                "state":"cantico",
+                "icon":"file-audio-o"
+            },
             "MANTER_DADOS_INSTITUCIONAIS":{
                 "label":"Dados Institucionais",
                 "state":"institucional",
@@ -115,6 +124,11 @@
                 "label":"Estudos",
                 "state":"estudo",
                 "icon":"book"
+            },
+            "MANTER_NOTICIAS":{
+                "label":"Notícias",
+                "state":"noticia",
+                "icon":"newspaper-o"
             },
             "ENVIAR_NOTIFICACOES":{
                 "label":"Notificações",
@@ -200,7 +214,9 @@
             "boletim":"o boletim",
             "publicacao":"a publicação",
             "cifra":"a Cântico",
+            "cantico":"a Cântico",
             "estudo":"o estudo",
+            "noticia":"a notícia",
             "evento":"o evento",
             "plano_leitura":"o plano de leitura bíblico",
             "ebd":"o EBD",
@@ -242,6 +258,7 @@
         "MSG-028":"As inscrições para esse evento foram encerradas.",
         "MSG-030":"A Confirmação da Senha não confere com a Nova Senha.",
         "MSG-031":"Senha alterada com sucesso! Realize o login com sua nova senha.",
+        "MSG-034":"Não existem mais vagas disponíveis para esse evento.",
         "MSG-036":"Existe(m) {{quantidade}} pedido(s) de oração não atendido(s). Acesse a funcionalidade \"Pedidos de Oração\" para continuar.",
         "MSG-039":"Esse membro possui uma agenda de aconselhamentos ativa. Não é permitido retirar o indicador de pastor enquanto houver agendas de aconselhamentos ativas associadas ao membro.",
         "MSG-040":"Parabéns, <b>{{nome}}</b>!<br/>Sua senha foi redefinida e a nova foi enviada para seu e-mail.",
@@ -330,8 +347,10 @@
         "MANTER_MEMBROS":"Contatos da Igreja",
         "MANTER_BOLETINS":"Boletins",
         "MANTER_CIFRAS":"Cânticos",
+        "MANTER_CANTICOS":"Cânticos",
         "MANTER_DADOS_INSTITUCIONAIS":"Dados Institucionais",
         "MANTER_ESTUDOS":"Estudos",
+        "MANTER_NOTICIAS":"Notícias",
         "ENVIAR_NOTIFICACOES":"Notificações",
         "MANTER_VOTACOES":"Votações",
         "CONSULTAR_PEDIDOS_ORACAO":"Pedidos de Oração",
@@ -353,10 +372,12 @@
         "ABERTURA_CHAMADO_SUPORTE":"Suporte",
         "REALIZAR_INSCRICAO_EVENTO":"Eventos",
         "REALIZAR_INSCRICAO_EBD":"EBD",
-        "CONSULTAR_CIFRAS":"Cifras",
+        "CONSULTAR_CIFRAS":"Cânticos",
+        "CONSULTAR_CANTICOS":"Cânticos",
         "CONSULTAR_HINARIO":"Hinário",
         "LISTAR_BOLETINS":"Boletins",
         "LISTAR_ESTUDOS":"Estudos",
+        "NOTICIAS":"Notícias",
         "YOUTUBE":"Cultos e Vídeos",
         "BIBLIA":"Bíblia",
         "MANTER_PUBLICACOES":"Manter Publicações",
@@ -403,6 +424,7 @@
         "arquivo_publicacao":"Publicação (PDF)",
         "data_boletim":"Data da Publicação",
         "publicacoes":"Publicações",
+        "situacao":"Situação",
         "cadastrar":"Cadastrar Publicação",
         "editar":"Alterar Publicação",
         "detalhar":"Detalhar Publicação",
@@ -442,6 +464,18 @@
         "detalhar":"Detalhar Cântico",
         "excluir":"Excluir Cântico"
     },
+    "cantico":{
+        "titulo":"Título",
+        "autor":"Autor",
+        "letra":"Letra",
+        "arquivo_cantico":"Cântico (PDF)",
+        "cantico":"Cântico",
+        "canticos":"Cânticos",
+        "cadastrar":"Cadastrar Cântico",
+        "editar":"Alterar Cântico",
+        "detalhar":"Detalhar Cântico",
+        "excluir":"Excluir Cântico"
+    },
     "estudo":{
         "arquivo_estudo":"Arquivo",
         "titulo":"Título",
@@ -454,6 +488,18 @@
         "editar":"Alterar Estudo",
         "detalhar":"Detalhar Estudo",
         "data":"Data do Estudo",
+        "texto":"Texto"
+    },
+    "noticia":{
+        "ilustracao":"Ilustração",
+        "titulo":"Título",
+        "noticias":"Notícias",
+        "publicacao":"Data de Publicação",
+        "autor":"Autor",
+        "cadastrar":"Cadastrar Notícia",
+        "editar":"Alterar Notícia",
+        "detalhar":"Detalhar Notícia",
+        "data":"Data do Notícia",
         "texto":"Texto"
     },
     "notificacao":{
@@ -478,16 +524,18 @@
         "texto_publicacao":"Texto do Push de Publicações",
         "titulo_estudo":"Título do Push de Estudos",
         "texto_estudo":"Texto do Push de Estudos",
+        "titulo_noticia":"Título do Push de Notícias",
+        "texto_noticia":"Texto do Push de Notícias",
         "configuracoes":"Configurações",
         "habilita_pagseguro":"Habilita PagSeguro",
         "usuario_pagseguro":"Usuário PagSeguro",
         "token_pagseguro":"Token PagSeguro"
     },
     "votacao":{
-        "cadastrar":"Cadastrar Votação",
-        "editar":"Alterar Votação",
-        "detalhar":"Detalhar Votação",
-        "votacoes":"Votações",
+        "cadastrar":"Cadastrar Enquete",
+        "editar":"Alterar Enquete",
+        "detalhar":"Detalhar Enquete",
+        "votacoes":"Enquetes",
         "nome":"Nome",
         "descricao":"Descrição",
         "questoes":"Questões",
@@ -500,8 +548,8 @@
         "resultado":"Resultado da Votação",
         "questao":{
             "questao":"Questão",
-            "mais":"Incluir Pergunta",
-            "remover":"Remover questão",
+            "mais":"Incluir Questão",
+            "remover":"Remover Questão",
             "votos":"Votos"
         },
         "opcao":{

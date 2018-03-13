@@ -15,6 +15,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 controller: function(cifraService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
                     $scope.tabelaCifras = new NgTableParamsCalvin(function($defer, params){
                         cifraService.busca({
+                            tipo: 'CIFRA',
                             pagina: params.parameters().page,
                             total: params.parameters().count
                         }, function(cifras){
@@ -59,7 +60,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/cifra/cifra.form.html',
                 controller: function(cifraService, $scope, $state, message){
-                    $scope.cifra = {};
+                    $scope.cifra = {tipo:'CIFRA'};
                     
                     $scope.carregaLetra = function(arquivo){
                         if (!$scope.formulario_cifra.letra.$dirty){

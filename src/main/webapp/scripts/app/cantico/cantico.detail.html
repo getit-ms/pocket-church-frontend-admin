@@ -1,0 +1,18 @@
+<div>
+    <div class="col-sm-6" >
+        <label translate>cantico.titulo</label>
+        <div class="form-control" >{{cantico.titulo}}</div>
+    </div>
+    <div class="col-sm-6" >
+        <label translate>cantico.autor</label>
+        <div class="form-control" >{{cantico.autor}}</div>
+    </div>
+    <div class="col-sm-12" >
+        <label translate>cantico.cantico</label>
+        <pdf-viewer pdf-url="/app/rest/arquivo/download/{{cantico.cifra.id}}?{{headers}}" ></pdf-viewer>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="cantico">{{'global.voltar' | translate}}</a>
+    </div>
+</div>

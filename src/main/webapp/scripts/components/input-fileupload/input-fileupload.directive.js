@@ -8,7 +8,7 @@ calvinApp.directive('inputFileupload', function(){
             types:'='
         },
         templateUrl: 'scripts/components/input-fileupload/input-fileupload.html',
-        controller: function($scope, Upload, message){
+        controller: function($scope, $rootScope, Upload, message){
             if (typeof $scope.types === 'string'){
                 $scope.types = [$scope.types];
             }
@@ -20,11 +20,14 @@ calvinApp.directive('inputFileupload', function(){
                 if ($scope.types && $scope.types.indexOf(file.type) < 0){
                     message({type:'error',body:'mensagens.MSG-043'});
                 }else{
+                    $rootScope.inProgress = true;
+
                     Upload.upload({
                         url: '/app/rest/arquivo/upload',
                         data: {file: file}
                     }).then(function(arquivo){
                         $scope.submetendo = false;
+                        $rootScope.inProgress = false;
                         $scope.ngModel = arquivo.data;
 
                         if ($scope.onUpload){
@@ -32,6 +35,7 @@ calvinApp.directive('inputFileupload', function(){
                         }
                     }, function (resp) {
                         $scope.submetendo = false;
+                        $rootScope.inProgress = false;
                     }, function (evt) {
                         $scope.submetendo = true;
                         $scope.statusUpload = parseInt(100.0 * evt.loaded / evt.total);

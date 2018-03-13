@@ -1,5 +1,5 @@
-<form id='formulario_votacao' name='formulario_votacao' novalidate ng-submit="salvar(this.formulario_votacao)">
-    <div class="col-lg-6">
+<form id='formulario_votacao' name='formulario_votacao' class="row" novalidate ng-submit="salvar(this.formulario_votacao)">
+    <div class="col-md-6">
         <div class="col-sm-12" field-form-group='formulario_votacao.nome'>
             <field-label value='votacao.nome' for='formulario_votacao.nome' ></field-label>
             <input ng-model="votacao.nome" class="form-control" name='nome' required  />
@@ -11,14 +11,14 @@
                     <field-label value='votacao.vigencia'  ></field-label>
                     <div class='row'>
                         <div class='col-sm-12'>
-                            <calvin-datepicker ng-model="votacao.dataInicio" placeholder="{{'votacao.dataInicio' | translate}}" 
+                            <calvin-datepicker ng-model="votacao.dataInicio" placeholder="{{'votacao.dataInicio' | translate}}"
                                                name='dataInicio' required date-pattern="{{'config.pattern.input.dateHour' | translate}}"
                                                ></calvin-datepicker>
                             <field-message field="formulario_votacao.dataInicio"></field-message>
                         </div>
                         <div class='col-sm-12'>
-                            <calvin-datepicker ng-model="votacao.dataTermino" placeholder="{{'votacao.dataTermino' | translate}}" 
-                                               name='dataTermino' required date-pattern="{{'config.pattern.input.dateHour' | translate}}" 
+                            <calvin-datepicker ng-model="votacao.dataTermino" placeholder="{{'votacao.dataTermino' | translate}}"
+                                               name='dataTermino' required date-pattern="{{'config.pattern.input.dateHour' | translate}}"
                                                ></calvin-datepicker>
                             <field-message field="formulario_votacao.dataTermino"></field-message>
                         </div>
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-md-6">
         <div class="col-sm-12" field-form-group='formulario_votacao.descricao'>
             <field-label value='votacao.descricao' for='formulario_votacao.descricao' ></field-label>
             <textarea rows="5" ng-model="votacao.descricao" class="form-control" name='descricao'  required ></textarea>
@@ -40,22 +40,15 @@
                ng-model='votacao.questoes' class="table table-striped table-hover">
             <tr ng-repeat="questao in votacao.questoes">
                 <td>
-                    <div class='col-sm-8' field-form-group="formulario_votacao['questao' + votacao.questoes.indexOf(questao)]">
+                    <div class='col-sm-12' field-form-group="formulario_votacao['questao' + votacao.questoes.indexOf(questao)]">
                         <div class="input-group" >
                             <input required ng-attr-name='questao{{votacao.questoes.indexOf(questao)}}' placeholder="{{'votacao.questao.questao' | translate}}" class="form-control" ng-model="questao.questao" />
                             <a class="input-group-addon btn btn-default" ng-click="removeQuestao(questao)"
-                               title="{{'votacao.questao.remover'}} {{questao.questao}}" data-toggle="tooltip">
+                               title="{{'votacao.questao.remover' | translate}} {{questao.questao}}" >
                                 <i class="glyphicon glyphicon-trash"></i>
                             </a>
                         </div>
                         <field-message field="formulario_votacao['questao' + votacao.questoes.indexOf(questao)]"></field-message>
-                    </div>
-                    <div class='col-sm-4' field-form-group="formulario_votacao['votos' + votacao.questoes.indexOf(questao)]">
-                        <div class="input-group">
-                            <label class='input-group-addon' translate>votacao.questao.votos</label>
-                            <input required ui-number-mask="0" ng-attr-name='votos{{votacao.questoes.indexOf(questao)}}' class="form-control text-right" ng-model="questao.quantidadeVotos" />
-                        </div>
-                        <field-message field="formulario_votacao['votos' + votacao.questoes.indexOf(questao)]"></field-message>
                     </div>
                     <div class="col-sm-12" field-form-group="formulario_votacao['opcoes' + votacao.questoes.indexOf(questao)]">
                         <br/>
@@ -70,7 +63,7 @@
                                                class="form-control" placeholder="{{'votacao.opcao.opcao' | translate}}" ng-model="opcao.opcao"
                                                required  />
                                         <a class="input-group-addon btn btn-default"  ng-click="removeOpcao(questao, opcao)"
-                                           title="{{'votacao.opcao.remover'}} {{opcao.opcao}}" data-toggle="tooltip">
+                                           title="{{'votacao.opcao.remover' | translate}} {{opcao.opcao}}" data-toggle="tooltip">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </div>

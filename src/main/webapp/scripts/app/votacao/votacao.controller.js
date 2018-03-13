@@ -65,7 +65,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     templateUrl: 'scripts/app/votacao/votacao.form.html',
                     controller: function($scope, votacaoService, message, $state){
                         $scope.votacao = {};
-                        
+
                         $scope.salvar = function(form){
                             if (form.$invalid){
                                 message({type:'error',body:'mensagens.MSG-002'});
@@ -91,7 +91,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     templateUrl: 'scripts/app/votacao/votacao.form.html',
                     controller: function($scope, votacaoService, votacao, message, $state){
                         $scope.votacao = votacao;
-                        
+
                         $scope.salvar = function(form){
                             if (form.$invalid){
                                 message({type:'error',body:'mensagens.MSG-002'});
@@ -152,7 +152,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 $scope.votacao.questoes = [];
             }
             
-            $scope.votacao.questoes.push({});
+            $scope.votacao.questoes.push({quantidadeVotos:1});
         };
         
         $scope.removeQuestao = function(questao){

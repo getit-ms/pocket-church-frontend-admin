@@ -1,0 +1,30 @@
+<form id='formulario_noticia' name='formulario_noticia' ng-submit="salvar(this.formulario_noticia)" novalidate>
+    <div class="col-sm-12" field-form-group='formulario_noticia.titulo' >
+        <field-label value='noticia.titulo' for='formulario_noticia.titulo' ></field-label>
+        <input name='titulo' ng-model="noticia.titulo" class="form-control" required />
+        <field-message field='formulario_noticia.titulo'></field-message>
+    </div>
+    <div class="col-sm-6" field-form-group='formulario_noticia.dataPublicacao'>
+        <field-label value='noticia.publicacao' for='formulario_noticia.dataPublicacao' required='false'></field-label>
+        <calvin-datepicker name='dataPublicacao' ng-model="noticia.dataPublicacao" 
+                           date-pattern="{{'config.pattern.input.dateHour' | translate}}"></calvin-datepicker>
+        <field-message field='formulario_noticia.dataPublicacao'></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group="formulario_noticia.pdf">
+        <field-label value="noticia.ilustracao" for="formulario_noticia.ilustracao" required="false" ></field-label>
+        <input-fileupload name='ilustracao' ng-model="noticia.ilustracao" types="['image/jpeg','image/png','image/gif']" ></input-fileupload>
+        <field-message field="formulario_noticia.ilustracao"></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group='formulario_noticia.texto' >
+        <field-label value='noticia.texto' for='formulario_noticia.texto' ></field-label>
+        <div name='texto' text-angular ng-model="noticia.texto" 
+             ta-text-editor-class="form-control" required
+             ta-html-editor-class="form-control"></div>
+        <field-message field='formulario_noticia.texto'></field-message>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <input type='submit' ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="noticia">{{'global.cancelar' | translate}}</a>
+    </div>
+</form>

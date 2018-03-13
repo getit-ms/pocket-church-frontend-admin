@@ -1,28 +1,32 @@
 <div>
     <div class="col-sm-12">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" ng-table='tabelaNoticias'>
             <thead>
                 <tr>
-                    <th>{{'agenda.pastor' | translate}}</th>
+                    <th>{{'noticia.titulo' | translate}}</th>
+                    <th>{{'noticia.autor' | translate}}</th>
+                    <th>{{'noticia.publicacao' | translate}}</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-if="!agendas.length">
+                <tr ng-if="!noticias.resultados.length">
                     <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
                 </tr>
-                <tr ng-repeat="agenda in agendas">
-                    <td>{{agenda.pastor.nome}}</td>
+                <tr ng-repeat="noticia in noticias.resultados">
+                    <td>{{noticia.titulo}}</td>
+                    <td>{{noticia.autor.nome}}</td>
+                    <td>{{noticia.dataPublicacao | date : 'dd/MM/yyyy HH:mm'}}</td>
                     <td class="col-sm-3 text-center">
-                        <a class="btn btn-default" ng-click="detalhar(agenda)"
+                        <a class="btn btn-default" ng-click="detalhar(noticia)"
                            title="{{'global.detalhar' | translate}}">
                             <span class="fa fa-search"></span>
                         </a>
-                        <a class="btn btn-default" ng-click="editar(agenda)"
+                        <a class="btn btn-default" ng-click="editar(noticia)"
                            title="{{'global.editar' | translate}}">
                             <span class="fa fa-pencil-square-o"></span>
                         </a>
-                        <a class="btn btn-default" ng-if="agenda.ativo" ng-click="excluir(agenda)"
+                        <a class="btn btn-default" ng-click="excluir(noticia)"
                            title="{{'global.excluir' | translate}}">
                             <span class="fa fa-trash"></span>
                         </a>
@@ -33,8 +37,8 @@
     </div>
     <div class="col-sm-12 comandos">
         <hr/>
-        <a class="btn btn-default" ui-sref="cadastro">
-            {{'agenda.cadastrar' | translate}}
+        <a class="btn btn-default" ui-sref="noticia.cadastro">
+            {{'noticia.cadastrar' | translate}}
         </a>
     </div>
 </div>
