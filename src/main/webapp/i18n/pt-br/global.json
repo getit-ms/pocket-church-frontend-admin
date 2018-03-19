@@ -488,7 +488,11 @@
         "editar":"Alterar Estudo",
         "detalhar":"Detalhar Estudo",
         "data":"Data do Estudo",
-        "texto":"Texto"
+        "texto":"Texto",
+        "publicado":"Publicado",
+        "agendado":"Agendado",
+        "processando":"Processando",
+        "rejeitado":"Falha no Processamento"
     },
     "noticia":{
         "ilustracao":"Ilustração",

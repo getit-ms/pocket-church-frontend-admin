@@ -16,7 +16,28 @@
                 <tr ng-repeat="estudo in estudos.resultados">
                     <td>{{estudo.titulo}}</td>
                     <td>{{estudo.autor}}</td>
-                    <td>{{estudo.dataPublicacao | date : 'dd/MM/yyyy HH:mm'}}</td>
+                    <td class="text-center">
+                        <label ng-if='estudo.processando' class='label label-warning'>
+                            <i class='fa fa-refresh '></i>
+                            {{'estudo.processando' | translate}}
+                            <span ng-if="estudo.porcentagemProcessamento > 0">
+                                ({{estudo.porcentagemProcessamento}}%)
+                            </span>
+                        </label>
+                        <label ng-if='estudo.agendado' class='label label-info'
+                               title="{{'estudo.agendado' | translate}}">
+                            <i class='fa fa-clock-o'></i>
+                            {{estudo.dataPublicacao | date : ('config.pattern.output.dateHour' | translate)}}
+                        </label>
+                        <label ng-if='estudo.publicado' class='label label-success'>
+                            <i class='fa fa-check '></i>
+                            {{'estudo.publicado' | translate}}
+                        </label>
+                        <label ng-if='estudo.rejeitado' class='label label-danger'>
+                            <i class='fa fa-exclamation-triangle '></i>
+                            {{'estudo.rejeitado' | translate}}
+                        </label>
+                    </td>
                     <td class="col-sm-3 text-center">
                         <a class="btn btn-default" ng-click="detalhar(estudo)"
                            title="{{'global.detalhar' | translate}}">
