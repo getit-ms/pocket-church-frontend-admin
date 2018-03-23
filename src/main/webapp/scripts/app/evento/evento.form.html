@@ -22,6 +22,11 @@
                                name="dataHoraTermino" ng-model="evento.dataHoraTermino" required ></calvin-datepicker>
             <field-message field="formulario_evento.dataHoraTermino"></field-message>
         </div>
+        <div class="col-sm-12" field-form-group="formulario_evento.banner">
+            <field-label value="evento.banner_evento" for="formulario_evento.banner" required="false" ></field-label>
+            <input-fileupload name='banner' ng-model="evento.banner" types="['image/jpeg','image/png','image/gif']" ></input-fileupload>
+            <field-message field="formulario_evento.banner"></field-message>
+        </div>
     </div>
     <div class='clearfix'></div>
     <hr/>

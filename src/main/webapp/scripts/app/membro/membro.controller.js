@@ -40,7 +40,24 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             $scope.busca();
                         });
                     };
-                    
+
+                    $scope.redefinirSenha = function(membro){
+                        confirmDialog({
+                            title:'membro.confirmacao_redefinicao_senha',
+                            text:'mensagens.MSG-051',
+                            ok:'global.sim',
+                            cancel:'global.nao',
+                            params:{
+                                membro: membro.nome
+                            }
+                        }).then(function(){
+                            membroService.redefineSenha(membro.id, function(){
+                                message({type:'success',body:'mensagens.MSG-001'});
+                                $scope.busca();
+                            });
+                        });
+                    };
+
                     $scope.retirarAcessoMembro = function(membro){
                         confirmDialog({
                             title:'membro.confirmacao_retirada_acesso',

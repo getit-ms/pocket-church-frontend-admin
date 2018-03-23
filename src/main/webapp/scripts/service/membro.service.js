@@ -14,6 +14,10 @@ calvinApp.service('membroService', ['Restangular', function(Restangular){
         this.remove = function(id, callback){
             this.api().one('/' + id).remove().then(callback);
         };
+
+        this.redefineSenha = function(id, callback) {
+            this.api().one('/' + id + '/redefine-senha').put().then(callback);
+        };
         
         this.cadastra = function(ministerio, callback){
             this.api().customPOST(ministerio).then(callback);

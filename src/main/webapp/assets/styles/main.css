@@ -45,7 +45,8 @@ table tr td {
 }
 
 .container {
-    margin-bottom: 70px;
+    margin-bottom: 120px;
+    padding-bottom: 30px;
 }
 
 .content #toast-container .toast{

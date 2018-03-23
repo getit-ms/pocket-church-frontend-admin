@@ -271,6 +271,7 @@
         "MSG-048":"Categoria já cadastrada.",
         "MSG-049":"Houve um problema ao tentar conectar com o Google Calendar. Tente novamente e se o problema persistir conecte o administrador do sistema.",
         "MSG-050":"Desjea realmente desativar a integração com o Google Calendar?",
+        "MSG-051":"Desjea realmente redefinir a senha de {{membro}}?",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -410,12 +411,14 @@
         "visitante":"É Visitante?",
         "telefones":"Telefones",
         "membro":"Membro",
+        "redefinir_senha":"Redefinir Senha",
         "membros":"Acesso de Membros",
         "admin":"Admin",
         "dar_acesso":"Dar Acesso",
         "retirar_acesso":"Retirar Acesso",
         "confirmacao_retirada_acesso":"Confirmação de Retirada de Acesso",
-        "dados_disponiveis":"Dados visíveis pelo aplicativo?"
+        "dados_disponiveis":"Dados visíveis pelo aplicativo?",
+        "confirmacao_redefinicao_senha":"Confirmação de Redefinição de Senha"
     },
     "publicacao":{
         "titulo":"Título",
@@ -663,6 +666,7 @@
         "dataHora":"Data/Hora",
         "nome":"Nome",
         "evento":"Eventos",
+        "banner_evento":"Banner de Apresentação",
         "eventos":"Eventos",
         "exportar_inscritos":"Exportar Inscritos",
         "status":{

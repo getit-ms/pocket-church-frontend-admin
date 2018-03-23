@@ -38,6 +38,11 @@
                     <td>{{membro.nome}}</td>
                     <td>{{membro.email}}</td>
                     <td class="text-center">
+                        <a class="btn btn-default" ng-if="membro.membro"
+                           title="{{'membro.redefinir_senha' | translate}}"
+                           ng-click="redefinirSenha(membro)">
+                            <span class="fa fa-refresh"></span>
+                        </a>
                         <a class="btn btn-default" ng-click="darAcessoMembro(membro)" 
                            title="{{'membro.dar_acesso' | translate}}" ng-show='membro.contato'>
                             <span class="fa fa-pause-circle"></span>
