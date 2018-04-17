@@ -676,6 +676,11 @@
         },
         "inscricoes":"Listar Inscrições",
         "inscricao":{
+            "inscricoes_nao_iniciadas":"Inscrições não iniciadas",
+            "inscricoes_encerradas":"Inscrições encerradas",
+            "uma_vaga_restante":"Uma Vaga Restante",
+            "vagas_restante":"{{vagas}} Vagas Restantes",
+            "vagas_esgotadas":"Vagas Esgotadas",
             "nome_inscrito":"Nome do Inscrito",
             "email_inscrito":"E-mail do Inscrito",
             "telefone_inscrito":"Telefone do Inscrito",
@@ -718,6 +723,11 @@
         },
         "inscricoes":"Listar Inscrições",
         "inscricao":{
+            "inscricoes_nao_iniciadas":"Inscrições não iniciadas",
+            "inscricoes_encerradas":"Inscrições encerradas",
+            "uma_vaga_restante":"Uma Vaga Restante",
+            "vagas_restante":"{{vagas}} Vagas Restantes",
+            "vagas_esgotadas":"Vagas Esgotadas",
             "nova_inscricao":"Nova Inscrição",
             "nome_inscrito":"Nome do Inscrito",
             "email_inscrito":"E-mail do Inscrito",

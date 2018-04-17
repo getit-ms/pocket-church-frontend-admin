@@ -16,6 +16,11 @@
                 <tr ng-repeat="evento in eventos.resultados">
                     <td>{{evento.nome}}</td>
                     <td class='text-center'>
+                        <span class="label label-warning pull-right" ng-if="evento.inscricoesAbertas && !evento.vagasRestantes" translate>evento.inscricao.vagas_esgotadas</span>
+                        <span class="label label-success pull-right" ng-if="evento.inscricoesAbertas && evento.vagasRestantes == 1" translate>evento.inscricao.uma_vaga_restante</span>
+                        <span class="label label-success pull-right" ng-if="evento.inscricoesAbertas && evento.vagasRestantes > 1">{{'evento.inscricao.vagas_restante' | translate:{vagas:evento.vagasRestantes} }}</span>
+                        <span class="label label-info pull-right" ng-if="evento.inscricoesFuturas" translate>evento.inscricao.inscricoes_nao_iniciadas</span>
+                        <span class="label label-default pull-right" ng-if="evento.inscricoesPassadas" translate>evento.inscricao.inscricoes_encerradas</span>
                         {{evento.dataHoraInicio | date : ('config.pattern.output.dateHour' | translate)}} - {{evento.dataHoraTermino | date : ('config.pattern.output.dateHour' | translate)}}
                     </td>
                     <td class="col-sm-4 text-center">
