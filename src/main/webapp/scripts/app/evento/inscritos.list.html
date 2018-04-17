@@ -75,7 +75,7 @@
                     <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
                 </tr>
                 <tr ng-repeat="inscricao in inscricoes">
-                    <td class="text-right col-xs-1">{{((filtro.pagina-1) * inscricoes.indexOf(inscricao)) + 1}}</td>
+                    <td class="text-right col-xs-1">{{((filtro.pagina-1) * filtro.total) + inscricoes.indexOf(inscricao) + 1}}</td>
                     <td>
                         {{inscricao.nomeInscrito}}<br/>
                         <a href='mailto:{{inscricao.emailInscrito}}'>{{inscricao.emailInscrito}}</a> - {{inscricao.telefoneInscrito | telefone}}

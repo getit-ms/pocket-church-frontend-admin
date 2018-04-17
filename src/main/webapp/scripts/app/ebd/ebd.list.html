@@ -14,13 +14,15 @@
                     <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
                 </tr>
                 <tr ng-repeat="ebd in ebds.resultados">
-                    <td>{{ebd.nome}}</td>
+                    <td>
+                        <div>{{ebd.nome}}</div>
+                        <span class="label label-warning" ng-if="ebd.inscricoesAbertas && !ebd.vagasRestantes" translate>ebd.inscricao.vagas_esgotadas</span>
+                        <span class="label label-success" ng-if="ebd.inscricoesAbertas && ebd.vagasRestantes == 1" translate>ebd.inscricao.uma_vaga_restante</span>
+                        <span class="label label-success" ng-if="ebd.inscricoesAbertas && ebd.vagasRestantes > 1">{{'ebd.inscricao.vagas_restante' | translate:{vagas:ebd.vagasRestantes} }}</span>
+                        <span class="label label-info" ng-if="ebd.inscricoesFuturas" translate>ebd.inscricao.inscricoes_nao_iniciadas</span>
+                        <span class="label label-default" ng-if="ebd.inscricoesPassadas" translate>ebd.inscricao.inscricoes_encerradas</span>
+                    </td>
                     <td class='text-center'>
-                        <span class="label label-warning pull-right" ng-if="ebd.inscricoesAbertas && !ebd.vagasRestantes" translate>ebd.inscricao.vagas_esgotadas</span>
-                        <span class="label label-success pull-right" ng-if="ebd.inscricoesAbertas && ebd.vagasRestantes == 1" translate>ebd.inscricao.uma_vaga_restante</span>
-                        <span class="label label-success pull-right" ng-if="ebd.inscricoesAbertas && ebd.vagasRestantes > 1">{{'ebd.inscricao.vagas_restante' | translate:{vagas:evento.vagasRestantes} }}</span>
-                        <span class="label label-info pull-right" ng-if="ebd.inscricoesFuturas" translate>ebd.inscricao.inscricoes_nao_iniciadas</span>
-                        <span class="label label-default pull-right" ng-if="ebd.inscricoesPassadas" translate>ebd.inscricao.inscricoes_encerradas</span>
                         {{ebd.dataHoraInicio | date : ('config.pattern.output.dateHour' | translate)}} - {{ebd.dataHoraTermino | date : ('config.pattern.output.dateHour' | translate)}}
                     </td>
                     <td class="col-sm-4 text-center">
