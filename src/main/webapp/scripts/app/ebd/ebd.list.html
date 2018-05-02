@@ -18,7 +18,7 @@
                         <div>{{ebd.nome}}</div>
                         <span class="label label-warning" ng-if="ebd.inscricoesAbertas && !ebd.vagasRestantes" translate>ebd.inscricao.vagas_esgotadas</span>
                         <span class="label label-success" ng-if="ebd.inscricoesAbertas && ebd.vagasRestantes == 1" translate>ebd.inscricao.uma_vaga_restante</span>
-                        <span class="label label-success" ng-if="ebd.inscricoesAbertas && ebd.vagasRestantes > 1">{{'ebd.inscricao.n_vagas_restante' | translate:{vagas:ebd.vagasRestantes} }}</span>
+                        <span class="label label-success" ng-if="ebd.inscricoesAbertas && ebd.vagasRestantes > 1">{{'ebd.inscricao.vagas_restante' | translate:{vagas:ebd.vagasRestantes} }}</span>
                         <span class="label label-info" ng-if="ebd.inscricoesFuturas" translate>ebd.inscricao.inscricoes_nao_iniciadas</span>
                         <span class="label label-default" ng-if="ebd.inscricoesPassadas" translate>ebd.inscricao.inscricoes_encerradas</span>
                     </td>
