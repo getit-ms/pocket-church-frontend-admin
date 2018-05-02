@@ -7,6 +7,7 @@
 </ol>
 <div class="pageHeader">
     {{breadcrumbs[breadcrumbs.length - 1].displayName | translate}}
-    <video-ajuda class='pull-right' media="{{'ajuda.media.' + breadcrumbs[breadcrumbs.length - 1].route | translate}}" 
-                 url-alternativa="{{'ajuda.youtube.' + breadcrumbs[breadcrumbs.length - 1].route | translate}}" ></video-ajuda>
+    <video-ajuda class='pull-right'
+                 media="{{'/app/ajuda/' + breadcrumbs[breadcrumbs.length - 1].route}}"
+                 url-alternativa="" ></video-ajuda>
 </div>

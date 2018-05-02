@@ -19,43 +19,7 @@
         }
     },
     "ajuda":{
-        "ajuda":"Ajuda",
-        "media":{
-            "aplicativo":"/app/ajuda/aplicativo",
-            "boletim":"/app/ajuda/boletim",
-            "chamado":"/app/ajuda/chamado",   
-            "cifra":"/app/ajuda/cifra",
-            "cantico":"/app/ajuda/cantico",
-            "configuracao":"/app/ajuda/configuracao",
-            "contato":"/app/ajuda/contato",
-            "estudo":"/app/ajuda/estudo",
-            "noticia":"/app/ajuda/noticia",
-            "institucional":"/app/ajuda/institucional",
-            "membro":"/app/ajuda/membro",
-            "ministerio":"/app/ajuda/ministerio",
-            "notificacao":"/app/ajuda/notificacao",
-            "oracao":"/app/ajuda/oracao",
-            "perfil":"/app/ajuda/perfil",
-            "versiculo":"/app/ajuda/versiculo"
-        },
-        "youtube":{
-            "aplicativo":"",
-            "boletim":"",
-            "chamado":"",   
-            "cifra":"",
-            "cantico":"",
-            "configuracao":"",
-            "contato":"",
-            "estudo":"",
-            "noticia":"",
-            "institucional":"",
-            "membro":"",
-            "ministerio":"",
-            "notificacao":"",
-            "oracao":"",
-            "perfil":"",
-            "versiculo":""
-        }
+        "ajuda":"Ajuda"
     },
     "global":{
         "video":{
