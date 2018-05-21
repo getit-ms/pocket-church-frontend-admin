@@ -5,6 +5,9 @@ calvinApp.directive('linkArquivo', function(){
         scope:{
             ngModel: '=ngModel'
         },
-        templateUrl: 'scripts/components/link-arquivo/link-arquivo.html'
+        templateUrl: 'scripts/components/link-arquivo/link-arquivo.html',
+        controller: function($scope) {
+            $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode;
+        }
     };
 });
