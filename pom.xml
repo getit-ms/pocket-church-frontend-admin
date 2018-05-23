@@ -4,7 +4,7 @@
 
     <groupId>br.gafs.getit.calvinista</groupId>
     <artifactId>calvinista-web-admin</artifactId>
-    <version>5.0.1</version>
+    <version>5.0.2-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>calvinista-frontend-admin</name>
@@ -21,7 +21,7 @@
 
     <scm>
         <connection>scm:git:https://bitbucket.org/getit-team/calvinista-frontend-admin</connection>
-        <tag>prod-5.0.1</tag>
+        <tag>prod-3.2.11</tag>
     </scm>
 
     <dependencies>
