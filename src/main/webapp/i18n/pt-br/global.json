@@ -105,7 +105,7 @@
                 "icon":"users"
             },
             "MANTER_VOTACOES":{
-                "label":"Votações",
+                "label":"Enquetes",
                 "state":"votacao",
                 "icon":"check-square"
             },
@@ -317,7 +317,7 @@
         "MANTER_ESTUDOS":"Estudos",
         "MANTER_NOTICIAS":"Notícias",
         "ENVIAR_NOTIFICACOES":"Notificações",
-        "MANTER_VOTACOES":"Votações",
+        "MANTER_VOTACOES":"Enquetes",
         "CONSULTAR_PEDIDOS_ORACAO":"Pedidos de Oração",
         "MANTER_AGENDA":"Aconselhamentos",
         "MANTER_EVENTOS":"Eventos",
@@ -328,7 +328,7 @@
         "MANTER_PLANOS_LEITURA_BIBLICA":"Leitura Bíblica",
         "CONSULTAR_PLANOS_LEITURA_BIBLICA":"Leitura Bíblica",
         "CONSULTAR_CONTATOS_IGREJA":"Contatos",
-        "REALIZAR_VOTACAO":"Votações",
+        "REALIZAR_VOTACAO":"Enquetes",
         "PEDIR_ORACAO":"Pedidos de Oração",
         "AGENDAR_ACONSELHAMENTO":"Aconselhamentos",
         "CONFIGURAR":"Configurações",
@@ -347,7 +347,8 @@
         "BIBLIA":"Bíblia",
         "MANTER_PUBLICACOES":"Manter Publicações",
         "AGENDA":"Agenda da Igreja",
-        "LISTAR_PUBLICACOES":"Publicações"
+        "LISTAR_PUBLICACOES":"Publicações",
+        "ANIVERSARIANTES":"Aniversariantes"
     },
     "contato":{
         "contatos":"Contatos da Igreja",
@@ -517,12 +518,12 @@
         "dataTermino":"Data de Término",
         "ministerios":"Ministérios Alvo",
         "escolhaMultipla":"Escolha Múltipla?",
-        "resultado":"Resultado da Votação",
+        "resultado":"Resultado da Enquete",
         "questao":{
             "questao":"Questão",
             "mais":"Incluir Questão",
             "remover":"Remover Questão",
-            "votos":"Votos"
+            "votos":"Respostas"
         },
         "opcao":{
             "opcao":"Opção",
