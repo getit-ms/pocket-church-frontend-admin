@@ -218,7 +218,7 @@
         <profile>
             <id>deploy</id>
             <properties>
-                <enviroment>hml</enviroment>
+                <environment>hml</environment>
             </properties>
             <build>
                 <defaultGoal>release:prepare release:perform</defaultGoal>
