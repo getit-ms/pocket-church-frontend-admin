@@ -66,11 +66,13 @@ function configureHttpInterceptors($httpProvider){
                         },
                         401: function (rejection) { // UNAUTHORIZED
                             message({type:'error',body:'mensagens.MSG-401'});
-                            window.location = '#/login';
+                            localStorage.removeItem('Authorization.' + $_serverCode);
+                            window.location = '#/login/';
                         },
                         403: function (rejection) { // FORBIDDEN
                             message({type:'error',body:'mensagens.MSG-403'});
-                            window.location = '#/login';
+                            localStorage.removeItem('Authorization.' + $_serverCode);
+                            window.location = '#/login/';
                         },
                         404: function (rejection) { // PAGE NOT FOUND
                             window.location = '#/404';
