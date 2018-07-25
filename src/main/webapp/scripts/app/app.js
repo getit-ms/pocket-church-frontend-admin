@@ -112,6 +112,7 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
         'MANTER_PERFIS',
         'MANTER_MEMBROS',
         'GERENCIAR_ACESSO_MEMBROS',
+        'MANTER_AUDIOS',
         'MANTER_NOTICIAS',
         'MANTER_BOLETINS',
         'MANTER_PUBLICACOES',
@@ -127,6 +128,7 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
         'ENVIAR_NOTIFICACOES',
         'MANTER_VERSICULOS_DIARIOS',
         'CONFIGURAR',
+        'CONFIGURAR_FLICKR',
         'CONFIGURAR_YOUTUBE',
         'CONFIGURAR_GOOGLE_CALENDAR',
         'ABERTURA_CHAMADO_SUPORTE'

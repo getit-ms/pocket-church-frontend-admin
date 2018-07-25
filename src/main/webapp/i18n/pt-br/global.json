@@ -169,6 +169,16 @@
                 "state":"chamado",
                 "icon":"comment"
             },
+            "MANTER_AUDIOS":{
+                "label":"Áudios",
+                "state":"audio",
+                "icon":"volume-up"
+            },
+            "CONFIGURAR_FLICKR":{
+                "label":"Flickr",
+                "state":"flickr",
+                "icon":"flickr"
+            },
             "geral":"Geral",
             "login":"Login",
             "logout":"Logout"
@@ -323,6 +333,10 @@
         "MANTER_AGENDA":"Aconselhamentos",
         "MANTER_EVENTOS":"Eventos",
         "MANTER_EBD":"EBD",
+        "CONFIGURAR_FLICKR":"Flickr",
+        "MANTER_AUDIOS":"Áudios",
+        "AUDIOS":"Áudios",
+        "GALERIA_FOTOS":"Galerias de Fotos",
         "MANTER_VERSICULOS_DIARIOS":"Versículos Diários",
         "GERENCIAR_ACESSO_MEMBROS":"Acesso de Membros",
         "GERENCIAR_FUNCIONALIDADES_APLICATIVO":"Aplicativo",
