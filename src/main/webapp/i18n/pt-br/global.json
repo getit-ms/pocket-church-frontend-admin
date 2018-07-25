@@ -236,6 +236,7 @@
         "MSG-049":"Houve um problema ao tentar conectar com o Google Calendar. Tente novamente e se o problema persistir conecte o administrador do sistema.",
         "MSG-050":"Desjea realmente desativar a integração com o Google Calendar?",
         "MSG-051":"Desjea realmente redefinir a senha de {{membro}}?",
+        "MSG-052":"Não foi possível realizar a integração com o Flickr. Tente novamente e se o problema persistir contate o administrador do distema.",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -444,13 +445,25 @@
         "detalhar":"Detalhar Cântico",
         "excluir":"Excluir Cântico"
     },
+    "audio":{
+        "arquivo_estudo":"Arquivo",
+        "titulo":"Título",
+        "audios":"Podcasts",
+        "autor":"Autor",
+        "categoria":"Categoria",
+        "cadastrar_categoria_audio":"Cadastrar Nova Categoria de Podcast",
+        "cadastrar":"Cadastrar Podcast",
+        "editar":"Alterar Podcast",
+        "detalhar":"Detalhar Podcast",
+        "data":"Data do Podcast"
+    },
     "estudo":{
         "arquivo_estudo":"Arquivo",
         "titulo":"Título",
         "estudos":"Estudos",
         "publicacao":"Data de Publicação",
         "autor":"Autor",
-        "categoria":"Catgoria",
+        "categoria":"Categoria",
         "cadastrar_categoria_estudo":"Cadastrar Nova Categoria de Estudo",
         "cadastrar":"Cadastrar Estudo",
         "editar":"Alterar Estudo",
@@ -727,6 +740,11 @@
         "numero":"Nº",
         "nome":"Nome",
         "texto":"Texto"
+    },
+    "flickr":{
+        "vincular_conta":"Vincular Conta",
+        "mensagem_flickr":"O vínculo da conta é feito através de permissões para leitura das galerias de fotos da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
+        "desativar_integracao":"Desativar Integração"
     },
     "youtube":{
         "vincular_conta":"Vincular Conta",

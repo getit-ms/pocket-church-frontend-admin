@@ -1,0 +1,35 @@
+<form id='formulario_audio' name='formulario_audio' ng-submit="salvar(this.formulario_audio)" novalidate>
+    <div class="col-sm-12" field-form-group='formulario_audio.titulo' >
+        <field-label value='audio.titulo' for='formulario_audio.titulo' ></field-label>
+        <input name='titulo' ng-model="audio.titulo" class="form-control" required />
+        <field-message field='formulario_audio.titulo'></field-message>
+    </div>
+    <div class="col-sm-6" field-form-group='formulario_audio.autor' >
+        <field-label value='audio.autor' for='formulario_audio.autor' ></field-label>
+        <input name='autor' ng-model="audio.autor" class="form-control" required />
+        <field-message field='formulario_audio.autor'></field-message>
+    </div>
+    <div class="col-sm-6" form-group-field="formulario_audio.categoria">
+        <field-label for="formulario_audio.categoria" value="audio.categoria"></field-label>
+        <div class="input-group">
+            <select ng-model="audio.categoria" required class="form-control" name="categoria"
+                    ng-options='categoria as categoria.nome for categoria in categorias track by categoria.id'>
+                <option>{{'global.selecione' | translate}}</option>
+            </select>
+            <a class="input-group-addon btn btn-default" ng-click="cadastrarCategoria()">
+                <span class="fa fa-plus" ></span>
+            </a>
+        </div>
+        <field-message field="formulario_audio.categoria" ></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group="formulario_audio.audio">
+        <field-label value="audio.arquivo_audio" for="formulario_audio.audio" required="false" ></field-label>
+        <input-fileupload name='audio' ng-model="audio.audio" types="['application/audio']" ></input-fileupload>
+        <field-message field="formulario_audio.audio"></field-message>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <input type='submit' ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="audio">{{'global.cancelar' | translate}}</a>
+    </div>
+</form>
