@@ -465,6 +465,7 @@
         "audios":"Podcasts",
         "autor":"Autor",
         "categoria":"Categoria",
+        "arquivo_audio":"Arquivo",
         "cadastrar_categoria_audio":"Cadastrar Nova Categoria de Podcast",
         "cadastrar":"Cadastrar Podcast",
         "editar":"Alterar Podcast",
