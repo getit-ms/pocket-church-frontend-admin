@@ -3,7 +3,7 @@
         <table class="table table-striped table-hover" ng-table='tabelaAudios'>
             <thead>
                 <tr>
-                    <th>{{'audio.titulo' | translate}}</th>
+                    <th>{{'audio.nome' | translate}}</th>
                     <th>{{'audio.autor' | translate}}</th>
                     <th></th>
                 </tr>
@@ -13,7 +13,7 @@
                     <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
                 </tr>
                 <tr ng-repeat="audio in audios.resultados">
-                    <td>{{audio.titulo}}</td>
+                    <td>{{audio.nome}}</td>
                     <td>{{audio.autor}}</td>
                     <td class="col-sm-3 text-center">
                         <a class="btn btn-default" ng-click="detalhar(audio)"

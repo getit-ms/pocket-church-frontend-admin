@@ -1,6 +1,6 @@
-calvinApp.service('flickrService', ['Restangular', function(Restangular){
+calvinApp.service('fotoService', ['Restangular', function(Restangular){
         this.api = function(){
-            return Restangular.all('flickr');
+            return Restangular.all('foto');
         };
         
         this.busca = function(callback){
