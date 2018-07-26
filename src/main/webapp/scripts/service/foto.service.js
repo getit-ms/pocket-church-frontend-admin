@@ -19,8 +19,8 @@ calvinApp.service('fotoService', ['Restangular', function(Restangular){
             this.api().remove().then(callback);
         };
 
-        this.inicia = function(code, callback){
-            this.api().one('configuracao').customPUT({code:code}).then(callback);
+        this.inicia = function(token, verifier, callback){
+            this.api().one('configuracao').customPUT({token:token,verifier:verifier}).then(callback);
         };
 }]);
         

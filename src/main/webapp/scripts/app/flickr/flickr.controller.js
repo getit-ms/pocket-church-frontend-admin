@@ -1,9 +1,9 @@
 calvinApp.config(['$stateProvider', function($stateProvider){
     $stateProvider.state('flickr', {
         parent: 'home',
-        url: 'flickr/?code',
+        url: 'flickr/?token&verifier',
         data:{
-            displayName: 'flickr.configuracoes',
+            displayName: 'flickr.configuracao',
             permissions:{
                 only: ['CONFIGURAR_FLICKR'],
                 redirectTo: 'login'
@@ -19,8 +19,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             $scope.flickr = flickr;
                         });
                         
-                        fotoService.busca(function(videos){
-                            $scope.videos = videos;
+                        fotoService.busca(function(galerias){
+                            $scope.galerias = galerias;
                         });
                     };
 
@@ -44,15 +44,20 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         });
                     };
 
-                    if ($stateParams.code){
-                        var code = $stateParams.code;
-                        if (code.indexOf('%') >= 0){
-                            code = decodeURIComponent(code);
+                    if ($stateParams.verifier && $stateParams.token){
+                        var token = $stateParams.token;
+                        if (token.indexOf('%') >= 0){
+                            token = decodeURIComponent(token);
                         }
 
-                        if (!$scope.$parent[code]){
-                            $scope.$parent[code] = true;
-                            fotoService.inicia(code, function(){
+                        var verifier = $stateParams.verifier;
+                        if (verifier.indexOf('%') >= 0){
+                            verifier = decodeURIComponent(verifier);
+                        }
+
+                        if (!$scope.$parent[token]){
+                            $scope.$parent[token] = token;
+                            fotoService.inicia(token, verifier, function(){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $state.go('flickr', {}, {reload:true});
                             });
