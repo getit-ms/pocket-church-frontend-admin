@@ -757,6 +757,7 @@
         "texto":"Texto"
     },
     "flickr":{
+        "configuracoes":"Configurações Fickr",
         "vincular_conta":"Vincular Conta",
         "mensagem_flickr":"O vínculo da conta é feito através de permissões para leitura das galerias de fotos da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
         "desativar_integracao":"Desativar Integração"

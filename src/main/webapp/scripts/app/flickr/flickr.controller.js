@@ -3,7 +3,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         parent: 'home',
         url: 'flickr/?token&verifier',
         data:{
-            displayName: 'flickr.configuracao',
+            displayName: 'flickr.configuracoes',
             permissions:{
                 only: ['CONFIGURAR_FLICKR'],
                 redirectTo: 'login'
