@@ -12,20 +12,20 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/flickr/flickr.form.html',
-                controller: function(flickrService, message, $scope, $state, $stateParams, confirmDialog){
+                controller: function(fotoService, message, $scope, $state, $stateParams, confirmDialog){
                     $scope.carrega = function(){
 
-                        flickrService.configuracao(function(flickr){
+                        fotoService.configuracao(function(flickr){
                             $scope.flickr = flickr;
                         });
                         
-                        flickrService.busca(function(videos){
+                        fotoService.busca(function(videos){
                             $scope.videos = videos;
                         });
                     };
 
                     $scope.vincularConta = function(){
-                        flickrService.url(function(response){
+                        fotoService.url(function(response){
                             location.href = response.url;
                         });
                     };
@@ -37,7 +37,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             ok:'global.sim',
                             cancel:'global.nao'
                         }).then(function(){
-                            flickrService.disable(function(){
+                            fotoService.disable(function(){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $scope.carrega();
                             });
@@ -52,7 +52,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
 
                         if (!$scope.$parent[code]){
                             $scope.$parent[code] = true;
-                            flickrService.inicia(code, function(){
+                            fotoService.inicia(code, function(){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $state.go('flickr', {}, {reload:true});
                             });
