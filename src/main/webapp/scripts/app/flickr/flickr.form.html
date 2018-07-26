@@ -18,11 +18,11 @@
         <span ng-show="!flickr.configurado">{{'flickr.mensagem_flickr' | translate}}</span>
     </div>
     
-    <div class="col-sm-12" ng-show="galerias.length">
+    <div class="col-sm-12" ng-show="galerias.totalResultados">
         <hr/>
     
         <div class="row">
-            <div ng-repeat="galeria in galerias" >
+            <div ng-repeat="galeria in galerias.resultados" >
                 <h2>{{galeria.nome}} <label class="label label-success pull-right" >{{galeria.quantidadeFotos}}</label></h2>
                 <p>{{galeria.descricao}}</p>
             </div>

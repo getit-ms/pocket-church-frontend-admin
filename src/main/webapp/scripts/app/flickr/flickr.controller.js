@@ -19,7 +19,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             $scope.flickr = flickr;
                         });
                         
-                        fotoService.busca(function(galerias){
+                        fotoService.busca(1, function(galerias){
                             $scope.galerias = galerias;
                         });
                     };

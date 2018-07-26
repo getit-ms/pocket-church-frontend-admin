@@ -3,8 +3,8 @@ calvinApp.service('fotoService', ['Restangular', function(Restangular){
             return Restangular.all('foto');
         };
         
-        this.busca = function(callback){
-            this.api().getList().then(callback);
+        this.busca = function(pagina, callback){
+            this.api().one('galeria').customGE('', {pagina:pagina}).then(callback);
         };
         
         this.configuracao = function(callback){
