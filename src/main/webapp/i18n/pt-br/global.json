@@ -460,12 +460,12 @@
         "excluir":"Excluir Cântico"
     },
     "audio":{
-        "arquivo_estudo":"Arquivo",
+        "arquivo_audio":"Arquivo do Áudio",
+        "arquivo_capa":"Imagem de Capa",
         "nome":"Nome",
         "audios":"Podcasts",
         "autor":"Autor",
         "categoria":"Categoria",
-        "arquivo_audio":"Arquivo",
         "cadastrar_categoria_audio":"Cadastrar Nova Categoria de Podcast",
         "cadastrar":"Cadastrar Podcast",
         "editar":"Alterar Podcast",
