@@ -67,16 +67,16 @@
         </div>
     </div>
     <div class="col-sm-6">
-        <div field-form-group='formulario_configuracao.tituloEstudo'>
-            <field-label value='configuracao.titulo_estudo' required="false" for='formulario_configuracao.tituloEstudo'></field-label>
-            <input type="text" name='tituloEstudo' ng-model="configuracao.tituloEstudo" class="form-control" maxlength="30" />
-            <field-message field='formulario_configuracao.tituloEstudo'></field-message>
+        <div field-form-group='formulario_configuracao.tituloDocumento'>
+            <field-label value='configuracao.titulo_documento' required="false" for='formulario_configuracao.tituloDocumento'></field-label>
+            <input type="text" name='tituloDocumento' ng-model="configuracao.tituloDocumento" class="form-control" maxlength="30" />
+            <field-message field='formulario_configuracao.tituloDocumento'></field-message>
         </div>
-        <div field-form-group='formulario_configuracao.textoEstudo'>
-            <field-label value='configuracao.texto_estudo' required="false" for='formulario_configuracao.textoEstudo'></field-label>
-            <textarea rows='5' type="text" name='textoEstudo' ng-model="configuracao.textoEstudo" class="form-control" maxlength="150" ></textarea>
-            <field-message field='formulario_configuracao.textoEstudo'></field-message>
-            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoEstudo.length} }}</span>
+        <div field-form-group='formulario_configuracao.textoDocumento'>
+            <field-label value='configuracao.texto_documento' required="false" for='formulario_configuracao.textoDocumento'></field-label>
+            <textarea rows='5' type="text" name='textoDocumento' ng-model="configuracao.textoDocumento" class="form-control" maxlength="150" ></textarea>
+            <field-message field='formulario_configuracao.textoDocumento'></field-message>
+            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoDocumento.length} }}</span>
         </div>
     </div>
     <div class="col-sm-6">
@@ -89,18 +89,26 @@
             <field-label value='configuracao.texto_noticia' required="false" for='formulario_configuracao.textoNoticia'></field-label>
             <textarea rows='5' type="text" name='textoNoticia' ng-model="configuracao.textoNoticia" class="form-control" maxlength="150" ></textarea>
             <field-message field='formulario_configuracao.textoNoticia'></field-message>
-            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoEstudo.length} }}</span>
+            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoDocumento.length} }}</span>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div field-form-group='formulario_configuracao.tituloClassificados'>
+            <field-label value='configuracao.titulo_classificados' required="false" for='formulario_configuracao.tituloClassificados'></field-label>
+            <input type="text" name='tituloClassificados' ng-model="configuracao.tituloClassificados" class="form-control" maxlength="30" />
+            <field-message field='formulario_configuracao.tituloClassificados'></field-message>
+        </div>
+        <div field-form-group='formulario_configuracao.textoClassificados'>
+            <field-label value='configuracao.texto_classificados' required="false" for='formulario_configuracao.textoClassificados'></field-label>
+            <textarea rows='5' type="text" name='textoClassificados' ng-model="configuracao.textoClassificados" class="form-control" maxlength="150" ></textarea>
+            <field-message field='formulario_configuracao.textoClassificados'></field-message>
+            <span>{{'global.caracteres_restantes' | translate:{quantidade:150-configuracao.textoDocumento.length} }}</span>
         </div>
     </div>
     <div class="col-sm-6" field-form-group='formulario_configuracao.tituloVersiculoDiario'>
-        <field-label value='configuracao.titulo_versiculo_diario' required="false" for='formulario_configuracao.tituloVersiculoDiario'></field-label>
-        <input type="text" name='tituloVersiculoDiario' ng-model="configuracao.tituloVersiculoDiario" class="form-control" maxlength="30" />
-        <field-message field='formulario_configuracao.tituloVersiculoDiario'></field-message>
-    </div>
-    <div class="col-sm-6" field-form-group='formulario_configuracao.tituloLembreteLeituraBiblica'>
-        <field-label value='configuracao.titulo_lembrete_leitura_biblica' required="false" for='formulario_configuracao.tituloLembreteLeituraBiblica'></field-label>
-        <input type="text" name='tituloLembreteLeituraBiblica' ng-model="configuracao.tituloLembreteLeituraBiblica" class="form-control" maxlength="30" />
-        <field-message field='formulario_configuracao.tituloLembreteLeituraBiblica'></field-message>
+        <field-label value='configuracao.titulo_mensagem_dia' required="false" for='formulario_configuracao.tituloMensagemDia'></field-label>
+        <input type="text" name='tituloMensagemDia' ng-model="configuracao.tituloMensagemDia" class="form-control" maxlength="30" />
+        <field-message field='formulario_configuracao.tituloMensagemDia'></field-message>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>

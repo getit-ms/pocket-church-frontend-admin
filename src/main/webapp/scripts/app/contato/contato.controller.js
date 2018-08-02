@@ -5,43 +5,43 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         data:{
             displayName: 'contato.contatos',
             permissions:{
-                only: ['MANTER_MEMBROS'],
+                only: ['MANTER_COLABORADORES'],
                 redirectTo: 'login'
             }
         },
         views:{
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.list.html',
-                controller: function($scope, membroService, perfilService, $state, message, confirmExclusao, NgTableParamsCalvin){
+                controller: function($scope, colaboradorService, perfilService, $state, message, confirmExclusao, NgTableParamsCalvin){
                     $scope.filtro = {nome:'',email:'',perfil:[]};
 
-                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Empresa=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
 
-                    $scope.tabelaMembros = new NgTableParamsCalvin(function($defer, params){
+                    $scope.tabelaColaboradors = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
                         $scope.filtro.total = params.parameters().count;
-                        membroService.busca($scope.filtro, function(membros){
-                            $scope.membros = membros;
-                            params.total(membros.totalResultados);
-                            $defer.resolve(membros.resultados);
+                        colaboradorService.busca($scope.filtro, function(colaboradores){
+                            $scope.colaboradores = colaboradores;
+                            params.total(colaboradores.totalResultados);
+                            $defer.resolve(colaboradores.resultados);
                         });
                     });
 
                     $scope.busca = function(){
-                        $scope.tabelaMembros.reload();
+                        $scope.tabelaColaboradors.reload();
                     };
 
-                    $scope.detalhar = function(membro){
-                        $state.go('contato.view', {id: membro.id});
+                    $scope.detalhar = function(colaborador){
+                        $state.go('contato.view', {id: colaborador.id});
                     };
 
-                    $scope.editar = function(membro){
-                        $state.go('contato.edicao', {id: membro.id});
+                    $scope.editar = function(colaborador){
+                        $state.go('contato.edicao', {id: colaborador.id});
                     };
 
-                    $scope.remover = function(membro){
-                        confirmExclusao('membro', membro.nome, function(){
-                            membroService.remove(membro.id, function(){
+                    $scope.remover = function(colaborador){
+                        confirmExclusao('colaborador', colaborador.nome, function(){
+                            colaboradorService.remove(colaborador.id, function(){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $scope.busca();
                             });
@@ -61,8 +61,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.form.html',
-                controller: function($scope, message, membroService, $state, $scope){
-                    $scope.membro = {endereco:{}};
+                controller: function($scope, message, colaboradorService, $state, $scope){
+                    $scope.colaborador = {endereco:{}};
                     
                     $scope.salvar = function(form){
                         if (form.$invalid){
@@ -70,7 +70,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             return;
                         }
                         
-                        membroService.cadastra($scope.membro, function(membro){
+                        colaboradorService.cadastra($scope.colaborador, function(colaborador){
                             message({type:'success',body:'mensagens.MSG-001'});
                             $state.go('contato');
                         });
@@ -87,8 +87,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.form.html',
-                controller: function($scope, membroService, membro, $state, message){
-                    $scope.membro = membro;
+                controller: function($scope, colaboradorService, colaborador, $state, message){
+                    $scope.colaborador = colaborador;
 
                     $scope.salvar = function(form){
                         if (form.$invalid){
@@ -96,15 +96,15 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             return;
                         }
                         
-                        membroService.atualiza($scope.membro, function(membro){
+                        colaboradorService.atualiza($scope.colaborador, function(colaborador){
                             message({type:'success',body:'mensagens.MSG-001'});
                             $state.go('contato');
                         });
                     };
                 },
                 resolve: {
-                    membro: function($stateParams, membroService){
-                        return membroService.carrega($stateParams.id);
+                    colaborador: function($stateParams, colaboradorService){
+                        return colaboradorService.carrega($stateParams.id);
                     }
                 }
             }
@@ -118,12 +118,12 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.detail.html',
-                controller: function($scope, membro){
-                    $scope.membro = membro;
+                controller: function($scope, colaborador){
+                    $scope.colaborador = colaborador;
                 },
                 resolve: {
-                    membro: function($stateParams, membroService){
-                        return membroService.carrega($stateParams.id);
+                    colaborador: function($stateParams, colaboradorService){
+                        return colaboradorService.carrega($stateParams.id);
                     }
                 }
             }

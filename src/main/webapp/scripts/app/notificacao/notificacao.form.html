@@ -12,9 +12,9 @@
                 <field-message field='formulario_notificacao.mensagem'></field-message>
                 <span>{{'global.caracteres_restantes' | translate:{quantidade:150-notificacao.mensagem.length} }}</span>
                 <hr/>
-                <field-label value='notificacao.apenas_membros' for='formulario_notificacao.apenas_membros'></field-label><br/>
-                <input type='radio' ng-value="true" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.sim' | translate}}
-                <input type='radio' ng-value="false" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.nao' | translate}}
+                <field-label value='notificacao.apenas_colaboradores' for='formulario_notificacao.apenas_colaboradores'></field-label><br/>
+                <input type='radio' ng-value="true" name="apenasColaboradors" ng-model="notificacao.apenasColaboradors" required />{{'global.sim' | translate}}
+                <input type='radio' ng-value="false" name="apenasColaboradors" ng-model="notificacao.apenasColaboradors" required />{{'global.nao' | translate}}
             </div>
         </div>
     </div>

@@ -118,7 +118,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 templateUrl: 'scripts/app/publicacao/publicacao.detail.html',
                 controller: function(publicacao, $scope){
                     $scope.publicacao = publicacao;
-                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Empresa=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                 },
                 resolve: {
                     publicacao: function(boletimService, $stateParams){

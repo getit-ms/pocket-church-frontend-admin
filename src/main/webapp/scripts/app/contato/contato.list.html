@@ -1,11 +1,11 @@
 <div>
-    <form name="busca_membro_form" ng-submit="busca()" novalidate>
-        <div class="col-sm-6" field-form-group="busca_membro_form.nome">
-            <field-label for='nome' required='false' value='membro.nome' ></field-label>
+    <form name="busca_colaborador_form" ng-submit="busca()" novalidate>
+        <div class="col-sm-6" field-form-group="busca_colaborador_form.nome">
+            <field-label for='nome' required='false' value='colaborador.nome' ></field-label>
             <input name='nome' class="form-control" ng-model="filtro.nome" />
         </div>
-        <div class="col-sm-6" field-form-group="busca_membro_form.email">
-            <field-label for='email' required='false' value='membro.email' ></field-label>
+        <div class="col-sm-6" field-form-group="busca_colaborador_form.email">
+            <field-label for='email' required='false' value='colaborador.email' ></field-label>
             <input name='email' class="form-control" ng-model="filtro.email" />
         </div>
         <div class="col-sm-12 comandos">
@@ -15,32 +15,32 @@
         </div>
     </form>
     <div class="col-sm-12 table-responsive">
-        <table class="table table-striped table-hover" ng-table='tabelaMembros'>
+        <table class="table table-striped table-hover" ng-table='tabelaColaboradors'>
             <thead>
                 <tr>
-                    <th>{{'membro.nome' | translate}}</th>
-                    <th>{{'membro.email' | translate}}</th>
+                    <th>{{'colaborador.nome' | translate}}</th>
+                    <th>{{'colaborador.email' | translate}}</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-if="!membros.resultados.length">
+                <tr ng-if="!colaboradores.resultados.length">
                     <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
                 </tr>
-                <tr ng-repeat="membro in membros.resultados">
-                    <td>{{membro.nome}}</td>
-                    <td>{{membro.email}}</td>
+                <tr ng-repeat="colaborador in colaboradores.resultados">
+                    <td>{{colaborador.nome}}</td>
+                    <td>{{colaborador.email}}</td>
                     <td class="text-center">
-                        <a class="btn btn-default" ng-click="detalhar(membro)"
+                        <a class="btn btn-default" ng-click="detalhar(colaborador)"
                            title="{{'global.detalhar' | translate}}">
                             <span class="fa fa-search"></span>
                         </a>
-                        <a class="btn btn-default" ng-click="editar(membro)"
+                        <a class="btn btn-default" ng-click="editar(colaborador)"
                            title="{{'global.editar' | translate}}">
                             <span class="fa fa-pencil-square-o"></span>
                         </a>
-                        <a class="btn btn-default" ng-click="remover(membro)"
-                           ng-if="!membro.membro"
+                        <a class="btn btn-default" ng-click="remover(colaborador)"
+                           ng-if="!colaborador.colaborador"
                            title="{{'global.excluir' | translate}}">
                             <span class="fa fa-trash"></span>
                         </a>
@@ -55,7 +55,7 @@
             {{'contato.cadastrar' | translate}}
         </a>
         <a class="btn btn-default pull-right" target="_blank" ng-if="headers"
-           href="/app/rest/membro/exportar.xls?{{headers}}">
+           href="/app/rest/colaborador/exportar.xls?{{headers}}">
             <i class="fa fa-lg fa-file-excel-o" ></i>
             {{'contato.exportar_contatos' | translate}}
         </a>

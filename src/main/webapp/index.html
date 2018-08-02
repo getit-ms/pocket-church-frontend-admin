@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9">
-    <title>${nome.igreja}</title>
+    <title>${nome.empresa}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -60,7 +60,7 @@
 <!-- Footer -->
 <div class="footer navbar navbar-fixed-bottom">
     <div class="footer-contact visible-lg col-md-12">
-        <p>${nome.igreja} 
+        <p>${nome.empresa}
             <span ng-if="institucional.site">| {{institucional.site}}</span>
             <span ng-if="institucional.email">| {{institucional.email}}</span>
             <span ng-if="institucional.endereco.descricao"><br/>{{institucional.endereco.descricao}}</span> 
@@ -145,53 +145,45 @@
 <script src="scripts/app/agenda/agenda.controller.js"></script>
 <script src="scripts/app/boletim/boletim.controller.js"></script>
 <script src="scripts/app/publicacao/publicacao.controller.js"></script>
-<script src="scripts/app/estudo/estudo.controller.js"></script>
+<script src="scripts/app/documento/documento.controller.js"></script>
 <script src="scripts/app/noticia/noticia.controller.js"></script>
+<script src="scripts/app/classificados/classificados.controller.js"></script>
 <script src="scripts/app/institucional/institucional.controller.js"></script>
 <script src="scripts/app/login/login.controller.js"></script>
-<script src="scripts/app/membro/membro.controller.js"></script>
-<script src="scripts/app/ministerio/ministerio.controller.js"></script>
+<script src="scripts/app/colaborador/colaborador.controller.js"></script>
 <script src="scripts/app/notificacao/notificacao.controller.js"></script>
 <script src="scripts/app/perfil/perfil.controller.js"></script>
-<script src="scripts/app/versiculo/versiculo.controller.js"></script>
-<script src="scripts/app/votacao/votacao.controller.js"></script>
-<script src="scripts/app/oracao/oracao.controller.js"></script>
+<script src="scripts/app/mensagem-dia/mensagem-dia.controller.js"></script>
+<script src="scripts/app/enquete/enquete.controller.js"></script>
+<script src="scripts/app/contato-colaborador/contato-colaborador.controller.js"></script>
 <script src="scripts/app/evento/evento.controller.js"></script>
 <script src="scripts/app/aplicativo/aplicativo.controller.js"></script>
 <script src="scripts/app/contato/contato.controller.js"></script>
 <script src="scripts/app/home/home.controller.js"></script>
-<script src="scripts/app/cifra/cifra.controller.js"></script>
-<script src="scripts/app/cantico/cantico.controller.js"></script>
 <script src="scripts/app/chamado/chamado.controller.js"></script>
 <script src="scripts/app/configuracao/configuracao.controller.js"></script>
-<script src="scripts/app/ebd/ebd.controller.js"></script>
 <script src="scripts/app/youtube/youtube.controller.js"></script>
-<script src="scripts/app/planoLeitura/planoLeitura.controller.js"></script>
 <script src="scripts/app/calendario/calendario.controller.js"></script>
 <script src="scripts/app/audio/audio.controller.js"></script>
 <script src="scripts/app/flickr/flickr.controller.js"></script>
 
 <script src="scripts/service/institucional.service.js"></script>
-<script src="scripts/service/ministerio.service.js"></script>
 <script src="scripts/service/perfil.service.js"></script>
-<script src="scripts/service/membro.service.js"></script>
+<script src="scripts/service/colaborador.service.js"></script>
 <script src="scripts/service/boletim.service.js"></script>
-<script src="scripts/service/estudo.service.js"></script>
+<script src="scripts/service/documento.service.js"></script>
 <script src="scripts/service/noticia.service.js"></script>
 <script src="scripts/service/notificacao.service.js"></script>
-<script src="scripts/service/votacao.service.js"></script>
+<script src="scripts/service/enquete.service.js"></script>
 <script src="scripts/service/agenda.service.js"></script>
-<script src="scripts/service/versiculo.service.js"></script>
+<script src="scripts/service/mensagem-dia.service.js"></script>
 <script src="scripts/service/acesso.service.js"></script>
 <script src="scripts/service/evento.service.js"></script>
-<script src="scripts/service/oracao.service.js"></script>
-<script src="scripts/service/hino.service.js"></script>
+<script src="scripts/service/contato-colaborador.service.js"></script>
 <script src="scripts/service/aplicativo.service.js"></script>
 <script src="scripts/service/chamado.service.js"></script>
-<script src="scripts/service/cifra.service.js"></script>
 <script src="scripts/service/configuracao.service.js"></script>
 <script src="scripts/service/youtube.service.js"></script>
-<script src="scripts/service/planoLeitura.service.js"></script>
 <script src="scripts/service/calendario.service.js"></script>
 <script src="scripts/service/audio.service.js"></script>
 <script src="scripts/service/foto.service.js"></script>

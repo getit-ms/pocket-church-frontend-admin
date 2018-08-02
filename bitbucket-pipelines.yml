@@ -9,13 +9,13 @@ pipelines:
             - apt-get install -y sshpass npm && ln -s /usr/bin/nodejs /usr/bin/node
             - npm install --global bower grunt
             - cd src/main/webapp && npm install && cd ../../..
-            - echo "*:*:$PGUSER:$PGPASS:calvinista" > ~/.pgpass
+            - echo "*:*:$PGUSER:$PGPASS:pcorporate" > ~/.pgpass
             - chmod 600 ~/.pgpass
-            - psql -h "$PGHOST" -U "$PGUSER" -d calvinista -t -A -c "select chave_igreja, nome from tb_igreja where status = 0 and chave_igreja <> 'tst' " > igrejas.txt
-            - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/calvinista-design" /tmp/calvinista-design
+            - psql -h "$PGHOST" -U "$PGUSER" -d pcorporate -t -A -c "select chave_empresa, nome from tb_empresa where status = 0 and chave_empresa <> 'tst' " > empresas.txt
+            - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/pocket-corporate-design" /tmp/pocket-corporate-design
             - mvn clean package
             - cp -R src/main/webapp src/main/webapp-origin
-            - awk -F'|' '{system("sh build_deploy.sh \"" $1 "\" \"" $2 "\"")}' igrejas.txt
+            - awk -F'|' '{system("sh build_deploy.sh \"" $1 "\" \"" $2 "\"")}' empresas.txt
     hml-*:
       - step:
           script:
@@ -23,6 +23,6 @@ pipelines:
             - apt-get install -y sshpass npm && ln -s /usr/bin/nodejs /usr/bin/node
             - npm install --global bower grunt
             - cd src/main/webapp && npm install && cd ../../..
-            - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/calvinista-design" /tmp/calvinista-design
-            - cp -Rf /tmp/calvinista-design/tst/admin/* src/main/webapp/
+            - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/pocket-corporate-design" /tmp/pocket-corporate-design
+            - cp -Rf /tmp/pocket-corporate-design/tst/admin/* src/main/webapp/
             - sh build_deploy.sh tst Pocket\ Church

@@ -38,7 +38,7 @@ function configureHttpInterceptors($httpProvider){
                         request.data = '';
                     }
                     
-                    request.headers.Igreja = $_serverCode;
+                    request.headers.Empresa = $_serverCode;
                     request.headers.Dispositivo = localStorage.getItem('uuid.' + $_serverCode);
                     
                     if (localStorage.getItem('Authorization.' + $_serverCode)){
@@ -108,25 +108,21 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
     $rootScope.todasFuncionalidades = [
         'MANTER_DADOS_INSTITUCIONAIS',
         'GERENCIAR_FUNCIONALIDADES_APLICATIVO',
-        'MANTER_MINISTERIOS',
         'MANTER_PERFIS',
-        'MANTER_MEMBROS',
-        'GERENCIAR_ACESSO_MEMBROS',
+        'MANTER_COLABORADORES',
+        'GERENCIAR_ACESSO_COLABORADORES',
         'MANTER_AUDIOS',
         'MANTER_NOTICIAS',
+        'MANTER_CLASSIFICADOS',
         'MANTER_BOLETINS',
         'MANTER_PUBLICACOES',
-        'MANTER_PLANOS_LEITURA_BIBLICA',
-        'MANTER_CIFRAS',
-        'MANTER_CANTICOS',
-        'MANTER_ESTUDOS',
-        'MANTER_VOTACOES',
-        'CONSULTAR_PEDIDOS_ORACAO',
+        'MANTER_DOCUMENTOS',
+        'MANTER_ENQUETES',
+        'CONSULTAR_CONTATOS_COLABORADORES',
         'MANTER_AGENDA',
         'MANTER_EVENTOS',
-        'MANTER_EBD',
         'ENVIAR_NOTIFICACOES',
-        'MANTER_VERSICULOS_DIARIOS',
+        'MANTER_MENSAGENS_DIA',
         'CONFIGURAR',
         'CONFIGURAR_FLICKR',
         'CONFIGURAR_YOUTUBE',
@@ -140,7 +136,7 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
     if (localStorage.getItem('Authorization.' + $_serverCode) && !$rootScope.acesso){
         acessoService.carrega(function(acesso){
             $rootScope.acesso = {
-                usuario: acesso.membro,
+                usuario: acesso.colaborador,
                 funcionalidades: acesso.funcionalidades
             };
             localStorage.setItem('acesso.' + $_serverCode, angular.toJson($rootScope.acesso));

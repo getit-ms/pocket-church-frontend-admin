@@ -1,36 +1,36 @@
 <div>
     <div class="col-md-6">
-        <label translate>membro.nome</label>
-        <div class="form-control" >{{membro.nome}}</div>
+        <label translate>colaborador.nome</label>
+        <div class="form-control" >{{colaborador.nome}}</div>
     </div>
     <div class="col-md-6">
-        <label translate>membro.email</label>
-        <div class="form-control" >{{membro.email}}</div>
+        <label translate>colaborador.email</label>
+        <div class="form-control" >{{colaborador.email}}</div>
     </div>
     <div class="col-md-4" >
-        <label translate>membro.nascimento</label>
-        <div class="form-control" >{{membro.dataNascimento| date:('config.pattern.output.date' | translate)}}</div>
+        <label translate>colaborador.nascimento</label>
+        <div class="form-control" >{{colaborador.dataNascimento| date:('config.pattern.output.date' | translate)}}</div>
     </div>
-    <div ng-if='!membro.visitante' class="col-md-4" >
-        <label translate>membro.pastor</label>
-        <div class="form-control" >{{(membro.pastor ? 'global.sim' : 'global.nao') | translate}}</div>
+    <div ng-if='!colaborador.visitante' class="col-md-4" >
+        <label translate>colaborador.gerente</label>
+        <div class="form-control" >{{(colaborador.gerente ? 'global.sim' : 'global.nao') | translate}}</div>
     </div>
-    <div ng-if='!membro.pastor && !membro.membro && !membro.admin' class="col-md-4">
-        <label translate>membro.visitante</label>
-        <div class="form-control" >{{(membro.visitante ? 'global.sim' : 'global.nao') | translate}}</div>
+    <div ng-if='!colaborador.gerente && !colaborador.colaborador && !colaborador.admin' class="col-md-4">
+        <label translate>colaborador.visitante</label>
+        <div class="form-control" >{{(colaborador.visitante ? 'global.sim' : 'global.nao') | translate}}</div>
     </div>
     <div class="col-md-4">
-        <label translate>membro.dados_disponiveis</label>
-        <div class="form-control" >{{(membro.dadosDisponiveis ? 'global.sim' : 'global.nao') | translate}}</div>
+        <label translate>colaborador.dados_disponiveis</label>
+        <div class="form-control" >{{(colaborador.dadosDisponiveis ? 'global.sim' : 'global.nao') | translate}}</div>
     </div>
     <div class="col-md-12">
-        <label translate>membro.foto_membro</label>
-        <div class="form-control" ><link-arquivo ng-model="membro.foto" ></link-arquivo></div>
+        <label translate>colaborador.foto_colaborador</label>
+        <div class="form-control" ><link-arquivo ng-model="colaborador.foto" ></link-arquivo></div>
     </div>
-    <form-endereco ng-model="membro.endereco" readonly='true' ></form-endereco>
-    <div ng-if='membro.telefones.length' class="col-sm-12" >
-        <label translate>membro.telefones</label>
-        <input-telefones name='telefones'  ng-model="membro.telefones" readonly='true' name='telefones' ></input-telefones>
+    <form-endereco ng-model="colaborador.endereco" readonly='true' ></form-endereco>
+    <div ng-if='colaborador.telefones.length' class="col-sm-12" >
+        <label translate>colaborador.telefones</label>
+        <input-telefones name='telefones'  ng-model="colaborador.telefones" readonly='true' name='telefones' ></input-telefones>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>

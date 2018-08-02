@@ -1,11 +1,11 @@
 <form id="formulario_agenda" name="formulario_agenda" ng-submit="salvar(this.formulario_agenda)" novalidate>
-    <div class="col-sm-6" field-form-group="formulario_agenda.pastor">
-        <field-label value='agenda.pastor' for='formulario_agenda.pastor' required='!agenda.id'></field-label>
-        <span class='form-control' ng-if="agenda.id">{{agenda.pastor.nome}}</span>
-        <select ng-if="!agenda.id" ng-model="agenda.pastor" name="pastor"
-                ng-options="pastor.nome for pastor in pastores"
+    <div class="col-sm-6" field-form-group="formulario_agenda.gerente">
+        <field-label value='agenda.gerente' for='formulario_agenda.gerente' required='!agenda.id'></field-label>
+        <span class='form-control' ng-if="agenda.id">{{agenda.gerente.nome}}</span>
+        <select ng-if="!agenda.id" ng-model="agenda.gerente" name="gerente"
+                ng-options="gerente.nome for gerente in gerentes"
                 class="form-control" required></select>
-        <field-message field='formulario_agenda.pastor'></field-message>
+        <field-message field='formulario_agenda.gerente'></field-message>
     </div>
     <div class="col-sm-12"  ng-show='agenda.id' ng-controller="HorarioAgendaController">
         <div class="row">

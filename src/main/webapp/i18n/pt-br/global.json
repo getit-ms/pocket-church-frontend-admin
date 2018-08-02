@@ -49,11 +49,6 @@
         "exportar_word":"Exportar Word",
         "exportar_excel":"Exportar Excel",
         "menu":{
-            "MANTER_MINISTERIOS":{
-                "label":"Ministérios",
-                "state":"ministerio",
-                "icon":"cubes"
-            },
             "MANTER_PERFIS":{
                 "label":"Perfis",
                 "state":"perfil",
@@ -69,49 +64,44 @@
                 "state":"publicacao",
                 "icon":"clipboard"
             },
-            "MANTER_CIFRAS":{
-                "label":"Cânticos",
-                "state":"cifra",
-                "icon":"file-audio-o"
-            },
-            "MANTER_CANTICOS":{
-                "label":"Cânticos",
-                "state":"cantico",
-                "icon":"file-audio-o"
-            },
             "MANTER_DADOS_INSTITUCIONAIS":{
                 "label":"Dados Institucionais",
                 "state":"institucional",
                 "icon":"cube"
             },
-            "MANTER_ESTUDOS":{
-                "label":"Estudos",
-                "state":"estudo",
+            "MANTER_DOCUMENTOS":{
+                "label":"Documentos",
+                "state":"documento",
                 "icon":"book"
+            },
+            "MANTER_CLASSIFICADOS":{
+                "label":"Classificados",
+                "state":"classificados",
+                "icon":"newspaper-o"
             },
             "MANTER_NOTICIAS":{
                 "label":"Notícias",
                 "state":"noticia",
-                "icon":"newspaper-o"
+                "icon":"bullhorn"
             },
             "ENVIAR_NOTIFICACOES":{
                 "label":"Notificações",
                 "state":"notificacao",
                 "icon":"list-ul"
             },
-            "MANTER_MEMBROS":{
-                "label":"Contatos da Igreja",
+            "MANTER_COLABORADORES":{
+                "label":"Contatos da Empresa",
                 "state":"contato",
                 "icon":"users"
             },
-            "MANTER_VOTACOES":{
+            "MANTER_ENQUETES":{
                 "label":"Enquetes",
-                "state":"votacao",
+                "state":"enquete",
                 "icon":"check-square"
             },
-            "CONSULTAR_PEDIDOS_ORACAO":{
-                "label":"Pedidos de Oração",
-                "state":"oracao",
+            "CONSULTAR_CONTATOS_COLABORADORES":{
+                "label":"Contatos de Colaboradores",
+                "state":"contato_colaborador",
                 "icon":"heart"
             },
             "MANTER_AGENDA":{
@@ -124,14 +114,9 @@
                 "state":"evento",
                 "icon":"calendar-check-o"
             },
-            "MANTER_EBD":{
-                "label":"EBD",
-                "state":"ebd",
-                "icon":"mortar-board"
-            },
-            "MANTER_VERSICULOS_DIARIOS":{
-                "label":"Versículos Diários",
-                "state":"versiculo",
+            "MANTER_MENSAGENS_DIA":{
+                "label":"Mensagens do Dia",
+                "state":"mensagem_dia",
                 "icon":"sticky-note"
             },
             "CONFIGURAR":{
@@ -154,14 +139,9 @@
                 "state":"aplicativo",
                 "icon":"mobile"
             },
-            "MANTER_PLANOS_LEITURA_BIBLICA":{
-                "label":"Leitura Bíblica",
-                "state":"planoLeitura",
-                "icon":"calendar-check-o"
-            },
-            "GERENCIAR_ACESSO_MEMBROS":{
-                "label":"Acesso de Membros",
-                "state":"membro",
+            "GERENCIAR_ACESSO_COLABORADORES":{
+                "label":"Acesso de Colaboradores",
+                "state":"colaborador",
                 "icon":"user-plus"
             },
             "ABERTURA_CHAMADO_SUPORTE":{
@@ -187,18 +167,14 @@
             "agenda":"a agenda de",
             "boletim":"o boletim",
             "publicacao":"a publicação",
-            "cifra":"a Cântico",
-            "cantico":"a Cântico",
-            "estudo":"o estudo",
+            "documento":"o documento",
             "noticia":"a notícia",
+            "classificados":"os classificados",
             "evento":"o evento",
-            "plano_leitura":"o plano de leitura bíblico",
-            "ebd":"o EBD",
-            "membro":"o contato/membro",
-            "ministerio":"o ministério",
+            "colaborador":"o contato/colaborador",
             "perfil":"o perfil",
-            "versiculo":"o versículo",
-            "votacao":"a votação"
+            "contato_colaborador":"o contato",
+            "enquete":"a enquete"
         }
     },
     "mensagens":{
@@ -218,14 +194,14 @@
         "MSG-014":"Data inválida",
         "MSG-015":"Você não pode editar seu próprio acesso",
         "MSG-016":"Deseja realmente excluir {{elemento}} '{{descricao}}'?",
-        "MSG-017":"Deseja realmente marcar esse pedido de oração como atendido?",
+        "MSG-017":"Deseja realmente marcar esse contato como encaminhado?",
         "MSG-018":"Deseja realmente enviar essa notificação?",
-        "MSG-019":"Deseja realmente retirar o acesso de {{membro}}?",
+        "MSG-019":"Deseja realmente retirar o acesso de {{colaborador}}?",
         "MSG-020":"Deseja realmente remover esse horário nesse dia?",
         "MSG-021":"Deseja realmente remover esse horário desse dia em diante?",
         "MSG-022":"Deseja realmente remover esse horário dentro desse período?",
         "MSG-023":"Deseja realmente remover esse horário?",
-        "MSG-024":"Deseja realmente retirar o acesso de administrador de {{membro}}?",
+        "MSG-024":"Deseja realmente retirar o acesso de administrador de {{colaborador}}?",
         "MSG-025":"E-mail já cadastrado",
         "MSG-026":"Período inválido",
         "MSG-027":"A inscrição deve ser encerrada antes do término do evento.",
@@ -233,8 +209,8 @@
         "MSG-030":"A Confirmação da Senha não confere com a Nova Senha.",
         "MSG-031":"Senha alterada com sucesso! Realize o login com sua nova senha.",
         "MSG-034":"Não existem mais vagas disponíveis para esse evento.",
-        "MSG-036":"Existe(m) {{quantidade}} pedido(s) de oração não atendido(s). Acesse a funcionalidade \"Pedidos de Oração\" para continuar.",
-        "MSG-039":"Esse membro possui uma agenda de aconselhamentos ativa. Não é permitido retirar o indicador de pastor enquanto houver agendas de aconselhamentos ativas associadas ao membro.",
+        "MSG-036":"Existe(m) {{quantidade}} contato(s) não encaminhado(s). Acesse a funcionalidade \"Contatos de Colaboradores\" para continuar.",
+        "MSG-039":"Esse colaborador possui uma agenda de aconselhamentos ativa. Não é permitido retirar o indicador de gerente enquanto houver agendas ativas associadas ao colaborador.",
         "MSG-040":"Parabéns, <b>{{nome}}</b>!<br/>Sua senha foi redefinida e a nova foi enviada para seu e-mail.",
         "MSG-041":"Esse evento não pode ser excluído por já possuir inscrições associadas a ele.",
         "MSG-043":"Arquivo inválido! Por favor selecione um arquivo do formato solicitado.",
@@ -245,11 +221,11 @@
         "MSG-048":"Categoria já cadastrada.",
         "MSG-049":"Houve um problema ao tentar conectar com o Google Calendar. Tente novamente e se o problema persistir conecte o administrador do sistema.",
         "MSG-050":"Desjea realmente desativar a integração com o Google Calendar?",
-        "MSG-051":"Desjea realmente redefinir a senha de {{membro}}?",
+        "MSG-051":"Desjea realmente redefinir a senha de {{colaborador}}?",
         "MSG-052":"Não foi possível realizar a integração com o Flickr. Tente novamente e se o problema persistir contate o administrador do distema.",
         "MSG-403":"Não autorizado",
-        "MSG-600":"Membro inválido",
-        "MSG-601":"Igreja inválida",
+        "MSG-600":"Colaborador inválido",
+        "MSG-601":"Empresa inválida",
         "MSG-602":"Dispositivo inválido",
         "MSG-603":"Chave de autenticação inválida",
         "MSG-604":"Dados inválidos",
@@ -258,8 +234,8 @@
     },
     "home":{
         "inicio":"Sistema Administrativo",
-        "mensagem_boas_vindas":"Seja bem-vindo(a) ao sistema administrativo para o aplicativo <b>{{igreja}}</b>. Este é um ambiente gerenciador desenvolvido para auxiliar nas funções de cadastro, consulta, atualização e administração dos dados disponíveis pelo aplicativo móvel de sua igreja.",
-        "versiculo":"\"E, quanto fizerdes por palavras ou por obras, fazei tudo em nome do Senhor Jesus, dando por ele graças a Deus Pai.\" Colossenses 3:17.",
+        "mensagem_boas_vindas":"Seja bem-vindo(a) ao sistema administrativo para o aplicativo <b>{{empresa}}</b>. Este é um ambiente gerenciador desenvolvido para auxiliar nas funções de cadastro, consulta, atualização e administração dos dados disponíveis pelo aplicativo móvel de sua empresa.",
+        "mensagem":"",
         "bom_trabalho":"Bom trabalho!",
         "alerta":"Alerta",
         "novidades":"Novidades"
@@ -299,15 +275,6 @@
         "cidade":"Cidade",
         "uf":"UF"
     },
-    "ministerio":{
-        "nome":"Nome",
-        "cadastro":"Cadastro de Ministério",
-        "editar":"Alterar Ministério",
-        "detalhar":"Detalhar Ministério",
-        "ministerio":"Ministério",
-        "ministerios":"Ministérios",
-        "cadastrar":"Cadastrar Ministério"
-    },
     "perfil":{
         "perfil":"Perfil",
         "perfis":"Perfis",
@@ -320,53 +287,45 @@
     "funcionalidade":{
         "MANTER_MINISTERIOS":"Ministérios",
         "MANTER_PERFIS":"Perfis",
-        "MANTER_MEMBROS":"Contatos da Igreja",
+        "MANTER_COLABORADORES":"Colaboradores da Empresa",
         "MANTER_BOLETINS":"Boletins",
-        "MANTER_CIFRAS":"Cânticos",
-        "MANTER_CANTICOS":"Cânticos",
         "MANTER_DADOS_INSTITUCIONAIS":"Dados Institucionais",
-        "MANTER_ESTUDOS":"Estudos",
+        "MANTER_DOCUMENTOS":"Documentos",
         "MANTER_NOTICIAS":"Notícias",
+        "MANTER_CLASSIFICADOS":"Classificados",
         "ENVIAR_NOTIFICACOES":"Notificações",
-        "MANTER_VOTACOES":"Enquetes",
-        "CONSULTAR_PEDIDOS_ORACAO":"Pedidos de Oração",
-        "MANTER_AGENDA":"Aconselhamentos",
+        "MANTER_ENQUETES":"Enquetes",
+        "CONSULTAR_CONTATOS_COLABORADORES":"Contatos de Colaboradores",
+        "MANTER_AGENDA":"Agendamentos",
         "MANTER_EVENTOS":"Eventos",
-        "MANTER_EBD":"EBD",
         "CONFIGURAR_FLICKR":"Flickr",
         "MANTER_AUDIOS":"Áudios",
         "AUDIOS":"Áudios",
         "GALERIA_FOTOS":"Galerias de Fotos",
-        "MANTER_VERSICULOS_DIARIOS":"Versículos Diários",
-        "GERENCIAR_ACESSO_MEMBROS":"Acesso de Membros",
+        "MANTER_MENSAGENS_DIA":"Mensagens do Dia",
+        "GERENCIAR_ACESSO_COLABORADORES":"Acesso de Colaboradores",
         "GERENCIAR_FUNCIONALIDADES_APLICATIVO":"Aplicativo",
-        "MANTER_PLANOS_LEITURA_BIBLICA":"Leitura Bíblica",
-        "CONSULTAR_PLANOS_LEITURA_BIBLICA":"Leitura Bíblica",
-        "CONSULTAR_CONTATOS_IGREJA":"Contatos",
-        "REALIZAR_VOTACAO":"Enquetes",
-        "PEDIR_ORACAO":"Pedidos de Oração",
-        "AGENDAR_ACONSELHAMENTO":"Aconselhamentos",
+        "CONSULTAR_CONTATOS_EMPRESA":"Contatos",
+        "RESPONDER_ENQUETE":"Enquetes",
+        "ENVIAR_CONTATO_COLABORADOR":"Pedidos de Oração",
+        "REALIZAR_AGENDAMENTO":"Agendamentos",
         "CONFIGURAR":"Configurações",
         "CONFIGURAR_YOUTUBE":"YouTube",
         "CONFIGURAR_GOOGLE_CALENDAR":"Google Calendar",
         "ABERTURA_CHAMADO_SUPORTE":"Suporte",
         "REALIZAR_INSCRICAO_EVENTO":"Eventos",
-        "REALIZAR_INSCRICAO_EBD":"EBD",
-        "CONSULTAR_CIFRAS":"Cânticos",
-        "CONSULTAR_CANTICOS":"Cânticos",
-        "CONSULTAR_HINARIO":"Hinário",
         "LISTAR_BOLETINS":"Boletins",
-        "LISTAR_ESTUDOS":"Estudos",
+        "LISTAR_DOCUMENTOS":"Documentos",
         "NOTICIAS":"Notícias",
-        "YOUTUBE":"Cultos e Vídeos",
-        "BIBLIA":"Bíblia",
+        "CLASSIFICADOS":"Classificados",
+        "YOUTUBE":"Vídeos",
         "MANTER_PUBLICACOES":"Manter Publicações",
-        "AGENDA":"Agenda da Igreja",
+        "AGENDA":"Agenda da Empresa",
         "LISTAR_PUBLICACOES":"Publicações",
         "ANIVERSARIANTES":"Aniversariantes"
     },
     "contato":{
-        "contatos":"Contatos da Igreja",
+        "contatos":"Contatos da Empresa",
         "cadastrar":"Cadastrar Novo Contato",
         "editar":"Alterar Contato",
         "detalhar":"Detalhar Contato",
@@ -376,23 +335,22 @@
         "aplicativo":"Aplicativo",
         "funcionalidades":"Funcionalidades"
     },
-    "membro":{
-        "foto_membro":"Foto",
+    "colaborador":{
+        "foto_colaborador":"Foto",
         "conceder_acesso":"Conceder Acesso",
         "nome":"Nome",
         "perfis":"Perfis",
         "nascimento":"Data de Nascimento",
         "email":"E-mail",
         "acesso":{
-            "perfis":"Perfis",
-            "ministerios":"Ministérios"
+            "perfis":"Perfis"
         },
-        "pastor":"É Pastor?",
+        "gerente":"É Gerente?",
         "visitante":"É Visitante?",
         "telefones":"Telefones",
-        "membro":"Membro",
+        "colaborador":"Colaborador",
         "redefinir_senha":"Redefinir Senha",
-        "membros":"Acesso de Membros",
+        "colaboradores":"Acesso de Colaboradores",
         "admin":"Admin",
         "dar_acesso":"Dar Acesso",
         "retirar_acesso":"Retirar Acesso",
@@ -435,30 +393,6 @@
         "processando":"Processando",
         "rejeitado":"Falha no Processamento"
     },
-    "cifra":{
-        "titulo":"Título",
-        "autor":"Autor",
-        "letra":"Letra",
-        "arquivo_cifra":"Cântico (PDF)",
-        "cifra":"Cântico",
-        "cifras":"Cânticos",
-        "cadastrar":"Cadastrar Cântico",
-        "editar":"Alterar Cântico",
-        "detalhar":"Detalhar Cântico",
-        "excluir":"Excluir Cântico"
-    },
-    "cantico":{
-        "titulo":"Título",
-        "autor":"Autor",
-        "letra":"Letra",
-        "arquivo_cantico":"Cântico (PDF)",
-        "cantico":"Cântico",
-        "canticos":"Cânticos",
-        "cadastrar":"Cadastrar Cântico",
-        "editar":"Alterar Cântico",
-        "detalhar":"Detalhar Cântico",
-        "excluir":"Excluir Cântico"
-    },
     "audio":{
         "arquivo_audio":"Arquivo do Áudio",
         "arquivo_capa":"Imagem de Capa",
@@ -472,18 +406,18 @@
         "detalhar":"Detalhar Podcast",
         "data":"Data do Podcast"
     },
-    "estudo":{
-        "arquivo_estudo":"Arquivo",
+    "documento":{
+        "arquivo_documento":"Arquivo",
         "titulo":"Título",
-        "estudos":"Estudos",
+        "documentos":"Documentos",
         "publicacao":"Data de Publicação",
         "autor":"Autor",
         "categoria":"Categoria",
-        "cadastrar_categoria_estudo":"Cadastrar Nova Categoria de Estudo",
-        "cadastrar":"Cadastrar Estudo",
-        "editar":"Alterar Estudo",
-        "detalhar":"Detalhar Estudo",
-        "data":"Data do Estudo",
+        "cadastrar_categoria_documento":"Cadastrar Nova Categoria de Documento",
+        "cadastrar":"Cadastrar Documento",
+        "editar":"Alterar Documento",
+        "detalhar":"Detalhar Documento",
+        "data":"Data do Documento",
         "texto":"Texto",
         "em_edicao":"Em Edição",
         "publicado":"Publicado",
@@ -491,52 +425,65 @@
         "processando":"Processando",
         "rejeitado":"Falha no Processamento"
     },
-    "noticia":{
+    "noticia": {
+        "ilustracao": "Ilustração",
+        "titulo": "Título",
+        "noticias": "Notícias",
+        "publicacao": "Data de Publicação",
+        "autor": "Autor",
+        "cadastrar": "Cadastrar Notícia",
+        "editar": "Alterar Notícia",
+        "detalhar": "Detalhar Notícia",
+        "data": "Data do Notícia",
+        "texto": "Texto"
+    },
+    "classificados":{
         "ilustracao":"Ilustração",
         "titulo":"Título",
-        "noticias":"Notícias",
+        "noticias":"Classificados",
         "publicacao":"Data de Publicação",
         "autor":"Autor",
-        "cadastrar":"Cadastrar Notícia",
-        "editar":"Alterar Notícia",
-        "detalhar":"Detalhar Notícia",
-        "data":"Data do Notícia",
+        "cadastrar":"Cadastrar Classificados",
+        "editar":"Alterar Classificados",
+        "detalhar":"Detalhar Classificados",
+        "data":"Data do Classificados",
         "texto":"Texto"
     },
     "notificacao":{
         "titulo":"Título",
         "mensagem":"Mensagem",
         "notificacoes":"Notificações",
-        "ministerios":"Ministérios Alvo",
+        "ministerios":"Locações Alvo",
         "confirmacao_envio":"Confirmação de Envio",
-        "notificar_apenas_membros":"Notificar apenas membros logados?",
-        "apenas_membros":"Apenas Membros?"
+        "notificar_apenas_gerentes":"Notificar apenas gerentes?",
+        "apenas_gerentes":"Apenas Gerentes?"
     },
     "configuracao":{
-        "mensagem_pagseguro":"O pagamento via PagSeguro é disponibilizado no aplicativo no momento da inscrição em um evento. Caso a igreja possua um cadastro no PagSeguro e deseja utilizar essa forma de pagamento, as propriedades abaixo devem ser configuradas adequeadamente. A URL para integração informada no PagSeguro é https://getitmobilesolutions.com/app/pagseguro/${chave.igreja}. Em caso de dúvidas entre em contato com o Suporte.",
+        "mensagem_pagseguro":"O pagamento via PagSeguro é disponibilizado no aplicativo no momento da inscrição em um evento. Caso a empresa possua um cadastro no PagSeguro e deseja utilizar essa forma de pagamento, as propriedades abaixo devem ser configuradas adequeadamente. A URL para integração informada no PagSeguro é https://pcorporate.getitmobilesolutions.com/app/pagseguro/${chave.empresa}. Em caso de dúvidas entre em contato com o Suporte.",
         "mensagem_pushs":"As mensagens definidas aqui substituirão as mensagens padrões do aplicativo. Para voltar às mensagens padrões basta apagar os valores dos campos. Em caso de dúvidas entre em contato com o Suporte.",
-        "titulo_versiculo_diario":"Título do Push do Versículo Diário",
-        "titulo_lembrete_leitura_biblica":"Título do Push de Lembrete de Leitura Bíblica",
+        "titulo_mensagem_dia":"Título do Push da Mensagem do Dia",
         "titulo_aniversario":"Título do Push de Aniversário",
         "texto_aniversario":"Texto do Push de Aniversário",
         "titulo_boletim":"Título do Push de Boletins",
         "texto_boletim":"Texto do Push de Boletins",
         "titulo_publicacao":"Título do Push de Publicações",
         "texto_publicacao":"Texto do Push de Publicações",
-        "titulo_estudo":"Título do Push de Estudos",
-        "texto_estudo":"Texto do Push de Estudos",
+        "titulo_documento":"Título do Push de Documentos",
+        "texto_documento":"Texto do Push de Documentos",
         "titulo_noticia":"Título do Push de Notícias",
         "texto_noticia":"Texto do Push de Notícias",
+        "titulo_classificados":"Título do Push de Classificados",
+        "texto_classificados":"Texto do Push de Classificados",
         "configuracoes":"Configurações",
         "habilita_pagseguro":"Habilita PagSeguro",
         "usuario_pagseguro":"Usuário PagSeguro",
         "token_pagseguro":"Token PagSeguro"
     },
-    "votacao":{
+    "enquete":{
         "cadastrar":"Cadastrar Enquete",
         "editar":"Alterar Enquete",
         "detalhar":"Detalhar Enquete",
-        "votacoes":"Enquetes",
+        "enquetes":"Enquetes",
         "nome":"Nome",
         "descricao":"Descrição",
         "questoes":"Questões",
@@ -561,7 +508,7 @@
     },
     "agenda":{
         "cadastrar":"Cadastrar Agenda",
-        "pastor":"Pastor",
+        "gerente":"Pastor",
         "agendas":"Agendas de Aconselhamento",
         "editar":"Alterar Agenda",
         "excluir":"Excluir Agenda",
@@ -603,12 +550,12 @@
             "cancelar":"Cancelar Agendamento"
         }
     },
-    "oracao":{
-        "dataSolicitacao":"Data de Solicitação",
+    "contato_colaborador":{
+        "dataSolicitacao":"Data de Envio",
         "dataAtendimento":"Data de Encaminhamento",
-        "solicitante":"Solicitante",
-        "pedido":"Pedido",
-        "pedidos_oracao":"Pedidos de Oração",
+        "solicitante":"Colaborador",
+        "mensagem":"Mensagem",
+        "mensagens":"Mensagens",
         "confirmacao_atendimento":"Confirmação de Encaminhamento",
         "status":{
             "status":"Status",
@@ -623,7 +570,7 @@
         "chamado":"Chamado",
         "chamados":"Chamados",
         "solicitante":"Solicitante",
-        "igreja":"Igreja",
+        "empresa":"Empresa",
         "email":"E-mail",
         "suporte":"Suporte",
         "descricao":"Descrição",
@@ -644,16 +591,16 @@
         "detalhar":"Detalhar Chamado",
         "chamado_mensagem":"Descreva o problema ou dúvida na caixa abaixo. Nossa equipe entrará em contato num prazo máximo de 48 horas a contar da abertura do chamado. Chamados de erros ou problemas podem requerer um prazo adicional para disponibilização da correção."
     },
-    "versiculo":{
-        "versiculo":"Versículo",
-        "versiculos":"Versículos Diários",
+    "mensagem_dia":{
+        "mensagem_dia":"Mensagem do Dia",
+        "mensagens_dia":"Mensagens do Dia",
         "status":{
             "status":"Situação",
             "ATIVO":"Ativo",
             "DESABILITADO":"Desabilitado",
             "HABILITADO":"Habilitado"
         },
-        "cadastrar":"Cadastrar Versículo"
+        "cadastrar":"Cadastrar Mensagem do Dia"
     },
     "evento":{
         "dataHora":"Data/Hora",
@@ -702,69 +649,15 @@
         "descricao":"Descrição",
         "cancelamento_inscricao":"Cancelamento de Inscrição"
     },
-    "ebd":{
-        "dataHora":"Data/Hora",
-        "nome":"Nome",
-        "ebd":"Curso",
-        "banner_ebd":"Banner de Apresentação",
-        "exportar_inscritos":"Exportar Inscritos",
-        "ebds":"Escola Bíblica Dominical",
-        "status":{
-            "status":"Situação",
-            "EM_EDICAO":"Em Edição",
-            "PUBLICADO":"Publicado"
-        },
-        "inscricoes":"Listar Inscrições",
-        "inscricao":{
-            "inscricoes_nao_iniciadas":"Inscrições não iniciadas",
-            "inscricoes_encerradas":"Inscrições encerradas",
-            "uma_vaga_restante":"Uma Vaga Restante",
-            "vagas_restante":"{{vagas}} Vagas Restantes",
-            "vagas_esgotadas":"Vagas Esgotadas",
-            "nova_inscricao":"Nova Inscrição",
-            "nome_inscrito":"Nome do Inscrito",
-            "email_inscrito":"E-mail do Inscrito",
-            "telefone_inscrito":"Telefone do Inscrito",
-            "inscricao":"Inscrição",
-            "data_inicio":"Data de Início",
-            "data_termino":"Data de Término",
-            "exige_pagamento":"Exige Pagamento",
-            "valor":"Valor (R$)",
-            "inscrito":"Inscrito",
-            "limite_inscricoes":"Limite de Inscrições",
-            "data":"Data",
-            "exportar":"Exportar",
-            "status":{
-                "status":"Status",
-                "PENDENTE":"Pendente",
-                "CONFIRMADA":"Confirmada",
-                "CANCELADA":"Cancelada"
-            }
-        },
-        "dataHoraInicio":"Data/Hora de Início",
-        "dataHoraTermino":"Data/Hora de Término",
-        "cadastrar":"Cadastrar Curso",
-        "editar":"Alterar Curso",
-        "detalhar":"Detalhar Curso",
-        "excluir":"Excluir Curso",
-        "descricao":"Descrição",
-        "cancelamento_inscricao":"Cancelamento de Inscrição"
-    },
-    "hino":{
-        "cadastrar":"Cadastrar Hino",
-        "numero":"Nº",
-        "nome":"Nome",
-        "texto":"Texto"
-    },
     "flickr":{
         "configuracoes":"Configurações Fickr",
         "vincular_conta":"Vincular Conta",
-        "mensagem_flickr":"O vínculo da conta é feito através de permissões para leitura das galerias de fotos da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
+        "mensagem_flickr":"O vínculo da conta é feito através de permissões para leitura das galerias de fotos da empresa. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
         "desativar_integracao":"Desativar Integração"
     },
     "youtube":{
         "vincular_conta":"Vincular Conta",
-        "mensagem_youtube":"O vínculo da conta é feito através de permissões para leitura dos dados do canal da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
+        "mensagem_youtube":"O vínculo da conta é feito através de permissões para leitura dos dados do canal da empresa. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
         "configuracoes":"Configurações YouTube",
         "titulo_ao_vivo":"Título do Push de Vídeos Ao Vivo",
         "texto_ao_vivo":"Texto do Push de Vídeos Ao Vivo",
@@ -774,34 +667,10 @@
     },
     "calendario":{
         "vincular_conta":"Vincular Conta",
-        "mensagem_calendario":"O vínculo da conta é feito através de permissões para leitura dos dados da agenda da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
+        "mensagem_calendario":"O vínculo da conta é feito através de permissões para leitura dos dados da agenda da empresa. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
         "configuracoes":"Configurações Google Calendar",
         "desativar_integracao":"Desativar Integração",
         "calendarios":"Calendários"
-    },
-    "plano_leitura":{
-        "data_inicio":"Data de Início",
-        "data_termino":"Data de Término",
-        "planos_leitura":"Planos de Leitura Bíblica",
-        "dia":"Dia",
-        "descricao":"Descrição",
-        "cadastrar":"Cadastrar Plano de Leitura Bíblica",
-        "editar":"Editar Plano de Leitura Bíblica",
-        "detalhar":"Detalhar Plano de Leitura Bíblica",
-        "mes":{
-            "0":"Jan",
-            "1":"Fev",
-            "2":"Mar",
-            "3":"Abr",
-            "4":"Mai",
-            "5":"Jun",
-            "6":"Jul",
-            "7":"Ago",
-            "8":"Set",
-            "9":"Out",
-            "10":"Nov",
-            "11":"Dez"
-        }
     }
 }
 

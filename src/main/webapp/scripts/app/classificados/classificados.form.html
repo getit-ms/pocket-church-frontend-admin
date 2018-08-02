@@ -1,0 +1,30 @@
+<form id='formulario_classificados' name='formulario_classificados' ng-submit="salvar(this.formulario_classificados)" novalidate>
+    <div class="col-sm-12" field-form-group='formulario_classificados.titulo' >
+        <field-label value='classificados.titulo' for='formulario_classificados.titulo' ></field-label>
+        <input name='titulo' ng-model="classificados.titulo" class="form-control" required />
+        <field-message field='formulario_classificados.titulo'></field-message>
+    </div>
+    <div class="col-sm-6" field-form-group='formulario_classificados.dataPublicacao'>
+        <field-label value='classificados.publicacao' for='formulario_classificados.dataPublicacao' required='false'></field-label>
+        <calvin-datepicker name='dataPublicacao' ng-model="classificados.dataPublicacao" 
+                           date-pattern="{{'config.pattern.input.dateHour' | translate}}"></calvin-datepicker>
+        <field-message field='formulario_classificados.dataPublicacao'></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group="formulario_classificados.pdf">
+        <field-label value="classificados.ilustracao" for="formulario_classificados.ilustracao" required="false" ></field-label>
+        <input-fileupload name='ilustracao' ng-model="classificados.ilustracao" types="['image/jpeg','image/png','image/gif']" ></input-fileupload>
+        <field-message field="formulario_classificados.ilustracao"></field-message>
+    </div>
+    <div class="col-sm-12" field-form-group='formulario_classificados.texto' >
+        <field-label value='classificados.texto' for='formulario_classificados.texto' ></field-label>
+        <div name='texto' text-angular ng-model="classificados.texto" 
+             ta-text-editor-class="form-control" required
+             ta-html-editor-class="form-control"></div>
+        <field-message field='formulario_classificados.texto'></field-message>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <input type='submit' ng-disabled='inProgress' class="btn btn-primary" value="{{'global.salvar' | translate}}" />
+        <a class="btn btn-default" ng-disabled='inProgress' ui-sref="classificados">{{'global.cancelar' | translate}}</a>
+    </div>
+</form>

@@ -8,7 +8,7 @@ calvinApp.directive('videoPlayer', function(){
         templateUrl: 'scripts/components/video/video.directive.html',
         controller: ['$scope', '$http', '$window', function($scope, $http, $window){
                 
-            var queryString = '?Igreja=' +$_serverCode + '&Dispositivo=' + $_clientKey + 
+            var queryString = '?Empresa=' +$_serverCode + '&Dispositivo=' + $_clientKey + 
                     '&Authorization='+ localStorage.getItem('Authorization.' + $_serverCode);
             $scope.m4v = $scope.media + '.m4v' + queryString;
             $scope.webm = $scope.media + '.webm' + queryString;

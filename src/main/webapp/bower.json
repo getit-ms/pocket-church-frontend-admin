@@ -1,7 +1,7 @@
 {
-  "name": "pocket-church-admin",
+  "name": "pocket-corporate-admin",
   "version": "0.0.0",
-  "description": "Pocket Church ADMIN",
+  "description": "Pocket Corporate ADMIN",
   "private": true,
   "license": "private",
   "dependencies": {

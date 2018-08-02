@@ -1,0 +1,52 @@
+<div>
+    <form name="busca_mensagem_dia_form" ng-submit="busca()" novalidate>
+        <div class="col-sm-12" field-form-group="busca_mensagem_dia_form.filtro">
+            <field-label for='filtro' required='false' value='mensagem_dia.mensagem' ></field-label>
+            <input name='filtro' class="form-control" ng-model="filtro.filtro" />
+        </div>
+        <div class="col-sm-12 comandos">
+            <hr/>
+            <input value="{{'global.buscar' | translate}}" class="btn btn-default" type="submit" />
+            <hr/>
+        </div>
+    </form>
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover" ng-table='tabelaMensagensDia'>
+            <thead>
+                <tr>
+                    <th>{{'mensagem_dia.mensagem_dia' | translate}}</th>
+                    <th>{{'mensagem_dia.status.status' | translate}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!mensagensDia.resultados.length">
+                    <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
+                </tr>
+                <tr ng-repeat="mensagemDia in mensagensDia.resultados">
+                    <td>{{mensagemDia.mensagem}}</td>
+                    <td>{{'mensagem_dia.status.' + mensagemDia.status | translate}}</td>
+                    <td class="col-sm-3 text-center">
+                        <a class="btn btn-default" ng-click="habilita(mensagemDia)"
+                           ng-if='mensagemDia.desabilitado'>
+                            <span class="fa fa-play"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="desabilita(mensagemDia)"
+                           ng-if='mensagemDia.habilitado'>
+                            <span class="fa fa-pause"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="excluir(mensagemDia)">
+                            <span class="fa fa-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ui-sref="mensagem_dia.cadastro">
+            {{'mensagem_dia.cadastrar' | translate}}
+        </a>
+    </div>
+</div>

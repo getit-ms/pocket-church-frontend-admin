@@ -28,7 +28,7 @@ calvinApp.service('agendaService', ['Restangular', function(Restangular){
         };
         
         this.buscaPastores = function(){
-            return this.api().one('pastores').getList().$object;
+            return this.api().one('gerentes').getList().$object;
         };
         
         this.agenda = function(id, req, callback){

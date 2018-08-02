@@ -26,7 +26,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         };
                         
                         $scope.excluir = function(agenda){
-                            confirmExclusao('agenda', agenda.pastor.nome, function(){
+                            confirmExclusao('agenda', agenda.gerente.nome, function(){
                                 agendaService.remove(agenda.id, function(agenda){
                                     message({type:'success',body:'mensagens.MSG-001'});
                                     $scope.busca();
@@ -49,7 +49,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     templateUrl: 'scripts/app/agenda/agenda.form.html',
                     controller: function(agendaService, $state, message, $scope){
                         $scope.agenda = {horarios:[]};
-                        $scope.pastores = agendaService.buscaPastores();
+                        $scope.gerentes = agendaService.buscaPastores();
                         
                         $scope.salvar = function(formulario){
                             if (formulario.$invalid){
@@ -199,8 +199,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
     
         $scope.clear();
     
-    }]).controller('ModalHorario', ['$scope', 'agendaService', 'membroService', 'evento', 'message', 'confirmDialog', 'callback',
-        function($scope, agendaService, membroService, evento, message, confirmDialog, callback){
+    }]).controller('ModalHorario', ['$scope', 'agendaService', 'colaboradorService', 'evento', 'message', 'confirmDialog', 'callback',
+        function($scope, agendaService, colaboradorService, evento, message, confirmDialog, callback){
 
         $scope.horario = $scope.agendamento = $scope.folga = null;
         
@@ -218,9 +218,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         $scope.sameDay = dayTime($scope.fim) - dayTime($scope.inicio) === 0;
         
         if (evento.horario){
-            $scope.pesquisarMembros = function(filtro){
-                membroService.busca({nome:filtro,pagina:1,count:30}, function(membros){
-                    $scope.membros = membros;
+            $scope.pesquisarColaboradors = function(filtro){
+                colaboradorService.busca({nome:filtro,pagina:1,count:30}, function(colaboradores){
+                    $scope.colaboradores = colaboradores;
                 });
             };
             
@@ -229,7 +229,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             $scope.req = {horario: evento.horario.id,data: new Date(evento.start)};
             
             $scope.submitForm = function(){
-                if (!$scope.req.membro){
+                if (!$scope.req.colaborador){
                     message({type:'error', body:'mensagens.MSG-002'});
                     return;
                 }
@@ -299,7 +299,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         var agendamentos = [];
                         ags.forEach(function(ag){
                             agendamentos.push({
-                                title:ag.membro.nome, 
+                                title:ag.colaborador.nome,
                                 start: ag.dataHoraInicio,
                                 end: ag.dataHoraFim,
                                 agendamento:ag,

@@ -5,17 +5,17 @@
     <hr/>
     
     <div class="row">
-        <div class="col-sm-3">Membro:</div> 
-        <div class="col-sm-9">{{agendamento.membro.nome}}</div>
+        <div class="col-sm-3">Colaborador:</div>
+        <div class="col-sm-9">{{agendamento.colaborador.nome}}</div>
     </div>
     <div class="row">
         <div class="col-sm-3">E-mail:</div> 
-        <div class="col-sm-9"><a href="mailto:{{agendamento.membro.email}}">{{agendamento.membro.email}}</a></div>
+        <div class="col-sm-9"><a href="mailto:{{agendamento.colaborador.email}}">{{agendamento.colaborador.email}}</a></div>
     </div>
-    <div ng-if="agendamento.membro.telefones.length" class="row">
+    <div ng-if="agendamento.colaborador.telefones.length" class="row">
         <span class="col-sm-3">{{'agenda.telefones' | translate}}:</span> 
         <span class="col-sm-9">
-            <span ng-repeat="telefone in agendamento.membro.telefones">{{telefone}}<br/></span>
+            <span ng-repeat="telefone in agendamento.colaborador.telefones">{{telefone}}<br/></span>
         </span>
     </div>
     

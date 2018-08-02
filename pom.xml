@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.gafs.getit.calvinista</groupId>
-    <artifactId>calvinista-web-admin</artifactId>
-    <version>6.0.14-SNAPSHOT</version>
+    <groupId>br.gafs.getit.pocketcorporate</groupId>
+    <artifactId>pocket-corporate-web-admin</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>calvinista-frontend-admin</name>
+    <name>pocket-corporate-frontend-admin</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -15,12 +15,12 @@
         <maven.build.timestamp.format>yyyyMMdd.HHmmssSSS</maven.build.timestamp.format>
         <build.date>${maven.build.timestamp}</build.date>
         <webapp.base>src/main/webapp</webapp.base>
-        <chave.igreja>tst</chave.igreja>
-        <nome.igreja>GET IT - Pocket Church</nome.igreja>
+        <chave.empresa>tst</chave.empresa>
+        <nome.empresa>GET IT - Pocket Corporate</nome.empresa>
     </properties>
 
     <scm>
-        <connection>scm:git:https://bitbucket.org/getit-team/calvinista-frontend-admin</connection>
+        <connection>scm:git:https://bitbucket.org/getit-team/pocket-corporate-frontend-admin</connection>
         <tag>prod-3.2.11</tag>
     </scm>
 
@@ -28,7 +28,7 @@
     </dependencies>
 
     <build>
-        <finalName>${chave.igreja}</finalName>
+        <finalName>${chave.empresa}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -144,15 +144,15 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <chave.igreja>tst</chave.igreja>
-                <nome.igreja>Pocket Church</nome.igreja>
+                <chave.empresa>tst</chave.empresa>
+                <nome.empresa>Pocket Corporate</nome.empresa>
             </properties>
         </profile>
         <profile>
             <id>homol</id>
             <properties>
-                <chave.igreja>tst</chave.igreja>
-                <nome.igreja>Pocket Church</nome.igreja>
+                <chave.empresa>tst</chave.empresa>
+                <nome.empresa>Pocket Corporate</nome.empresa>
             </properties>
         </profile>
         <profile>

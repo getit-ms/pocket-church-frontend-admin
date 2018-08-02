@@ -3,7 +3,7 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>{{'agenda.pastor' | translate}}</th>
+                    <th>{{'agenda.gerente' | translate}}</th>
                     <th></th>
                 </tr>
             </thead>
@@ -12,7 +12,7 @@
                     <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
                 </tr>
                 <tr ng-repeat="agenda in agendas">
-                    <td>{{agenda.pastor.nome}}</td>
+                    <td>{{agenda.gerente.nome}}</td>
                     <td class="col-sm-3 text-center">
                         <a class="btn btn-default" ng-click="detalhar(agenda)"
                            title="{{'global.detalhar' | translate}}">

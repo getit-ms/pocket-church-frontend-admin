@@ -1,0 +1,69 @@
+<div>
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover" ng-table='tabelaDocumentos'>
+            <thead>
+                <tr>
+                    <th>{{'documento.titulo' | translate}}</th>
+                    <th>{{'documento.autor' | translate}}</th>
+                    <th>{{'documento.publicacao' | translate}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="!documentos.resultados.length">
+                    <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
+                </tr>
+                <tr ng-repeat="documento in documentos.resultados">
+                    <td>{{documento.titulo}}</td>
+                    <td>{{documento.autor}}</td>
+                    <td class="text-center">
+                        <label ng-if='documento.emEdicao' class='label label-warning'>
+                            <i class='fa fa-pencil '></i>
+                            {{'documento.em_edicao' | translate}}
+                        </label>
+                        <label ng-if='documento.processando' class='label label-warning'>
+                            <i class='fa fa-refresh '></i>
+                            {{'documento.processando' | translate}}
+                            <span ng-if="documento.porcentagemProcessamento > 0">
+                                ({{documento.porcentagemProcessamento}}%)
+                            </span>
+                        </label>
+                        <label ng-if='documento.agendado' class='label label-info'
+                               title="{{'documento.agendado' | translate}}">
+                            <i class='fa fa-clock-o'></i>
+                            {{documento.dataPublicacao | date : ('config.pattern.output.dateHour' | translate)}}
+                        </label>
+                        <label ng-if='documento.publicado' class='label label-success'>
+                            <i class='fa fa-check '></i>
+                            {{'documento.publicado' | translate}}
+                        </label>
+                        <label ng-if='documento.rejeitado' class='label label-danger'>
+                            <i class='fa fa-exclamation-triangle '></i>
+                            {{'documento.rejeitado' | translate}}
+                        </label>
+                    </td>
+                    <td class="col-sm-3 text-center">
+                        <a class="btn btn-default" ng-click="detalhar(documento)"
+                           title="{{'global.detalhar' | translate}}">
+                            <span class="fa fa-search"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="editar(documento)"
+                           title="{{'global.editar' | translate}}">
+                            <span class="fa fa-pencil-square-o"></span>
+                        </a>
+                        <a class="btn btn-default" ng-click="excluir(documento)"
+                           title="{{'global.excluir' | translate}}">
+                            <span class="fa fa-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12 comandos">
+        <hr/>
+        <a class="btn btn-default" ui-sref="documento.cadastro">
+            {{'documento.cadastrar' | translate}}
+        </a>
+    </div>
+</div>

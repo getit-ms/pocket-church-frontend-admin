@@ -12,11 +12,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/notificacao/notificacao.form.html',
-                controller: function(ministerioService, notificacaoService, message, $scope, $state, confirmDialog){
-                    $scope.ministerios = ministerioService.buscaAcessiveis();
-                    
+                controller: function(notificacaoService, message, $scope, $state, confirmDialog){
                     $scope.carrega = function(){
-                        $scope.notificacao = {apenasMembros:false};
+                        $scope.notificacao = {apenasColaboradors:false};
                     };
 
                     $scope.enviar = function(form){

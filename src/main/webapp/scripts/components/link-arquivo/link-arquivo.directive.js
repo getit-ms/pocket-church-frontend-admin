@@ -7,7 +7,7 @@ calvinApp.directive('linkArquivo', function(){
         },
         templateUrl: 'scripts/components/link-arquivo/link-arquivo.html',
         controller: function($scope) {
-            $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode;
+            $scope.headers = 'Dispositivo=' + $_clientKey + '&Empresa=' + $_serverCode;
         }
     };
 });

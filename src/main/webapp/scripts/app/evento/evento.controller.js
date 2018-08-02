@@ -15,7 +15,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 controller: function(eventoService, $scope, $state, message, confirmExclusao, NgTableParamsCalvin){
                     $scope.filtro = {tipo:'EVENTO'};
 
-                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Empresa=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
 
                     $scope.tabelaEventos = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
@@ -200,7 +200,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         });
                     };
 
-                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Igreja=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
+                    $scope.headers = 'Dispositivo=' + $_clientKey + '&Empresa=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
                     
                     $scope.tabelaInscricoes = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;

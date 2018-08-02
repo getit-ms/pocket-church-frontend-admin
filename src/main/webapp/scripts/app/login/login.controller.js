@@ -21,7 +21,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         
                         acessoService.login($scope.auth, function(acesso){
                             $rootScope.acesso = {
-                                usuario: acesso.membro,
+                                usuario: acesso.colaborador,
                                 funcionalidades: acesso.funcionalidades
                             };
                             $state.go('home');
@@ -51,9 +51,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/login/redefine.senha.html',
                 controller: function($scope, $stateParams, acessoService){
-                    acessoService.redefineSenha($stateParams.chave, function(membro){
-                        $scope.redefinida = membro ? true : false;
-                        $scope.membro = membro;
+                    acessoService.redefineSenha($stateParams.chave, function(colaborador){
+                        $scope.redefinida = colaborador ? true : false;
+                        $scope.colaborador = colaborador;
                     }, function(){
                         $scope.erro = true;
                     });
