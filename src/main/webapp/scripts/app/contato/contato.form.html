@@ -15,14 +15,23 @@
                            ng-model="colaborador.dataNascimento"  type="date" min-view='day' ></calvin-datepicker>
         <field-message field="formulario_colaborador.nascimento"></field-message>
     </div>
+    <div class="col-md-6" form-group-field="formulario_colaborador.lotacao">
+        <field-label for="formulario_colaborador.lotacao" value="colaborador.lotacao"></field-label>
+        <div class="input-group">
+            <select ng-model="colaborador.lotacao" required class="form-control" name="lotacao"
+                    ng-options='lotacao as lotacao.nome for lotacao in lotacoes track by lotacao.id'>
+                <option>{{'global.selecione' | translate}}</option>
+            </select>
+            <a class="input-group-addon btn btn-default" ng-click="cadastrarLotacao()">
+                <span class="fa fa-plus" ></span>
+            </a>
+        </div>
+        <field-message field="formulario_colaborador.lotacao" ></field-message>
+    </div>
     <div class="col-md-6">
         <div ng-if='!colaborador.visitante' field-form-group='formulario_colaborador.gerente'>
             <input id="gerente" name='gerente' type="checkbox" ng-model="colaborador.gerente"  />
             <field-label value="colaborador.gerente" required='false' for="formulario_colaborador.gerente"></field-label>
-        </div>
-        <div ng-if='!colaborador.gerente && !colaborador.colaborador && !colaborador.admin' field-form-group='formulario_colaborador.visitante'>
-            <input id="visitante" name='visitante' type="checkbox" ng-model="colaborador.visitante"  />
-            <field-label value="colaborador.visitante" required='false' for="formulario_colaborador.visitante"></field-label>
         </div>
         <div field-form-group='formulario_colaborador.dados_disponiveis'>
             <input id="dados_disponiveis" ng-disabled="!colaborador.desejaDisponibilizarDados" name='dados_disponiveis' type="checkbox" ng-model="colaborador.dadosDisponiveis"  />

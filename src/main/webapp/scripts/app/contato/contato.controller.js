@@ -61,9 +61,32 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.form.html',
-                controller: function($scope, message, colaboradorService, $state, $scope){
+                controller: function($scope, message, colaboradorService, $state, modalService){
                     $scope.colaborador = {endereco:{}};
-                    
+
+                    $scope.buscaLotacoes = function() {
+                        colaboradorService.buscaLotacoes(function(lotacoes) {
+                            $scope.lotacoes = lotacoes;
+                        });
+                    };
+
+                    $scope.cadastrarLotacao = function() {
+                        $scope.modalInstance = modalService.prepare($scope, {
+                            title: $filter('translate')('contato.cadastrar_lotacao_colaborador'),
+                            controller: 'ModalLotacaoColaborador',
+                            templateUrl: 'scripts/app/contato/modal/lotacao.form.html',
+                            freeForm: 'formulario_lotacao',
+                            resolve: {
+                                callback: function(){
+                                    return function(){
+                                        message({type:'success',body:'mensagens.MSG-001'});
+                                        $scope.buscaLotacoes();
+                                    }
+                                }
+                            }
+                        })();
+                    };
+
                     $scope.salvar = function(form){
                         if (form.$invalid){
                             message({type:'error',body:'mensagens.MSG-002'});
@@ -87,8 +110,31 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.form.html',
-                controller: function($scope, colaboradorService, colaborador, $state, message){
+                controller: function($scope, colaboradorService, colaborador, $state, message, modalService){
                     $scope.colaborador = colaborador;
+
+                    $scope.buscaLotacoes = function() {
+                        colaboradorService.buscaLotacoes(function(lotacoes) {
+                            $scope.lotacoes = lotacoes;
+                        });
+                    };
+
+                    $scope.cadastrarLotacao = function() {
+                        $scope.modalInstance = modalService.prepare($scope, {
+                            title: $filter('translate')('contato.cadastrar_lotacao_colaborador'),
+                            controller: 'ModalLotacaoColaborador',
+                            templateUrl: 'scripts/app/contato/modal/lotacao.form.html',
+                            freeForm: 'formulario_lotacao',
+                            resolve: {
+                                callback: function(){
+                                    return function(){
+                                        message({type:'success',body:'mensagens.MSG-001'});
+                                        $scope.buscaLotacoes();
+                                    }
+                                }
+                            }
+                        })();
+                    };
 
                     $scope.salvar = function(form){
                         if (form.$invalid){
@@ -129,5 +175,21 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             }
         }
     });         
+}]).controller('ModalLotacaoColaborador', ['$scope', 'colaboradorService', 'callback', function($scope, colaboradorService, callback){
+
+    $scope.lotacao = {};
+
+    $scope.submitForm = function() {
+        if (!$scope.categoria.nome){
+            message({type:'error', body:'mensagens.MSG-002'});
+            return;
+        }
+
+        colaboradorService.cadastraLotacao($scope.lotacao, function(){
+            callback();
+            $scope.modalInstance.close();
+        });
+    }
+
 }]);
         

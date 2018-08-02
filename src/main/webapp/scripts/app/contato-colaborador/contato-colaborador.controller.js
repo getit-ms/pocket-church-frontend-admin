@@ -5,7 +5,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         data:{
             displayName: 'contato_colaborador.contatos_colaborador',
             permissions:{
-                only: ['CONSULTAR_CONTATOS_COLABORADOR'],
+                only: ['CONSULTAR_CONTATOS_COLABORADORES'],
                 redirectTo: 'login'
             }
         },

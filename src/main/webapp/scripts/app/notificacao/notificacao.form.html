@@ -12,18 +12,18 @@
                 <field-message field='formulario_notificacao.mensagem'></field-message>
                 <span>{{'global.caracteres_restantes' | translate:{quantidade:150-notificacao.mensagem.length} }}</span>
                 <hr/>
-                <field-label value='notificacao.apenas_colaboradores' for='formulario_notificacao.apenas_colaboradores'></field-label><br/>
-                <input type='radio' ng-value="true" name="apenasColaboradors" ng-model="notificacao.apenasColaboradors" required />{{'global.sim' | translate}}
-                <input type='radio' ng-value="false" name="apenasColaboradors" ng-model="notificacao.apenasColaboradors" required />{{'global.nao' | translate}}
+                <field-label value='notificacao.apenas_gerentes' for='formulario_notificacao.apenas_gerentes'></field-label><br/>
+                <input type='radio' ng-value="true" name="apenasGerentes" ng-model="notificacao.apenasGerentes" required />{{'global.sim' | translate}}
+                <input type='radio' ng-value="false" name="apenasGerentes" ng-model="notificacao.apenasGerentes" required />{{'global.nao' | translate}}
             </div>
         </div>
     </div>
-    <div class="col-md-6" field-form-group='formulario_notificacao.ministeriosAlvo'>
-        <field-label value='notificacao.ministerios' for='formulario_notificacao.ministeriosAlvo'></field-label>
-        <select-checklist name='ministeriosAlvo' ng-model="notificacao.ministeriosAlvo" 
-            options="ministerios" var="ministerio" item-label="ministerio.nome" track-by="ministerio.id" required >
+    <div class="col-md-6" field-form-group='formulario_notificacao.lotacoesAlvo'>
+        <field-label value='notificacao.lotacoes' for='formulario_notificacao.lotacoesAlvo'></field-label>
+        <select-checklist name='lotacoesAlvo' ng-model="notificacao.lotacoesAlvo"
+            options="lotacoes" var="lotacao" item-label="lotacao.nome" track-by="lotacao.id" required >
         </select-checklist>
-        <field-message field='formulario_notificacao.ministeriosAlvo'></field-message>
+        <field-message field='formulario_notificacao.lotacoesAlvo'></field-message>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>

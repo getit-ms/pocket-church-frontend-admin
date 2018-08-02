@@ -453,7 +453,7 @@
         "titulo":"Título",
         "mensagem":"Mensagem",
         "notificacoes":"Notificações",
-        "ministerios":"Locações Alvo",
+        "lotacoes":"Locações Alvo",
         "confirmacao_envio":"Confirmação de Envio",
         "notificar_apenas_gerentes":"Notificar apenas gerentes?",
         "apenas_gerentes":"Apenas Gerentes?"

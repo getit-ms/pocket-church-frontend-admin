@@ -3,7 +3,7 @@ calvinApp.service('audioService', ['Restangular', function(Restangular){
             return Restangular.all('audio');
         };
 
-        this.buscaCategorias = function(callback) {
+        this.buscaLotacoes = function(callback) {
             return this.api().all('categoria').getList().then(callback);
         };
         

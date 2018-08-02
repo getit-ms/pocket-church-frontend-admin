@@ -3,7 +3,7 @@ calvinApp.service('documentoService', ['Restangular', function(Restangular){
             return Restangular.all('documento');
         };
 
-        this.buscaCategorias = function(callback) {
+        this.buscaLotacoes = function(callback) {
             return this.api().all('categoria').getList().then(callback);
         };
         

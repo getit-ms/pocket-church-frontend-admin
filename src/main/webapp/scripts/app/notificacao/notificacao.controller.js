@@ -12,10 +12,15 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/notificacao/notificacao.form.html',
-                controller: function(notificacaoService, message, $scope, $state, confirmDialog){
+                controller: function(notificacaoService, message, $scope, $state, confirmDialog, colaboradorService){
                     $scope.carrega = function(){
-                        $scope.notificacao = {apenasColaboradors:false};
+                        $scope.notificacao = {apenasGerentes:false};
+
+                        colaboradorService.buscaLotacoes(function(lotacoes) {
+                            $scope.lotacoes = lotacoes;
+                        });
                     };
+
 
                     $scope.enviar = function(form){
                         if (form.$invalid){

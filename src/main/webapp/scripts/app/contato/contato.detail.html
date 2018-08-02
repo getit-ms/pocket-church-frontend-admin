@@ -11,13 +11,13 @@
         <label translate>colaborador.nascimento</label>
         <div class="form-control" >{{colaborador.dataNascimento| date:('config.pattern.output.date' | translate)}}</div>
     </div>
+    <div class="col-sm-6" >
+        <labe translate>colaborador.lotacao</labe>
+        <div class="form-control">{{colaborador.lotacao.nome}}</div>
+    </div>
     <div ng-if='!colaborador.visitante' class="col-md-4" >
         <label translate>colaborador.gerente</label>
         <div class="form-control" >{{(colaborador.gerente ? 'global.sim' : 'global.nao') | translate}}</div>
-    </div>
-    <div ng-if='!colaborador.gerente && !colaborador.colaborador && !colaborador.admin' class="col-md-4">
-        <label translate>colaborador.visitante</label>
-        <div class="form-control" >{{(colaborador.visitante ? 'global.sim' : 'global.nao') | translate}}</div>
     </div>
     <div class="col-md-4">
         <label translate>colaborador.dados_disponiveis</label>

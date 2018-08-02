@@ -2,7 +2,11 @@ calvinApp.service('colaboradorService', ['Restangular', function(Restangular){
         this.api = function(){
             return Restangular.all('colaborador');
         };
-        
+
+        this.buscaLotacoes = function(callback) {
+            return this.api().all('lotacao').getList().then(callback);
+        };
+
         this.busca = function(filtro, callback){
             return this.api().get('', filtro).then(callback);
         };
@@ -13,6 +17,10 @@ calvinApp.service('colaboradorService', ['Restangular', function(Restangular){
         
         this.remove = function(id, callback){
             this.api().one('/' + id).remove().then(callback);
+        };
+
+        this.cadastraLotacao = function(lotacao, callback){
+            this.api().all('lotacao').customPOST(lotacao).then(callback);
         };
 
         this.redefineSenha = function(id, callback) {
