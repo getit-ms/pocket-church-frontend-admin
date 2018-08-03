@@ -98,6 +98,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             $state.go('contato');
                         });
                     };
+
+                    $scope.buscaLotacoes();
                 }
             }
         }
@@ -147,6 +149,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                             $state.go('contato');
                         });
                     };
+
+                    $scope.buscaLotacoes();
                 },
                 resolve: {
                     colaborador: function($stateParams, colaboradorService){

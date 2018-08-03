@@ -174,7 +174,8 @@
             "colaborador":"o colaborador",
             "perfil":"o perfil",
             "contato_colaborador":"a mensagem",
-            "enquete":"a enquete"
+            "enquete":"a enquete",
+            "mensagem_dia":"a mensagem do dia"
         }
     },
     "mensagens":{
