@@ -16,9 +16,9 @@
         <field-message field="formulario_colaborador.nascimento"></field-message>
     </div>
     <div class="col-md-6" form-group-field="formulario_colaborador.lotacao">
-        <field-label for="formulario_colaborador.lotacao" value="colaborador.lotacao"></field-label>
+        <field-label for="formulario_colaborador.lotacao" required="false" value="colaborador.lotacao"></field-label>
         <div class="input-group">
-            <select ng-model="colaborador.lotacao" required class="form-control" name="lotacao"
+            <select ng-model="colaborador.lotacao" class="form-control" name="lotacao"
                     ng-options='lotacao as lotacao.nome for lotacao in lotacoes track by lotacao.id'>
                 <option>{{'global.selecione' | translate}}</option>
             </select>
@@ -33,6 +33,8 @@
             <input id="gerente" name='gerente' type="checkbox" ng-model="colaborador.gerente"  />
             <field-label value="colaborador.gerente" required='false' for="formulario_colaborador.gerente"></field-label>
         </div>
+    </div>
+    <div class="col-md-6">
         <div field-form-group='formulario_colaborador.dados_disponiveis'>
             <input id="dados_disponiveis" ng-disabled="!colaborador.desejaDisponibilizarDados" name='dados_disponiveis' type="checkbox" ng-model="colaborador.dadosDisponiveis"  />
             <field-label value="colaborador.dados_disponiveis" required='false' for="formulario_colaborador.dados_disponiveis"></field-label>

@@ -48,7 +48,8 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         'youtube',
                         'pinterest',
                         'google-plus',
-                        'instagram'
+                        'instagram',
+                        'linkedin'
                     ];
 
                     $scope.salvar = function(form){

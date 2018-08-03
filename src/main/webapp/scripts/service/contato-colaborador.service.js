@@ -1,4 +1,4 @@
-calvinApp.service('contatosColaborador', ['Restangular', function(Restangular){
+calvinApp.service('contatoColaboradorService', ['Restangular', function(Restangular){
         this.api = function(){
             return Restangular.all('contato-colaborador');
         };

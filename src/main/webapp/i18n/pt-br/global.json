@@ -102,7 +102,7 @@
             "CONSULTAR_CONTATOS_COLABORADORES":{
                 "label":"Contatos de Colaboradores",
                 "state":"contato_colaborador",
-                "icon":"heart"
+                "icon":"comments"
             },
             "MANTER_AGENDA":{
                 "label":"Aconselhamentos",
@@ -265,6 +265,7 @@
         "twitter":"Twitter",
         "youtube":"YouTube",
         "pinterest":"Pinterest",
+        "linkin":"LinkedIn",
         "google-plus":"Google Plus",
         "instagram":"Instagram",
         "descricao_divulgacao":"Texto de divulgação"
@@ -348,6 +349,7 @@
         "gerente":"É Gerente?",
         "visitante":"É Visitante?",
         "telefones":"Telefones",
+        "lotacao":"Lotação",
         "colaborador":"Colaborador",
         "redefinir_senha":"Redefinir Senha",
         "colaboradores":"Acesso de Colaboradores",
@@ -440,7 +442,7 @@
     "classificados":{
         "ilustracao":"Ilustração",
         "titulo":"Título",
-        "noticias":"Classificados",
+        "classificados":"Classificados",
         "publicacao":"Data de Publicação",
         "autor":"Autor",
         "cadastrar":"Cadastrar Classificados",

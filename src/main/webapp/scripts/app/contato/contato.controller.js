@@ -62,7 +62,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.form.html',
                 controller: function($scope, message, colaboradorService, $state, modalService){
-                    $scope.colaborador = {endereco:{}};
+                    $scope.colaborador = {endereco:{},dadosDisponiveis:true};
 
                     $scope.buscaLotacoes = function() {
                         colaboradorService.buscaLotacoes(function(lotacoes) {
@@ -110,7 +110,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.form.html',
-                controller: function($scope, colaboradorService, colaborador, $state, message, modalService){
+                controller: function($scope, colaboradorService, colaborador, $state, message, modalService, $filter){
                     $scope.colaborador = colaborador;
 
                     $scope.buscaLotacoes = function() {
