@@ -4,7 +4,7 @@
 
     <groupId>br.gafs.getit.pocketcorporate</groupId>
     <artifactId>pocket-corporate-web-admin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>pocket-corporate-frontend-admin</name>
@@ -21,7 +21,7 @@
 
     <scm>
         <connection>scm:git:https://bitbucket.org/getit-team/pocket-corporate-frontend-admin</connection>
-        <tag>prod-1.0.0</tag>
+        <tag>prod-3.2.11</tag>
     </scm>
 
     <dependencies>
