@@ -223,6 +223,7 @@
         "MSG-050":"Desjea realmente desativar a integração com o Google Calendar?",
         "MSG-051":"Desjea realmente redefinir a senha de {{colaborador}}?",
         "MSG-052":"Não foi possível realizar a integração com o Flickr. Tente novamente e se o problema persistir contate o administrador do distema.",
+        "MSG-053":"Lotação já cadastrada.",
         "MSG-403":"Não autorizado",
         "MSG-600":"Colaborador inválido",
         "MSG-601":"Empresa inválida",
