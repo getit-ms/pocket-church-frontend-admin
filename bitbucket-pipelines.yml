@@ -25,4 +25,4 @@ pipelines:
             - cd src/main/webapp && npm install && cd ../../..
             - git clone "https://$DESIGN_GIT_USER:$DESIGN_GIT_PASS@bitbucket.org/getit-team/pocket-corporate-design" /tmp/pocket-corporate-design
             - cp -Rf /tmp/pocket-corporate-design/tst/admin/* src/main/webapp/
-            - sh build_deploy.sh tst Pocket\ Church
+            - sh build_deploy.sh tst Pocket\ Corporate

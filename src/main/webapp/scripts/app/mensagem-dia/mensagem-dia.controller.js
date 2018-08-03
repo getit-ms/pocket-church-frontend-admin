@@ -15,7 +15,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 controller: function(mensagemDiaService, message, $scope, confirmExclusao, NgTableParamsCalvin){
                     $scope.filtro = {};
                     
-                    $scope.tabelaVersiculos = new NgTableParamsCalvin(function($defer, params){
+                    $scope.tabelaMensagensDia = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
                         $scope.filtro.total = params.parameters().count;
                         mensagemDiaService.busca($scope.filtro, function(mensagensDia){
@@ -26,7 +26,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     });
                     
                     $scope.busca = function(){
-                        $scope.tabelaVersiculos.reload();
+                        $scope.tabelaMensagensDia.reload();
                     };
                     
                     var callback = function(mensagemDia){

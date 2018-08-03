@@ -61,7 +61,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/contato/contato.form.html',
-                controller: function($scope, message, colaboradorService, $state, modalService){
+                controller: function($scope, message, colaboradorService, $state, modalService, $filter){
                     $scope.colaborador = {endereco:{},dadosDisponiveis:true};
 
                     $scope.buscaLotacoes = function() {
