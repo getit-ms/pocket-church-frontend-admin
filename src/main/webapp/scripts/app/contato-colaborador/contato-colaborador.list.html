@@ -7,13 +7,13 @@
                                    date-pattern="{{'config.pattern.input.dateHour' | translate}}"></calvin-datepicker>
             </div>
             <div field-form-group="busca_contato_colaborador_form.dataTermino">
-                <field-label for='dataTermino' required='false' value='contatoColaborador.dataTermino' ></field-label>
+                <field-label for='dataTermino' required='false' value='contato_colaborador.dataTermino' ></field-label>
                 <calvin-datepicker name='dataTermino' ng-model="filtro.dataTermino"
                                    date-pattern="{{'config.pattern.input.dateHour' | translate}}"></calvin-datepicker>
             </div>
         </div>
         <div class="col-sm-6" field-form-group="busca_contato_colaborador_form.perfs">
-            <field-label for='status' required='false' value='contatoColaborador.status.status' ></field-label>
+            <field-label for='status' required='false' value='contato_colaborador.status.status' ></field-label>
             <select-checklist name='status' ng-model="filtro.status" hide-filter="true" height="100px"
                               options="status" var="s" item-label="'contato_colaborador.status.' + s | translate"></select-checklist>
         </div>
@@ -28,7 +28,7 @@
         <table class="table table-striped table-hover" ng-table='tabelaOracoesParams'>
             <thead>
                 <tr>
-                    <th>{{'contato_colaborador.pedido' | translate}}</th>
+                    <th>{{'contato_colaborador.mensagem' | translate}}</th>
                     <th>{{'contato_colaborador.solicitante' | translate}}</th>
                     <th>{{'contato_colaborador.dataSolicitacao' | translate}}</th>
                     <th>{{'contato_colaborador.dataAtendimento' | translate}}</th>

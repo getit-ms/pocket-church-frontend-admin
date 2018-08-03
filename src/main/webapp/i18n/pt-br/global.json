@@ -90,7 +90,7 @@
                 "icon":"list-ul"
             },
             "MANTER_COLABORADORES":{
-                "label":"Contatos da Empresa",
+                "label":"Colaboradores da Empresa",
                 "state":"contato",
                 "icon":"users"
             },
@@ -171,9 +171,9 @@
             "noticia":"a notícia",
             "classificados":"os classificados",
             "evento":"o evento",
-            "colaborador":"o contato/colaborador",
+            "colaborador":"o colaborador",
             "perfil":"o perfil",
-            "contato_colaborador":"o contato",
+            "contato_colaborador":"a mensagem",
             "enquete":"a enquete"
         }
     },
@@ -194,7 +194,7 @@
         "MSG-014":"Data inválida",
         "MSG-015":"Você não pode editar seu próprio acesso",
         "MSG-016":"Deseja realmente excluir {{elemento}} '{{descricao}}'?",
-        "MSG-017":"Deseja realmente marcar esse contato como encaminhado?",
+        "MSG-017":"Deseja realmente marcar essa mensagem como encaminhada internamente?",
         "MSG-018":"Deseja realmente enviar essa notificação?",
         "MSG-019":"Deseja realmente retirar o acesso de {{colaborador}}?",
         "MSG-020":"Deseja realmente remover esse horário nesse dia?",
@@ -209,7 +209,7 @@
         "MSG-030":"A Confirmação da Senha não confere com a Nova Senha.",
         "MSG-031":"Senha alterada com sucesso! Realize o login com sua nova senha.",
         "MSG-034":"Não existem mais vagas disponíveis para esse evento.",
-        "MSG-036":"Existe(m) {{quantidade}} contato(s) não encaminhado(s). Acesse a funcionalidade \"Contatos de Colaboradores\" para continuar.",
+        "MSG-036":"Existe(m) {{quantidade}} mensagem(ns) de colaborador(es) não encaminhada(s). Acesse a funcionalidade \"Mensagens de Colaboradores\" para continuar.",
         "MSG-039":"Esse colaborador possui uma agenda de aconselhamentos ativa. Não é permitido retirar o indicador de gerente enquanto houver agendas ativas associadas ao colaborador.",
         "MSG-040":"Parabéns, <b>{{nome}}</b>!<br/>Sua senha foi redefinida e a nova foi enviada para seu e-mail.",
         "MSG-041":"Esse evento não pode ser excluído por já possuir inscrições associadas a ele.",
@@ -265,7 +265,7 @@
         "twitter":"Twitter",
         "youtube":"YouTube",
         "pinterest":"Pinterest",
-        "linkin":"LinkedIn",
+        "linkedin":"LinkedIn",
         "google-plus":"Google Plus",
         "instagram":"Instagram",
         "descricao_divulgacao":"Texto de divulgação"
@@ -306,7 +306,7 @@
         "MANTER_MENSAGENS_DIA":"Mensagens do Dia",
         "GERENCIAR_ACESSO_COLABORADORES":"Acesso de Colaboradores",
         "GERENCIAR_FUNCIONALIDADES_APLICATIVO":"Aplicativo",
-        "CONSULTAR_CONTATOS_EMPRESA":"Contatos",
+        "CONSULTAR_CONTATOS_EMPRESA":"Colaboradores",
         "RESPONDER_ENQUETE":"Enquetes",
         "ENVIAR_CONTATO_COLABORADOR":"Pedidos de Oração",
         "REALIZAR_AGENDAMENTO":"Agendamentos",
@@ -326,11 +326,12 @@
         "ANIVERSARIANTES":"Aniversariantes"
     },
     "contato":{
-        "contatos":"Contatos da Empresa",
-        "cadastrar":"Cadastrar Novo Contato",
-        "editar":"Alterar Contato",
-        "detalhar":"Detalhar Contato",
-        "exportar_contatos":"Exportar Contatos"
+        "contatos":"Colaboradores da Empresa",
+        "cadastrar":"Cadastrar Novo Colaborador",
+        "editar":"Alterar Colaborador",
+        "detalhar":"Detalhar Colaborador",
+        "exportar_contatos":"Exportar Colaboradores",
+        "cadastrar_lotacao_colaborador":"Cadastrar Lotação de Colaborador"
     },
     "aplicativo":{
         "aplicativo":"Aplicativo",
@@ -455,7 +456,7 @@
         "titulo":"Título",
         "mensagem":"Mensagem",
         "notificacoes":"Notificações",
-        "lotacoes":"Locações Alvo",
+        "lotacoes":"Lotações Alvo",
         "confirmacao_envio":"Confirmação de Envio",
         "notificar_apenas_gerentes":"Notificar apenas gerentes?",
         "apenas_gerentes":"Apenas Gerentes?"
@@ -556,8 +557,8 @@
         "dataSolicitacao":"Data de Envio",
         "dataAtendimento":"Data de Encaminhamento",
         "solicitante":"Colaborador",
-        "mensagem":"Mensagem",
-        "mensagens":"Mensagens",
+        "contato_colaborador":"Mensagem",
+        "contatos_colaborador":"Mensagens",
         "confirmacao_atendimento":"Confirmação de Encaminhamento",
         "status":{
             "status":"Status",

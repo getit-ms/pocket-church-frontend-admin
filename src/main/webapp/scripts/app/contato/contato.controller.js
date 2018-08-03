@@ -180,7 +180,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
     $scope.lotacao = {};
 
     $scope.submitForm = function() {
-        if (!$scope.categoria.nome){
+        if (!$scope.lotacao.nome){
             message({type:'error', body:'mensagens.MSG-002'});
             return;
         }
