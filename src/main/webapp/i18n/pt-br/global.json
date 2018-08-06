@@ -288,7 +288,6 @@
         "funcionalidades":"Funcionalidades"
     },
     "funcionalidade":{
-        "MANTER_MINISTERIOS":"Ministérios",
         "MANTER_PERFIS":"Perfis",
         "MANTER_COLABORADORES":"Colaboradores da Empresa",
         "MANTER_BOLETINS":"Boletins",
@@ -310,7 +309,7 @@
         "GERENCIAR_FUNCIONALIDADES_APLICATIVO":"Aplicativo",
         "CONSULTAR_CONTATOS_EMPRESA":"Colaboradores",
         "RESPONDER_ENQUETE":"Enquetes",
-        "ENVIAR_CONTATO_COLABORADOR":"Pedidos de Oração",
+        "ENVIAR_CONTATO_COLABORADOR":"Fale Conosco",
         "REALIZAR_AGENDAMENTO":"Agendamentos",
         "CONFIGURAR":"Configurações",
         "CONFIGURAR_YOUTUBE":"YouTube",
@@ -323,7 +322,7 @@
         "CLASSIFICADOS":"Classificados",
         "YOUTUBE":"Vídeos",
         "MANTER_PUBLICACOES":"Manter Publicações",
-        "AGENDA":"Agenda da Empresa",
+        "AGENDA":"Calendário",
         "LISTAR_PUBLICACOES":"Publicações",
         "ANIVERSARIANTES":"Aniversariantes"
     },
@@ -513,8 +512,8 @@
     },
     "agenda":{
         "cadastrar":"Cadastrar Agenda",
-        "gerente":"Pastor",
-        "agendas":"Agendas de Aconselhamento",
+        "gerente":"Gerente",
+        "agendas":"Agendamentos",
         "editar":"Alterar Agenda",
         "excluir":"Excluir Agenda",
         "detalhar":"Detalhar Agenda",

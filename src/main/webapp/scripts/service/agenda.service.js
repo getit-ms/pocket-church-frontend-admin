@@ -27,7 +27,7 @@ calvinApp.service('agendaService', ['Restangular', function(Restangular){
             return this.api().one('diasSemana').getList().$object;
         };
         
-        this.buscaPastores = function(){
+        this.buscaGerentes = function(){
             return this.api().one('gerentes').getList().$object;
         };
         

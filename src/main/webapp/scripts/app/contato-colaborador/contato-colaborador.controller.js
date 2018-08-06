@@ -30,9 +30,9 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         $scope.tabelaOracoesParams.reload();
                     };
                     
-                    $scope.atendido = function(pedido){
+                    $scope.atendido = function(mensagem){
                         confirmDialog({title:'contato_colaborador.confirmacao_atendimento',text:'mensagens.MSG-017',ok:'global.sim',cancel:'global.nao'}).then(function(){
-                            contatoColaboradorService.atende(pedido.id, function(){
+                            contatoColaboradorService.atende(mensagem.id, function(){
                                 message({type:'success',body:'mensagens.MSG-001'});
                                 $scope.busca();
                             });

@@ -39,28 +39,28 @@
                 <tr ng-if="!contatosColaborador.resultados.length">
                     <td colspan="100%">{{'mensagens.MSG-008' | translate}}</td>
                 </tr>
-                <tr ng-repeat="pedido in contatosColaborador.resultados">
+                <tr ng-repeat="mensagem in contatosColaborador.resultados">
                     <td>
-                        {{pedido.pedido}}
+                        {{mensagem.mensagem}}
                     </td>
                     <td>
-                        <a href="mailto:{{pedido.email}}" title="{{pedido.email}}">{{pedido.nome}}</a>
-                        <span ng-if="pediro.nome != perido.solicitante.nome"><br/>({{pedido.solicitante.nome}})</span>
+                        <a href="mailto:{{mensagem.email}}" title="{{mensagem.email}}">{{mensagem.nome}}</a>
+                        <span ng-if="mensagem.nome != mensagem.solicitante.nome"><br/>({{mensagem.solicitante.nome}})</span>
                     </td>
                     <td class="text-center">
-                        {{pedido.dataSolicitacao | date:('config.pattern.output.dateHour' | translate)}}
+                        {{mensagem.dataSolicitacao | date:('config.pattern.output.dateHour' | translate)}}
                     </td>
                     <td class="text-center">
-                        {{pedido.dataAtendimento | date:('config.pattern.output.dateHour' | translate)}}
+                        {{mensagem.dataAtendimento | date:('config.pattern.output.dateHour' | translate)}}
                     </td>
                     <td class="text-center">
                         <a class="btn btn-default"
-                           ng-if="pedido.pendente"
-                           ng-click="atendido(pedido)">
+                           ng-if="mensagem.pendente"
+                           ng-click="atendido(mensagem)">
                             <span class="fa fa-square"></span>
                         </a>
                         <a class="btn btn-default" href=""
-                           ng-if="pedido.atendido">
+                           ng-if="mensagem.atendido">
                             <span class="fa fa-check-square"></span>
                         </a>
                     </td>

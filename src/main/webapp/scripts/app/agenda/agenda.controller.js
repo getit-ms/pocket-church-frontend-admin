@@ -49,7 +49,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     templateUrl: 'scripts/app/agenda/agenda.form.html',
                     controller: function(agendaService, $state, message, $scope){
                         $scope.agenda = {horarios:[]};
-                        $scope.gerentes = agendaService.buscaPastores();
+                        $scope.gerentes = agendaService.buscaGerentes();
                         
                         $scope.salvar = function(formulario){
                             if (formulario.$invalid){
