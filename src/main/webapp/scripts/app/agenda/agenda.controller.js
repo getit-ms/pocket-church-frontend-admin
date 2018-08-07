@@ -218,7 +218,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         $scope.sameDay = dayTime($scope.fim) - dayTime($scope.inicio) === 0;
         
         if (evento.horario){
-            $scope.pesquisarColaboradors = function(filtro){
+            $scope.pesquisarColaboradores = function(filtro){
                 colaboradorService.busca({nome:filtro,pagina:1,count:30}, function(colaboradores){
                     $scope.colaboradores = colaboradores;
                 });

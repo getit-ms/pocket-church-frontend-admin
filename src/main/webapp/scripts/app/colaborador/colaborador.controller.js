@@ -16,7 +16,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.filtro = {nome:'',email:'',perfil:[]};
                     $scope.perfis = perfilService.busca();
 
-                    $scope.tabelaColaboradors = new NgTableParamsCalvin(function($defer, params){
+                    $scope.tabelaColaboradores = new NgTableParamsCalvin(function($defer, params){
                         $scope.filtro.pagina = params.parameters().page;
                         $scope.filtro.total = params.parameters().count;
                         colaboradorService.busca($scope.filtro, function(colaboradores){
@@ -27,7 +27,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     });
 
                     $scope.busca = function(){
-                        $scope.tabelaColaboradors.reload();
+                        $scope.tabelaColaboradores.reload();
                     };
 
                     $scope.darAcessoAdm = function(colaborador){

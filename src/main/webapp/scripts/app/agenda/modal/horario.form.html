@@ -38,7 +38,7 @@
         <field-label for="formulario_horario.colaborador" value="agenda.horario.agendar_para"></field-label>
         <ui-select theme="bootstrap" required name="colaborador" ng-model="req.colaborador" required>
             <ui-select-match>{{$select.selected.nome}}</ui-select-match>
-            <ui-select-choices repeat="colaborador.id as colaborador in colaboradores.resultados" refresh="pesquisarColaboradors($select.search)" refresh-delay="300">
+            <ui-select-choices repeat="colaborador.id as colaborador in colaboradores.resultados" refresh="pesquisarColaboradores($select.search)" refresh-delay="300">
                 <div ng-bind-html="colaborador.nome"></div>
             </ui-select-choices>
         </ui-select>
