@@ -12,6 +12,16 @@
         <div class="form-control">{{audio.categoria.nome}}</div>
     </div>
     <div class="col-md-12" >
+        <label translate>audio.descricao</label>
+        <div class="form-control" >
+            {{audio.descricao}}
+        </div>
+    </div>
+    <div class="col-md-12" >
+        <label translate>audio.arquivo_capa</label>
+        <div class="form-control" ><link-arquivo ng-model="audio.capa" ></link-arquivo></div>
+    </div>
+    <div class="col-md-12" >
         <label translate>audio.arquivo_audio</label>
         <div class="form-control" ><link-arquivo ng-model="audio.audio" ></link-arquivo></div>
     </div>

@@ -403,6 +403,7 @@
         "nome":"Nome",
         "audios":"Podcasts",
         "autor":"Autor",
+        "descricao":"Descrição",
         "categoria":"Categoria",
         "cadastrar_categoria_audio":"Cadastrar Nova Categoria de Podcast",
         "cadastrar":"Cadastrar Podcast",
