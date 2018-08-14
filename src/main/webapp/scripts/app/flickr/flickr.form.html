@@ -22,7 +22,7 @@
         <hr/>
     
         <div class="row">
-            <div ng-repeat="galeria in galerias.resultados" >
+            <div class="col-sm-6 col-md-4" ng-repeat="galeria in galerias.resultados" >
                 <h2>{{galeria.nome}} <label class="label label-success pull-right" >{{galeria.quantidadeFotos}}</label></h2>
                 <p>{{galeria.descricao}}</p>
             </div>
