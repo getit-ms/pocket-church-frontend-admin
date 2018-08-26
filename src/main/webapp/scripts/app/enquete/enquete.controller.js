@@ -142,6 +142,13 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     controller: function($scope, enqueteService, $stateParams){
                         $scope.enquete = enqueteService.carrega($stateParams.id);
                         $scope.headers = 'Dispositivo=' + $_clientKey + '&Empresa=' + $_serverCode + '&Authorization=' + localStorage.getItem('Authorization.' + $_serverCode);
+
+                        $scope.url = function() {
+                            if ($scope.enquete) {
+                                return '/app/rest/enquete/' + $scope.enquete.id + '/resultado/' + encodeURI($scope.enquete.nome) + '.pdf?' + $scope.headers;
+                            }
+                            return undefined;
+                        }
                     }
                 }
             }

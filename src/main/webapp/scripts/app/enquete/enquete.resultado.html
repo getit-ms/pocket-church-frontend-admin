@@ -1,6 +1,6 @@
 <div ng-if="enquete">
     <div class="col-sm-12">
-        <pdf-viewer ng-if='enquete.id' pdf-url="/app/rest/enquete/{{enquete.id}}/resultado/{{enquete.nome}}.pdf?{{headers}}" ></pdf-viewer>
+        <pdf-viewer ng-if='enquete.id' pdf-url="{{url()}}" ></pdf-viewer>
     </div>
     <div class="col-sm-12 comandos">
         <hr/>
