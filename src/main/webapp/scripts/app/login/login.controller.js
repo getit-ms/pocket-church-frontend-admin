@@ -71,6 +71,31 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                 
             }
         }
+    }).state('instalar-aplicativo', {
+        parent: 'parent',
+        url: '/instalar-aplicativo',
+        data:{
+            displayName: 'login.instalar_aplicativo'
+        },
+        views:{
+            'content@':{
+                templateUrl: 'scripts/app/login/download.ipa.html',
+                controller: function($scope, config){
+                    $scope.empresa = $_serverCode;
+                }
+            },
+            'menu@': {
+                controller: function($rootScope){
+                    $rootScope.contentFullScreen = true;
+                }
+            },
+            'navbar@':{
+
+            },
+            'header@':{
+
+            }
+        }
     });         
 }]);
         

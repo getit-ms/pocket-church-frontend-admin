@@ -145,7 +145,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
 
                         $scope.url = function() {
                             if ($scope.enquete) {
-                                return '/app/rest/enquete/' + $scope.enquete.id + '/resultado/' + encodeURI($scope.enquete.nome) + '.pdf?' + $scope.headers;
+                                return '/app/rest/enquete/' + $scope.enquete.id + '/resultado/' + encodeURIComponent($scope.enquete.nome) + '.pdf?' + $scope.headers;
                             }
                             return undefined;
                         }
