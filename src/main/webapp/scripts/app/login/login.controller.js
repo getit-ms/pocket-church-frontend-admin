@@ -80,7 +80,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         views:{
             'content@':{
                 templateUrl: 'scripts/app/login/download.ipa.html',
-                controller: function($scope, config){
+                controller: function($scope){
                     $scope.empresa = $_serverCode;
                 }
             },
