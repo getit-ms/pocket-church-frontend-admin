@@ -5,7 +5,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         data:{
             displayName: 'facebook.configuracoes',
             permissions:{
-                only: ['CONFIGURAR_GOOGLE_VIDEOS_FACEBOOK'],
+                only: ['CONFIGURAR_VIDEOS_FACEBOOK'],
                 redirectTo: 'login'
             }
         },
@@ -38,7 +38,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                     $scope.desvincularConta = function(){
                         confirmDialog({
                             title:'facebook.desativar_integracao',
-                            text:'mensagens.MSG-050',
+                            text:'mensagens.MSG-053',
                             ok:'global.sim',
                             cancel:'global.nao'
                         }).then(function(){

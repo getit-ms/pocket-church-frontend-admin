@@ -24,7 +24,7 @@
             <div field-form-group='formulario_calendar.pagina'>
                 <field-label value='facebook.pagina' required="false" for='formulario_calendar.pagina'></field-label>
                 <select ng-model="facebook.pagina" ng-if="!readonly" required name="pagina"
-                        class="form-control" ng-options='pagina.id for pagina in paginas'>
+                        class="form-control" ng-options='pagina.id as pagina.nome for pagina in paginas'>
                     <option>{{'global.selecione' | translate}}</option>
                 </select>
                 <field-message field='formulario_calendar.pagina'></field-message>
@@ -32,29 +32,29 @@
         </div>
 
         <div class="col-sm-6">
-            <div field-form-group='formulario_youtube.tituloAoVivo'>
-                <field-label value='youtube.titulo_ao_vivo' required="false" for='formulario_youtube.tituloAoVivo'></field-label>
-                <input type="text" name='tituloAoVivo' ng-model="youtube.tituloAoVivo" class="form-control" maxlength="30" />
-                <field-message field='formulario_youtube.tituloAoVivo'></field-message>
+            <div field-form-group='formulario_facebook.tituloAoVivo'>
+                <field-label value='facebook.titulo_ao_vivo' required="false" for='formulario_facebook.tituloAoVivo'></field-label>
+                <input type="text" name='tituloAoVivo' ng-model="facebook.tituloAoVivo" class="form-control" maxlength="30" />
+                <field-message field='formulario_facebook.tituloAoVivo'></field-message>
             </div>
-            <div field-form-group='formulario_youtube.textoAoVivo'>
-                <field-label value='youtube.texto_ao_vivo' required="false" for='formulario_youtube.textoAoVivo'></field-label>
-                <textarea rows='5' type="text" name='textoAoVivo' ng-model="youtube.textoAoVivo" class="form-control" maxlength="250" ></textarea>
-                <field-message field='formulario_youtube.textoAoVivo'></field-message>
-                <span>{{'global.caracteres_restantes' | translate:{quantidade:150-youtube.textoAoVivo.length} }}</span>
+            <div field-form-group='formulario_facebook.textoAoVivo'>
+                <field-label value='facebook.texto_ao_vivo' required="false" for='formulario_facebook.textoAoVivo'></field-label>
+                <textarea rows='5' type="text" name='textoAoVivo' ng-model="facebook.textoAoVivo" class="form-control" maxlength="250" ></textarea>
+                <field-message field='formulario_facebook.textoAoVivo'></field-message>
+                <span>{{'global.caracteres_restantes' | translate:{quantidade:250-facebook.textoAoVivo.length} }}</span>
             </div>
         </div>
         <div class="col-sm-6">
-            <div field-form-group='formulario_youtube.tituloAgendado'>
-                <field-label value='youtube.titulo_agendado' required="false" for='formulario_youtube.tituloAgendado'></field-label>
-                <input type="text" name='tituloAgendado' ng-model="youtube.tituloAgendado" class="form-control" maxlength="30" />
-                <field-message field='formulario_youtube.tituloAgendado'></field-message>
+            <div field-form-group='formulario_facebook.tituloAgendado'>
+                <field-label value='facebook.titulo_agendado' required="false" for='formulario_facebook.tituloAgendado'></field-label>
+                <input type="text" name='tituloAgendado' ng-model="facebook.tituloAgendado" class="form-control" maxlength="30" />
+                <field-message field='formulario_facebook.tituloAgendado'></field-message>
             </div>
-            <div field-form-group='formulario_youtube.textoAgendado'>
-                <field-label value='youtube.texto_agendado' required="false" for='formulario_youtube.textoAgendado'></field-label>
-                <textarea rows='5' type="text" name='textoAgendado' ng-model="youtube.textoAgendado" class="form-control" maxlength="250" ></textarea>
-                <field-message field='formulario_youtube.textoAgendado'></field-message>
-                <span>{{'global.caracteres_restantes' | translate:{quantidade:150-youtube.textoAgendado.length} }}</span>
+            <div field-form-group='formulario_facebook.textoAgendado'>
+                <field-label value='facebook.texto_agendado' required="false" for='formulario_facebook.textoAgendado'></field-label>
+                <textarea rows='5' type="text" name='textoAgendado' ng-model="facebook.textoAgendado" class="form-control" maxlength="250" ></textarea>
+                <field-message field='formulario_facebook.textoAgendado'></field-message>
+                <span>{{'global.caracteres_restantes' | translate:{quantidade:250-facebook.textoAgendado.length} }}</span>
             </div>
         </div>
 

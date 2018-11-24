@@ -10,7 +10,7 @@
                 <field-label value='notificacao.mensagem' for='formulario_notificacao.mensagem'></field-label>
                 <textarea name='mensagem' required rows="5" ng-model="notificacao.mensagem" class="form-control" maxlength="250" ></textarea>
                 <field-message field='formulario_notificacao.mensagem'></field-message>
-                <span>{{'global.caracteres_restantes' | translate:{quantidade:150-notificacao.mensagem.length} }}</span>
+                <span>{{'global.caracteres_restantes' | translate:{quantidade:250-notificacao.mensagem.length} }}</span>
                 <hr/>
                 <field-label value='notificacao.apenas_membros' for='formulario_notificacao.apenas_membros'></field-label><br/>
                 <input type='radio' ng-value="true" name="apenasMembros" ng-model="notificacao.apenasMembros" required />{{'global.sim' | translate}}

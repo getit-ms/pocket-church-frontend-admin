@@ -1,4 +1,4 @@
-calvinApp.service('youtubeService', ['Restangular', function(Restangular){
+calvinApp.service('facebookService', ['Restangular', function(Restangular){
         this.api = function(){
             return Restangular.all('facebook/video');
         };
@@ -7,7 +7,7 @@ calvinApp.service('youtubeService', ['Restangular', function(Restangular){
             this.api().getList().then(callback);
         };
 
-        this.busca = function(callback){
+        this.buscaPaginas = function(callback){
             this.api().all('paginas').getList().then(callback);
         };
         
