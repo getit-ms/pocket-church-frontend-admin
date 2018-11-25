@@ -814,7 +814,7 @@
     "facebook": {
         "vincular_conta":"Vincular Conta",
         "pagina": "Página",
-        "mensagem_youtube":"O vínculo da conta é feito através de permissões para leitura dos dados da página da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
+        "mensagem_facebook":"O vínculo da conta é feito através de permissões para leitura dos dados da página da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
         "configuracoes":"Configurações Facebook",
         "titulo_ao_vivo":"Título do Push de Vídeos Ao Vivo",
         "texto_ao_vivo":"Texto do Push de Vídeos Ao Vivo",

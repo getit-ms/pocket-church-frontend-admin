@@ -18,13 +18,15 @@ calvinApp.config(['$stateProvider', function($stateProvider){
                         facebookService.configuracao(function(facebook){
                             $scope.facebook = facebook;
 
-                            facebookService.busca({tamanho:10}, function(videos){
-                                $scope.videos = videos;
-                            });
+                            if (facebook.configurado) {
+                                facebookService.busca({tamanho:10}, function(videos){
+                                    $scope.videos = videos;
+                                });
 
-                            facebookService.buscaPaginas(function(paginas) {
-                                $scope.paginas = paginas;
-                            })
+                                facebookService.buscaPaginas(function(paginas) {
+                                    $scope.paginas = paginas;
+                                });
+                            }
                         });
 
                     };
