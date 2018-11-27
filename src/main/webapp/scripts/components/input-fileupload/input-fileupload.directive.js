@@ -17,7 +17,7 @@ calvinApp.directive('inputFileupload', function(){
             
             $scope.realizaUpload = function(file){
                 
-                if ($scope.types && $scope.types.indexOf(file.type) < 0){
+                if (file.type && $scope.types && $scope.types.indexOf(file.type) < 0){
                     message({type:'error',body:'mensagens.MSG-043'});
                 }else{
                     $rootScope.inProgress = true;
