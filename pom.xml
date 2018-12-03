@@ -19,7 +19,7 @@
 
     <scm>
         <connection>scm:git:https://bitbucket.org/getit-team/calvinista-frontend-admin</connection>
-        <tag>prod-6.0.14</tag>
+        <tag>prod-6.1.4</tag>
     </scm>
 
     <dependencies>
@@ -223,6 +223,8 @@
             <id>deploy</id>
             <properties>
                 <environment>hml</environment>
+                <chave.igreja>tst</chave.igreja>
+                <nome.igreja>Pocket Church</nome.igreja>
             </properties>
             <build>
                 <defaultGoal>release:prepare release:perform</defaultGoal>
