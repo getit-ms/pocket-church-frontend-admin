@@ -15,8 +15,6 @@
         <maven.build.timestamp.format>yyyyMMdd.HHmmssSSS</maven.build.timestamp.format>
         <build.date>${maven.build.timestamp}</build.date>
         <webapp.base>src/main/webapp</webapp.base>
-        <chave.igreja>tst</chave.igreja>
-        <nome.igreja>GET IT - Pocket Church</nome.igreja>
     </properties>
 
     <scm>
@@ -150,10 +148,6 @@
         </profile>
         <profile>
             <id>homol</id>
-            <properties>
-                <chave.igreja>tst</chave.igreja>
-                <nome.igreja>Pocket Church</nome.igreja>
-            </properties>
         </profile>
         <profile>
             <id>prod</id>
