@@ -5,7 +5,7 @@ calvinApp.config(['$stateProvider', function($stateProvider){
         data:{
             displayName: 'publicacao.publicacoes',
             permissions:{
-                only: ['MANTER_BOLETINS'],
+                only: ['MANTER_PUBLICACOES'],
                 redirectTo: 'login'
             }
         },

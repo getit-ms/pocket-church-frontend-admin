@@ -4,7 +4,7 @@
 
     <groupId>br.gafs.getit.calvinista</groupId>
     <artifactId>calvinista-web-admin</artifactId>
-    <version>6.0.15-SNAPSHOT</version>
+    <version>6.1.6-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>calvinista-frontend-admin</name>
@@ -15,13 +15,11 @@
         <maven.build.timestamp.format>yyyyMMdd.HHmmssSSS</maven.build.timestamp.format>
         <build.date>${maven.build.timestamp}</build.date>
         <webapp.base>src/main/webapp</webapp.base>
-        <chave.igreja>tst</chave.igreja>
-        <nome.igreja>GET IT - Pocket Church</nome.igreja>
     </properties>
 
     <scm>
         <connection>scm:git:https://bitbucket.org/getit-team/calvinista-frontend-admin</connection>
-        <tag>prod-3.2.11</tag>
+        <tag>prod-6.1.4</tag>
     </scm>
 
     <dependencies>
@@ -150,10 +148,6 @@
         </profile>
         <profile>
             <id>homol</id>
-            <properties>
-                <chave.igreja>tst</chave.igreja>
-                <nome.igreja>Pocket Church</nome.igreja>
-            </properties>
         </profile>
         <profile>
             <id>prod</id>
@@ -209,6 +203,16 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0.0</version>
+                        <configuration>
+                            <files>
+                                <file>${basedir}/prod.properties</file>
+                            </files>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
             <properties>
@@ -219,6 +223,8 @@
             <id>deploy</id>
             <properties>
                 <environment>hml</environment>
+                <chave.igreja>tst</chave.igreja>
+                <nome.igreja>Pocket Church</nome.igreja>
             </properties>
             <build>
                 <defaultGoal>release:prepare release:perform</defaultGoal>

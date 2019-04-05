@@ -129,6 +129,11 @@
                 "state":"ebd",
                 "icon":"mortar-board"
             },
+            "CONFIGURAR_VIDEOS_FACEBOOK":{
+                "label":"Facebook",
+                "state":"facebook",
+                "icon":"facebook"
+            },
             "MANTER_VERSICULOS_DIARIOS":{
                 "label":"Versículos Diários",
                 "state":"versiculo",
@@ -247,6 +252,7 @@
         "MSG-050":"Desjea realmente desativar a integração com o Google Calendar?",
         "MSG-051":"Desjea realmente redefinir a senha de {{membro}}?",
         "MSG-052":"Não foi possível realizar a integração com o Flickr. Tente novamente e se o problema persistir contate o administrador do distema.",
+        "MSG-053":"Desjea realmente desativar a integração com o Facebook?",
         "MSG-403":"Não autorizado",
         "MSG-600":"Membro inválido",
         "MSG-601":"Igreja inválida",
@@ -360,6 +366,7 @@
         "NOTICIAS":"Notícias",
         "YOUTUBE":"Cultos e Vídeos",
         "BIBLIA":"Bíblia",
+        "CONFIGURAR_VIDEOS_FACEBOOK":"Facebook",
         "MANTER_PUBLICACOES":"Manter Publicações",
         "AGENDA":"Agenda da Igreja",
         "LISTAR_PUBLICACOES":"Publicações",
@@ -803,6 +810,17 @@
             "10":"Nov",
             "11":"Dez"
         }
+    },
+    "facebook": {
+        "vincular_conta":"Vincular Conta",
+        "pagina": "Página",
+        "mensagem_facebook":"O vínculo da conta é feito através de permissões para leitura dos dados da página da igreja. Ao clicar no link ao lado, uma página será aberta para que se dêem as permissões necessárias.",
+        "configuracoes":"Configurações Facebook",
+        "titulo_ao_vivo":"Título do Push de Vídeos Ao Vivo",
+        "texto_ao_vivo":"Texto do Push de Vídeos Ao Vivo",
+        "titulo_agendado":"Título do Push de Vídeos Agendados",
+        "texto_agendado":"Texto do Push de Vídeos Agendados",
+        "desativar_integracao":"Desativar Integração"
     }
 }
 

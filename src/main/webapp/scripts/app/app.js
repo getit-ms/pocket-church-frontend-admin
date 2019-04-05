@@ -129,6 +129,7 @@ calvinApp.run(['$rootScope', 'PermissionStore', 'acessoService', 'institucionalS
         'MANTER_VERSICULOS_DIARIOS',
         'CONFIGURAR',
         'CONFIGURAR_FLICKR',
+        'CONFIGURAR_VIDEOS_FACEBOOK',
         'CONFIGURAR_YOUTUBE',
         'CONFIGURAR_GOOGLE_CALENDAR',
         'ABERTURA_CHAMADO_SUPORTE'
