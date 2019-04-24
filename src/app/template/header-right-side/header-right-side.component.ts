@@ -9,7 +9,7 @@ import {Membro} from '../../api/model/membro';
 })
 export class HeaderRightSideComponent implements OnInit {
 
-  private membro: Membro;
+  membro: Membro;
 
   constructor(
     private sessaoService: SessaoService
