@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AbstractApiService} from './api-service.abstract';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/internal/operators';
 
 @Injectable()
 export class AssetsService extends AbstractApiService {
