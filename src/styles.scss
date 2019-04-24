@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+//@import "~bootstrap/scss/root";
+//@import "~bootstrap/scss/print";
+@import "~bootstrap/scss/reboot";
+//@import "~bootstrap/scss/type";
+//@import "~bootstrap/scss/images";
+//@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+//@import "~bootstrap/scss/tables";
+//@import "~bootstrap/scss/forms";
+//@import "~bootstrap/scss/buttons";
+//@import "~bootstrap/scss/transitions";
+//@import "~bootstrap/scss/dropdown";
+//@import "~bootstrap/scss/button-group";
+//@import "~bootstrap/scss/input-group";
+//@import "~bootstrap/scss/custom-forms";
+//@import "~bootstrap/scss/nav";
+//@import "~bootstrap/scss/navbar";
+//@import "~bootstrap/scss/card";
+//@import "~bootstrap/scss/breadcrumb";
+//@import "~bootstrap/scss/pagination";
+//@import "~bootstrap/scss/badge";
+//@import "~bootstrap/scss/jumbotron";
+//@import "~bootstrap/scss/alert";
+//@import "~bootstrap/scss/progress";
+//@import "~bootstrap/scss/media";
+//@import "~bootstrap/scss/list-group";
+//@import "~bootstrap/scss/close";
+//@import "~bootstrap/scss/modal";
+//@import "~bootstrap/scss/tooltip";
+//@import "~bootstrap/scss/popover";
+//@import "~bootstrap/scss/carousel";
+//@import "~bootstrap/scss/utilities";
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "~md2/core/theming/prebuilt/indigo-pink";
+
+@import '~@mat-datetimepicker/core/datetimepicker/datetimepicker-theme';
+
+// Using the $theme variable from the pre-built theme you can call the theming function
+@include mat-datetimepicker-theme($theme);
+
+body {
+  font-family: Rubik,sans-serif;
+  font-size: .875rem;
+  font-weight: 400;
+  background-color: #f2f4f5;
+
+  button,
+  [type="button"], // 1
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: none; // 2
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .text-right {
+    text-align: right
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  table td.cmd,
+  table th.cmd {
+    width: 150px;
+    text-align: right;
+  }
+}
+

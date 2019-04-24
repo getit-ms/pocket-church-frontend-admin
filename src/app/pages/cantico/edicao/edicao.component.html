@@ -1,0 +1,36 @@
+<app-form (acao)="salvar()">
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'cantico.titulo' | translate" required maxlength="150"
+                  name="titulo" [(ngModel)]="cantico.titulo" ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <input-text [placeholder]="'cantico.autor' | translate" required maxlength="150"
+                  name="autor" [(ngModel)]="cantico.autor" ></input-text>
+    </form-control>
+  </div>
+
+  <form-control>
+    <input-fileupload [label]="'cantico.arquivo_cantico' | translate" required
+                      name="cantico" [(ngModel)]="cantico.cifra" (change)="buscaLetra()" >
+    </input-fileupload>
+  </form-control>
+
+  <div class="loading-container">
+    <form-control>
+      <input-textarea [placeholder]="'cantico.letra' | translate" required rows="15"
+                      name="letra" [(ngModel)]="cantico.letra" >
+      </input-textarea>
+    </form-control>
+
+    <loader component="true" #loader></loader>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

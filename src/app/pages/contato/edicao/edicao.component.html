@@ -1,0 +1,92 @@
+<app-form (acao)="salvar()">
+
+  <div>
+    <form-control class="foto-membro">
+      <input-photoupload [label]="'membro.foto' | translate"
+                         name="foto" [(ngModel)]="membro.foto" ></input-photoupload>
+    </form-control>
+
+    <div class="row">
+      <div class="col">
+        <form-control>
+          <input-text [placeholder]="'membro.nome' | translate" required maxlength="150"
+                      name="nome" [(ngModel)]="membro.nome" ></input-text>
+        </form-control>
+
+        <form-control>
+          <input-text [placeholder]="'membro.email' | translate" email maxlength="150"
+                      name="email" [(ngModel)]="membro.email" ></input-text>
+        </form-control>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <input-data [placeholder]="'membro.nascimento' | translate"
+                  name="dataNascimento" [(ngModel)]="membro.dataNascimento" ></input-data>
+    </form-control>
+
+    <div class="col">
+      <form-control>
+        <select-boolean-slider [label]="'membro.pastor' | translate" *ngIf="!membro.visitante"
+                               name="pastor" [(ngModel)]="membro.pastor" ></select-boolean-slider>
+      </form-control>
+
+      <form-control>
+        <select-boolean-slider [label]="'membro.visitante' | translate" *ngIf="!membro.pastor"
+                               name="visitante" [(ngModel)]="membro.visitante" ></select-boolean-slider>
+      </form-control>
+
+      <form-control>
+        <select-boolean-slider [label]="'membro.dados_disponiveis' | translate"
+                               [disabled]="!membro.id || !membro.desejaDisponibilizarDados"
+                               name="dadosDisponiveis" [(ngModel)]="membro.dadosDisponiveis" ></select-boolean-slider>
+      </form-control>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'endereco.descricao' | translate"
+                  name="descricao" [(ngModel)]="membro.endereco.descricao"
+      ></input-text>
+    </form-control>
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <input-cep [placeholder]="'endereco.cep' | translate"
+                 name="cep" [(ngModel)]="membro.endereco.cep"
+      ></input-cep>
+    </form-control>
+
+    <form-control class="col">
+      <input-text [placeholder]="'endereco.cidade' | translate"
+                  name="cidade" [(ngModel)]="membro.endereco.cidade"
+      ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <select-option [placeholder]="'endereco.uf' | translate"
+                     name="uf" [(ngModel)]="membro.endereco.estado" labelVazia="">
+        <opcao-item [label]="uf" [valor]="uf"
+                    *ngFor="let uf of ufs" ></opcao-item>
+      </select-option>
+    </form-control>
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <app-input-telefones name="telefones" [label]="'membro.telefones' | translate"
+                           [(ngModel)]="membro.telefones"></app-input-telefones>
+    </form-control>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

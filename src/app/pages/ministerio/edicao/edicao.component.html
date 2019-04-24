@@ -1,0 +1,13 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'ministerio.nome' | translate" required maxlength="150"
+                name="nome" [(ngModel)]="ministerio.nome" ></input-text>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

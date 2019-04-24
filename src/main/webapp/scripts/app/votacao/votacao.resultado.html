@@ -1,9 +1,0 @@
-<div ng-if="votacao">
-    <div class="col-sm-12">
-        <pdf-viewer ng-if='votacao.id' pdf-url="/app/rest/votacao/{{votacao.id}}/resultado/{{votacao.nome}}.pdf?{{headers}}" ></pdf-viewer>
-    </div>
-    <div class="col-sm-12 comandos">
-        <hr/>
-        <a class="btn btn-default" ui-sref="votacao">{{'global.voltar' | translate}}</a>
-    </div>
-</div>

@@ -1,0 +1,25 @@
+<app-form>
+  <app-table [resultados]="ministerios">
+    <app-column name="nome">
+      <th *appColumnHeader>{{'ministerio.ministerios' | translate}}</th>
+      <td *appCell="let ministerio" >
+        <h2>{{ministerio.nome}}</h2>
+      </td>
+    </app-column>
+
+    <app-column name="comandos">
+      <th *appColumnHeader class="cmd"></th>
+      <td *appCell="let ministerio" class="cmd" >
+        <command-button routerLink="./{{ministerio.id}}/detail" theme="icon">
+          <mat-icon>search</mat-icon>
+        </command-button>
+        <command-button routerLink="./{{ministerio.id}}/update" theme="icon">
+          <mat-icon>edit</mat-icon>
+        </command-button>
+        <command-button (click)="excluir(ministerio)" theme="icon">
+          <mat-icon>delete</mat-icon>
+        </command-button>
+      </td>
+    </app-column>
+  </app-table>
+</app-form>

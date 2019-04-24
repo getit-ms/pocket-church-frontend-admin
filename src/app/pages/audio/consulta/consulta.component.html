@@ -1,0 +1,30 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="audios">
+      <app-column name="audio">
+        <th *appColumnHeader>{{'audio.audios' | translate}}</th>
+        <td *appCell="let audio" >
+          <h2>{{audio.nome}}</h2>
+          <p>{{audio.autor}}</p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let audio" class="cmd" >
+          <command-button routerLink="./{{audio.id}}/detail" theme="icon">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{audio.id}}/update" theme="icon">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(audio)" theme="icon">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

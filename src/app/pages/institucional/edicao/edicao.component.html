@@ -1,0 +1,78 @@
+<app-form (acao)="salvar()">
+
+  <form-control >
+    <input-textarea name="quemSomos" [placeholder]="'institucional.quem_somos' | translate"
+                    [(ngModel)]="institucional.quemSomos" rows="8" ></input-textarea>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'institucional.email' | translate"
+                  name="email" [(ngModel)]="institucional.email"
+                  required email maxlength="150"
+      ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <input-text [placeholder]="'institucional.site' | translate"
+                  name="site" [(ngModel)]="institucional.site"
+                  required maxlength="150"
+      ></input-text>
+    </form-control>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <form-control class="col">
+      <app-input-enderecos name="enderecos" [(ngModel)]="institucional.enderecos"></app-input-enderecos>
+    </form-control>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <form-control class="col">
+      <app-input-telefones name="telefones" [label]="'institucional.telefones' | translate"
+                           [(ngModel)]="institucional.telefones"></app-input-telefones>
+    </form-control>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="divulgacao">
+        <img [imagemSrc]="institucional.divulgacao" />
+      </div>
+
+      <p>{{'institucional.instrucoes_imagem_divulgacao' | translate}}</p>
+
+      <form-control>
+        <input-fileupload [label]="'institucional.imagem_divulgacao' | translate" name="divulgacao"
+                          [(ngModel)]="institucional.divulgacao"></input-fileupload>
+      </form-control>
+
+      <form-control>
+        <input-textarea [rows]="4"
+                        [placeholder]="'institucional.instrucoes_para_imagem' | translate" ></input-textarea>
+      </form-control>
+    </div>
+    <div class="col">
+
+      <div *ngFor="let rede of redesSociais">
+        <i class="rs fa fa-{{rede}} fa-pull-left"></i>
+        <div class="row">
+          <form-control class="col">
+            <input-text [placeholder]="'institucional.' + rede | translate"
+                        [name]="rede" [(ngModel)]="institucional.redesSociais[rede]"></input-text>
+          </form-control>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div acoes>
+    <command-button type="submit" color="primary">{{'global.salvar' | translate}}</command-button>
+  </div>
+
+  <loader #loader component="true"></loader>
+</app-form>

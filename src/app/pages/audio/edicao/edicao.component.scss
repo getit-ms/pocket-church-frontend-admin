@@ -1,0 +1,12 @@
+.foto-membro {
+  float: left;
+  margin-right: 10px;
+}
+
+@media(max-width: 850px) {
+  .foto-membro {
+    float: none;
+    margin: 0;
+    text-align: center;
+  }
+}

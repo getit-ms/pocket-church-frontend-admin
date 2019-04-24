@@ -1,0 +1,30 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="noticias">
+      <app-column name="noticia">
+        <th *appColumnHeader>{{'noticia.noticias' | translate}}</th>
+        <td *appCell="let noticia" >
+          <h2>{{noticia.titulo}}</h2>
+          <p>{{noticia.autor?.nome}} | {{noticia.dataPublicacao | date: 'dd MMMM yyyy HH:mm'}}</p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let noticia" class="cmd" >
+          <command-button routerLink="./{{noticia.id}}/detail" theme="icon">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{noticia.id}}/update" theme="icon">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(noticia)" theme="icon">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

@@ -1,0 +1,25 @@
+<app-form>
+  <app-table [resultados]="perfis">
+    <app-column name="nome">
+      <th *appColumnHeader>{{'perfil.perfis' | translate}}</th>
+      <td *appCell="let perfil" >
+        <h2>{{perfil.nome}}</h2>
+      </td>
+    </app-column>
+
+    <app-column name="comandos">
+      <th *appColumnHeader class="cmd"></th>
+      <td *appCell="let perfil" class="cmd" >
+        <command-button routerLink="./{{perfil.id}}/detail" theme="icon">
+          <mat-icon>search</mat-icon>
+        </command-button>
+        <command-button routerLink="./{{perfil.id}}/update" theme="icon">
+          <mat-icon>edit</mat-icon>
+        </command-button>
+        <command-button (click)="excluir(perfil)" theme="icon">
+          <mat-icon>delete</mat-icon>
+        </command-button>
+      </td>
+    </app-column>
+  </app-table>
+</app-form>

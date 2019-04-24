@@ -1,0 +1,45 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="canticos">
+      <app-column name="cantico">
+        <th *appColumnHeader>{{'cantico.canticos' | translate}}</th>
+        <td *appCell="let cantico" class="cantico">
+          <h2>{{cantico.titulo}}</h2>
+          <p>{{cantico.autor}}</p>
+
+          <mat-chip-list>
+            <mat-chip *ngIf="cantico.status == 'PUBLICADO'" color="primary" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-check"></mat-icon>
+              {{'cantico.publicado' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="cantico.status == 'PROCESSANDO'" color="basic" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-refresh"></mat-icon>
+              {{'cantico.processando' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="cantico.status == 'REJEITADO'" color="warn" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-exclamation-triangle"></mat-icon>
+              {{'cantico.rejeitado' | translate}}
+            </mat-chip>
+          </mat-chip-list>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let cantico" class="cmd" >
+          <command-button routerLink="./{{cantico.id}}/detail" theme="icon">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{cantico.id}}/update" theme="icon">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(cantico)" theme="icon">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

@@ -1,0 +1,27 @@
+input.file {
+  display: none;
+}
+
+.file-chooser {
+  display: flex;
+  flex-wrap: nowrap;
+
+  .action {
+    padding-top: 5px;
+
+    display: flex;
+    flex-wrap: nowrap;
+
+    .progress-bar-area {
+      padding: 8px 13px;
+    }
+
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<app-form (acao)="salvar()">
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'cifra.titulo' | translate" required maxlength="150"
+                  name="titulo" [(ngModel)]="cifra.titulo" ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <input-text [placeholder]="'cifra.autor' | translate" required maxlength="150"
+                  name="autor" [(ngModel)]="cifra.autor" ></input-text>
+    </form-control>
+  </div>
+
+  <form-control>
+    <input-fileupload [label]="'cifra.arquivo_cifra' | translate" required
+                      name="cifra" [(ngModel)]="cifra.cifra" (change)="buscaLetra()" >
+    </input-fileupload>
+  </form-control>
+
+  <div class="loading-container">
+    <form-control>
+      <input-textarea [placeholder]="'cifra.letra' | translate" required rows="15"
+                      name="letra" [(ngModel)]="cifra.letra" >
+      </input-textarea>
+    </form-control>
+
+    <loader component="true" #loader></loader>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

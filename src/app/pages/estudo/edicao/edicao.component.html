@@ -1,0 +1,47 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'estudo.titulo' | translate" required maxlength="250"
+                name="titulo" [(ngModel)]="estudo.titulo" ></input-text>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'estudo.autor' | translate" required maxlength="150"
+                  name="autor" [(ngModel)]="estudo.autor" ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <input-data [placeholder]="'estudo.publicacao' | translate" required type="datetime"
+                  name="dataPublicacao" [(ngModel)]="estudo.dataPublicacao" ></input-data>
+    </form-control>
+  </div>
+
+  <form-control>
+    <select-option [placeholder]="'estudo.categoria' | translate"
+                   required labelVazia="" trackBy="id"
+                   name="categoria" [(ngModel)]="estudo.categoria" >
+      <opcao-item *ngFor="let cat of categorias"
+                  [valor]="cat" [label]="cat.nome"
+      ></opcao-item>
+    </select-option>
+  </form-control>
+
+  <form-control>
+    <input-fileupload [label]="'estudo.arquivo' | translate"
+                      name="pdf" [(ngModel)]="estudo.pdf" >
+    </input-fileupload>
+  </form-control>
+
+  <form-control *ngIf="!estudo.pdf">
+    <label>{{'estudo.texto' | translate}}</label>
+    <input-editor required name="texto" [(ngModel)]="estudo.texto" >
+    </input-editor>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

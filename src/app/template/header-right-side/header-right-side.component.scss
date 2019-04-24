@@ -1,0 +1,12 @@
+.foto {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+button[mat-menu-item] .foto {
+  height: 25px;
+  width: 25px;
+  vertical-align: middle;
+  margin-right: 10px;
+}

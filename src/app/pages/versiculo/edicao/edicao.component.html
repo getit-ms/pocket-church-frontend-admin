@@ -1,0 +1,14 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-textarea [placeholder]="'versiculo.versiculo' | translate"
+                    rows="3" required maxlength="250"
+                    name="versiculo" [(ngModel)]="versiculo.versiculo" ></input-textarea>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

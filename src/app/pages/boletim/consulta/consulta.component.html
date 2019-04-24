@@ -1,0 +1,49 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="boletins">
+      <app-column name="boletim">
+        <th *appColumnHeader>{{'boletim.boletins' | translate}}</th>
+        <td *appCell="let boletim" class="boletim">
+          <h2>{{boletim.titulo}}</h2>
+          <p>{{boletim.data | date:'dd/MM/yyyy'}}</p>
+
+          <mat-chip-list>
+            <mat-chip *ngIf="boletim.publicado" color="primary" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-check"></mat-icon>
+              {{'boletim.publicado' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="boletim.agendado" color="accent" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-clock-o"></mat-icon>
+              {{'boletim.agendado' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="boletim.processando" color="basic" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-refresh"></mat-icon>
+              {{'boletim.processando' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="boletim.rejeitado" color="warn" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-exclamation-triangle"></mat-icon>
+              {{'boletim.rejeitado' | translate}}
+            </mat-chip>
+          </mat-chip-list>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let boletim" class="cmd" >
+          <command-button routerLink="./{{boletim.id}}/detail" theme="icon">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{boletim.id}}/update" theme="icon">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(boletim)" theme="icon">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

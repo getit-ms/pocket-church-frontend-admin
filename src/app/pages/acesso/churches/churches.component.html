@@ -1,0 +1,23 @@
+<mat-card>
+  <app-form>
+    <p>Selecione uma igreja para realizar o login.</p>
+
+    <div class="row">
+      <a class="col" href="javascript:void(0)" (click)="seleciona(igreja)"
+         *ngFor="let igreja of igrejas">
+        <div class="logo">
+          <img [igreja]="igreja.chave" [imagemSrc]="igreja.logoPequena" />
+
+          <h5>{{igreja.nomeAplicativo}}</h5>
+        </div>
+      </a>
+    </div>
+
+    <div acoes>
+      <command-button type="button" (click)="cancelar()"
+                      theme="default">
+        {{'global.cancelar' | translate}}
+      </command-button>
+    </div>
+  </app-form>
+</mat-card>

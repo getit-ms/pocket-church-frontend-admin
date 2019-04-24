@@ -1,0 +1,20 @@
+<command-button theme="icon" [matMenuTriggerFor]="menuUsuario">
+  <img class="foto"
+       padrao="assets/imgs/user.png"
+       [imagemSrc]="membro?.foto" />
+</command-button>
+<mat-menu #menuUsuario="matMenu" yPosition="above" [overlapTrigger]="false">
+
+  <button mat-menu-item>
+    <img class="foto"
+         padrao="assets/imgs/user.png"
+         [imagemSrc]="membro?.foto" />
+    {{membro?.nome}}
+  </button>
+
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    {{'global.menu.logout' | translate}}
+  </button>
+
+</mat-menu>

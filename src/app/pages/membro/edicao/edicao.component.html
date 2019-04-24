@@ -1,0 +1,52 @@
+<app-form (acao)="salvar()">
+
+  <div>
+    <form-control class="foto-membro">
+      <input-photoupload [label]="'membro.foto' | translate" [disabled]="true"
+                         name="foto" [(ngModel)]="membro.foto" ></input-photoupload>
+    </form-control>
+
+    <div class="row">
+      <div class="col">
+        <form-control>
+          <input-text [placeholder]="'membro.nome' | translate" [disabled]="true"
+                      name="nome" [(ngModel)]="membro.nome" ></input-text>
+        </form-control>
+
+        <form-control>
+          <input-text [placeholder]="'membro.email' | translate" [disabled]="true"
+                      name="email" [(ngModel)]="membro.email" ></input-text>
+        </form-control>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <select-option multiple name="perfis" required
+                     [placeholder]="'membro.acesso.perfis' | translate"
+                     [(ngModel)]="acesso.perfis" trackBy="id"
+                     (change)="checkExigeMinisterio()">
+        <opcao-item *ngFor="let perfil of perfis"
+                    [label]="perfil.nome" [valor]="perfil"
+        ></opcao-item>
+      </select-option>
+    </form-control>
+
+    <form-control class="col" *ngIf="exigeMinisterios">
+      <select-option multiple name="ministerios" required
+                     [placeholder]="'membro.acesso.ministerios' | translate"
+                     [(ngModel)]="acesso.ministerios" trackBy="id">
+        <opcao-item *ngFor="let ministerio of ministerios"
+                    [label]="ministerio.nome" [valor]="ministerio"
+        ></opcao-item>
+      </select-option>
+    </form-control>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

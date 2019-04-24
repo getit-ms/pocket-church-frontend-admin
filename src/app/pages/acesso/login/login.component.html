@@ -1,0 +1,25 @@
+<div class="back">
+
+  <mat-card>
+    <div class="logo">
+      <img src="../../../../assets/imgs/logo_pocket_church.png" />
+
+      <h3>Pocket Church</h3>
+    </div>
+
+    <app-form (acao)="inicia()" >
+      <form-control>
+        <input-text [placeholder]="'login.username' | translate"
+                    name="username" [(ngModel)]="usuario.email"
+                    required email maxlength="150"></input-text>
+      </form-control>
+
+      <div acoes>
+        <command-button type="submit" color="primary">
+          {{'login.autenticar' | translate}}
+        </command-button>
+      </div>
+    </app-form>
+  </mat-card>
+
+</div>

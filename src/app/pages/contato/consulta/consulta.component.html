@@ -1,0 +1,63 @@
+<app-form>
+  <div>
+    <div class="row">
+      <form-control class="col">
+        <input-text [placeholder]="'membro.nome' | translate"
+                    name="nome" [(ngModel)]="filtro.nome"
+                    (change)="busca()"
+        ></input-text>
+      </form-control>
+
+      <form-control class="col">
+        <input-text [placeholder]="'membro.email' | translate"
+                    name="email" [(ngModel)]="filtro.email"
+                    email (change)="busca()"
+        ></input-text>
+      </form-control>
+    </div>
+  </div>
+
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="membros">
+      <app-column name="foto">
+        <th *appColumnHeader class="foto"></th>
+        <td *appCell="let membro" class="foto" >
+          <img [imagemSrc]="membro.foto" padrao="assets/imgs/user.png" />
+        </td>
+      </app-column>
+
+      <app-column name="nome">
+        <th *appColumnHeader>{{'contato.contatos' | translate}}</th>
+        <td *appCell="let membro" >
+          <h2>{{membro.nome}}</h2>
+          <p>{{membro.email}}</p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let membro" class="cmd" >
+          <command-button routerLink="./{{membro.id}}/detail" theme="icon">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{membro.id}}/update" theme="icon">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(membro)" theme="icon"
+                          *ngIf="membro.contato">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button (click)="exportar()" theme="stroked" >
+      <mat-icon fontSet="fa" fontIcon="fa-file-excel-o"></mat-icon>
+      {{'contato.exportar_contatos' | translate}}
+    </command-button>
+  </div>
+</app-form>

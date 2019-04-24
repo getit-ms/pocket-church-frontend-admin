@@ -1,0 +1,26 @@
+.back {
+  position: absolute;
+  background: url(../../../../assets/imgs/fundo_login.png) no-repeat;
+  background-size: cover;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+
+  .view {
+    width: 300px;
+    margin: 50px auto;
+  }
+}
+
+
+@media(max-width: 400px) {
+  .back {
+    .view {
+      width: auto;
+      margin: 50px 20px;
+    }
+  }
+}
