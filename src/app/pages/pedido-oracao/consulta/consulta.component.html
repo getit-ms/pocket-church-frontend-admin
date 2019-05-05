@@ -1,0 +1,57 @@
+<app-form>
+  <div class="row">
+    <form-control class="col-sm-6">
+      <input-data name="dataInicio" [(ngModel)]="filtro.dataInicio"
+                  [placeholder]="'oracao.data_inicio' | translate"
+                  (change)="busca()"></input-data>
+    </form-control>
+
+    <form-control class="col-sm-6">
+      <input-data name="dataTermino" [(ngModel)]="filtro.dataTermino"
+                  [placeholder]="'oracao.data_termino' | translate"
+                  (change)="busca()"></input-data>
+    </form-control>
+  </div>
+
+  <form-control>
+    <select-option multiple name="status" [(ngModel)]="filtro.status"
+                   [placeholder]="'oracao.status.status' | translate"
+                   (change)="busca()" >
+      <opcao-item [label]="'oracao.status.PENDENTE' | translate" valor="PENDENTE"></opcao-item>
+      <opcao-item [label]="'oracao.status.ATENDIDO' | translate" valor="ATENDIDO"></opcao-item>
+    </select-option>
+  </form-control>
+
+  <hr/>
+
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="pedidos">
+      <app-column name="pedido">
+        <th *appColumnHeader>{{'oracao.pedidos_oracao' | translate}}</th>
+        <td *appCell="let pedido" >
+          <h3>{{pedido.pedido}}</h3>
+          <p>
+            <a href="mailto:{{pedido.email}}">{{pedido.nome}}</a><br/>
+            {{'oracao.data_solicitacao' | translate}}: {{pedido.dataSolicitacao | date: 'dd MMM yyyy HH:mm'}}<br/>
+            <ng-container *ngIf="pedido.atendido">{{'oracao.data_atendimento' | translate}}: {{pedido.dataAtendimento | date: 'dd MMM yyyy HH:mm'}}</ng-container>
+          </p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let pedido" class="cmd" >
+          <command-button *ngIf="pedido.pendente"
+                          (click)="atende(pedido)" theme="icon">
+            <mat-icon>check_box_outline_blank</mat-icon>
+          </command-button>
+          <command-button *ngIf="pedido.atendido" disabled theme="icon">
+            <mat-icon>check_box</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

@@ -1,0 +1,50 @@
+<app-form>
+  <div class="row">
+    <form-control class="col-md-4">
+      <input-text [placeholder]="'plano_leitura.descricao' | translate"
+                  name="descricao" [(ngModel)]="filtro.descricao"
+                  (change)="busca()"></input-text>
+    </form-control>
+
+    <form-control class="col-md-4 col-sm-6">
+      <input-data [placeholder]="'plano_leitura.data_inicio' | translate"
+                  name="dataInicio" [(ngModel)]="filtro.dataInicio"
+                  (change)="busca()"></input-data>
+    </form-control>
+
+    <form-control class="col-md-4 col-sm-6">
+      <input-data [placeholder]="'plano_leitura.data_termino' | translate"
+                  name="dataTermino" [(ngModel)]="filtro.dataTermino"
+                  (change)="busca()"></input-data>
+    </form-control>
+  </div>
+
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="planosLeitura">
+      <app-column name="planoLeitura">
+        <th *appColumnHeader>{{'plano_leitura.planos_leitura' | translate}}</th>
+        <td *appCell="let planoLeitura" class="planoLeitura">
+          <h2>{{planoLeitura.descricao}}</h2>
+          <p>{{planoLeitura.dataInicio | date:'dd/MM/yyyy'}} - {{planoLeitura.dataTermino | date:'dd/MM/yyyy'}}</p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let planoLeitura" class="cmd" >
+          <command-button routerLink="./{{planoLeitura.id}}/detail" theme="icon">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{planoLeitura.id}}/update" theme="icon">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(planoLeitura)" theme="icon">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

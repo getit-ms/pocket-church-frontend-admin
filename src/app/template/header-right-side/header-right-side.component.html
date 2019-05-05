@@ -1,7 +1,8 @@
+<command-button theme="icon" (click)="ajuda()">
+  <mat-icon>help_outline</mat-icon>
+</command-button>
 <command-button theme="icon" [matMenuTriggerFor]="menuUsuario">
-  <img class="foto"
-       padrao="assets/imgs/user.png"
-       [imagemSrc]="membro?.foto" />
+  <mat-icon>person</mat-icon>
 </command-button>
 <mat-menu #menuUsuario="matMenu" yPosition="above" [overlapTrigger]="false">
 

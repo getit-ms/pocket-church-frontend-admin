@@ -3,9 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  basePath: 'https://getitmobilesolutions.com/app/rest',
-  version: require('../../package.json').version
+    production: false,
+    basePath: 'https://getitmobilesolutions.com/app/rest',
+    ajudaPath: 'https://getitmobilesolutions.com/app/ajuda',
+    version: require('../../package.json').version
 };
 
 /*

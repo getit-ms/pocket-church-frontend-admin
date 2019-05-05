@@ -1,0 +1,29 @@
+<div class="label">
+  <h2>{{label}}</h2>
+
+  <command-button *ngIf="!disabled" theme="default" (click)="add()">
+    <mat-icon>add</mat-icon>
+    {{'votacao.questao.mais' | translate}}
+  </command-button>
+</div>
+
+<ng-container *ngFor="let questao of value; let idx = index">
+  <hr/>
+
+  <div class="questao">
+    <div class="input">
+      <input-text [placeholder]="('votacao.questao.questao' | translate) + ' ' + (idx + 1)"
+                  [disabled]="disabled" maxlength="150"
+                  name="questao{{idx}}" [(ngModel)]="questao.questao"></input-text>
+    </div>
+
+    <command-button *ngIf="!disabled" (click)="remove(questao)" theme="icon">
+      <mat-icon>delete</mat-icon>
+    </command-button>
+  </div>
+
+  <app-input-opcoes
+          [indexQuestao]="idx" required [disabled]="disabled"
+          name="opcoes{{idx}}" [(ngModel)]="questao.opcoes"></app-input-opcoes>
+
+</ng-container>

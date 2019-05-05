@@ -23,7 +23,15 @@ import {environment} from '../environments/environment';
 import {MenuHeaderComponent} from './template/menu-header/menu-header.component';
 import {HeaderRightSideComponent} from './template/header-right-side/header-right-side.component';
 import {PocketChurchMenuProviderService} from './template/menu/pocket-church-menu-provider.service';
-import {DateAdapter, MAT_DATE_FORMATS, MatCardModule, MatIconModule, MatMenuModule, NativeDateAdapter} from '@angular/material';
+import {
+    DateAdapter,
+    MAT_DATE_FORMATS,
+    MatCardModule,
+    MatDialogModule,
+    MatIconModule,
+    MatMenuModule,
+    NativeDateAdapter
+} from '@angular/material';
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
 import {WidgetUsuariosComponent} from './pages/home/widget-usuarios/widget-usuarios.component';
@@ -33,196 +41,224 @@ import {WidgetHistoricoUsuariosComponent} from './pages/home/widget-historico-us
 import {RouterModule, Routes} from '@angular/router';
 import {PrepareContextService} from './infra/contexto/prepare-context.service';
 import {IgrejasTranslateLoaderService} from './infra/contexto/igrejas-translate-loader.service';
+import { CalendarModule } from 'angular-calendar';
+import { SchedulerModule } from 'angular-calendar-scheduler';
+import { ModalAjudaComponent } from './template/modal-ajuda/modal-ajuda.component';
+
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: BaseComponent,
-    canActivate: [
-      PrepareContextService
-    ],
-    canActivateChild: [
-      CheckAutorizacaoService
-    ],
-    data: {
-      menuProvider: PocketChurchMenuProviderService
-    },
-    children: [
-      {
+    {
         path: '',
-        component: MenuHeaderComponent,
-        outlet: 'menuHeader'
-      },
-      {
-        path: '',
-        component: HeaderRightSideComponent,
-        outlet: 'headerRightSide'
-      },
-      {
-        path: '',
+        component: BaseComponent,
+        canActivate: [
+            PrepareContextService
+        ],
+        canActivateChild: [
+            CheckAutorizacaoService
+        ],
+        data: {
+            menuProvider: PocketChurchMenuProviderService
+        },
         children: [
-          {
-            path: '',
-            component: HomeComponent,
-            data: {
-              breadcrumb: 'home.inicio'
-            }
-          },
-          {
-            path: 'institucional',
-            loadChildren: './pages/institucional/institucional.module#InstitucionalModule'
-          },
-          {
-            path: 'aplicativo',
-            loadChildren: './pages/aplicativo/aplicativo.module#AplicativoModule'
-          },
-          {
-            path: 'ministerio',
-            loadChildren: './pages/ministerio/ministerio.module#MinisterioModule'
-          },
-          {
-            path: 'perfil',
-            loadChildren: './pages/perfil/perfil.module#PerfilModule'
-          },
-          {
-            path: 'contato',
-            loadChildren: './pages/contato/contato.module#ContatoModule'
-          },
-          {
-            path: 'membro',
-            loadChildren: './pages/membro/membro.module#MembroModule'
-          },
-          {
-            path: 'audio',
-            loadChildren: './pages/audio/audio.module#AudioModule'
-          },
-          {
-            path: 'noticia',
-            loadChildren: './pages/noticia/noticia.module#NoticiaModule'
-          },
-          {
-            path: 'boletim',
-            loadChildren: './pages/boletim/boletim.module#BoletimModule'
-          },
-          {
-            path: 'publicacao',
-            loadChildren: './pages/publicacao/publicacao.module#PublicacaoModule'
-          },
-          {
-            path: 'cifra',
-            loadChildren: './pages/cifra/cifra.module#CifraModule'
-          },
-          {
-            path: 'cantico',
-            loadChildren: './pages/cantico/cantico.module#CanticoModule'
-          },
-          {
-            path: 'estudo',
-            loadChildren: './pages/estudo/estudo.module#EstudoModule'
-          },
-          {
-            path: 'notificacao',
-            loadChildren: './pages/notificacao/notificacao.module#NotificacaoModule'
-          },
-          {
-            path: 'versiculo',
-            loadChildren: './pages/versiculo/versiculo.module#VersiculoModule'
-          },
+            {
+                path: '',
+                component: MenuHeaderComponent,
+                outlet: 'menuHeader'
+            },
+            {
+                path: '',
+                component: HeaderRightSideComponent,
+                outlet: 'headerRightSide'
+            },
+            {
+                path: '',
+                children: [
+                    {
+                        path: '',
+                        component: HomeComponent,
+                        data: {
+                            breadcrumb: 'home.inicio'
+                        }
+                    },
+                    {
+                        path: 'institucional',
+                        loadChildren: './pages/institucional/institucional.module#InstitucionalModule'
+                    },
+                    {
+                        path: 'aplicativo',
+                        loadChildren: './pages/aplicativo/aplicativo.module#AplicativoModule'
+                    },
+                    {
+                        path: 'ministerio',
+                        loadChildren: './pages/ministerio/ministerio.module#MinisterioModule'
+                    },
+                    {
+                        path: 'perfil',
+                        loadChildren: './pages/perfil/perfil.module#PerfilModule'
+                    },
+                    {
+                        path: 'contato',
+                        loadChildren: './pages/contato/contato.module#ContatoModule'
+                    },
+                    {
+                        path: 'membro',
+                        loadChildren: './pages/membro/membro.module#MembroModule'
+                    },
+                    {
+                        path: 'audio',
+                        loadChildren: './pages/audio/audio.module#AudioModule'
+                    },
+                    {
+                        path: 'noticia',
+                        loadChildren: './pages/noticia/noticia.module#NoticiaModule'
+                    },
+                    {
+                        path: 'boletim',
+                        loadChildren: './pages/boletim/boletim.module#BoletimModule'
+                    },
+                    {
+                        path: 'publicacao',
+                        loadChildren: './pages/publicacao/publicacao.module#PublicacaoModule'
+                    },
+                    {
+                        path: 'cifra',
+                        loadChildren: './pages/cifra/cifra.module#CifraModule'
+                    },
+                    {
+                        path: 'cantico',
+                        loadChildren: './pages/cantico/cantico.module#CanticoModule'
+                    },
+                    {
+                        path: 'estudo',
+                        loadChildren: './pages/estudo/estudo.module#EstudoModule'
+                    },
+                    {
+                        path: 'notificacao',
+                        loadChildren: './pages/notificacao/notificacao.module#NotificacaoModule'
+                    },
+                    {
+                        path: 'versiculo',
+                        loadChildren: './pages/versiculo/versiculo.module#VersiculoModule'
+                    },
+                    {
+                        path: 'planoLeitura',
+                        loadChildren: './pages/plano-leitura/plano-leitura.module#PlanoLeituraModule'
+                    },
+                    {
+                        path: 'votacao',
+                        loadChildren: './pages/votacao/votacao.module#VotacaoModule'
+                    },
+                    {
+                        path: 'oracao',
+                        loadChildren: './pages/pedido-oracao/pedido-oracao.module#PedidoOracaoModule'
+                    },
+                    {
+                        path: 'agenda',
+                        loadChildren: './pages/aconselhamento/aconselhamento.module#AconselhamentoModule'
+                    },
+                ]
+            },
         ]
-      },
-    ]
-  },
-  {
-    path: 'acesso',
-    loadChildren: './pages/acesso/acesso.module#AcessoModule'
-  }
+    },
+    {
+        path: 'acesso',
+        loadChildren: './pages/acesso/acesso.module#AcessoModule'
+    }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    MenuHeaderComponent,
-    HeaderRightSideComponent,
-    WidgetUsuariosComponent,
-    WidgetDispositivosComponent,
-    WidgetHistoricoDispositivosComponent,
-    WidgetHistoricoUsuariosComponent
-  ],
-  imports: [
-    FormsModule,
-    BrowserAnimationsModule,
-    TranslateModule.forRoot(),
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        MenuHeaderComponent,
+        HeaderRightSideComponent,
+        WidgetUsuariosComponent,
+        WidgetDispositivosComponent,
+        WidgetHistoricoDispositivosComponent,
+        WidgetHistoricoUsuariosComponent,
+        ModalAjudaComponent
+    ],
+    entryComponents: [ModalAjudaComponent],
+    imports: [
+        FormsModule,
+        BrowserAnimationsModule,
+        TranslateModule.forRoot(),
 
-    ApiModule,
-    InfraModule,
-    ComponentesModule,
-    RouterModule.forRoot(routes, {useHash: true}),
+        ApiModule,
+        InfraModule,
+        ComponentesModule,
+        RouterModule.forRoot(routes, {useHash: true}),
 
-    MatIconModule,
-    MatMenuModule,
-    MatCardModule,
-    NgxChartsModule,
+        MatIconModule,
+        MatMenuModule,
+        MatCardModule,
+        NgxChartsModule,
+        MatDialogModule,
+        CalendarModule.forRoot({
+            provide: DateAdapter,
+            useClass: NativeDateAdapter
+        }),
+        SchedulerModule.forRoot({ locale: 'pt-br', headerDateFormat: 'daysRange' }),
 
-    InfraAutorizacaoModule.forRoot(
-      {
-        pathRedirecionamento: '#/acesso/login',
-        localStorageKey: 'pocket-church-token',
-        permissoes: permissoes
-      }
-    ),
-    InfraCoreModule.forRoot(),
-    InfraDataModule.forRoot(),
-    InfraTemplateModule.forRoot(),
-    InfraFormularioModule.forRoot()
-  ],
-  providers: [
-    PocketChurchMenuProviderService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useExisting: HttpInterceptorService,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useExisting: AcaoService,
-      multi: true
-    },
-    {
-      provide: API_PATH_BASE,
-      useValue: environment.basePath
-    },
-    { provide: LOCALE_ID, useValue: 'pt-BR' },
-    {
-      provide: APP_BASE_HREF,
-      useValue: '/'
-    },
-    {
-      provide: DateAdapter,
-      useClass: NativeDateAdapter
-    },
-    {
-      provide: TranslateLoader,
-      useExisting: IgrejasTranslateLoaderService
-    },
-    {
-      provide: MAT_DATE_FORMATS,
-      useValue: {
-        parse: {
-          dateInput: 'DD/MM/YYYY'
+        InfraAutorizacaoModule.forRoot(
+            {
+                pathRedirecionamento: '#/acesso/login',
+                localStorageKey: 'pocket-church-token',
+                permissoes: permissoes
+            }
+        ),
+        InfraCoreModule.forRoot(),
+        InfraDataModule.forRoot(),
+        InfraTemplateModule.forRoot(),
+        InfraFormularioModule.forRoot()
+    ],
+    providers: [
+        PocketChurchMenuProviderService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useExisting: HttpInterceptorService,
+            multi: true
         },
-        display: {
-          dateInput: 'DD/MM/YYYY',
-          monthYearLabel: 'MM/YYYY',
-          dateAllyLabel: 'DD/MM/YYYY',
-          monthYearAllyLabel: 'MM/YYYY'
+        {
+            provide: HTTP_INTERCEPTORS,
+            useExisting: AcaoService,
+            multi: true
+        },
+        {
+            provide: API_PATH_BASE,
+            useValue: environment.basePath
+        },
+        { provide: LOCALE_ID, useValue: 'pt-BR' },
+        {
+            provide: APP_BASE_HREF,
+            useValue: '/'
+        },
+        {
+            provide: DateAdapter,
+            useClass: NativeDateAdapter
+        },
+        {
+            provide: TranslateLoader,
+            useExisting: IgrejasTranslateLoaderService
+        },
+        {
+            provide: MAT_DATE_FORMATS,
+            useValue: {
+                parse: {
+                    dateInput: 'DD/MM/YYYY'
+                },
+                display: {
+                    dateInput: 'DD/MM/YYYY',
+                    monthYearLabel: 'MM/YYYY',
+                    dateAllyLabel: 'DD/MM/YYYY',
+                    monthYearAllyLabel: 'MM/YYYY'
+                }
+            }
         }
-      }
-    }
-  ],
-  bootstrap: [AppComponent]
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,45 @@
+h3, h4 {
+  margin: 0;
+}
+
+.acoes-horario {
+  display: flex;
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+mat-dialog-content {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  hr {
+    border: 0.5px solid #ccc;
+    margin: 20px -22px;
+  }
+
+  .agendamento {
+    display: flex;
+
+    .membro {
+      flex: 1 1 auto;
+    }
+
+    img {
+      border-radius: 50%;
+      height: 65px;
+      width: 65px;
+      margin-right: 10px;
+    }
+  }
+
+}
+
+mat-dialog-actions {
+  command-button {
+    margin-right: 5px;
+  }
+}

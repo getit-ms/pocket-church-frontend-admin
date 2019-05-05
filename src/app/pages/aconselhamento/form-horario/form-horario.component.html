@@ -1,0 +1,57 @@
+<app-form (acao)="adicionar()">
+  <form-control>
+    <select-option name="diasSemana" multiple required
+                   [(ngModel)]="horario.diasSemana"
+                   [placeholder]="'agenda.horario.diasSemana' | translate">
+      <opcao-item [label]="'agenda.diaSemana.DOMINGO' | translate" valor="DOMINGO"></opcao-item>
+      <opcao-item [label]="'agenda.diaSemana.SEGUNDA' | translate" valor="SEGUNDA"></opcao-item>
+      <opcao-item [label]="'agenda.diaSemana.TERCA' | translate" valor="TERCA"></opcao-item>
+      <opcao-item [label]="'agenda.diaSemana.QUARTA' | translate" valor="QUARTA"></opcao-item>
+      <opcao-item [label]="'agenda.diaSemana.QUINTA' | translate" valor="QUINTA"></opcao-item>
+      <opcao-item [label]="'agenda.diaSemana.SEXTA' | translate" valor="SEXTA"></opcao-item>
+      <opcao-item [label]="'agenda.diaSemana.SABADO' | translate" valor="SABADO"></opcao-item>
+    </select-option>
+  </form-control>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h4>{{'agenda.horario.horario' | translate}}</h4>
+
+      <div class="row">
+        <form-control class="col-sm-6">
+          <input-data placeholder="De" required type="time"
+                      name="horaInicio" [(ngModel)]="horario.horaInicio"
+          ></input-data>
+        </form-control>
+        <form-control class="col-sm-6">
+          <input-data placeholder="Até" required type="time"
+                      name="horaInicio" [(ngModel)]="horario.horaFim"
+          ></input-data>
+        </form-control>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>{{'agenda.horario.periodo' | translate}}</h4>
+
+      <div class="row">
+        <form-control class="col-sm-6">
+          <input-data placeholder="De" type="date"
+                      name="dataInicio" [(ngModel)]="horario.dataInicio"
+          ></input-data>
+        </form-control>
+        <form-control class="col-sm-6">
+          <input-data placeholder="Até" type="date"
+                      name="dataFim" [(ngModel)]="horario.dataFim"
+          ></input-data>
+        </form-control>
+      </div>
+    </div>
+  </div>
+
+  <div acoes>
+    <command-button type="submit" theme="stroked" >
+      <mat-icon>add</mat-icon>
+      {{'agenda.horario.adicionar' | translate}}
+    </command-button>
+  </div>
+</app-form>

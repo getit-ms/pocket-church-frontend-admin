@@ -1,5 +1,6 @@
 export const environment = {
-  production: true,
+    production: true,
     basePath: '/app/rest',
-  version: require('../../package.json').version
+    ajudaPath: '/app/ajuda',
+    version: require('../../package.json').version
 };

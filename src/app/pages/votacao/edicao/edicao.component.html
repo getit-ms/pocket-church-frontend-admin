@@ -1,0 +1,41 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'votacao.nome'| translate"
+                name="nome" [(ngModel)]="votacao.nome"
+                required maxlength="150"></input-text>
+  </form-control>
+
+  <form-control>
+    <input-textarea [placeholder]="'votacao.descricao' | translate"
+                    name="descricao" [(ngModel)]="votacao.descricao"
+                    required ></input-textarea>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col-sm-6">
+      <input-data [placeholder]="'votacao.data_inicio' | translate"
+                  name="dataInicio" [(ngModel)]="votacao.dataInicio"
+                  required ></input-data>
+    </form-control>
+
+    <form-control class="col-sm-6">
+      <input-data [placeholder]="'votacao.data_termino' | translate"
+                  name="dataTermino" [(ngModel)]="votacao.dataTermino"
+                  required ></input-data>
+    </form-control>
+  </div>
+
+  <hr/>
+
+  <form-control>
+    <app-input-questoes [label]="'votacao.questoes' | translate"
+            name="questoes" [(ngModel)]="votacao.questoes" required ></app-input-questoes>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

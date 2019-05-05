@@ -1,0 +1,36 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'plano_leitura.descricao'| translate"
+                name="descricao" [(ngModel)]="planoLeitura.descricao"
+                required maxlength="150"></input-text>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col-sm-6">
+      <input-data [placeholder]="'plano_leitura.data_inicio' | translate"
+                  name="dataInicio" [(ngModel)]="planoLeitura.dataInicio"
+                  required ></input-data>
+    </form-control>
+
+    <form-control class="col-sm-6">
+      <input-data [placeholder]="'plano_leitura.data_termino' | translate"
+                  name="dataTermino" [(ngModel)]="planoLeitura.dataTermino"
+                  required ></input-data>
+    </form-control>
+  </div>
+
+  <form-control>
+    <app-input-versiculos name="versiculos" [(ngModel)]="planoLeitura.dias"
+                          [dataInicio]="planoLeitura?.dataInicio"
+                          [dataTermino]="planoLeitura?.dataTermino">
+
+    </app-input-versiculos>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

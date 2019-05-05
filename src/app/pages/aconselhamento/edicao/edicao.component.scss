@@ -1,0 +1,12 @@
+.calendario {
+  position: relative;
+
+  .navegacao {
+    display: flex;
+
+    h2 {
+      flex: 1 1 auto;
+    }
+  }
+}
+
