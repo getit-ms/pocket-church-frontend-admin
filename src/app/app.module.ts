@@ -159,6 +159,38 @@ const routes: Routes = [
                         path: 'agenda',
                         loadChildren: './pages/aconselhamento/aconselhamento.module#AconselhamentoModule'
                     },
+                    {
+                        path: 'evento',
+                        loadChildren: './pages/evento/evento.module#EventoModule'
+                    },
+                    {
+                        path: 'ebd',
+                        loadChildren: './pages/ebd/ebd.module#EBDModule'
+                    },
+                    {
+                        path: 'configuracao',
+                        loadChildren: './pages/configuracao/configuracao.module#ConfiguracaoModule'
+                    },
+                    {
+                        path: 'flickr',
+                        loadChildren: './pages/flickr/flickr.module#FlickrModule'
+                    },
+                    {
+                        path: 'facebook',
+                        loadChildren: './pages/facebook/facebook.module#FacebookModule'
+                    },
+                    {
+                        path: 'youtube',
+                        loadChildren: './pages/youtube/youtube.module#YoutubeModule'
+                    },
+                    {
+                        path: 'calendario',
+                        loadChildren: './pages/calendario/calendario.module#CalendarioModule'
+                    },
+                    {
+                        path: 'chamado',
+                        loadChildren: './pages/chamado/chamado.module#ChamadoModule'
+                    },
                 ]
             },
         ]

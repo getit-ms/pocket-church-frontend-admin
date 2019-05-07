@@ -1,0 +1,83 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'evento.nome'| translate"
+                name="nome" [(ngModel)]="evento.nome"
+                required maxlength="250"></input-text>
+  </form-control>
+
+  <form-control>
+    <input-textarea [placeholder]="'evento.descricao'| translate"
+                    name="descricao" [(ngModel)]="evento.descricao"
+                    rows="3" required ></input-textarea>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col-sm-6">
+      <input-data [placeholder]="'evento.data_hora_inicio' | translate" type="datetime"
+                  name="dataHoraInicio" [(ngModel)]="evento.dataHoraInicio"
+                  required ></input-data>
+    </form-control>
+
+    <form-control class="col-sm-6">
+      <input-data [placeholder]="'evento.data_hora_termino' | translate" type="datetime"
+                  name="dataHoraTermino" [(ngModel)]="evento.dataHoraTermino"
+                  required ></input-data>
+    </form-control>
+  </div>
+
+  <form-control>
+    <input-fileupload [label]="'evento.banner_evento'| translate"
+                      name="banner" [(ngModel)]="evento.banner"
+    ></input-fileupload>
+  </form-control>
+
+  <hr/>
+
+  <h3>{{'evento.inscricao.inscricao' | translate}}</h3>
+
+  <div class="row">
+    <form-control class="col-sm-6">
+      <input-data [placeholder]="'evento.inscricao.data_inicio'| translate"
+                  required type="datetime"
+                  name="dataInicioInscricao" [(ngModel)]="evento.dataInicioInscricao"
+      ></input-data>
+    </form-control>
+
+    <form-control class="col-sm-6">
+      <input-data [placeholder]="'evento.inscricao.data_termino'| translate"
+                  required type="datetime"
+                  name="dataTerminoInscricao" [(ngModel)]="evento.dataTerminoInscricao"
+      ></input-data>
+    </form-control>
+  </div>
+
+
+  <div class="row">
+    <form-control class="col-md-4">
+      <input-text [placeholder]="'evento.inscricao.limite_inscricoes'| translate"
+                  required valorMinimo="0" type="number"
+                  name="limiteInscricoes" [(ngModel)]="evento.limiteInscricoes"
+      ></input-text>
+    </form-control>
+
+    <form-control class="col-md-4">
+      <select-boolean-slider [label]="'evento.inscricao.exige_pagamento'| translate"
+                             name="exigePagamento" [(ngModel)]="evento.exigePagamento"
+      ></select-boolean-slider>
+    </form-control>
+
+    <form-control class="col-md-4" *ngIf="evento.exigePagamento">
+      <input-monetario [placeholder]="'evento.inscricao.valor'| translate"
+                       name="valor" [(ngModel)]="evento.valor"
+                       valorMinimoMonetario="0" required
+      ></input-monetario>
+    </form-control>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

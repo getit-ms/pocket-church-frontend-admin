@@ -1,0 +1,40 @@
+<app-form (acao)="salvar()">
+  <p *ngIf="!configuracao?.configurado">{{'calendario.mensagem_calendario' | translate }}</p>
+
+  <ng-container *ngIf="configuracao?.configurado">
+    <form-control>
+      <select-option name="calendario" [(ngModel)]="configuracao.idCalendario" multiple
+                     [placeholder]="'calendario.pagina' | translate" required>
+        <opcao-item *ngFor="let calendario of calendarios"
+                    [label]="calendario.nome" [valor]="calendario.id"></opcao-item>
+      </select-option>
+    </form-control>
+
+    <hr/>
+
+    <div class="row" *ngIf="eventos">
+      <div class="col text-center" *ngFor="let evento of eventos?.eventos">
+        <h2>{{evento.nome}}</h2>
+        <p>{{evento.inicio | date:'dd MMM yyyy HH:mm'}} - {{evento.termino | date:'HH:mm'}}</p>
+      </div>
+    </div>
+  </ng-container>
+
+  <div acoesEsquerda>
+    <command-button type="submit" *ngIf="configuracao?.configurado" color="primary">
+      {{'global.salvar' | translate}}
+    </command-button>
+    <command-button (click)="vincular()" *ngIf="!configuracao?.configurado" color="primary">
+      {{'calendario.vincular_conta' | translate}}
+    </command-button>
+  </div>
+
+  <div acoesDireita>
+    <command-button (click)="desvincular()" *ngIf="configuracao?.configurado" theme="stroked">
+      <mat-icon>close</mat-icon>
+      {{'calendario.desativar_integracao' | translate}}
+    </command-button>
+  </div>
+
+  <loader #loader component="true"></loader>
+</app-form>

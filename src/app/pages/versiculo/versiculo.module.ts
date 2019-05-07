@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ConsultaComponent} from './consulta/consulta.component';
 import {EdicaoComponent} from './edicao/edicao.component';
-import {MatChipsModule, MatIconModule} from '@angular/material';
+import {MatChipsModule, MatIconModule, MatTooltipModule} from '@angular/material';
 import {InfraFormularioModule} from '@gafs/infra-formulario';
 import {InfraTemplateCrudModule} from '@gafs/infra-template';
 import {InfraDataModule} from '@gafs/infra-data';
@@ -16,6 +16,7 @@ import {ComponentesModule} from '../../componentes/componentes.module';
         CommonModule,
 
         MatChipsModule,
+        MatTooltipModule,
         MatIconModule,
         InfraDataModule,
         InfraCoreModule,

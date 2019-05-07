@@ -23,6 +23,13 @@ import {PlanoLeituraService} from "./service/plano-leitura.service";
 import {VotacaoService} from "./service/votacao.service";
 import {PedidoOracaoService} from "./service/pedido-oracao.service";
 import {AconselhamentoService} from "./service/aconselhamento.service";
+import {EventoService} from "./service/evento.service";
+import {ConfiguracaoService} from "./service/configuracao.service";
+import {FotoService} from "./service/foto.service";
+import {VideoFacebookService} from "./service/video-facebook.service";
+import {YoutubeService} from "./service/youtube.service";
+import {CalendarioService} from "./service/calendario.service";
+import {ChamadoService} from "./service/chamado.service";
 
 @NgModule({
     declarations: [],
@@ -52,7 +59,14 @@ import {AconselhamentoService} from "./service/aconselhamento.service";
         PlanoLeituraService,
         VotacaoService,
         PedidoOracaoService,
-        AconselhamentoService
+        AconselhamentoService,
+        EventoService,
+        ConfiguracaoService,
+        FotoService,
+        VideoFacebookService,
+        YoutubeService,
+        CalendarioService,
+        ChamadoService
     ]
 })
 export class ApiModule { }

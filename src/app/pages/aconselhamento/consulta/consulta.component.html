@@ -18,13 +18,16 @@
       <app-column name="comandos">
         <th *appColumnHeader class="cmd"></th>
         <td *appCell="let calendario" class="cmd" >
-          <command-button routerLink="./{{calendario.id}}/detail" theme="icon">
+          <command-button routerLink="./{{calendario.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
             <mat-icon>search</mat-icon>
           </command-button>
-          <command-button routerLink="./{{calendario.id}}/update" theme="icon">
+          <command-button routerLink="./{{calendario.id}}/update" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
             <mat-icon>edit</mat-icon>
           </command-button>
-          <command-button (click)="excluir(calendario)" theme="icon">
+          <command-button (click)="excluir(calendario)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
             <mat-icon>delete</mat-icon>
           </command-button>
         </td>

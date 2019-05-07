@@ -1,0 +1,33 @@
+<div class="outer-form">
+  <app-form (acao)="adicionar()">
+    <h3>{{'evento.inscricao.nova_inscricao' | translate}}</h3>
+
+    <div class="row">
+      <form-control class="col-md-4">
+        <input-text [placeholder]="'evento.inscricao.nome_inscrito'| translate"
+                    required maxlength="250"
+                    name="nomeInscrito" [(ngModel)]="inscricao.nomeInscrito"
+        ></input-text>
+      </form-control>
+
+      <form-control class="col-md-4">
+        <input-text [placeholder]="'evento.inscricao.email_inscrito'| translate"
+                    required maxlength="250" email
+                    name="emailInscrito" [(ngModel)]="inscricao.emailInscrito"
+        ></input-text>
+      </form-control>
+
+      <form-control class="col-md-4">
+        <input-telefone [placeholder]="'evento.inscricao.telefone_inscrito'| translate" required
+                        name="telefoneInscrito" [(ngModel)]="inscricao.telefoneInscrito"
+        ></input-telefone>
+      </form-control>
+    </div>
+
+    <div acoesEsquerda>
+      <command-button type="submit" theme="stroked" >{{'global.salvar' | translate}}</command-button>
+    </div>
+  </app-form>
+
+  <loader component="true" #loader ></loader>
+</div>

@@ -12,16 +12,19 @@
       <app-column name="comandos">
         <th *appColumnHeader class="cmd"></th>
         <td *appCell="let votacao" class="cmd" >
-          <command-button routerLink="./{{votacao.id}}/detail" theme="icon">
+          <command-button routerLink="./{{votacao.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
             <mat-icon>search</mat-icon>
           </command-button>
           <command-button (click)="exportar(votacao)" theme="icon">
             <mat-icon>format_list_bulleted</mat-icon>
           </command-button>
-          <command-button routerLink="./{{votacao.id}}/update" theme="icon">
+          <command-button routerLink="./{{votacao.id}}/update" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
             <mat-icon>edit</mat-icon>
           </command-button>
-          <command-button (click)="excluir(votacao)" theme="icon">
+          <command-button (click)="excluir(votacao)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
             <mat-icon>delete</mat-icon>
           </command-button>
         </td>

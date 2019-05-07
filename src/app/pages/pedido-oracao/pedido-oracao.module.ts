@@ -4,7 +4,7 @@ import {InfraDataModule} from '@gafs/infra-data';
 import {InfraFormularioModule} from '@gafs/infra-formulario';
 import {InfraTemplatePagesModule, TabsRouteTemplateComponent} from '@gafs/infra-template';
 import {TranslateModule} from '@ngx-translate/core';
-import {MatIconModule} from '@angular/material';
+import {MatIconModule, MatTooltipModule} from '@angular/material';
 import {ComponentesModule} from '../../componentes/componentes.module';
 import {InfraCoreModule} from '@gafs/infra-core';
 import {ConsultaComponent} from "./consulta/consulta.component";
@@ -15,7 +15,7 @@ import {ConsultaComponent} from "./consulta/consulta.component";
         CommonModule,
 
         MatIconModule,
-
+        MatTooltipModule,
         InfraCoreModule,
         InfraDataModule,
         ComponentesModule,

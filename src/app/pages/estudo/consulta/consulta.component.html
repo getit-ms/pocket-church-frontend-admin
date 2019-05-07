@@ -31,13 +31,16 @@
       <app-column name="comandos">
         <th *appColumnHeader class="cmd"></th>
         <td *appCell="let estudo" class="cmd" >
-          <command-button routerLink="./{{estudo.id}}/detail" theme="icon">
+          <command-button routerLink="./{{estudo.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
             <mat-icon>search</mat-icon>
           </command-button>
-          <command-button routerLink="./{{estudo.id}}/update" theme="icon">
+          <command-button routerLink="./{{estudo.id}}/update" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
             <mat-icon>edit</mat-icon>
           </command-button>
-          <command-button (click)="excluir(estudo)" theme="icon">
+          <command-button (click)="excluir(estudo)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
             <mat-icon>delete</mat-icon>
           </command-button>
         </td>

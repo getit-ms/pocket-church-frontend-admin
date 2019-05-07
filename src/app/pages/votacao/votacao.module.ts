@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ConsultaComponent} from './consulta/consulta.component';
 import {EdicaoComponent} from './edicao/edicao.component';
-import {MatChipsModule, MatIconModule, MatTabsModule} from '@angular/material';
+import {MatChipsModule, MatIconModule, MatTabsModule, MatTooltipModule} from '@angular/material';
 import {InfraFormularioModule} from '@gafs/infra-formulario';
 import {InfraTemplateCrudModule} from '@gafs/infra-template';
 import {InfraDataModule} from '@gafs/infra-data';
@@ -19,6 +19,7 @@ import {ValidaOpcoesDirective} from './validacao/valida-opcoes.directive';
         CommonModule,
 
         MatChipsModule,
+        MatTooltipModule,
         MatIconModule,
         MatTabsModule,
         InfraDataModule,

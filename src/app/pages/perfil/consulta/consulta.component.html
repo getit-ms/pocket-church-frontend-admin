@@ -10,13 +10,16 @@
     <app-column name="comandos">
       <th *appColumnHeader class="cmd"></th>
       <td *appCell="let perfil" class="cmd" >
-        <command-button routerLink="./{{perfil.id}}/detail" theme="icon">
+        <command-button routerLink="./{{perfil.id}}/detail" theme="icon"
+                        [matTooltip]="'global.detalhar' | translate">
           <mat-icon>search</mat-icon>
         </command-button>
-        <command-button routerLink="./{{perfil.id}}/update" theme="icon">
+        <command-button routerLink="./{{perfil.id}}/update" theme="icon"
+                        [matTooltip]="'global.editar' | translate">
           <mat-icon>edit</mat-icon>
         </command-button>
-        <command-button (click)="excluir(perfil)" theme="icon">
+        <command-button (click)="excluir(perfil)" theme="icon"
+                        [matTooltip]="'global.excluir' | translate">
           <mat-icon>delete</mat-icon>
         </command-button>
       </td>

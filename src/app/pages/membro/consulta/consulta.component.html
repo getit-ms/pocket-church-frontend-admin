@@ -68,7 +68,8 @@
             <mat-icon>play_arrow</mat-icon>
           </command-button>
           <command-button routerLink="./{{membro.id}}"
-                          *ngIf="membro.admin" theme="icon">
+                          *ngIf="membro.admin" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
             <mat-icon>edit</mat-icon>
           </command-button>
           <command-button (click)="desabilitarAdmin(membro)"

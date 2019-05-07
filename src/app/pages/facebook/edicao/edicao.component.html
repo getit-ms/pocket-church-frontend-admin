@@ -1,0 +1,70 @@
+<app-form (acao)="salvar()">
+  <p *ngIf="!configuracao?.configurado">{{'facebook.mensagem_facebook' | translate }}</p>
+
+  <ng-container *ngIf="configuracao?.configurado">
+    <form-control>
+      <select-option name="pagina" [(ngModel)]="configuracao.pagina" labelVazia=""
+                     [placeholder]="'facebook.pagina' | translate" required>
+        <opcao-item *ngFor="let pagina of paginas"
+                    [label]="pagina.nome" [valor]="pagina.id"></opcao-item>
+      </select-option>
+    </form-control>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form-control>
+          <input-text [(ngModel)]="configuracao.tituloAoVivo"
+                      name="tituloAoVivo" maxlength="30"
+                      [placeholder]="'facebook.titulo_ao_vivo' | translate"></input-text>
+        </form-control>
+
+        <form-control>
+          <input-textarea [(ngModel)]="configuracao.textoAoVivo"
+                          name="textoAoVivo" maxlength="250" rows="8"
+                          [placeholder]="'facebook.texto_ao_vivo' | translate"></input-textarea>
+        </form-control>
+      </div>
+
+      <div class="col-md-6">
+        <form-control>
+          <input-text [(ngModel)]="configuracao.tituloAgendado"
+                      name="tituloAgendado" maxlength="30"
+                      [placeholder]="'facebook.titulo_agendado' | translate"></input-text>
+        </form-control>
+
+        <form-control>
+          <input-textarea [(ngModel)]="configuracao.textoAgendado"
+                          name="textoAgendado" maxlength="250" rows="8"
+                          [placeholder]="'facebook.texto_agendado' | translate"></input-textarea>
+        </form-control>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row" *ngIf="videos">
+      <div class="col text-center" *ngFor="let video of videos">
+        <img src="{{video.thumbnail}}" />
+        <h2>{{video.titulo}}</h2>
+      </div>
+    </div>
+  </ng-container>
+
+  <div acoesEsquerda>
+    <command-button type="submit" *ngIf="configuracao?.configurado" color="primary">
+      {{'global.salvar' | translate}}
+    </command-button>
+    <command-button (click)="vincular()" *ngIf="!configuracao?.configurado" color="primary">
+      {{'facebook.vincular_conta' | translate}}
+    </command-button>
+  </div>
+
+  <div acoesDireita>
+    <command-button (click)="desvincular()" *ngIf="configuracao?.configurado" theme="stroked">
+      <mat-icon>close</mat-icon>
+      {{'facebook.desativar_integracao' | translate}}
+    </command-button>
+  </div>
+
+  <loader #loader component="true"></loader>
+</app-form>

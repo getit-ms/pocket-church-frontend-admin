@@ -6,7 +6,7 @@ import {InfraFormularioModule} from '@gafs/infra-formulario';
 import {InfraTemplatePagesModule, TabsRouteTemplateComponent} from '@gafs/infra-template';
 import {TranslateModule} from '@ngx-translate/core';
 import {InputEnderecosComponent} from './input-enderecos/input-enderecos.component';
-import {MatIconModule} from '@angular/material';
+import {MatIconModule, MatTooltipModule} from '@angular/material';
 import {ComponentesModule} from '../../componentes/componentes.module';
 import {InfraCoreModule} from '@gafs/infra-core';
 
@@ -16,7 +16,7 @@ import {InfraCoreModule} from '@gafs/infra-core';
         CommonModule,
 
         MatIconModule,
-
+        MatTooltipModule,
         InfraCoreModule,
         InfraDataModule,
         ComponentesModule,

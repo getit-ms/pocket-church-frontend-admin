@@ -62,18 +62,21 @@
           {{'global.confirmar' | translate}}
         </command-button>
         <div class="spacer"></div>
-        <command-button [matMenuTriggerFor]="menuDelete" theme="stroked">
+        <command-button [matMenuTriggerFor]="menuDelete" theme="stroked"
+                        [matTooltip]="'global.excluir' | translate">
           <mat-icon>delete</mat-icon>
           {{'agenda.horario.remover' | translate}}
         </command-button>
       </div>
 
       <mat-menu #menuDelete="matMenu" yPosition="above" [overlapTrigger]="false">
-        <button type="button" mat-menu-item (click)="removerDia()">
+        <button type="button" mat-menu-item (click)="removerDia()"
+                [matTooltip]="'global.excluir' | translate">
           <mat-icon>delete</mat-icon>
           {{'agenda.horario.remover_dia' | translate}}
         </button>
-        <button type="button" mat-menu-item (click)="removerFuturos()">
+        <button type="button" mat-menu-item (click)="removerFuturos()"
+                [matTooltip]="'global.excluir' | translate">
           <mat-icon>delete</mat-icon>
           {{'agenda.horario.remover_futuros' | translate}}
         </button>

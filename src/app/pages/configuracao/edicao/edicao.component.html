@@ -1,0 +1,124 @@
+<app-form (acao)="salvar()">
+
+  <p>{{'configuracao.mensagem_pagseguro' | translate:{chave: igreja.chave} }}</p>
+
+  <form-control>
+    <select-boolean-slider name="habilitadoPagSeguro"
+                           [label]="'configuracao.habilita_pagseguro' | translate"
+                           [(ngModel)]="configuracao.habilitadoPagSeguro" ></select-boolean-slider>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'configuracao.usuario_pagseguro' | translate"
+                  name="userPagSeguro" [(ngModel)]="configuracao.userPagSeguro"
+                  required maxlength="150" [disabled]="!configuracao.habilitadoPagSeguro"
+      ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <input-text [placeholder]="'configuracao.token_pagseguro' | translate"
+                  name="tokenPagSeguro" [(ngModel)]="configuracao.tokenPagSeguro"
+                  required maxlength="150" [disabled]="!configuracao.habilitadoPagSeguro"
+      ></input-text>
+    </form-control>
+  </div>
+
+  <hr/>
+
+  <p>{{'configuracao.mensagem_pushs' | translate}}</p>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form-control>
+        <input-text [placeholder]="'configuracao.titulo_aniversario' | translate"
+                    name="tituloAniversario" [(ngModel)]="configuracao.tituloAniversario"
+                    maxlength="30" ></input-text>
+      </form-control>
+
+      <form-control>
+        <input-textarea [placeholder]="'configuracao.texto_aniversario' | translate"
+                        name="textoAniversario" [(ngModel)]="configuracao.textoAniversario"
+                        maxlength="250" rows="8" ></input-textarea>
+      </form-control>
+    </div>
+
+    <div class="col-md-6">
+      <form-control>
+        <input-text [placeholder]="'configuracao.titulo_boletim' | translate"
+                    name="tituloBoletim" [(ngModel)]="configuracao.tituloBoletim"
+                    maxlength="30" ></input-text>
+      </form-control>
+
+      <form-control>
+        <input-textarea [placeholder]="'configuracao.texto_boletim' | translate"
+                        name="textoBoletim" [(ngModel)]="configuracao.textoBoletim"
+                        maxlength="250" rows="8" ></input-textarea>
+      </form-control>
+    </div>
+
+    <div class="col-md-6">
+      <form-control>
+        <input-text [placeholder]="'configuracao.titulo_publicacao' | translate"
+                    name="tituloPublicacao" [(ngModel)]="configuracao.tituloPublicacao"
+                    maxlength="30" ></input-text>
+      </form-control>
+
+      <form-control>
+        <input-textarea [placeholder]="'configuracao.texto_publicacao' | translate"
+                        name="textoPublicacao" [(ngModel)]="configuracao.textoPublicacao"
+                        maxlength="250" rows="8" ></input-textarea>
+      </form-control>
+    </div>
+
+    <div class="col-md-6">
+      <form-control>
+        <input-text [placeholder]="'configuracao.titulo_noticia' | translate"
+                    name="tituloNoticia" [(ngModel)]="configuracao.tituloNoticia"
+                    maxlength="30" ></input-text>
+      </form-control>
+
+      <form-control>
+        <input-textarea [placeholder]="'configuracao.texto_noticia' | translate"
+                        name="textoNoticia" [(ngModel)]="configuracao.textoNoticia"
+                        maxlength="250" rows="8" ></input-textarea>
+      </form-control>
+    </div>
+
+    <div class="col-md-6">
+      <form-control>
+        <input-text [placeholder]="'configuracao.titulo_estudo' | translate"
+                    name="tituloEstudo" [(ngModel)]="configuracao.tituloEstudo"
+                    maxlength="30" ></input-text>
+      </form-control>
+
+      <form-control>
+        <input-textarea [placeholder]="'configuracao.texto_estudo' | translate"
+                        name="textoEstudo" [(ngModel)]="configuracao.textoEstudo"
+                        maxlength="250" rows="8" ></input-textarea>
+      </form-control>
+    </div>
+
+    <div class="col-md-6">
+      <form-control>
+        <input-text [placeholder]="'configuracao.titulo_versiculo_diario' | translate"
+                    name="tituloVersiculoDiario" [(ngModel)]="configuracao.tituloVersiculoDiario"
+                    maxlength="30" ></input-text>
+      </form-control>
+
+      <form-control>
+        <input-text [placeholder]="'configuracao.titulo_lembrete_leitura_biblica' | translate"
+                    name="tituloLembreteLeituraBiblica" [(ngModel)]="configuracao.tituloLembreteLeituraBiblica"
+                    maxlength="30" ></input-text>
+      </form-control>
+    </div>
+
+
+  </div>
+
+  <div acoes>
+    <command-button type="submit" color="primary">{{'global.salvar' | translate}}</command-button>
+  </div>
+
+  <loader #loader component="true"></loader>
+</app-form>

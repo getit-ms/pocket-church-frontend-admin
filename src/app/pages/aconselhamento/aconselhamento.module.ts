@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ConsultaComponent} from './consulta/consulta.component';
 import {EdicaoComponent} from './edicao/edicao.component';
-import {MatChipsModule, MatDialogModule, MatIconModule, MatMenuModule} from '@angular/material';
+import {MatChipsModule, MatDialogModule, MatIconModule, MatMenuModule, MatTooltipModule} from '@angular/material';
 import {InfraFormularioModule} from '@gafs/infra-formulario';
 import {InfraTemplateCrudModule} from '@gafs/infra-template';
 import {InfraDataModule} from '@gafs/infra-data';
@@ -23,6 +23,7 @@ import { FormHorarioComponent } from './form-horario/form-horario.component';
         MatIconModule,
         MatDialogModule,
         MatMenuModule,
+        MatTooltipModule,
         InfraDataModule,
         InfraCoreModule,
         ComponentesModule,

@@ -36,7 +36,8 @@
           <command-button (click)="desabilita(versiculo)" *ngIf="versiculo.status === 'HABILITADO'" theme="icon">
             <mat-icon>pause</mat-icon>
           </command-button>
-          <command-button (click)="excluir(versiculo)" theme="icon">
+          <command-button (click)="excluir(versiculo)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
             <mat-icon>delete</mat-icon>
           </command-button>
         </td>

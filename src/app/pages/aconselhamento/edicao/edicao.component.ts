@@ -126,11 +126,13 @@ export class EdicaoComponent extends AbstractFormComponent<CalendarioAtendimento
         this.minHour = 8;
         this.maxHour = 18;
 
-        let horarios = await this.loader.listen(this.aconselhamentoService.buscaHorarios(
+        let observable = this.aconselhamentoService.buscaHorarios(
             this.calendario.id,
             new Date(this.viewDate.getFullYear(), this.viewDate.getMonth(), this.viewDate.getDate() - this.viewDate.getDay()),
             new Date(this.viewDate.getFullYear(), this.viewDate.getMonth(), this.viewDate.getDate() + (7 - this.viewDate.getDay()))
-        )).toPromise();
+        );
+
+        let horarios = await (this.loader ? this.loader.listen(observable) : observable).toPromise();
 
         horarios.forEach(h => {
             if (h.dataInicio.getHours() < this.minHour) {

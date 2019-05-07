@@ -17,7 +17,8 @@
                   name="questao{{idx}}" [(ngModel)]="questao.questao"></input-text>
     </div>
 
-    <command-button *ngIf="!disabled" (click)="remove(questao)" theme="icon">
+    <command-button *ngIf="!disabled" (click)="remove(questao)" theme="icon"
+                    [matTooltip]="'global.excluir' | translate">
       <mat-icon>delete</mat-icon>
     </command-button>
   </div>
