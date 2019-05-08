@@ -5,7 +5,6 @@ import {Ministerio} from '../../../api/model/ministerio';
 import {NotificacaoService} from '../../../api/service/notificacao.service';
 import {MinisterioService} from '../../../api/service/ministerio.service';
 import {FormComponent} from '@gafs/infra-formulario';
-import {take} from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-envio',

@@ -18,17 +18,14 @@
   </div>
 
   <form-control>
-    <select-option [placeholder]="'estudo.categoria' | translate"
-                   required labelVazia="" trackBy="id"
-                   name="categoria" [(ngModel)]="estudo.categoria" >
-      <opcao-item *ngFor="let cat of categorias"
-                  [valor]="cat" [label]="cat.nome"
-      ></opcao-item>
-    </select-option>
+    <app-input-categoria-estudo [placeholder]="'estudo.categoria' | translate"
+                   required name="categoria" [(ngModel)]="estudo.categoria" >
+    </app-input-categoria-estudo>
   </form-control>
 
   <form-control>
     <input-fileupload [label]="'estudo.arquivo_estudo' | translate"
+                      [accept]="'pdf'"
                       name="pdf" [(ngModel)]="estudo.pdf" >
     </input-fileupload>
   </form-control>

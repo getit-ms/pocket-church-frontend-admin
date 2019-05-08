@@ -13,6 +13,7 @@
 
     <form-control class="col">
       <input-fileupload [label]="'noticia.ilustracao' | translate"
+                        [accept]="['jpeg','jpg','gif','png']"
                      name="ilustracao" [(ngModel)]="noticia.ilustracao" >
       </input-fileupload>
     </form-control>

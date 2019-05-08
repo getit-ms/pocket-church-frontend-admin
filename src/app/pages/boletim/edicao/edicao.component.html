@@ -20,10 +20,12 @@
 
   <form-control>
     <input-fileupload [label]="'boletim.arquivo_boletim' | translate" required
+                      [accept]="'pdf'"
                       name="boletim" [(ngModel)]="boletim.boletim" >
     </input-fileupload>
-    <div *ngIf="!boletim.divulgado">{{'boletim.mensagem_push' | translate}}</div>
   </form-control>
+
+  <div *ngIf="!boletim.divulgado">{{'boletim.mensagem_push' | translate}}</div>
 
   <div acoesEsquerda>
     <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>

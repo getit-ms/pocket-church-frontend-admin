@@ -28,6 +28,7 @@
 
   <form-control>
     <input-fileupload [label]="'ebd.banner_ebd'| translate"
+                      [accept]="['jpeg','jpg','gif','png']"
                       name="banner" [(ngModel)]="ebd.banner"
     ></input-fileupload>
   </form-control>

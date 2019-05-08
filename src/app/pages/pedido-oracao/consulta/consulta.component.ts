@@ -4,6 +4,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {BuscaPaginada} from '../../../api/model/busca-paginada';
 import {PedidoOracaoService} from "../../../api/service/pedido-oracao.service";
 import {PedidoOracao} from "../../../api/model/pedido-oracao";
+import {NotificacoesService} from "../../../template/notificacoes/notificacoes.service";
 
 @Component({
     selector: 'app-consulta',
@@ -27,6 +28,7 @@ export class ConsultaComponent implements AfterViewInit {
     constructor(
         private mensageria: Mensageria,
         private acaoService: AcaoService,
+        private notificacoesService: NotificacoesService,
         private dialogService: DialogService,
         private translateService: TranslateService,
         private oracaoService: PedidoOracaoService
@@ -58,6 +60,7 @@ export class ConsultaComponent implements AfterViewInit {
             this.acaoService.executa(async () => {
                 await this.oracaoService.atende(pedido.id).toPromise();
 
+                this.notificacoesService.load();
                 await this.busca();
 
                 this.mensageria.addMensagem({

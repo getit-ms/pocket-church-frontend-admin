@@ -21,7 +21,7 @@ export class InputFileUploadComponent extends AbstractControlValueAccessor {
   @Input() required: any;
   @Input() label: string;
   @Input() multiple: boolean;
-  @Input() template: 'table'|'chips'|'manual' = 'table';
+  @Input() accept: string | Array<string>;
 
   @ViewChild('input') input: ElementRef;
 
@@ -32,42 +32,70 @@ export class InputFileUploadComponent extends AbstractControlValueAccessor {
     super();
   }
 
+  private validate(arquivo: ArquivoUploading): boolean {
+    if (this.accept) {
+      if (typeof this.accept === 'string') {
+        return arquivo.nome.toLowerCase().endsWith('.' + this.accept.toLowerCase());
+      } else {
+          return !!this.accept.find(a => arquivo.nome.toLowerCase().endsWith('.' + a.toLowerCase()));
+      }
+    }
+
+    return true;
+  }
+
   upload(arquivo: ArquivoUploading) {
     return Observable.create(observer => {
-      this.arquivoService.upload(arquivo.file)
-        .subscribe(event => {
+      arquivo.invalidFormat = !this.validate(arquivo);
 
-          if (event.type === 'conclusao') {
-            arquivo.progresso = undefined;
+      if (arquivo.invalidFormat) {
+        arquivo.loading = false;
 
-            if (this.multiple) {
-              this.value = [
-                ...(this.value || []).map(a => a === arquivo ? event.arquivo : a)
-              ];
-            } else {
-              this.value = event.arquivo;
-            }
-
-            observer.next();
-          } else if (event.type === 'progresso') {
-            arquivo.progresso = event.progresso;
-          }
-
-        }, err => {
           if (this.multiple) {
-            const result = (this.value || []).filter(a => a !== arquivo);
-            if (result.length) {
-              this.value = result;
-            } else {
-              this.value = undefined;
-            }
+              this.value = [
+                  ...(this.value || []).map(a => a === arquivo ? arquivo : a)
+              ];
           } else {
-            this.value = undefined;
+              this.value = arquivo;
           }
 
-          observer.error(err);
-        });
+        observer.next();
+      } else {
 
+          this.arquivoService.upload(arquivo.file)
+              .subscribe(event => {
+
+                  if (event.type === 'conclusao') {
+                      arquivo.progresso = undefined;
+
+                      if (this.multiple) {
+                          this.value = [
+                              ...(this.value || []).map(a => a === arquivo ? event.arquivo : a)
+                          ];
+                      } else {
+                          this.value = event.arquivo;
+                      }
+
+                      observer.next();
+                  } else if (event.type === 'progresso') {
+                      arquivo.progresso = event.progresso;
+                  }
+
+              }, err => {
+                  if (this.multiple) {
+                      const result = (this.value || []).filter(a => a !== arquivo);
+                      if (result.length) {
+                          this.value = result;
+                      } else {
+                          this.value = undefined;
+                      }
+                  } else {
+                      this.value = undefined;
+                  }
+
+                  observer.error(err);
+              });
+      }
     });
   }
 
@@ -75,7 +103,7 @@ export class InputFileUploadComponent extends AbstractControlValueAccessor {
     if (this.multiple) {
       if (this.value) {
         for (let i = 0; i < this.value.length; i++) {
-          if (this.value[i].loading) {
+          if (this.value[i].loading && !this.value[i].invalidFormat) {
             this.upload(this.value[i]).subscribe(
               () => this.uploadNext(),
               err => this.uploadNext()
@@ -84,7 +112,7 @@ export class InputFileUploadComponent extends AbstractControlValueAccessor {
           }
         }
       }
-    } else if (this.value && this.value.loading) {
+    } else if (this.value && this.value.loading && !this.value.invalidFormat) {
       this.upload(this.value).subscribe(
         () => this.uploadNext(),
         err => this.uploadNext()
@@ -154,6 +182,7 @@ export class InputFileUploadComponent extends AbstractControlValueAccessor {
 
 export interface ArquivoUploading {
   nome: string;
+  invalidFormat?: boolean;
   loading: boolean;
   progresso: number;
   file: File;

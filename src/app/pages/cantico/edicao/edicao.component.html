@@ -14,6 +14,7 @@
 
   <form-control>
     <input-fileupload [label]="'cantico.arquivo_cantico' | translate" required
+                      [accept]="'pdf'"
                       name="cantico" [(ngModel)]="cantico.cifra" (change)="buscaLetra()" >
     </input-fileupload>
   </form-control>

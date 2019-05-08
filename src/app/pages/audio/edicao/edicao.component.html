@@ -12,31 +12,29 @@
     </form-control>
 
     <form-control class="col">
-      <select-option [placeholder]="'audio.categoria' | translate"
-                     required labelVazia="" trackBy="id"
-                     name="categoria" [(ngModel)]="audio.categoria" >
-        <opcao-item *ngFor="let cat of categorias"
-                    [valor]="cat" [label]="cat.nome"
-        ></opcao-item>
-      </select-option>
+      <app-input-categoria-audio [placeholder]="'audio.categoria' | translate"
+                           required name="categoria" [(ngModel)]="audio.categoria" >
+      </app-input-categoria-audio>
     </form-control>
   </div>
 
   <form-control>
     <input-textarea [placeholder]="'audio.descricao' | translate"
                     required rows="6"
-                   name="descricao" [(ngModel)]="audio.descricao" >
+                    name="descricao" [(ngModel)]="audio.descricao" >
     </input-textarea>
   </form-control>
 
   <form-control>
     <input-fileupload [label]="'audio.arquivo_capa' | translate"
-                    name="capa" [(ngModel)]="audio.capa" >
+                      [accept]="['jpeg','jpg','gif','png']"
+                      name="capa" [(ngModel)]="audio.capa" >
     </input-fileupload>
   </form-control>
 
   <form-control>
     <input-fileupload [label]="'audio.arquivo_audio' | translate" required
+                      [accept]="'mp3'"
                       name="audio" [(ngModel)]="audio.audio" >
     </input-fileupload>
   </form-control>

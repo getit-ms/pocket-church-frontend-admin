@@ -13,10 +13,12 @@
 
   <form-control>
     <input-fileupload [label]="'publicacao.arquivo_publicacao' | translate" required
+                      [accept]="'pdf'"
                       name="publicacao" [(ngModel)]="publicacao.boletim" >
     </input-fileupload>
-    <div *ngIf="!publicacao.divulgado">{{'publicacao.mensagem_push' | translate}}</div>
   </form-control>
+
+  <div *ngIf="!publicacao.divulgado">{{'publicacao.mensagem_push' | translate}}</div>
 
   <div acoesEsquerda>
     <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>

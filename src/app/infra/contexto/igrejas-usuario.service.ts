@@ -9,6 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {Observable, Subject} from 'rxjs';
 import {IgrejasTranslateLoaderService} from './igrejas-translate-loader.service';
 import {take} from 'rxjs/internal/operators';
+import {NotificacoesService} from "../../template/notificacoes/notificacoes.service";
 
 export class ContextoIgreja {
   igreja: ResumoIgreja;
@@ -28,6 +29,7 @@ export class IgrejasUsuarioService {
   constructor(
     private title: Title,
     private router: Router,
+    private notificacoesService: NotificacoesService,
     private igrejasTranslateLoaderService: IgrejasTranslateLoaderService,
     private translateService: TranslateService,
     private sessaoService: SessaoService,
@@ -53,6 +55,7 @@ export class IgrejasUsuarioService {
   login(token: string, principal: any, navigate = true) {
     this._atual.token = token;
     this._atual.principal = principal;
+    this.notificacoesService.load();
     this.sessaoService.login({
       token: token,
       principal: principal

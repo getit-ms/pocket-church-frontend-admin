@@ -32,22 +32,25 @@ export class EdicaoComponent implements AfterViewInit {
   ) { }
 
   async ngAfterViewInit() {
-    const institucional = await this.loader.listen(this.institucionalService.get()).toPromise();
+    this.carrega(await this.loader.listen(this.institucionalService.get()).toPromise());
+  }
 
-    if (!institucional.enderecos ||
-      !institucional.enderecos.length) {
-      institucional.enderecos = [{}];
-    }
+  private carrega(institucional: Institucional) {
+      (<any>institucional).endereco = undefined;
+      if (!institucional.enderecos ||
+          !institucional.enderecos.length) {
+          institucional.enderecos = [{}];
+      }
 
-    if (!institucional.redesSociais) {
-      institucional.redesSociais = {};
-    }
+      if (!institucional.redesSociais) {
+          institucional.redesSociais = {};
+      }
 
-    this.institucional = institucional;
+      this.institucional = institucional;
   }
 
   async salvar() {
-    this.institucional = await this.institucionalService.update(this.institucional).toPromise();
+    this.carrega(await this.institucionalService.update(this.institucional).toPromise());
 
     this.mensageria.addMensagem({
       mensagem: 'mensagens.MSG-001',

@@ -5,45 +5,50 @@ import {InputTelefonesComponent} from './input-telefones/input-telefones.compone
 import {InfraDataModule} from '@gafs/infra-data';
 import {InfraFormularioModule} from '@gafs/infra-formulario';
 import {
-  MatButtonModule,
-  MatChipsModule,
-  MatFormFieldModule,
-  MatIconModule, MatInputModule,
-  MatProgressBarModule,
-  MatProgressSpinnerModule
+    MatButtonModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatIconModule, MatInputModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
 } from '@angular/material';
 import {InputFileUploadComponent} from './input-fileupload/input-fileupload.component';
 import {InputPhotouploadComponent} from './input-photoupload/input-photoupload.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {FileUploadValidatorDirective} from "./input-fileupload/input-fileupload-validator.directive";
+import {InputTelefonesValidatorDirective} from "./input-telefones/input-telefones-validator.directive";
 
 @NgModule({
-  declarations: [
-    ImagemComponent,
-    InputTelefonesComponent,
-    InputFileUploadComponent,
-    InputPhotouploadComponent
-  ],
-  imports: [
-    CommonModule,
+    declarations: [
+        ImagemComponent,
+        InputTelefonesComponent,
+        InputFileUploadComponent,
+        InputPhotouploadComponent,
+        FileUploadValidatorDirective,
+        InputTelefonesValidatorDirective
+    ],
+    imports: [
+        CommonModule,
 
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    TranslateModule.forChild(),
-    MatFormFieldModule,
-    MatChipsModule,
-    MatButtonModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    InfraDataModule,
-    InfraFormularioModule
-  ],
-  exports: [
-    ImagemComponent,
-    InputTelefonesComponent,
-    InputFileUploadComponent,
-    InputPhotouploadComponent
-  ]
+        MatIconModule,
+        MatButtonModule,
+        MatInputModule,
+        TranslateModule.forChild(),
+        MatFormFieldModule,
+        MatChipsModule,
+        MatProgressBarModule,
+        MatProgressSpinnerModule,
+        InfraDataModule,
+        InfraFormularioModule
+    ],
+    exports: [
+        ImagemComponent,
+        InputTelefonesComponent,
+        InputFileUploadComponent,
+        InputPhotouploadComponent,
+        FileUploadValidatorDirective,
+        InputTelefonesValidatorDirective
+    ]
 })
 export class ComponentesModule {
 

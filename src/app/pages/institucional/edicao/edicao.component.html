@@ -47,7 +47,8 @@
       <p>{{'institucional.instrucoes_imagem_divulgacao' | translate}}</p>
 
       <form-control>
-        <input-fileupload [label]="'institucional.imagem_divulgacao' | translate" name="divulgacao"
+        <input-fileupload [label]="'institucional.imagem_divulgacao' | translate"
+                          [accept]="['jpeg','jpg','gif','png']" name="divulgacao"
                           [(ngModel)]="institucional.divulgacao"></input-fileupload>
       </form-control>
 

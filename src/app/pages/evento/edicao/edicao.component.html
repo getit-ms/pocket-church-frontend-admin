@@ -28,6 +28,7 @@
 
   <form-control>
     <input-fileupload [label]="'evento.banner_evento'| translate"
+                      [accept]="['jpeg','jpg','gif','png']"
                       name="banner" [(ngModel)]="evento.banner"
     ></input-fileupload>
   </form-control>

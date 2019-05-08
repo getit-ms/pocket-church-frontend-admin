@@ -25,11 +25,11 @@ import {HeaderRightSideComponent} from './template/header-right-side/header-righ
 import {PocketChurchMenuProviderService} from './template/menu/pocket-church-menu-provider.service';
 import {
     DateAdapter,
-    MAT_DATE_FORMATS,
+    MAT_DATE_FORMATS, MatBadgeModule,
     MatCardModule,
     MatDialogModule,
     MatIconModule,
-    MatMenuModule,
+    MatMenuModule, MatTooltipModule,
     NativeDateAdapter
 } from '@angular/material';
 import localePt from '@angular/common/locales/pt';
@@ -43,7 +43,10 @@ import {PrepareContextService} from './infra/contexto/prepare-context.service';
 import {IgrejasTranslateLoaderService} from './infra/contexto/igrejas-translate-loader.service';
 import { CalendarModule } from 'angular-calendar';
 import { SchedulerModule } from 'angular-calendar-scheduler';
-import { ModalAjudaComponent } from './template/modal-ajuda/modal-ajuda.component';
+import { ModalAjudaComponent } from './template/ajuda/modal-ajuda/modal-ajuda.component';
+import { NotificacoesComponent } from './template/notificacoes/notificacoes.component';
+import {NotificacoesService} from "./template/notificacoes/notificacoes.service";
+import { AjudaComponent } from './template/ajuda/ajuda.component';
 
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
@@ -60,7 +63,8 @@ const routes: Routes = [
             CheckAutorizacaoService
         ],
         data: {
-            menuProvider: PocketChurchMenuProviderService
+            menuProvider: PocketChurchMenuProviderService,
+            enableMenuFilter: true
         },
         children: [
             {
@@ -211,7 +215,9 @@ const routes: Routes = [
         WidgetDispositivosComponent,
         WidgetHistoricoDispositivosComponent,
         WidgetHistoricoUsuariosComponent,
-        ModalAjudaComponent
+        ModalAjudaComponent,
+        NotificacoesComponent,
+        AjudaComponent
     ],
     entryComponents: [ModalAjudaComponent],
     imports: [
@@ -226,7 +232,9 @@ const routes: Routes = [
 
         MatIconModule,
         MatMenuModule,
+        MatBadgeModule,
         MatCardModule,
+        MatTooltipModule,
         NgxChartsModule,
         MatDialogModule,
         CalendarModule.forRoot({
@@ -249,6 +257,7 @@ const routes: Routes = [
     ],
     providers: [
         PocketChurchMenuProviderService,
+        NotificacoesService,
         {
             provide: HTTP_INTERCEPTORS,
             useExisting: HttpInterceptorService,

@@ -1,29 +1,17 @@
-<app-form (acao)="add()" #form>
-  <app-table [resultados]="value">
-    <app-column name="telefone">
-      <th *appColumnHeader>
-        <form-control *ngIf="!disabled">
-          <input-telefone [placeholder]="label"
-                          name="novoTelefone" required [(ngModel)]="novoTelefone"></input-telefone>
-        </form-control>
-        <ng-container *ngIf="disabled">{{label}}</ng-container>
-      </th>
-      <th *appCell="let tel" >
-        {{tel | telefone}}
-      </th>
-    </app-column>
-
-    <app-column name="commands" *ngIf="!disabled">
-      <th *appColumnHeader class="cmd">
-        <command-button type="submit" theme="icon">
-          <mat-icon>add</mat-icon>
-        </command-button>
-      </th>
-      <th *appCell="let tel" class="cmd">
-        <command-button (click)="remove(tel)" type="button" theme="icon">
-          <mat-icon>close</mat-icon>
-        </command-button>
-      </th>
-    </app-column>
-  </app-table>
-</app-form>
+<mat-form-field>
+  <mat-chip-list #chipList>
+    <mat-chip
+            *ngFor="let tel of value"
+            [removable]="!disabled"
+            (removed)="remove(tel)">
+      {{tel | telefone}}
+      <mat-icon matChipRemove *ngIf="!disabled">cancel</mat-icon>
+    </mat-chip>
+    <input [placeholder]="label"
+           name="inputTelefone" [(ngModel)]="novoTelefone"
+           [disabled]="disabled" maxlength="15"
+           [matChipInputFor]="chipList"
+           [matChipInputAddOnBlur]="true"
+           (matChipInputTokenEnd)="add()" />
+  </mat-chip-list>
+</mat-form-field>

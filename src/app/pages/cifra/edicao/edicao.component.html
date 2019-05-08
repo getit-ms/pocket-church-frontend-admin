@@ -14,6 +14,7 @@
 
   <form-control>
     <input-fileupload [label]="'cifra.arquivo_cifra' | translate" required
+                      [accept]="'pdf'"
                       name="cifra" [(ngModel)]="cifra.cifra" (change)="buscaLetra()" >
     </input-fileupload>
   </form-control>

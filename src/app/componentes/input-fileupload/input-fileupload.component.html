@@ -2,20 +2,28 @@
 
 <div class="file-chooser" *ngIf="!multiple">
   <div class="action">
+    <button mat-icon-button
+            type="button" color="warn"
+            *ngIf="value?.invalidFormat">
+      <mat-icon>warning</mat-icon>
+    </button>
+
     <button mat-icon-button type="button" *ngIf="!value"
             (click)="openFileChooser()">
       <mat-icon>attach_file</mat-icon>
     </button>
 
-    <div class="progress-bar-area" *ngIf="value?.loading" >
+    <div class="progress-bar-area" *ngIf="value?.loading && !value.invalidFormat" >
       <mat-progress-spinner diameter="24"
                             [mode]="value?.progresso ? 'determinate' : 'indeterminate'"
                             [value]="value?.progresso">
       </mat-progress-spinner>
+
+      <span>{{ value?.progresso/100 | percent }}</span>
     </div>
 
     <button mat-icon-button type="button" (click)="download(value)"
-            *ngIf="value && !value.loading">
+            *ngIf="value && !value.loading && !value.invalidFormat">
       <mat-icon>cloud_download</mat-icon>
     </button>
   </div>
