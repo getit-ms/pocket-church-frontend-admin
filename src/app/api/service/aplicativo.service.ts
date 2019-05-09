@@ -13,8 +13,8 @@ export class AplicativoService extends AbstractApiService {
     return this.doGet<Array<string>>('/aplicativo/funcionalidades');
   }
 
-  salvaFuncionalidadesAtivas(funcionalidades: Array<string>): Observable<Array<string>> {
-    return this.doPut<Array<string>>('/aplicativo/funcionalidades', funcionalidades);
+  salvaFuncionalidadesAtivas(funcionalidades: Array<string>): Observable<void> {
+    return this.doPut<void>('/aplicativo/funcionalidades', funcionalidades);
   }
 
 }
