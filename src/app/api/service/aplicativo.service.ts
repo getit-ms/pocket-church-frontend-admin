@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 export class AplicativoService extends AbstractApiService {
 
   buscaTodasFuncionalidades(): Observable<Array<string>> {
-    return this.doGet<Array<string>>('/aplicativo/funcionalidades');
+    return this.doGet<Array<string>>('/aplicativo/funcionalidades/todas');
   }
 
   buscaFuncionalidadesAtivas(): Observable<Array<string>> {
