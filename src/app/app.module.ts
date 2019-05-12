@@ -228,7 +228,7 @@ const routes: Routes = [
         ApiModule,
         InfraModule,
         ComponentesModule,
-        RouterModule.forRoot(routes, {useHash: true}),
+        RouterModule.forRoot(routes, {useHash: true, onSameUrlNavigation: 'reload'}),
 
         MatIconModule,
         MatMenuModule,

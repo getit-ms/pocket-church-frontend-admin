@@ -12,9 +12,29 @@
     {{membro?.nome}}
   </button>
 
+  <button mat-menu-item
+          [matMenuTriggerFor]="menuIgrejas">
+    <img class="foto"
+         padrao="assets/imgs/logo_pocket_churc.png"
+         [igreja]="igreja.igreja.chave"
+         [imagemSrc]="igreja.igreja.logoPequena" />
+    {{igreja.igreja.nomeAplicativo}}
+  </button>
+
   <button mat-menu-item (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
     {{'global.menu.logout' | translate}}
   </button>
 
+</mat-menu>
+
+<mat-menu #menuIgrejas="matMenu" yPosition="above" [overlapTrigger]="false">
+  <button mat-menu-item *ngFor="let i of igrejas"
+          (click)="seleciona(i)">
+    <img class="foto"
+         padrao="assets/imgs/logo_pocket_churc.png"
+         [igreja]="i.igreja.chave"
+         [imagemSrc]="i.igreja.logoPequena" />
+    {{i.igreja.nomeAplicativo}}
+  </button>
 </mat-menu>

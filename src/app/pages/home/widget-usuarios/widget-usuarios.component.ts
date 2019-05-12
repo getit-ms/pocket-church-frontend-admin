@@ -4,54 +4,59 @@ import {EstatisticaService} from '../../../api/service/estatistica.service';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-widget-usuarios',
-  templateUrl: './widget-usuarios.component.html',
-  styleUrls: ['./widget-usuarios.component.scss']
+    selector: 'app-widget-usuarios',
+    templateUrl: './widget-usuarios.component.html',
+    styleUrls: ['./widget-usuarios.component.scss']
 })
 export class WidgetUsuariosComponent implements OnInit, DoCheck {
-  private datePipe: DatePipe = new DatePipe('pt-br');
+    private datePipe: DatePipe = new DatePipe('pt-br');
 
-  usuarios: Array<{name: string, value: number}>;
+    usuarios: Array<{name: string, value: number}>;
 
-  dimensions: Array<number> = [0, 0];
-  @ViewChild('card') card: ElementRef;
+    dimensions: Array<number> = [0, 0];
+    @ViewChild('card') card: ElementRef;
 
-  constructor(
-    private translateService: TranslateService,
-    private estatisticaService: EstatisticaService,
-  ) { }
+    constructor(
+        private translateService: TranslateService,
+        private estatisticaService: EstatisticaService,
+    ) { }
 
-  ngOnInit() {
-    this.buscaQuantidadesUsuariosAtivos();
-  }
-
-  ngDoCheck() {
-    if (this.card) {
-      const dim = [
-        this.card.nativeElement.clientWidth - 32,
-        (this.card.nativeElement.clientWidth - 32) * 0.5,
-      ];
-
-      if (dim[0] !== this.dimensions[0] || dim[1] !== this.dimensions[1]) {
-        this.dimensions = dim;
-      }
+    ngOnInit() {
+        this.buscaQuantidadesUsuariosAtivos();
     }
-  }
 
-  private async buscaQuantidadesUsuariosAtivos() {
-    const quantidades = await this.estatisticaService.buscaQuantidadesDispositivos().toPromise();
+    ngDoCheck() {
+        if (this.card) {
+            const dim = [
+                this.card.nativeElement.clientWidth - 32,
+                (this.card.nativeElement.clientWidth - 32) * 0.5,
+            ];
 
-    const usuarios = {
-      name: this.translateService.instant('estatistica.usuarios_nao_logados'),
-      value: quantidades.map(qtde => qtde.quantidadeDispositivos - qtde.quantidadeLogados).reduce((v1, v2) => v1 + v2)
-    };
+            if (dim[0] !== this.dimensions[0] || dim[1] !== this.dimensions[1]) {
+                this.dimensions = dim;
+            }
+        }
+    }
 
-    const membros = {
-      name: this.translateService.instant('estatistica.membros_logados'),
-      value: quantidades.map(qtde => qtde.quantidadeLogados).reduce((v1, v2) => v1 + v2)
-    };
+    private async buscaQuantidadesUsuariosAtivos() {
+        const quantidades = await this.estatisticaService.buscaQuantidadesDispositivos().toPromise();
 
-    this.usuarios = [usuarios, membros];
-  }
+        const usuarios = {
+            name: this.translateService.instant('estatistica.usuarios_nao_logados'),
+            value: quantidades.map(qtde => qtde.quantidadeDispositivos - qtde.quantidadeLogados).reduce((v1, v2) => v1 + v2)
+        };
+
+        const membros = {
+            name: this.translateService.instant('estatistica.membros_logados'),
+            value: quantidades.map(qtde => qtde.quantidadeLogados).reduce((v1, v2) => v1 + v2)
+        };
+
+        if (membros.value) {
+            this.usuarios = [usuarios, membros];
+        } else {
+            this.usuarios = [usuarios];
+        }
+
+    }
 
 }

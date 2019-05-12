@@ -68,10 +68,14 @@ export class WidgetHistoricoUsuariosComponent implements OnInit, DoCheck {
       regMembro.value += item.quantidadeMembrosLogados;
     }
 
-    this.usuarios = [
-      usuarios,
-      membros
-    ];
+    if (membros.series.find(s => s.value)) {
+        this.usuarios = [
+            usuarios,
+            membros
+        ];
+    } else {
+      this.usuarios = [usuarios];
+    }
   }
 
 }

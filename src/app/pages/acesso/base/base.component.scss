@@ -8,10 +8,13 @@
   right: 0;
   left: 0;
   height: 100%;
+  display: table;
 
   .view {
-    width: 300px;
-    margin: 50px auto;
+    margin: auto;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 30px;
   }
 }
 
