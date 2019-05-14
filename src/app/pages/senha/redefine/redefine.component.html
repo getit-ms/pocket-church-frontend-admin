@@ -1,32 +1,32 @@
 <div class="back">
 
-  <div class="view" >
-    <mat-card>
-      <img [igreja]="igreja?.chave"
-           [imagemSrc]="igreja?.logoPequena"
-           padrao="assets/imgs/logo_pocket_church.png"
-      />
-      <h2>{{igreja?.nome}} | {{'login.redefinicao_senha' | translate}}</h2>
+    <div class="view" >
+        <mat-card>
+            <img [igreja]="igreja?.chave"
+                 [imagemSrc]="igreja?.logoPequena"
+                 padrao="assets/imgs/logo_pocket_church.png"
+            />
+            <h2>{{igreja?.nome}} | {{'login.redefinicao_senha' | translate}}</h2>
 
-      <p *ngIf="!loader?.shown && membro">
-        <command-button theme="icon" color="primary" >
-          <mat-icon>check_circle</mat-icon>
-        </command-button>
-        {{ 'mensagens.MSG-040' | translate:membro }}
-      </p>
-      <p *ngIf="!loader?.shown && !membro">
-        <command-button theme="icon" color="warn" >
-          <mat-icon>error</mat-icon>
-        </command-button>
-        {{'login.erro_redefinicao' | translate}}
-      </p>
-      <command-button *ngIf="!loader?.shown" theme="default" (click)="fechar()">
-        {{'login.fechar_janela' | translate}}
-      </command-button>
+            <p *ngIf="!loader?.shown && membro">
+                <command-button theme="icon" color="primary" >
+                    <mat-icon>check_circle</mat-icon>
+                </command-button>
+                <span [unsafeInnerHtml]="'mensagens.MSG-040' | translate:membro"></span>
+            </p>
+            <p *ngIf="!loader?.shown && !membro">
+                <command-button theme="icon" color="warn" >
+                    <mat-icon>error</mat-icon>
+                </command-button>
+                {{'login.erro_redefinicao' | translate}}
+            </p>
+            <command-button *ngIf="!loader?.shown" theme="default" (click)="fechar()">
+                {{'login.fechar_janela' | translate}}
+            </command-button>
 
-      <loader #loader component="true" [labelLoading]="'login.processando'"></loader>
-    </mat-card>
+            <loader #loader component="true" [labelLoading]="'login.processando'"></loader>
+        </mat-card>
 
-  </div>
+    </div>
 
 </div>
