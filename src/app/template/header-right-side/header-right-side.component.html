@@ -30,7 +30,7 @@
 
 <mat-menu #menuIgrejas="matMenu" yPosition="above" [overlapTrigger]="false">
   <button mat-menu-item *ngFor="let i of igrejas"
-          (click)="seleciona(i)">
+          (click)="seleciona(i)" [ngClass]="{'deslogado': !i.token}">
     <img class="foto"
          padrao="assets/imgs/logo_pocket_churc.png"
          [igreja]="i.igreja.chave"

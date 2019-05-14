@@ -47,6 +47,7 @@ import { ModalAjudaComponent } from './template/ajuda/modal-ajuda/modal-ajuda.co
 import { NotificacoesComponent } from './template/notificacoes/notificacoes.component';
 import {NotificacoesService} from "./template/notificacoes/notificacoes.service";
 import { AjudaComponent } from './template/ajuda/ajuda.component';
+import { RedirectComponent } from './pages/redirect/redirect.component';
 
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
@@ -206,6 +207,10 @@ const routes: Routes = [
     {
         path: 'senha',
         loadChildren: './pages/senha/senha.module#SenhaModule'
+    },
+    {
+        path: 'redirect',
+        component: RedirectComponent
     }
 ];
 
@@ -221,7 +226,8 @@ const routes: Routes = [
         WidgetHistoricoUsuariosComponent,
         ModalAjudaComponent,
         NotificacoesComponent,
-        AjudaComponent
+        AjudaComponent,
+        RedirectComponent
     ],
     entryComponents: [ModalAjudaComponent],
     imports: [

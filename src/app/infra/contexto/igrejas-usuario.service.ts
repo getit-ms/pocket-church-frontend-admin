@@ -75,14 +75,20 @@ export class IgrejasUsuarioService {
 
         if (this._atual.token) {
             this.login(this._atual.token, this._atual.principal, navigate);
+
             if (navigate) {
                 this.router.navigate(['']);
             }
+
+            return true;
         } else {
             this.sessaoService.logout();
+
             if (navigate) {
                 this.router.navigate(['acesso', 'password']);
             }
+
+            return false;
         }
     }
 
