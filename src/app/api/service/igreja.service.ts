@@ -6,20 +6,14 @@ import {ResumoIgreja} from '../model/resumo-igreja';
 import {BuscaPaginada} from '../model/busca-paginada';
 import {map} from 'rxjs/internal/operators';
 import {Template} from '../model/template';
+import {AbstractApiService} from "./api-service.abstract";
 
 @Injectable()
-export class IgrejaService {
-
-  constructor(
-    @Inject(API_PATH_BASE)
-    @Optional()
-    private pathBase: string = 'http://localhost',
-    private httpClient: HttpClient
-  ) { }
+export class IgrejaService extends AbstractApiService {
 
   busca(igreja: string): Observable<ResumoIgreja> {
-    return this.httpClient.get<BuscaPaginada<ResumoIgreja>>(
-      `${this.pathBase}/igreja`, {
+    return this.doGet<BuscaPaginada<ResumoIgreja>>(
+      `/igreja`, {
         params: {
           'chave': [igreja],
           'pagina': ['1'],
@@ -36,7 +30,7 @@ export class IgrejaService {
 
 
   template(): Observable<Template> {
-    return this.httpClient.get<Template>(
-      `${this.pathBase}/igreja/template`);
+    return this.doGet<Template>(
+      `/igreja/template`);
   }
 }

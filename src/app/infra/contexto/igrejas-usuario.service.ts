@@ -71,8 +71,6 @@ export class IgrejasUsuarioService {
 
         this.applyMetadata(this._atual.igreja);
 
-        await this.aplicaBundleIgreja();
-
         this._atualSubject.next(this._atual);
 
         if (this._atual.token) {
@@ -125,7 +123,7 @@ export class IgrejasUsuarioService {
         ).pipe(take(1)).toPromise();
     }
 
-    private applyMetadata(igreja: ResumoIgreja) {
+    public async applyMetadata(igreja: ResumoIgreja) {
         if (igreja) {
             this.title.setTitle(igreja.nomeAplicativo);
         } else {
@@ -151,5 +149,7 @@ export class IgrejasUsuarioService {
             linkElement.setAttribute('href', 'favicon.ico');
             document.head.appendChild(linkElement);
         }
+
+        await this.aplicaBundleIgreja();
     }
 }

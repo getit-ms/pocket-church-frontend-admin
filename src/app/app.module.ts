@@ -202,6 +202,10 @@ const routes: Routes = [
     {
         path: 'acesso',
         loadChildren: './pages/acesso/acesso.module#AcessoModule'
+    },
+    {
+        path: 'senha',
+        loadChildren: './pages/senha/senha.module#SenhaModule'
     }
 ];
 

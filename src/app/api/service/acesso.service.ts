@@ -5,6 +5,7 @@ import {RequisicaoLogin} from '../model/requisicao-login';
 import {Acesso} from '../model/acesso';
 import {AbstractApiService} from './api-service.abstract';
 import {StatusAdmin} from '../model/status-admin';
+import {Membro} from "../model/membro";
 
 @Injectable()
 export class AcessoService extends AbstractApiService {
@@ -34,4 +35,13 @@ export class AcessoService extends AbstractApiService {
         }
       });
   }
+
+    redefinirSenha(chave: string): Observable<Membro> {
+        return this.doGet(
+            `/acesso/senha/redefinir`, {
+                params: {
+                    'chave': [chave]
+                }
+            });
+    }
 }
