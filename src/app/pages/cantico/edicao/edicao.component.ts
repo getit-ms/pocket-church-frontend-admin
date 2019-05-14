@@ -24,6 +24,8 @@ export class EdicaoComponent extends AbstractFormComponent<Cifra> implements Aft
     protected router: Router,
   ) {
     super();
+
+    this.cantico.tipo = 'CANTICO';
   }
 
   get cantico() {

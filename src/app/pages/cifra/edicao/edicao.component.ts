@@ -24,6 +24,8 @@ export class EdicaoComponent extends AbstractFormComponent<Cifra> implements Aft
     protected router: Router,
   ) {
     super();
+
+      this.cifra.tipo = 'CIFRA';
   }
 
   get cifra() {

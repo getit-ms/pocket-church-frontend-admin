@@ -6,6 +6,7 @@ export interface Boletim {
   data?: Date;
   dataPublicacao?: Date;
   divulgado?: boolean;
+  tipo?: 'BOLETIM' | 'PUBLICACAO';
   status?: 'PROCESSANDO' | 'PUBLICADO' | 'REJEITADO';
   boletim?: Arquivo;
   thumbnail?: Arquivo;

@@ -5,6 +5,7 @@ export interface Cifra {
   autor?: string;
   titulo?: string;
   letra?: string;
+  tipo?: 'CIFRA' | 'CANTICO';
   status?: 'PROCESSANDO' | 'PUBLICADO' | 'REJEITADO';
   cifra?: Arquivo;
   thumbnail?: Arquivo;

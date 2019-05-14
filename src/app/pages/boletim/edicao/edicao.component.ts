@@ -21,6 +21,8 @@ export class EdicaoComponent extends AbstractFormComponent<Boletim> implements A
     protected router: Router,
   ) {
     super();
+
+      this.boletim.tipo = 'BOLETIM';
   }
 
   get boletim() {
