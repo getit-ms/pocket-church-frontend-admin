@@ -45,12 +45,10 @@ export class PocketChurchMenuProviderService implements MenuProvider {
   menus(): Observable<Array<MenuItem>> {
     return Observable.create(observer => {
       this.sessaoService.principal.subscribe(acesso => {
-        this.translateService.get('global.menu').subscribe(() => {
-            observer.next(this.todasFuncionalidades
-                .map(fnc => this.mapMenu(acesso, fnc))
-                .filter(mnu => mnu && (mnu.routerLink || (mnu.children && mnu.children.length)))
-            );
-        }, err => observer.error(err));
+        observer.next(this.todasFuncionalidades
+          .map(fnc => this.mapMenu(acesso, fnc))
+          .filter(mnu => mnu && (mnu.routerLink || (mnu.children && mnu.children.length)))
+        );
       });
     });
   }

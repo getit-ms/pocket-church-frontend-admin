@@ -69,7 +69,7 @@ export class IgrejasUsuarioService {
     async select(igreja: ResumoIgreja, navigate = true) {
         this._atual = this._contextos.find(ctx => ctx.igreja.chave === igreja.chave);
 
-        this.applyMetadata(this._atual.igreja);
+        await this.applyMetadata(this._atual.igreja);
 
         this._atualSubject.next(this._atual);
 
@@ -100,13 +100,14 @@ export class IgrejasUsuarioService {
         }
     }
 
-    logout() {
+    async logout() {
         this.sessaoService.logout();
 
         this._contextos = undefined;
         this._atual = undefined;
         this._username = undefined;
-        this.applyMetadata(undefined);
+
+        await this.applyMetadata(undefined);
 
         this.router.navigate(['acesso', 'login']);
     }
