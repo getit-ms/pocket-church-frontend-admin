@@ -10,6 +10,10 @@ export class MinisterioService extends AbstractApiService {
     return this.doGet('/ministerio');
   }
 
+  consultaPorAcesso(): Observable<Array<Ministerio>> {
+      return this.doGet('/ministerio/acesso');
+  }
+
   detalha(id: number): Observable<Ministerio> {
     return this.doGet(`/ministerio/${id}`);
   }

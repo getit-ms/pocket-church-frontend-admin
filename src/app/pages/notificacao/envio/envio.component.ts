@@ -27,7 +27,7 @@ export class EnvioComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.ministerios = await this.ministerioService.consulta().toPromise();
+    this.ministerios = await this.ministerioService.consultaPorAcesso().toPromise();
   }
 
   enviar() {
