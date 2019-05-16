@@ -33,15 +33,15 @@ export class InputVersiculosComponent implements OnInit, ControlValueAccessor {
     ngOnInit() {}
 
     registerOnChange(fn: any): void {
-      this.onChange = fn;
+        this.onChange = fn;
     }
 
     registerOnTouched(fn: any): void {
-      this.onTouched = fn;
+        this.onTouched = fn;
     }
 
     get dataInicio() {
-      return this.$dataInicio;
+        return this.$dataInicio;
     }
 
     get dataTermino() {
@@ -52,12 +52,16 @@ export class InputVersiculosComponent implements OnInit, ControlValueAccessor {
         this.$dataInicio = dataInicio;
 
         this.prepareDias();
+
+        this.applyChanges();
     }
 
     @Input() set dataTermino(dataTermino: Date) {
         this.$dataTermino = dataTermino;
 
         this.prepareDias();
+
+        this.applyChanges();
     }
 
     setDisabledState(isDisabled: boolean): void {
@@ -71,71 +75,94 @@ export class InputVersiculosComponent implements OnInit, ControlValueAccessor {
     writeValue(obj: any): void {
         if (this.innerValue != obj) {
             this.innerValue = obj;
+
             this.prepareDias();
         }
     }
 
+    private maskDay(data: Date) {
+        return data.getFullYear() * 10000 + data.getMonth() * 100 + data.getDate();
+    }
+
     private prepareDias() {
-      if (this.$dataInicio && this.$dataTermino) {
-        let anos = [];
+        if (this.$dataInicio && this.$dataTermino) {
+            let anos = [];
 
-        let ano: AnoLeitura;
-        let mes: MesLeitura;
-        for (let d = this.$dataInicio;
-             d.getTime() < this.$dataTermino.getTime();
-             d = new Date(d.getTime() + MILLIS_DIA)) {
+            let ano: AnoLeitura;
+            let mes: MesLeitura;
+            let final = this.maskDay(this.$dataTermino);
+            for (let d = this.$dataInicio;
+                 this.maskDay(d) <= final;
+                 d = new Date(d.getTime() + MILLIS_DIA)) {
 
-          if (!ano || ano.ano !== d.getFullYear()) {
-            anos.push(ano = {
-              ano: d.getFullYear(),
-              meses: []
-            });
-            mes = undefined;
-          }
+                if (!ano || ano.ano !== d.getFullYear()) {
+                    anos.push(ano = {
+                        ano: d.getFullYear(),
+                        meses: []
+                    });
+                    mes = undefined;
+                }
 
-          if (!mes || mes.mes !== d.getMonth()) {
-            ano.meses.push(mes = {
-              mes: d.getMonth(),
-              dias: []
-            });
-          }
+                if (!mes || mes.mes !== d.getMonth()) {
+                    ano.meses.push(mes = {
+                        mes: d.getMonth(),
+                        dias: []
+                    });
+                }
 
-          mes.dias.push({
-              data: d
-          });
+                mes.dias.push({
+                    data: d
+                });
+            }
+
+            this.anos = anos;
         }
 
-        this.anos = anos;
-      }
+        if (this.innerValue && this.innerValue.length) {
+            for (let dia of this.innerValue) {
+                let ano = this.anos.find(a => a.ano == dia.data.getFullYear());
 
-      if (this.innerValue && this.innerValue.length) {
-        for (let dia of this.innerValue) {
-            let ano = this.anos.find(a => a.ano == dia.data.getFullYear());
+                if (ano) {
+                    let mes = ano.meses.find(m => m.mes == dia.data.getMonth());
 
-            if (ano) {
-                let mes = ano.meses.find(m => m.mes == dia.data.getMonth());
+                    if (mes) {
+                        let dd = mes.dias.find(d => d.data.getDate() == dia.data.getDate());
 
-                if (mes) {
-                    let dd = mes.dias.find(d => d.data.getDate() == dia.data.getDate());
-
-                    if (dd) {
-                        dd.id = dia.id;
-                        dd.descricao = dia.descricao
+                        if (dd) {
+                            mes.dias.splice(
+                                mes.dias.indexOf(dd),
+                                1,
+                                dia
+                            );
+                        }
                     }
                 }
             }
         }
-      }
+
+        if (this.anos) {
+            let result = [];
+
+            for (let a of this.anos) {
+                for (let m of a.meses) {
+                    result.push(...m.dias);
+                }
+            }
+
+            this.innerValue = result;
+        }
     }
+
+
 
 }
 
 interface AnoLeitura {
-  ano: number;
-  meses: Array<MesLeitura>;
+    ano: number;
+    meses: Array<MesLeitura>;
 }
 
 interface MesLeitura {
-  mes: number;
-  dias: Array<DiaPlanoLeitura>
+    mes: number;
+    dias: Array<DiaPlanoLeitura>
 }
