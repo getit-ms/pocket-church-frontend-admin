@@ -70,6 +70,11 @@ export class HttpInterceptorService implements HttpInterceptor {
                     this.handleNoAccess();
                 } else if (error.status == 401) {
                     this.handleNoAccess();
+                } else if (error.status == 500) {
+                    this.mensageria.addMensagem({
+                        mensagem: 'mensagens.MSG-500',
+                        tipo: TipoMensagem.ERRO
+                    });
                 }
 
                 observer.error(error);

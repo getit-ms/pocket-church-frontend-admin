@@ -23,8 +23,8 @@ export class YoutubeService extends AbstractApiService {
         return this.doGet('/youtube/configuracao');
     }
 
-    salvaConfiguracao(configuracao: ConfiguracaoYoutube): Observable<ConfiguracaoYoutube> {
-        return this.doPut('/youtube');
+    salvaConfiguracao(configuracao: ConfiguracaoYoutube): Observable<void> {
+        return this.doPut('/youtube', configuracao);
     }
 
     iniciaConfiguracao(code: string): Observable<void> {

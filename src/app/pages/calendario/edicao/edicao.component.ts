@@ -78,7 +78,7 @@ export class EdicaoComponent implements AfterViewInit {
             return;
         }
 
-        this.configuracao = await this.calendarioService.salvaConfiguracao(this.configuracao).toPromise();
+        await this.calendarioService.salvaConfiguracao(this.configuracao).toPromise();
 
         this.mensageria.addMensagem({
             mensagem: 'mensagens.MSG-001',

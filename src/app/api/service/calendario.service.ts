@@ -33,8 +33,8 @@ export class CalendarioService extends AbstractApiService {
         return this.doGet('/calendario/configuracao');
     }
 
-    salvaConfiguracao(configuracao: ConfiguracaoCalendario): Observable<ConfiguracaoCalendario> {
-        return this.doPut('/calendario');
+    salvaConfiguracao(configuracao: ConfiguracaoCalendario): Observable<void> {
+        return this.doPut('/calendario', configuracao);
     }
 
     iniciaConfiguracao(code: string): Observable<void> {

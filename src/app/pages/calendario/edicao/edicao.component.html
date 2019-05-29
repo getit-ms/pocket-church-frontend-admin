@@ -4,7 +4,7 @@
   <ng-container *ngIf="configuracao?.configurado">
     <form-control>
       <select-option name="calendario" [(ngModel)]="configuracao.idCalendario" multiple
-                     [placeholder]="'calendario.pagina' | translate" required>
+                     [placeholder]="'calendario.calendario' | translate" required>
         <opcao-item *ngFor="let calendario of calendarios"
                     [label]="calendario.nome" [valor]="calendario.id"></opcao-item>
       </select-option>
