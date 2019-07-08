@@ -5,6 +5,7 @@ import {DiaPlanoLeitura} from "../../../api/model/dia-plano-leitura";
 export const MILLIS_DIA = 1000 * 60 * 60 * 24;
 
 @Component({
+    exportAs: 'appInputVersiculos',
     selector: 'app-input-versiculos',
     templateUrl: './input-versiculos.component.html',
     styleUrls: ['./input-versiculos.component.scss'],
@@ -16,8 +17,8 @@ export const MILLIS_DIA = 1000 * 60 * 60 * 24;
 })
 export class InputVersiculosComponent implements OnInit, ControlValueAccessor {
 
-    private onChange: any;
-    private onTouched: any;
+    private onChange: any = val => {};
+    private onTouched: any = val => {};
 
     private $dataInicio: Date;
     private $dataTermino: Date;
@@ -52,16 +53,12 @@ export class InputVersiculosComponent implements OnInit, ControlValueAccessor {
         this.$dataInicio = dataInicio;
 
         this.prepareDias();
-
-        this.applyChanges();
     }
 
     @Input() set dataTermino(dataTermino: Date) {
         this.$dataTermino = dataTermino;
 
         this.prepareDias();
-
-        this.applyChanges();
     }
 
     setDisabledState(isDisabled: boolean): void {
@@ -151,6 +148,7 @@ export class InputVersiculosComponent implements OnInit, ControlValueAccessor {
 
             this.innerValue = result;
         }
+
     }
 
 

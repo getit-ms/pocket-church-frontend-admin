@@ -10,21 +10,23 @@
     <form-control class="col-sm-6">
       <input-data [placeholder]="'plano_leitura.data_inicio' | translate"
                   name="dataInicio" [(ngModel)]="planoLeitura.dataInicio"
+                  (change)="versiculos.dataInicio = $event; versiculos.applyChanges()"
                   required ></input-data>
     </form-control>
 
     <form-control class="col-sm-6">
       <input-data [placeholder]="'plano_leitura.data_termino' | translate"
                   name="dataTermino" [(ngModel)]="planoLeitura.dataTermino"
+                  (change)="versiculos.dataTermino = $event; versiculos.applyChanges()"
                   required ></input-data>
     </form-control>
   </div>
 
   <form-control>
     <app-input-versiculos name="versiculos" [(ngModel)]="planoLeitura.dias"
+                          #versiculos="appInputVersiculos"
                           [dataInicio]="planoLeitura?.dataInicio"
                           [dataTermino]="planoLeitura?.dataTermino">
-
     </app-input-versiculos>
   </form-control>
 
