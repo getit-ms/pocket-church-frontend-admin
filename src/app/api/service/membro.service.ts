@@ -26,14 +26,15 @@ export class MembroService extends AbstractApiService {
   }
 
   consulta(nome?: string, email?: string, perfil?: Array<number>,
-           pagina?: number, total?: number): Observable<BuscaPaginada<Membro>> {
+           pagina?: number, total?: number, pendentes?: boolean): Observable<BuscaPaginada<Membro>> {
     return this.doGet('/membro', {
       params: {
         nome: nome ? [nome] : [],
         email: email ? [email] : [],
         perfil: perfil ? <string[]> perfil.map(p => `${p}`) : [],
         pagina: pagina ? [`${pagina}`] : [],
-        total: total ? [`${total}`] : []
+        total: total ? [`${total}`] : [],
+        pendentes: pendentes ? [`${pendentes}`] : []
       }
     });
   }
@@ -52,6 +53,18 @@ export class MembroService extends AbstractApiService {
 
   atualiza(entidade: Membro): Observable<Membro> {
     return this.doPut('/membro', entidade);
+  }
+
+  aprovaCadastroContato(entidade: Membro): Observable<Membro> {
+    return this.doPut(`/membro/${entidade.id}/cadastro/contato`, undefined);
+  }
+
+  aprovaCadastroMembro(entidade: Membro): Observable<Membro> {
+    return this.doPut(`/membro/${entidade.id}/cadastro`, undefined);
+  }
+
+  rejeitaCadastroMembro(entidade: Membro): Observable<Membro> {
+    return this.doDelete(`/membro/${entidade.id}/cadastro`);
   }
 
   habilitarMembro(id: number): Observable<void> {

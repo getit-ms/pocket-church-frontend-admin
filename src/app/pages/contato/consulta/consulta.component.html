@@ -14,6 +14,13 @@
                     email (change)="busca()"
         ></input-text>
       </form-control>
+
+      <form-control class="col">
+        <select-boolean-slider [label]="'membro.pendentes' | translate"
+                               name="pendentes" [(ngModel)]="filtro.pendentes"
+                               (change)="busca()"
+        ></select-boolean-slider>
+      </form-control>
     </div>
   </div>
 
@@ -37,19 +44,29 @@
       <app-column name="comandos">
         <th *appColumnHeader class="cmd"></th>
         <td *appCell="let membro" class="cmd" >
-          <command-button routerLink="./{{membro.id}}/detail" theme="icon"
-                          [matTooltip]="'global.detalhar' | translate">
-            <mat-icon>search</mat-icon>
-          </command-button>
-          <command-button routerLink="./{{membro.id}}/update" theme="icon"
-                          [matTooltip]="'global.editar' | translate">
-            <mat-icon>edit</mat-icon>
-          </command-button>
-          <command-button (click)="excluir(membro)" theme="icon"
-                          [matTooltip]="'global.excluir' | translate"
-                          *ngIf="membro.contato">
-            <mat-icon>delete</mat-icon>
-          </command-button>
+          <ng-container *ngIf="membro.contato || membro.membro || membro.admin">
+            <command-button routerLink="./{{membro.id}}/detail" theme="icon"
+                            [matTooltip]="'global.detalhar' | translate">
+              <mat-icon>search</mat-icon>
+            </command-button>
+            <command-button routerLink="./{{membro.id}}/update" theme="icon"
+                            [matTooltip]="'global.editar' | translate">
+              <mat-icon>edit</mat-icon>
+            </command-button>
+            <command-button (click)="excluir(membro)" theme="icon"
+                            [matTooltip]="'global.excluir' | translate"
+                            *ngIf="membro.contato">
+              <mat-icon>delete</mat-icon>
+            </command-button>
+          </ng-container>
+          <ng-container *ngIf="!membro.contato && !membro.membro && !membro.admin">
+            <command-button (click)="aprovaCadastro(membro)" theme="icon">
+              <mat-icon>check</mat-icon>
+            </command-button>
+            <command-button (click)="rejeitaCadastro(membro)" theme="icon">
+              <mat-icon>cancel</mat-icon>
+            </command-button>
+          </ng-container>
         </td>
       </app-column>
     </app-table>

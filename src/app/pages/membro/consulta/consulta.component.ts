@@ -17,9 +17,11 @@ export class ConsultaComponent implements AfterViewInit {
     nome?: string,
     email?: string,
     perfis?: Array<number>,
-    tamanhoPagina: number
+    tamanhoPagina: number,
+    pendentes: boolean
   } = {
-    tamanhoPagina: 10
+    tamanhoPagina: 10,
+    pendentes: false
   };
   membros: BuscaPaginada<Membro>;
   perfis: Array<Perfil>;
@@ -49,8 +51,55 @@ export class ConsultaComponent implements AfterViewInit {
       this.filtro.email,
       this.filtro.perfis,
       event.pagina,
-      this.filtro.tamanhoPagina
+      this.filtro.tamanhoPagina,
+      this.filtro.pendentes
     )).toPromise();
+  }
+
+  async rejeitaCadastro(membro: Membro) {
+      this.dialogService.confirmacao(
+          'mensagens.MSG-057',
+          'membro.confirmacao_rejeicao_cadastro',
+          'global.sim',
+          'global.nao',
+          {
+              membro: membro.nome
+          }
+      ).subscribe(() => {
+          this.acaoService.executa(async () => {
+              await this.membroService.rejeitaCadastroMembro(membro).toPromise();
+
+              await this.busca();
+
+              this.mensageria.addMensagem({
+                  mensagem: 'mensagens.MSG-001',
+                  tipo: TipoMensagem.SUCESSO
+              });
+          });
+      });
+  }
+
+  async aprovaCadastro(membro: Membro) {
+      this.dialogService.confirmacao(
+          'mensagens.MSG-055',
+          'membro.confirmacao_aprovacao_cadastro',
+          'global.sim',
+          'global.nao',
+          {
+              membro: membro.nome
+          }
+      ).subscribe(() => {
+          this.acaoService.executa(async () => {
+              await this.membroService.aprovaCadastroMembro(membro).toPromise();
+
+              await this.busca();
+
+              this.mensageria.addMensagem({
+                  mensagem: 'mensagens.MSG-001',
+                  tipo: TipoMensagem.SUCESSO
+              });
+          });
+      });
   }
 
   async habilitarMembro(membro: Membro) {
