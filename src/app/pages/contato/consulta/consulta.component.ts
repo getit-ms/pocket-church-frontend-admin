@@ -4,6 +4,8 @@ import {MembroService} from '../../../api/service/membro.service';
 import {AcaoService, DialogService, LoaderComponent, Mensageria, TipoMensagem} from '@gafs/infra-core';
 import {TranslateService} from '@ngx-translate/core';
 import {BuscaPaginada} from '../../../api/model/busca-paginada';
+import {NotificacoesService} from "../../../template/notificacoes/notificacoes.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-consulta',
@@ -29,10 +31,14 @@ export class ConsultaComponent implements AfterViewInit {
     private acaoService: AcaoService,
     private dialogService: DialogService,
     private translateService: TranslateService,
-    private membroService: MembroService
+    private membroService: MembroService,
+    private notificacoesService: NotificacoesService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngAfterViewInit() {
+    this.filtro.pendentes = this.activatedRoute.snapshot.queryParams.pendentes||false;
+
     this.busca();
   }
 
@@ -62,6 +68,8 @@ export class ConsultaComponent implements AfterViewInit {
           this.acaoService.executa(async () => {
               await this.membroService.rejeitaCadastroMembro(membro).toPromise();
 
+              this.notificacoesService.load();
+
               await this.busca();
 
               this.mensageria.addMensagem({
@@ -84,6 +92,8 @@ export class ConsultaComponent implements AfterViewInit {
       ).subscribe(() => {
           this.acaoService.executa(async () => {
               await this.membroService.aprovaCadastroContato(membro).toPromise();
+
+              this.notificacoesService.load();
 
               await this.busca();
 

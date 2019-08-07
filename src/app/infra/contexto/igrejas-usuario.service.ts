@@ -59,8 +59,9 @@ export class IgrejasUsuarioService {
             token: token,
             principal: principal
         }).subscribe(() => {
+            this.notificacoesService.load();
+
             if (navigate) {
-                this.notificacoesService.load();
                 this.router.navigate(['']);
             }
         });
@@ -122,7 +123,7 @@ export class IgrejasUsuarioService {
         if (this._atual) {
             this.igrejasTranslateLoaderService.igreja = this._atual.igreja.chave;
         } else {
-            this.igrejasTranslateLoaderService.igreja = this._atual.igreja.chave;
+            this.igrejasTranslateLoaderService.igreja = undefined;
         }
 
         await this.translateService.reloadLang(

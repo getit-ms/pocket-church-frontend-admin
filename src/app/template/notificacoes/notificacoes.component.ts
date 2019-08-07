@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificacoesService} from "./notificacoes.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-notificacoes',
@@ -9,6 +10,7 @@ import {NotificacoesService} from "./notificacoes.service";
 export class NotificacoesComponent implements OnInit {
 
     constructor(
+        private router: Router,
         private notificacoesService: NotificacoesService
     ) { }
 
@@ -16,5 +18,13 @@ export class NotificacoesComponent implements OnInit {
 
     get status() {
       return this.notificacoesService.status;
+    }
+
+    get count() {
+        return this.notificacoesService.count;
+    }
+
+    goto(path: string) {
+        this.router.navigateByUrl(path);
     }
 }

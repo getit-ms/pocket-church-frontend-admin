@@ -1,15 +1,15 @@
 <command-button theme="icon" [matMenuTriggerFor]="menuNotificacoes"
                 [matTooltip]="'notificacoes.notificacoes' | translate">
-  <mat-icon [matBadge]="status?.notificacoes?.length"
-            matBadgeColor="warn">notifications</mat-icon>
+  <mat-icon [matBadge]="count" matBadgeColor="warn">notifications</mat-icon>
 </command-button>
 <mat-menu #menuNotificacoes="matMenu" yPosition="above" [overlapTrigger]="false">
 
   <div class="empty" *ngIf="!status?.notificacoes?.length">
     {{'mensagens.MSG-008' | translate}}
   </div>
-  <button class="notificacao" mat-menu-item type="button" disabled
-          *ngFor="let notificacao of status?.notificacoes">
+  <button class="notificacao" mat-menu-item type="button"
+          *ngFor="let notificacao of status?.notificacoes"
+          (click)="goto(notificacao.path)">
     {{notificacao.mensagem | translate:notificacao.args}}
   </button>
 

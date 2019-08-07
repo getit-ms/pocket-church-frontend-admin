@@ -9,54 +9,44 @@ import {RouterOutlet} from '@angular/router';
   animations: [
     trigger('routeAnimations', [
       transition('login => churches, login => password, churches => password', [
-        style({ position: 'relative' }),
-        query(':enter, :leave', [
-          style({
+        query(':enter, :leave', style({
             position: 'absolute',
             top: 0,
+            bottom: 0,
+            right: 0,
             left: 0,
-            width: '100%',
-            opacity: 1
-          })
-        ]),
-        query(':enter', [
-          style({ opacity: 0, left: '120%'})
-        ]),
+        })),
+        query(':enter', style({ opacity: 0, transform: 'translateX(100%)' })),
         query(':leave', animateChild()),
         group([
           query(':leave', [
-            animate('300ms ease-out', style({ opacity: 0, left: '-120%'}))
+            animate('300ms ease-out', style({ opacity: 0, transform: 'translateX(-100%)'}))
           ]),
           query(':enter', [
-            animate('300ms ease-out', style({ opacity: 1, left: '0%'}))
+            animate('300ms ease-out', style({ opacity: 1, transform: 'translateX(0)'}))
           ])
         ]),
         query(':enter', animateChild()),
       ]),
       transition('churches => login, password => login, password => churches', [
-        style({ position: 'relative' }),
-        query(':enter, :leave', [
-          style({
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            opacity: 1
-          })
-        ]),
-        query(':enter', [
-          style({ opacity: 0, left: '-120%'})
-        ]),
-        query(':leave', animateChild()),
-        group([
-          query(':leave', [
-            animate('300ms ease-out', style({ opacity: 0, left: '120%'}))
+          query(':enter, :leave', style({
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              right: 0,
+              left: 0,
+          })),
+          query(':enter', style({ opacity: 0, transform: 'translateX(-100%)' })),
+          query(':leave', animateChild()),
+          group([
+              query(':leave', [
+                  animate('300ms ease-out', style({ opacity: 0, transform: 'translateX(100%)'}))
+              ]),
+              query(':enter', [
+                  animate('300ms ease-out', style({ opacity: 1, transform: 'translateX(0)'}))
+              ])
           ]),
-          query(':enter', [
-            animate('300ms ease-out', style({ opacity: 1, left: '0%'}))
-          ])
-        ]),
-        query(':enter', animateChild()),
+          query(':enter', animateChild()),
       ]),
     ])
   ]

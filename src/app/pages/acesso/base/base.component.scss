@@ -8,13 +8,31 @@
   right: 0;
   left: 0;
   height: 100%;
-  display: table;
+  overflow-x: hidden;
 
   .view {
-    margin: auto;
-    display: table-cell;
-    vertical-align: middle;
-    padding: 30px;
+    display: unset;
+
+    &::ng-deep > * {
+      width: 100%;
+      height: 100%;
+      display: table;
+    }
+
+    & > router-outlet {
+      width: unset;
+      height: unset;
+      display: unset;
+    }
+
+    &::ng-deep .back {
+      display: table-cell;
+      vertical-align: middle;
+      margin: auto;
+      height: 100%;
+      padding: 30px;
+    }
+
   }
 }
 

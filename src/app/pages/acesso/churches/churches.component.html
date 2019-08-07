@@ -1,23 +1,27 @@
-<mat-card>
-  <app-form>
-    <p>Selecione uma igreja para realizar o login.</p>
+<div class="back">
 
-    <div class="row">
-      <a class="col" href="javascript:void(0)" (click)="seleciona(igreja)"
-         *ngFor="let igreja of igrejas">
-        <div class="logo">
-          <img [igreja]="igreja.chave" [imagemSrc]="igreja.logoPequena" />
+  <mat-card>
+    <app-form>
+      <p>Selecione uma igreja para realizar o login.</p>
 
-          <h5>{{igreja.nomeAplicativo}}</h5>
-        </div>
-      </a>
-    </div>
+      <div class="row">
+        <a class="col" href="javascript:void(0)" (click)="seleciona(igreja)"
+           *ngFor="let igreja of igrejas">
+          <div class="logo">
+            <img [igreja]="igreja.chave" [imagemSrc]="igreja.logoPequena" />
 
-    <div acoes>
-      <command-button type="button" (click)="cancelar()"
-                      theme="default">
-        {{'global.cancelar' | translate}}
-      </command-button>
-    </div>
-  </app-form>
-</mat-card>
+            <h5>{{igreja.nomeAplicativo}}</h5>
+          </div>
+        </a>
+      </div>
+
+      <div acoes>
+        <command-button type="button" (click)="cancelar()"
+                        theme="default">
+          {{'global.cancelar' | translate}}
+        </command-button>
+      </div>
+    </app-form>
+  </mat-card>
+
+</div>

@@ -7,5 +7,7 @@ export interface StatusAdmin {
 
 export interface NotificacaoAdmin {
   mensagem?: string;
+  count?: number;
+  path?: string;
   args?: {[key: string]: any};
 }
