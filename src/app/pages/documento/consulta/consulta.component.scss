@@ -1,0 +1,36 @@
+app-table {
+
+  td.documento {
+    position: relative;
+
+    mat-chip-list {
+      margin: 15px;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      mat-icon {
+        height: auto;
+      }
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  app-table {
+    td.documento {
+      position: unset;
+
+      mat-chip-list {
+        position: unset;
+      }
+    }
+  }
+}
+
+.resultados {
+  position: relative;
+  margin: 0 -16px;
+  padding: 0 16px;
+}
+

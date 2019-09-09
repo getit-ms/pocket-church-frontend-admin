@@ -1,0 +1,21 @@
+<div mat-dialog-title>
+  {{'contato.cadastrar_lotacao_colaborador' | translate}}
+</div>
+
+<app-form (acao)="salvar()">
+  <form-control>
+    <input-text name="nome" [(ngModel)]="lotacao.nome"
+                required maxlength="150"
+                [placeholder]="'contato.lotacao' | translate"></input-text>
+  </form-control>
+
+  <div acoes>
+    <command-button color="primary" type="submit">
+      {{'global.salvar' | translate}}
+    </command-button>
+
+    <command-button theme="default" (click)="cancelar()">
+      {{'global.cancelar' | translate}}
+    </command-button>
+  </div>
+</app-form>

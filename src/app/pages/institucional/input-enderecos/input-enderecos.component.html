@@ -1,0 +1,48 @@
+<div>
+  <ng-container *ngFor="let end of value; let idx = index">
+    <command-button (click)="remove(end)" class="close"
+                    theme="icon" type="button"
+                    *ngIf="value?.length > 1">
+      <mat-icon>close</mat-icon>
+    </command-button>
+
+    <div>
+      <div class="row">
+        <form-control class="col">
+          <input-text [placeholder]="'endereco.descricao' | translate"
+                      name="descricao{{idx}}" [(ngModel)]="end.descricao"
+          ></input-text>
+        </form-control>
+      </div>
+
+      <div class="row">
+        <form-control class="col">
+          <input-cep [placeholder]="'endereco.cep' | translate"
+                     name="cep{{idx}}" [(ngModel)]="end.cep"
+          ></input-cep>
+        </form-control>
+
+        <form-control class="col">
+          <input-text [placeholder]="'endereco.cidade' | translate"
+                      name="cidade{{idx}}" [(ngModel)]="end.cidade"
+          ></input-text>
+        </form-control>
+
+        <form-control class="col">
+          <select-option [placeholder]="'endereco.uf' | translate"
+                         name="uf{{idx}}" [(ngModel)]="end.estado" labelVazia="">
+            <opcao-item [label]="uf" [valor]="uf"
+                        *ngFor="let uf of ufs" ></opcao-item>
+          </select-option>
+        </form-control>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div class="add">
+  <command-button type="button" theme="stroked" (click)="add()">
+    <mat-icon>add</mat-icon>
+    {{'institucional.adicionar_endereco' | translate}}
+  </command-button>
+</div>

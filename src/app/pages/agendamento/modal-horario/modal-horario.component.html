@@ -1,0 +1,97 @@
+<div mat-dialog-title>
+  <ng-container *ngIf="horario">
+    <h3>{{'agenda.horario.titulo' | translate}}</h3>
+    <h4>{{horario.dataInicio | date:'dd MMMM yyyy'}} | {{horario.dataInicio | date:'HH:mm'}} - {{horario.dataTermino | date:'HH:mm'}}</h4>
+  </ng-container>
+  <ng-container *ngIf="agendamento">
+    <h3>{{'agenda.agendamento.titulo' | translate}}</h3>
+    <h4>{{agendamento.dataHoraInicio | date:'dd MMMM yyyy'}} | {{agendamento.dataHoraInicio | date:'HH:mm'}} - {{agendamento.dataHoraFim | date:'HH:mm'}}</h4>
+  </ng-container>
+</div>
+
+<form #form="ngForm" (ngSubmit)="agendar(form)">
+  <mat-dialog-content>
+
+    <ng-container *ngIf="horario">
+
+      <form-control>
+        <input-autocomplete [placeholder]="'agenda.horario.agendar_para' | translate"
+                            required [(ngModel)]="colaborador" name="colaborador"
+                            (filtro)="buscaColaborador($event)" trackBy="id">
+          <opcao-item *ngFor="let m of colaboradores"
+                      [label]="m.nome" [valor]="m"
+          ></opcao-item>
+        </input-autocomplete>
+      </form-control>
+
+      <hr/>
+
+      <div>
+        {{'agenda.horario.disponibilidade' | translate}}
+        <ng-container *ngFor="let ds of horario.horario.diasSemana; let idx = index">
+          <ng-container *ngIf="idx > 0">, </ng-container>
+          <b>{{'agenda.diaSemana.' + ds | translate }}</b>
+        </ng-container>
+      </div>
+
+    </ng-container>
+
+    <div class="agendamento" *ngIf="agendamento">
+      <img [imagemSrc]="agendamento.colaborador.foto" padrao="assets/imgs/user.png" />
+
+      <div class="colaborador">
+        <h3>{{agendamento.colaborador.nome}}</h3>
+        <p>
+          <ng-container>
+            {{agendamento.colaborador.email}}<br/>
+          </ng-container>
+          <ng-container *ngIf="agendamento.colaborador.telefones?.length">
+            {{agendamento.colaborador.telefones[0] | telefone}}
+          </ng-container>
+        </p>
+      </div>
+    </div>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="text-right">
+    <ng-container *ngIf="horario">
+      <div class="acoes-horario">
+        <command-button color="primary" type="submit">
+          <mat-icon>check</mat-icon>
+          {{'global.confirmar' | translate}}
+        </command-button>
+        <div class="spacer"></div>
+        <command-button [matMenuTriggerFor]="menuDelete" theme="stroked"
+                        [matTooltip]="'global.excluir' | translate">
+          <mat-icon>delete</mat-icon>
+          {{'agenda.horario.remover' | translate}}
+        </command-button>
+      </div>
+
+      <mat-menu #menuDelete="matMenu" yPosition="above" [overlapTrigger]="false">
+        <button type="button" mat-menu-item (click)="removerDia()"
+                [matTooltip]="'global.excluir' | translate">
+          <mat-icon>delete</mat-icon>
+          {{'agenda.horario.remover_dia' | translate}}
+        </button>
+        <button type="button" mat-menu-item (click)="removerFuturos()"
+                [matTooltip]="'global.excluir' | translate">
+          <mat-icon>delete</mat-icon>
+          {{'agenda.horario.remover_futuros' | translate}}
+        </button>
+      </mat-menu>
+    </ng-container>
+
+    <ng-container *ngIf="agendamento">
+      <command-button *ngIf="agendamento.naoConfirmado"
+                      color="primary" (click)="confirmar()" >
+        {{'agenda.agendamento.confirmar' | translate}}
+      </command-button>
+      <command-button *ngIf="!agendamento.concluido"
+                      theme="default" (click)="cancelar()" >
+        {{'agenda.agendamento.cancelar' | translate}}
+      </command-button>
+    </ng-container>
+  </mat-dialog-actions>
+</form>

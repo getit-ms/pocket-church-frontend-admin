@@ -1,0 +1,28 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'publicacao.titulo' | translate" required maxlength="150"
+                name="titulo" [(ngModel)]="publicacao.titulo" ></input-text>
+  </form-control>
+
+  <form-control>
+    <input-data [placeholder]="'publicacao.data_publicacao' | translate" required type="datetime"
+                name="dataPublicacao" [(ngModel)]="publicacao.dataPublicacao" >
+    </input-data>
+  </form-control>
+
+  <form-control>
+    <input-fileupload [label]="'publicacao.arquivo_publicacao' | translate" required
+                      [accept]="'pdf'"
+                      name="publicacao" [(ngModel)]="publicacao.boletim" >
+    </input-fileupload>
+  </form-control>
+
+  <div *ngIf="!publicacao.divulgado">{{'publicacao.mensagem_push' | translate}}</div>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

@@ -1,0 +1,12 @@
+.foto-colaborador {
+  float: left;
+  margin-right: 10px;
+}
+
+@media(max-width: 850px) {
+  .foto-colaborador {
+    float: none;
+    margin: 0;
+    text-align: center;
+  }
+}

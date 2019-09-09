@@ -1,0 +1,52 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="publicacoes">
+      <app-column name="publicacao">
+        <th *appColumnHeader>{{'publicacao.publicacoes' | translate}}</th>
+        <td *appCell="let publicacao" class="publicacao">
+          <h2>{{publicacao.titulo}}</h2>
+          <p>{{publicacao.dataPublicacao | date:'dd/MM/yyyy HH:mm'}}</p>
+
+          <mat-chip-list>
+            <mat-chip *ngIf="publicacao.publicado" color="primary" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-check"></mat-icon>
+              {{'publicacao.publicado' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="publicacao.agendado" color="accent" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-clock-o"></mat-icon>
+              {{'publicacao.agendado' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="publicacao.processando" color="basic" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-refresh"></mat-icon>
+              {{'publicacao.processando' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="publicacao.rejeitado" color="warn" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-exclamation-triangle"></mat-icon>
+              {{'publicacao.rejeitado' | translate}}
+            </mat-chip>
+          </mat-chip-list>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let publicacao" class="cmd" >
+          <command-button routerLink="./{{publicacao.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{publicacao.id}}/update" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(publicacao)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

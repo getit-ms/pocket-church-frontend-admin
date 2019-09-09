@@ -1,0 +1,39 @@
+<app-form>
+  <div class="resultados">
+    <app-table [resultados]="calendarios">
+      <app-column name="foto">
+        <th *appColumnHeader class="foto"></th>
+        <td *appCell="let calendario" class="foto" >
+          <img [imagemSrc]="calendario.gerente.foto" padrao="assets/imgs/user.png" />
+        </td>
+      </app-column>
+
+      <app-column name="agenda">
+        <th *appColumnHeader>{{'agenda.gerente' | translate}}</th>
+        <td *appCell="let calendario" class="agenda">
+          <h2>{{calendario.gerente.nome}}</h2>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let calendario" class="cmd" >
+          <command-button routerLink="./{{calendario.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{calendario.id}}/update" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(calendario)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

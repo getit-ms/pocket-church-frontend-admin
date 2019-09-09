@@ -1,0 +1,26 @@
+<app-form>
+  <p *ngIf="!configuracao?.configurado">{{'flickr.mensagem_flickr' | translate }}</p>
+
+  <div class="row" *ngIf="configuracao?.configurado && galerias">
+    <div class="col text-center" *ngFor="let galeria of galerias?.resultados">
+      <img *ngIf="galeria.fotoPrimaria"
+           src="https://farm{{galeria.fotoPrimaria.farm}}.staticflickr.com/{{galeria.fotoPrimaria.server}}/{{galeria.fotoPrimaria.id}}_{{galeria.fotoPrimaria.secret}}_s.jpg" />
+      <h2>{{galeria.nome}}</h2>
+    </div>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button (click)="vincular()" *ngIf="!configuracao?.configurado" color="primary">
+      {{'flickr.vincular_conta' | translate}}
+    </command-button>
+  </div>
+
+  <div acoesDireita>
+    <command-button (click)="desvincular()" *ngIf="configuracao?.configurado" theme="stroked">
+      <mat-icon>close</mat-icon>
+      {{'flickr.desativar_integracao' | translate}}
+    </command-button>
+  </div>
+
+  <loader #loader component="true"></loader>
+</app-form>

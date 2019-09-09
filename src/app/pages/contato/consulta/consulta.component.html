@@ -1,0 +1,76 @@
+<app-form>
+  <div>
+    <div class="row">
+      <form-control class="col">
+        <input-text [placeholder]="'colaborador.nome' | translate"
+                    name="nome" [(ngModel)]="filtro.nome"
+                    (change)="busca()"
+        ></input-text>
+      </form-control>
+
+      <form-control class="col">
+        <input-text [placeholder]="'colaborador.email' | translate"
+                    name="email" [(ngModel)]="filtro.email"
+                    email (change)="busca()"
+        ></input-text>
+      </form-control>
+    </div>
+  </div>
+
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="colaboradores">
+      <app-column name="foto">
+        <th *appColumnHeader class="foto"></th>
+        <td *appCell="let colaborador" class="foto" >
+          <img [imagemSrc]="colaborador.foto" padrao="assets/imgs/user.png" />
+        </td>
+      </app-column>
+
+      <app-column name="nome">
+        <th *appColumnHeader>{{'contato.contatos' | translate}}</th>
+        <td *appCell="let colaborador" >
+          <h2>{{colaborador.nome}}</h2>
+          <p>{{colaborador.email}}</p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let colaborador" class="cmd" >
+          <ng-container *ngIf="colaborador.contato || colaborador.colaborador || colaborador.admin">
+            <command-button routerLink="./{{colaborador.id}}/detail" theme="icon"
+                            [matTooltip]="'global.detalhar' | translate">
+              <mat-icon>search</mat-icon>
+            </command-button>
+            <command-button routerLink="./{{colaborador.id}}/update" theme="icon"
+                            [matTooltip]="'global.editar' | translate">
+              <mat-icon>edit</mat-icon>
+            </command-button>
+            <command-button (click)="excluir(colaborador)" theme="icon"
+                            [matTooltip]="'global.excluir' | translate"
+                            *ngIf="colaborador.contato">
+              <mat-icon>delete</mat-icon>
+            </command-button>
+          </ng-container>
+          <ng-container *ngIf="!colaborador.contato && !colaborador.colaborador && !colaborador.admin">
+            <command-button (click)="aprovaCadastro(colaborador)" theme="icon">
+              <mat-icon>check</mat-icon>
+            </command-button>
+            <command-button (click)="rejeitaCadastro(colaborador)" theme="icon">
+              <mat-icon>cancel</mat-icon>
+            </command-button>
+          </ng-container>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button (click)="exportar()" theme="stroked" >
+      <mat-icon fontSet="fa" fontIcon="fa-file-excel-o"></mat-icon>
+      {{'contato.exportar_contatos' | translate}}
+    </command-button>
+  </div>
+</app-form>

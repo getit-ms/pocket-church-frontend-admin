@@ -1,0 +1,40 @@
+<app-ajuda></app-ajuda>
+<app-notificacoes></app-notificacoes>
+<command-button theme="icon" [matMenuTriggerFor]="menuUsuario">
+  <mat-icon>person</mat-icon>
+</command-button>
+<mat-menu #menuUsuario="matMenu" yPosition="above" [overlapTrigger]="false">
+
+  <button mat-menu-item>
+    <img class="foto"
+         padrao="assets/imgs/user.png"
+         [imagemSrc]="colaborador?.foto" />
+    {{colaborador?.nome}}
+  </button>
+
+  <button mat-menu-item
+          [matMenuTriggerFor]="menuEmpresas">
+    <img class="foto"
+         padrao="assets/imgs/logo_pocket_churc.png"
+         [empresa]="empresa.empresa.chave"
+         [imagemSrc]="empresa.empresa.logoPequena" />
+    {{empresa.empresa.nomeAplicativo}}
+  </button>
+
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    {{'global.menu.logout' | translate}}
+  </button>
+
+</mat-menu>
+
+<mat-menu #menuEmpresas="matMenu" yPosition="above" [overlapTrigger]="false">
+  <button mat-menu-item *ngFor="let i of empresas"
+          (click)="seleciona(i)" [ngClass]="{'deslogado': !i.token}">
+    <img class="foto"
+         padrao="assets/imgs/logo_pocket_churc.png"
+         [empresa]="i.empresa.chave"
+         [imagemSrc]="i.empresa.logoPequena" />
+    {{i.empresa.nomeAplicativo}}
+  </button>
+</mat-menu>

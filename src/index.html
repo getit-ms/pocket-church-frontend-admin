@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pocket Corporate</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+
+  <div id="initial-preloader" class="preloader">
+    <div class="cssload-speeding-wheel"></div>
+    <p class="preloader-text">Pocket Corporate</p>
+  </div>
+
+  <style type="text/css">
+
+    body {
+      background-color: #f2f4f5;
+    }
+
+    tmpl-menu-item .material-icons {
+      font-family: "Font Awesome 5 Free";
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .preloader {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      position: fixed;
+      background-color: #dfdfdf;
+    }
+
+    .preloader.small {
+      background-image: none;
+    }
+
+    .cssload-speeding-wheel {
+      width: 30px;
+      height: 30px;
+      margin: 0 auto;
+      border: 2px solid rgba(0, 0, 0, .3);
+      border-radius: 50%;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      animation: cssload-spin 625ms infinite linear;
+      -o-animation: cssload-spin 625ms infinite linear;
+      -ms-animation: cssload-spin 625ms infinite linear;
+      -webkit-animation: cssload-spin 625ms infinite linear;
+      -moz-animation: cssload-spin 625ms infinite linear;
+    }
+
+    .preloader .cssload-speeding-wheel {
+      position: absolute;
+      top: calc(50% - 15px);
+      left: calc(50% - 15px);
+    }
+
+    .preloader-text {
+      color: rgba(0, 0, 0, .3);
+      display: block;
+      text-align: center;
+      width: 100%;
+      height: 25px;
+      position: relative;
+      top: 51%;
+      margin-top: 30px;
+    }
+
+    .preloader.small .preloader-text {
+      display: none;
+    }
+
+    @keyframes cssload-spin {
+      100%{ transform: rotate(360deg); transform: rotate(360deg); }
+    }
+
+    @-o-keyframes cssload-spin {
+      100%{ -o-transform: rotate(360deg); transform: rotate(360deg); }
+    }
+
+    @-ms-keyframes cssload-spin {
+      100%{ -ms-transform: rotate(360deg); transform: rotate(360deg); }
+    }
+
+    @-webkit-keyframes cssload-spin {
+      100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+    }
+
+    @-moz-keyframes cssload-spin {
+      100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
+    }
+  </style>
+
+</body>
+</html>

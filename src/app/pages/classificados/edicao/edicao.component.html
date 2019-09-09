@@ -1,0 +1,32 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'classificados.titulo' | translate" required maxlength="150"
+                name="titulo" [(ngModel)]="classificados.titulo" ></input-text>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col">
+      <input-data [placeholder]="'classificados.publicacao' | translate" type="datetime" required
+                  name="dataPublicacao" [(ngModel)]="classificados.dataPublicacao" ></input-data>
+    </form-control>
+
+    <form-control class="col">
+      <input-fileupload [label]="'classificados.ilustracao' | translate"
+                        [accept]="['jpeg','jpg','gif','png']"
+                     name="ilustracao" [(ngModel)]="classificados.ilustracao" >
+      </input-fileupload>
+    </form-control>
+  </div>
+
+  <form-control>
+    <label>{{'classificados.texto' | translate}}</label>
+    <input-editor required name="texto" [(ngModel)]="classificados.texto" ></input-editor>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

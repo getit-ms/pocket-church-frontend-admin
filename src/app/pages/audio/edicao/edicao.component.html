@@ -1,0 +1,47 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'audio.nome' | translate" required maxlength="150"
+                name="nome" [(ngModel)]="audio.nome" ></input-text>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'audio.autor' | translate" required maxlength="150"
+                  name="autor" [(ngModel)]="audio.autor" ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <app-input-categoria-audio [placeholder]="'audio.categoria' | translate"
+                           required name="categoria" [(ngModel)]="audio.categoria" >
+      </app-input-categoria-audio>
+    </form-control>
+  </div>
+
+  <form-control>
+    <input-textarea [placeholder]="'audio.descricao' | translate"
+                    required rows="6"
+                    name="descricao" [(ngModel)]="audio.descricao" >
+    </input-textarea>
+  </form-control>
+
+  <form-control>
+    <input-fileupload [label]="'audio.arquivo_capa' | translate"
+                      [accept]="['jpeg','jpg','gif','png']"
+                      name="capa" [(ngModel)]="audio.capa" >
+    </input-fileupload>
+  </form-control>
+
+  <form-control>
+    <input-fileupload [label]="'audio.arquivo_audio' | translate" required
+                      [accept]="'mp3'"
+                      name="audio" [(ngModel)]="audio.audio" >
+    </input-fileupload>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

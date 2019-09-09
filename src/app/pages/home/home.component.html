@@ -1,0 +1,15 @@
+<p [unsafeInnerHtml]="'home.mensagem_boas_vindas' | translate:{empresa: empresa.nome}"></p>
+<p>
+  {{'home.bom_trabalho' | translate}}
+</p>
+
+<div class="row">
+  <div class="col-12 col-md-6 widget">
+    <app-widget-usuarios></app-widget-usuarios>
+  </div>
+  <div class="col-12 col-md-6 widget">
+    <app-widget-historico-usuarios></app-widget-historico-usuarios>
+  </div>
+</div>
+
+

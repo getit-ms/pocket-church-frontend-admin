@@ -1,0 +1,61 @@
+<app-form (acao)="salvar()">
+
+  <p *ngIf="!chamado.id">{{'chamado.chamado_mensagem' | translate}}</p>
+
+  <div class="row" *ngIf="chamado.id">
+    <form-control class="col-md-4">
+      <input-text [placeholder]="'chamado.codigo' | translate" disabled
+                  name="codigoChamado" [ngModel]="chamado | codigoChamado" ></input-text>
+    </form-control>
+
+    <form-control class="col-md-4">
+      <input-text [placeholder]="'chamado.status.status' | translate" disabled
+                  name="situacao" [ngModel]="'chamado.status.' + chamado.status | translate" ></input-text>
+    </form-control>
+  </div>
+
+  <div class="row">
+    <form-control class="col-md-4">
+      <input-text [placeholder]="'chamado.solicitante' | translate" disabled
+                  name="nomeSolicitante" [ngModel]="chamado.nomeSolicitante" ></input-text>
+    </form-control>
+
+    <form-control class="col-md-4">
+      <input-text [placeholder]="'chamado.email' | translate" disabled
+                  name="emailSolicitante" [ngModel]="chamado.emailSolicitante" ></input-text>
+    </form-control>
+
+    <form-control class="col-md-4">
+      <input-text [placeholder]="'chamado.empresa' | translate" disabled
+                  name="empresa" [ngModel]="empresa.nome" ></input-text>
+    </form-control>
+  </div>
+
+  <div class="row" *ngIf="chamado.id">
+    <form-control class="col-md-4">
+      <input-data [placeholder]="'chamado.data_solicitacao' | translate" disabled
+                  name="dataSolicitacao" [ngModel]="chamado.dataSolicitacao" ></input-data>
+    </form-control>
+
+    <form-control class="col-md-4">
+      <input-data [placeholder]="'chamado.data_resposta' | translate" disabled
+                  name="dataResposta" [ngModel]="chamado.dataResposta" ></input-data>
+    </form-control>
+
+    <form-control class="col-md-4">
+      <input-text [placeholder]="'chamado.data_conclusao' | translate" disabled
+                  name="dataConclusao" [ngModel]="chamado.dataConclusao" ></input-text>
+    </form-control>
+  </div>
+
+  <form-control>
+    <input-textarea name="descricao" [(ngModel)]="chamado.descricao"
+                    required rows="15" [disabled]="chamado.id"></input-textarea>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'chamado.cadastrar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

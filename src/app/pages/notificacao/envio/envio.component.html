@@ -1,0 +1,33 @@
+<app-form (acao)="enviar()">
+  <div class="row">
+    <div class="col-md-6">
+      <form-control>
+        <input-text [placeholder]="'notificacao.titulo' | translate"
+                    name="titulo" [(ngModel)]="notificacao.titulo" maxlength="30"></input-text>
+      </form-control>
+
+      <form-control>
+        <input-textarea [placeholder]="'notificacao.mensagem' | translate" rows="8" required
+                        name="mensagem" [(ngModel)]="notificacao.mensagem" maxlength="250"></input-textarea>
+      </form-control>
+
+      <form-control>
+        <select-boolean-slider [label]="'notificacao.notificar_apenas_gerentes' | translate"
+                               name="apenasGerentes" [(ngModel)]="notificacao.apenasGerentes" ></select-boolean-slider>
+      </form-control>
+    </div>
+    <div class="col-md-6">
+      <form-control>
+        <select-option [placeholder]="'notificacao.lotacoes' | translate" multiple required
+                       name="lotacoes" [(ngModel)]="notificacao.lotacoes" trackBy="id" >
+          <opcao-item *ngFor="let lot of lotacoes"
+                      [label]="lot.nome" [valor]="lot"></opcao-item>
+        </select-option>
+      </form-control>
+    </div>
+  </div>
+
+  <div acoes>
+    <command-button type="submit" color="primary">{{'global.salvar' | translate}}</command-button>
+  </div>
+</app-form>

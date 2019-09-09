@@ -1,0 +1,33 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="classificados">
+      <app-column name="classificados">
+        <th *appColumnHeader>{{'classificados.classificados' | translate}}</th>
+        <td *appCell="let classificados" >
+          <h2>{{classificados.titulo}}</h2>
+          <p>{{classificados.autor?.nome}} | {{classificados.dataPublicacao | date: 'dd MMMM yyyy HH:mm'}}</p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let classificados" class="cmd" >
+          <command-button routerLink="./{{classificados.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{classificados.id}}/update" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(classificados)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

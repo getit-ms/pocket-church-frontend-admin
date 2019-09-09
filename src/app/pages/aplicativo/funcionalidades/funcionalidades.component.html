@@ -1,0 +1,20 @@
+<app-form (acao)="salvar()">
+  <form-control>
+    <label>{{'aplicativo.funcionalidades' | translate}}</label>
+    <div>
+      <option-checkbox select-all-option name="funcionalidades">
+        {{'global.todos' | translate}}
+      </option-checkbox>
+    </div>
+    <div *ngFor="let func of todasFuncionalidades">
+      <option-checkbox name="funcionalidades" [(ngModel)]="funcionalidades"
+                       [value]="func">
+        {{'funcionalidade.' + func | translate}}
+      </option-checkbox>
+    </div>
+  </form-control>
+
+  <div acoes>
+    <command-button type="submit" color="primary">{{'global.salvar' | translate}}</command-button>
+  </div>
+</app-form>

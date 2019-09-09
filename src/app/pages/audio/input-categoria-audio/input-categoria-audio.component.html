@@ -1,0 +1,12 @@
+<div class="outer-input">
+  <select-option name="input" [(ngModel)]="value"
+                 [disabled]="disabled" labelVazia=""
+                 [placeholder]="placeholder" trackBy="id">
+    <opcao-item *ngFor="let cat of categorias"
+                [label]="cat.nome" [valor]="cat"></opcao-item>
+  </select-option>
+  <command-button theme="icon" (click)="adicionar()"
+                  *ngIf="!disabled" [matTooltip]="'audio.cadastrar_categoria_audio' | translate">
+    <mat-icon>add</mat-icon>
+  </command-button>
+</div>

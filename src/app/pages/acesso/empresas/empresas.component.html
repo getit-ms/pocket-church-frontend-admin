@@ -1,0 +1,27 @@
+<div class="back">
+
+  <mat-card>
+    <app-form>
+      <p>Selecione uma empresa para realizar o login.</p>
+
+      <div class="row">
+        <a class="col" href="javascript:void(0)" (click)="seleciona(empresa)"
+           *ngFor="let empresa of empresas">
+          <div class="logo">
+            <img [empresa]="empresa.chave" [imagemSrc]="empresa.logoPequena" />
+
+            <h5>{{empresa.nomeAplicativo}}</h5>
+          </div>
+        </a>
+      </div>
+
+      <div acoes>
+        <command-button type="button" (click)="cancelar()"
+                        theme="default">
+          {{'global.cancelar' | translate}}
+        </command-button>
+      </div>
+    </app-form>
+  </mat-card>
+
+</div>

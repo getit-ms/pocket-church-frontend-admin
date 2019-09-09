@@ -1,0 +1,44 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'documento.titulo' | translate" required maxlength="250"
+                name="titulo" [(ngModel)]="documento.titulo" ></input-text>
+  </form-control>
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'documento.autor' | translate" required maxlength="150"
+                  name="autor" [(ngModel)]="documento.autor" ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <input-data [placeholder]="'documento.publicacao' | translate" required type="datetime"
+                  name="dataPublicacao" [(ngModel)]="documento.dataPublicacao" ></input-data>
+    </form-control>
+  </div>
+
+  <form-control>
+    <app-input-categoria-documento [placeholder]="'documento.categoria' | translate"
+                   required name="categoria" [(ngModel)]="documento.categoria" >
+    </app-input-categoria-documento>
+  </form-control>
+
+  <form-control>
+    <input-fileupload [label]="'documento.arquivo_documento' | translate"
+                      [accept]="'pdf'"
+                      name="pdf" [(ngModel)]="documento.pdf" >
+    </input-fileupload>
+  </form-control>
+
+  <form-control *ngIf="!documento.pdf">
+    <label>{{'documento.texto' | translate}}</label>
+    <input-editor required name="texto" [(ngModel)]="documento.texto" >
+    </input-editor>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

@@ -1,0 +1,11 @@
+<div #card>
+  <h2>{{'estatistica.historico_dispositivos' | translate}}</h2>
+  <mat-card>
+    <ngx-charts-line-chart [view]="dimensions" [yScaleMin]="0" [showRefLabels]="true"
+                           legendPosition="below"
+                           [legendTitle]="'estatistica.legenda' | translate"
+                           [yAxis]="true" [xAxis]="true" [legend]="true"
+                           [results]="dispositivos"></ngx-charts-line-chart>
+    <div class="clearfix"></div>
+  </mat-card>
+</div>

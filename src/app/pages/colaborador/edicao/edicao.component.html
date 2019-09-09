@@ -1,0 +1,41 @@
+<app-form (acao)="salvar()">
+
+  <div>
+    <form-control class="foto-colaborador">
+      <input-photoupload [label]="'colaborador.foto' | translate" [disabled]="true"
+                         name="foto" [(ngModel)]="colaborador.foto" ></input-photoupload>
+    </form-control>
+
+    <div class="row">
+      <div class="col">
+        <form-control>
+          <input-text [placeholder]="'colaborador.nome' | translate" [disabled]="true"
+                      name="nome" [(ngModel)]="colaborador.nome" ></input-text>
+        </form-control>
+
+        <form-control>
+          <input-text [placeholder]="'colaborador.email' | translate" [disabled]="true"
+                      name="email" [(ngModel)]="colaborador.email" ></input-text>
+        </form-control>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <select-option multiple name="perfis" required
+                     [placeholder]="'colaborador.acesso.perfis' | translate"
+                     [(ngModel)]="acesso.perfis" trackBy="id">
+        <opcao-item *ngFor="let perfil of perfis"
+                    [label]="perfil.nome" [valor]="perfil"
+        ></opcao-item>
+      </select-option>
+    </form-control>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

@@ -1,0 +1,11 @@
+<div mat-dialog-title>
+  {{'ajuda.ajuda' | translate}}
+</div>
+
+<mat-dialog-content>
+  <video controls="" preload="auto" data-setup="{}"
+         [attr.poster]="poster">
+    <source *ngFor="let source of sources"
+            [attr.src]="source.src" [attr.type]="source.type">
+  </video>
+</mat-dialog-content>

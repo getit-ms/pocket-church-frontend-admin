@@ -1,0 +1,50 @@
+<input class="file" type="file" (change)="onFileChange($event)" #input [multiple]="multiple"/>
+
+<div class="file-chooser" *ngIf="!multiple">
+  <div class="action">
+    <button mat-icon-button
+            type="button" color="warn"
+            *ngIf="value?.invalidFormat">
+      <mat-icon>warning</mat-icon>
+    </button>
+
+    <button mat-icon-button type="button" *ngIf="!value"
+            (click)="openFileChooser()">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+
+    <div class="progress-bar-area" *ngIf="value?.loading && !value.invalidFormat" >
+      <mat-progress-spinner diameter="24"
+                            [mode]="value?.progresso ? 'determinate' : 'indeterminate'"
+                            [value]="value?.progresso">
+      </mat-progress-spinner>
+
+      <span>{{ value?.progresso/100 | percent }}</span>
+    </div>
+
+    <button mat-icon-button type="button" (click)="download(value)"
+            *ngIf="value && !value.loading && !value.invalidFormat">
+      <mat-icon>cloud_download</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field >
+    <input matInput placeholder="{{label}}" [required]="required"
+           [disabled]="disabled || value?.loading" readonly [value]="value?.nome" />
+  </mat-form-field>
+
+  <div class="action">
+    <div *ngIf="!value && !disabled" class="chooser-area">
+      <button mat-stroked-button type="button"
+              (click)="openFileChooser()" >
+        <mat-icon>folder_open</mat-icon>
+        {{'file_chooser.escolher' | translate}}
+      </button>
+    </div>
+
+    <button mat-icon-button type="button"
+            *ngIf="value && !disabled" (click)="remover(value)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>

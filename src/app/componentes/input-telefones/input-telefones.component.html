@@ -1,0 +1,17 @@
+<mat-form-field>
+  <mat-chip-list #chipList>
+    <mat-chip
+            *ngFor="let tel of value"
+            [removable]="!disabled"
+            (removed)="remove(tel)">
+      {{tel | telefone}}
+      <mat-icon matChipRemove *ngIf="!disabled">cancel</mat-icon>
+    </mat-chip>
+    <input [placeholder]="label"
+           name="inputTelefone" [(ngModel)]="novoTelefone"
+           [disabled]="disabled" maxlength="15"
+           [matChipInputFor]="chipList"
+           [matChipInputAddOnBlur]="true"
+           (matChipInputTokenEnd)="add()" />
+  </mat-chip-list>
+</mat-form-field>

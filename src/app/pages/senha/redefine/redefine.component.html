@@ -1,0 +1,32 @@
+<div class="back">
+
+    <div class="view" >
+        <mat-card>
+            <img [empresa]="empresa?.chave"
+                 [imagemSrc]="empresa?.logoPequena"
+                 padrao="assets/imgs/logo_pocket_corporate.png"
+            />
+            <h2>{{empresa?.nome}} | {{'login.redefinicao_senha' | translate}}</h2>
+
+            <p *ngIf="!loader?.shown && colaborador">
+                <command-button theme="icon" color="primary" >
+                    <mat-icon>check_circle</mat-icon>
+                </command-button>
+                <span [unsafeInnerHtml]="'mensagens.MSG-040' | translate:colaborador"></span>
+            </p>
+            <p *ngIf="!loader?.shown && !colaborador">
+                <command-button theme="icon" color="warn" >
+                    <mat-icon>error</mat-icon>
+                </command-button>
+                {{'login.erro_redefinicao' | translate}}
+            </p>
+            <command-button *ngIf="!loader?.shown" theme="default" (click)="fechar()">
+                {{'login.fechar_janela' | translate}}
+            </command-button>
+
+            <loader #loader component="true" [labelLoading]="'login.processando'"></loader>
+        </mat-card>
+
+    </div>
+
+</div>

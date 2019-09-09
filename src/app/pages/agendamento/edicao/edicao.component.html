@@ -1,0 +1,53 @@
+<app-form (acao)="salvar()">
+
+    <form-control>
+        <select-option [placeholder]="'agenda.gerente' | translate"
+                       required name="gerente" labelVazia=""
+                       [disabled]="calendario.id" trackBy="id"
+                       [(ngModel)]="calendario.gerente" >
+            <opcao-item [label]="gerente.nome" [valor]="pastor"
+                        *ngFor="let gerente of gerentes"></opcao-item>
+        </select-option>
+    </form-control>
+
+    <div class="calendario" *ngIf="calendario.id">
+        <ng-container *ngIf="edicao">
+
+            <hr/>
+
+            <h2>{{'agenda.horario.adicionar' | translate}}</h2>
+
+            <app-form-horario (horarioAdicionado)="adicionarHorario($event)"></app-form-horario>
+        </ng-container>
+
+        <hr/>
+
+        <div class="navegacao">
+            <h2>{{'agenda.calendario' | translate}}</h2>
+            <command-button theme="icon" (click)="anterior()">
+                <mat-icon>chevron_left</mat-icon>
+            </command-button>
+            <command-button theme="icon" (click)="hoje()">
+                <mat-icon>calendar_today</mat-icon>
+            </command-button>
+            <command-button theme="icon" (click)="proxima()">
+                <mat-icon>chevron_right</mat-icon>
+            </command-button>
+        </div>
+
+        <calendar-scheduler-view [viewDate]="viewDate"
+                                 [events]="events"
+                                 (eventClicked)="abrir($event)"
+                                 [dayStartHour]="minHour"
+                                 [dayEndHour]="maxHour"
+        ></calendar-scheduler-view>
+
+        <loader component="true" #loader></loader>
+    </div>
+
+    <div acoesEsquerda>
+        <command-button type="submit" color="primary" *ngIf="edicao && !calendario.id" >{{'global.salvar' | translate}}</command-button>
+        <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+    </div>
+
+</app-form>

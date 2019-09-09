@@ -1,0 +1,36 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="enquetes">
+      <app-column name="enquete">
+        <th *appColumnHeader>{{'enquete.enquetes' | translate}}</th>
+        <td *appCell="let enquete" class="enquete">
+          <h2>{{enquete.descricao}}</h2>
+          <p>{{enquete.dataInicio | date:'dd/MM/yyyy'}} - {{enquete.dataTermino | date:'dd/MM/yyyy'}}</p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let enquete" class="cmd" >
+          <command-button routerLink="./{{enquete.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button (click)="exportar(enquete)" theme="icon">
+            <mat-icon>format_list_bulleted</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{enquete.id}}/update" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(enquete)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

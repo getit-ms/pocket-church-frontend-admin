@@ -1,0 +1,40 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="chamados">
+      <app-column name="chamado">
+        <th *appColumnHeader>{{'chamado.chamados' | translate}}</th>
+        <td *appCell="let chamado" class="chamado">
+          <h2>{{chamado | codigoChamado}}</h2>
+          <p>{{chamado.nomeSolicitante}} - {{chamado.emailSolicitante}}</p>
+
+          <mat-chip-list>
+            <mat-chip *ngIf="chamado.status == 'CONCLUIDO'" color="primary" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-check"></mat-icon>
+              {{'chamado.status.' + chamado.status | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="chamado.status == 'EM_ANALISE' || chamado.status == 'ACEITO' || chamado.status == 'EM_ATENDIMENTO'"
+                      color="accent" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-clock-o"></mat-icon>
+              {{'chamado.agendado' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="chamado.status == 'NOVO' || chamado.status == 'REJEITADO' || chamado.status == 'CANCELADO'" color="basic" selected>
+              {{'chamado.status.' + chamado.status | translate}}
+            </mat-chip>
+          </mat-chip-list>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let chamado" class="cmd" >
+          <command-button routerLink="./{{chamado.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
+            <mat-icon>search</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

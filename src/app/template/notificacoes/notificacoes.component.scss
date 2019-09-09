@@ -1,0 +1,21 @@
+.notificacao, .empty {
+  white-space: pre-line;
+  height: auto;
+  line-height: inherit;
+  color: #333;
+  padding: 5px 15px;
+
+  transition: 250ms;
+}
+
+.empty {
+  text-align: center;
+}
+
+.notificacao:hover {
+  background-color: #0001;
+}
+
+.notificacao:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}

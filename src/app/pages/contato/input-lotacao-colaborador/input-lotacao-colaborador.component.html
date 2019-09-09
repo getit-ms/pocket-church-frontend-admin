@@ -1,0 +1,12 @@
+<div class="outer-input">
+  <select-option name="input" [(ngModel)]="value"
+                 [disabled]="disabled" labelVazia=""
+                 [placeholder]="placeholder" trackBy="id">
+    <opcao-item *ngFor="let lot of lotacoes"
+                [label]="lot.nome" [valor]="lot"></opcao-item>
+  </select-option>
+  <command-button theme="icon" (click)="adicionar()"
+                  *ngIf="!disabled" [matTooltip]="'contato.cadastrar_lotacao_colaborador' | translate">
+    <mat-icon>add</mat-icon>
+  </command-button>
+</div>

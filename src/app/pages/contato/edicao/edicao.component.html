@@ -1,0 +1,97 @@
+<app-form (acao)="salvar()">
+
+  <div>
+    <form-control class="foto-colaborador">
+      <input-photoupload [label]="'colaborador.foto' | translate"
+                         name="foto" [(ngModel)]="colaborador.foto" ></input-photoupload>
+    </form-control>
+
+    <div class="row">
+      <div class="col">
+        <form-control>
+          <input-text [placeholder]="'colaborador.nome' | translate" required maxlength="150"
+                      name="nome" [(ngModel)]="colaborador.nome" ></input-text>
+        </form-control>
+
+        <form-control>
+          <input-text [placeholder]="'colaborador.email' | translate" email maxlength="150"
+                      name="email" [(ngModel)]="colaborador.email" ></input-text>
+        </form-control>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <input-data [placeholder]="'colaborador.nascimento' | translate"
+                  name="dataNascimento" [(ngModel)]="colaborador.dataNascimento" ></input-data>
+    </form-control>
+
+    <form-control class="col">
+      <app-input-lotacao-colaborador [placeholder]="'colaborador.lotacao' | translate"
+                  name="lotacao" [(ngModel)]="colaborador.lotacao" ></app-input-lotacao-colaborador>
+    </form-control>
+
+    <div class="col">
+      <form-control>
+        <select-boolean-slider [label]="'colaborador.gerente' | translate" *ngIf="!colaborador.visitante"
+                               name="gerente" [(ngModel)]="colaborador.gerente" ></select-boolean-slider>
+      </form-control>
+
+      <form-control>
+        <select-boolean-slider [label]="'colaborador.visitante' | translate" *ngIf="!colaborador.gerente"
+                               name="visitante" [(ngModel)]="colaborador.visitante" ></select-boolean-slider>
+      </form-control>
+
+      <form-control>
+        <select-boolean-slider [label]="'colaborador.dados_disponiveis' | translate"
+                               [disabled]="!colaborador.id || !colaborador.desejaDisponibilizarDados || !edicao"
+                               name="dadosDisponiveis" [(ngModel)]="colaborador.dadosDisponiveis" ></select-boolean-slider>
+      </form-control>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <input-text [placeholder]="'endereco.descricao' | translate"
+                  name="descricao" [(ngModel)]="colaborador.endereco.descricao"
+      ></input-text>
+    </form-control>
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <input-cep [placeholder]="'endereco.cep' | translate"
+                 name="cep" [(ngModel)]="colaborador.endereco.cep"
+      ></input-cep>
+    </form-control>
+
+    <form-control class="col">
+      <input-text [placeholder]="'endereco.cidade' | translate"
+                  name="cidade" [(ngModel)]="colaborador.endereco.cidade"
+      ></input-text>
+    </form-control>
+
+    <form-control class="col">
+      <select-option [placeholder]="'endereco.uf' | translate"
+                     name="uf" [(ngModel)]="colaborador.endereco.estado" labelVazia="">
+        <opcao-item [label]="uf" [valor]="uf"
+                    *ngFor="let uf of ufs" ></opcao-item>
+      </select-option>
+    </form-control>
+  </div>
+
+  <div class="row">
+    <form-control class="col">
+      <app-input-telefones name="telefones" [label]="'colaborador.telefones' | translate"
+                           [(ngModel)]="colaborador.telefones"></app-input-telefones>
+    </form-control>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

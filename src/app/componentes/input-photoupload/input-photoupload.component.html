@@ -1,0 +1,24 @@
+<section>
+  <div class="text-center">
+    <img [imagemSrc]="value" [padrao]="padrao" />
+  </div>
+  <div class="botoes-foto" *ngIf="!disabled"
+       [ngClass]="{'cadastro': !value, 'edicao': value}">
+    <button mat-icon-button [disabled]="!!progress"
+            (click)="fileUploader.click()" type="button">
+      <mat-icon>photo_camera</mat-icon>
+    </button>
+    <button mat-icon-button [disabled]="!!progress"
+            (click)="remover()" *ngIf="value" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-progress-spinner *ngIf="progress || loading"
+    [style.opacity]="progress ? 1 : 0"
+    diameter="160" [value]="progress"></mat-progress-spinner>
+
+  <input id="file-upload" type="file" placeholder="Alterar imagem de perfil"
+         #fileUploader name="foto" ngModel (change)="onFileChange($event)"/>
+</section>
+

@@ -1,0 +1,21 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-text [placeholder]="'perfil.nome' | translate" required maxlength="150"
+                name="nome" [(ngModel)]="perfil.nome" ></input-text>
+  </form-control>
+
+  <form-control>
+    <select-option multiple [placeholder]="'perfil.funcionalidades' | translate" required
+                     name="funcionalidades" [(ngModel)]="perfil.funcionalidades" >
+      <opcao-item *ngFor="let func of funcionalidades"
+                  [label]="'funcionalidade.' + func | translate" [valor]="func"></opcao-item>
+    </select-option>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

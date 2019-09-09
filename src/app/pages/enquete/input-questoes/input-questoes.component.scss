@@ -1,0 +1,15 @@
+.questao {
+  display: flex;
+
+  .input {
+    flex: 1 1 auto;
+  }
+}
+
+.label {
+  display: flex;
+
+  h2 {
+    flex: 1 1 auto;
+  }
+}

@@ -1,0 +1,57 @@
+<app-form>
+  <div class="row">
+    <form-control class="col-sm-6">
+      <input-data name="dataInicio" [(ngModel)]="filtro.dataInicio"
+                  [placeholder]="'contato_colaborador.data_inicio' | translate"
+                  (change)="busca()"></input-data>
+    </form-control>
+
+    <form-control class="col-sm-6">
+      <input-data name="dataTermino" [(ngModel)]="filtro.dataTermino"
+                  [placeholder]="'contato_colaborador.data_termino' | translate"
+                  (change)="busca()"></input-data>
+    </form-control>
+  </div>
+
+  <form-control>
+    <select-option multiple name="status" [(ngModel)]="filtro.status"
+                   [placeholder]="'contato_colaborador.status.status' | translate"
+                   (change)="busca()" >
+      <opcao-item [label]="'contato_colaborador.status.PENDENTE' | translate" valor="PENDENTE"></opcao-item>
+      <opcao-item [label]="'contato_colaborador.status.ATENDIDO' | translate" valor="ATENDIDO"></opcao-item>
+    </select-option>
+  </form-control>
+
+  <hr/>
+
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="contatos">
+      <app-column name="contato">
+        <th *appColumnHeader>{{'contato_colaborador.contatos_colaborador' | translate}}</th>
+        <td *appCell="let contato" >
+          <h3>{{contato.mensagem}}</h3>
+          <p>
+            <a href="mailto:{{contato.email}}">{{contato.nome}}</a><br/>
+            {{'contato_colaborador.data_solicitacao' | translate}}: {{contato.dataSolicitacao | date: 'dd MMM yyyy HH:mm'}}<br/>
+            <ng-container *ngIf="contato.atendido">{{'contato_colaborador.data_atendimento' | translate}}: {{contato.dataAtendimento | date: 'dd MMM yyyy HH:mm'}}</ng-container>
+          </p>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let contato" class="cmd" >
+          <command-button *ngIf="contato.pendente"
+                          (click)="atende(contato)" theme="icon">
+            <mat-icon>check_box_outline_blank</mat-icon>
+          </command-button>
+          <command-button *ngIf="contato.atendido" disabled theme="icon">
+            <mat-icon>check_box</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>

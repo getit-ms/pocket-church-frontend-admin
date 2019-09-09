@@ -1,0 +1,49 @@
+<app-form>
+  <form-control>
+    <input-text aria-placeholder="'mensagem_dia.mensagem' | translate"
+                name="filtro" [(ngModel)]="filtro.filtro"
+                (change)="busca()"></input-text>
+  </form-control>
+
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="mensagens">
+      <app-column name="mensagem">
+        <th *appColumnHeader>{{'mensagem_dia.mensagens_dia' | translate}}</th>
+        <td *appCell="let mensagem" class="mensagem">
+          <h2>{{mensagem.mensagem}}</h2>
+
+
+          <mat-chip-list>
+            <mat-chip *ngIf="mensagem.status === 'HABILITADO'" color="primary" selected>
+              {{'mensagem_dia.status.HABILITADO' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="mensagem.status === 'DESABILITADO'" color="basic" selected>
+              {{'mensagem_dia.status.DESABILITADO' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="mensagem.status === 'ATIVO'" color="accent" selected>
+              {{'mensagem_dia.status.ATIVO' | translate}}
+            </mat-chip>
+          </mat-chip-list>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let mensagem" class="cmd" >
+          <command-button (click)="habilita(mensagem)" *ngIf="mensagem.status === 'DESABILITADO'" theme="icon">
+            <mat-icon>play</mat-icon>
+          </command-button>
+          <command-button (click)="desabilita(mensagem)" *ngIf="mensagem.status === 'HABILITADO'" theme="icon">
+            <mat-icon>pause</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(mensagem)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+</app-form>
