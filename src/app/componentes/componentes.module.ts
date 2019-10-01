@@ -17,6 +17,7 @@ import {InputPhotouploadComponent} from './input-photoupload/input-photoupload.c
 import {TranslateModule} from '@ngx-translate/core';
 import {FileUploadValidatorDirective} from "./input-fileupload/input-fileupload-validator.directive";
 import {InputTelefonesValidatorDirective} from "./input-telefones/input-telefones-validator.directive";
+import {SafeUrlPipe} from "./safe/safe-url.pipe";
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import {InputTelefonesValidatorDirective} from "./input-telefones/input-telefone
         InputFileUploadComponent,
         InputPhotouploadComponent,
         FileUploadValidatorDirective,
-        InputTelefonesValidatorDirective
+        InputTelefonesValidatorDirective,
+        SafeUrlPipe,
     ],
     imports: [
         CommonModule,
@@ -47,7 +49,8 @@ import {InputTelefonesValidatorDirective} from "./input-telefones/input-telefone
         InputFileUploadComponent,
         InputPhotouploadComponent,
         FileUploadValidatorDirective,
-        InputTelefonesValidatorDirective
+        InputTelefonesValidatorDirective,
+        SafeUrlPipe,
     ]
 })
 export class ComponentesModule {

@@ -12,7 +12,7 @@
                 <br/>
 
                 <a mat-button color="primary"
-                   href="itms-services://?action=download-manifest&url=https://pcorporate.getitmobilesolutions.com/app/ipa/{{empresa?.chave}}/manifest.plist">{{'login.instalar_aplicativo'
+                   [attr.href]="'itms-services://?action=download-manifest&url=https://pcorporate.getitmobilesolutions.com/app/ipa/' + empresa?.chave + '/manifest.plist' | safeUrl">{{'login.instalar_aplicativo'
                     | translate}}</a>
             </div>
 
