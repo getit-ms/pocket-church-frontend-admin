@@ -191,6 +191,10 @@ const routes: Routes = [
         loadChildren: './pages/senha/senha.module#SenhaModule'
     },
     {
+        path: 'instalar-aplicativo',
+        loadChildren: './pages/instalar-aplicativo/instalar-aplicativo.module#InstalarAplicativoModule'
+    },
+    {
         path: 'redirect',
         component: RedirectComponent
     }
@@ -209,7 +213,7 @@ const routes: Routes = [
         ModalAjudaComponent,
         NotificacoesComponent,
         AjudaComponent,
-        RedirectComponent
+        RedirectComponent,
     ],
     entryComponents: [ModalAjudaComponent],
     imports: [

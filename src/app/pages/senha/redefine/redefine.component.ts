@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {animate, animateChild, group, query, style, transition, trigger} from '@angular/animations';
-import {ActivatedRoute, RouterOutlet} from '@angular/router';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {AcessoService} from "../../../api/service/acesso.service";
 import {ResumoEmpresa} from "../../../api/model/resumo-empresa";
 import {EmpresaService} from "../../../api/service/empresa.service";

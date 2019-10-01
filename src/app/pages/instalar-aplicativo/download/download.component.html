@@ -1,0 +1,23 @@
+<div class="back">
+
+    <div class="view">
+        <mat-card>
+
+            <img [empresa]="empresa?.chave"
+                 [imagemSrc]="empresa?.logoPequena"
+                 padrao="assets/imgs/logo_pocket_corporate.png"
+            />
+            <div class="text-center" style="padding-top:40px">
+                <span [innerHtml]="'mensagens.MSG-054' | translate"></span>
+                <br/>
+
+                <a mat-button color="primary"
+                   href="itms-services://?action=download-manifest&url=https://pcorporate.getitmobilesolutions.com/app/ipa/{{empresa?.chave}}/manifest.plist">{{'login.instalar_aplicativo'
+                    | translate}}</a>
+            </div>
+
+        </mat-card>
+
+    </div>
+
+</div>
