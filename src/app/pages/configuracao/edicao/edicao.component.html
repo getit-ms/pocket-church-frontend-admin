@@ -101,6 +101,21 @@
 
     <div class="col-md-6">
       <form-control>
+        <input-text [placeholder]="'configuracao.titulo_devocionario' | translate"
+                    name="tituloDevocionario" [(ngModel)]="configuracao.tituloDevocionario"
+                    maxlength="30" ></input-text>
+      </form-control>
+
+      <form-control>
+        <input-textarea [placeholder]="'configuracao.texto_devocionario' | translate"
+                        name="textoDevocionario" [(ngModel)]="configuracao.textoDevocionario"
+                        maxlength="250" rows="8" ></input-textarea>
+      </form-control>
+    </div>
+
+
+    <div class="col-md-6">
+      <form-control>
         <input-text [placeholder]="'configuracao.titulo_versiculo_diario' | translate"
                     name="tituloVersiculoDiario" [(ngModel)]="configuracao.tituloVersiculoDiario"
                     maxlength="30" ></input-text>

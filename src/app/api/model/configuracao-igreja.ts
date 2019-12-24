@@ -16,5 +16,7 @@ export interface ConfiguracaoIgreja {
     textoEstudo?: string;
     tituloNoticia?: string;
     textoNoticia?: string;
+    tituloDevocionario?: string;
+    textoDevocionario?: string;
 
 }

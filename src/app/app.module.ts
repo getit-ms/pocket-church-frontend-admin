@@ -198,6 +198,10 @@ const routes: Routes = [
                         path: 'chamado',
                         loadChildren: './pages/chamado/chamado.module#ChamadoModule'
                     },
+                    {
+                        path: 'devocionario',
+                        loadChildren: './pages/devocionario/devocionario.module#DevocionarioModule'
+                    },
                 ]
             },
         ]

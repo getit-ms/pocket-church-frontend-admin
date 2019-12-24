@@ -1,0 +1,64 @@
+<app-form (acao)="salvar()">
+    <div class="header">
+        <command-button theme="icon" (click)="anterior()"
+                        [matTooltip]="'devocionario.mes_anterior' | translate">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </command-button>
+
+        <h2>
+            {{dataInicio | date:'MMMM yyyy'}}
+        </h2>
+
+        <command-button theme="icon" (click)="proximo()"
+                        [matTooltip]="'devocionario.proximo_mes' | translate">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </command-button>
+    </div>
+
+    <app-table [resultados]="dias">
+        <app-column name="dia">
+            <th *appColumnHeader>{{'devocionario.dia' | translate}}</th>
+            <td *appCell="let dia">
+                {{dia.data | date:'dd'}}
+            </td>
+        </app-column>
+
+        <app-column name="arquivo">
+            <th *appColumnHeader>{{'devocionario.arquivo' | translate}}</th>
+            <td *appCell="let dia;let idx = index">
+                <form-control>
+                    <input-fileupload name="arquivo{{idx}}"
+                                      #model="ngModel"
+                                      (change)="arquivoAtualizado(dia)"
+                                      [accept]="['pdf']"
+                                      [(ngModel)]="dia.arquivo"
+                    ></input-fileupload>
+                </form-control>
+            </td>
+        </app-column>
+
+        <app-column name="status">
+            <th *appColumnHeader class="status">{{'devocionario.status' | translate}}</th>
+            <td *appCell="let dia" class="status">
+                <mat-chip-list *ngIf="dia.arquivo">
+                    <mat-chip *ngIf="dia.publicado" color="primary" selected>
+                        <mat-icon fontSet="fa" fontIcon="fa-check"></mat-icon>
+                        {{'devocionario.publicado' | translate}}
+                    </mat-chip>
+                    <mat-chip *ngIf="dia.processando" color="basic" selected>
+                        <mat-icon fontSet="fa" fontIcon="fa-refresh"></mat-icon>
+                        {{'devocionario.processando' | translate}}
+                    </mat-chip>
+                    <mat-chip *ngIf="dia.rejeitado" color="warn" selected>
+                        <mat-icon fontSet="fa" fontIcon="fa-exclamation-triangle"></mat-icon>
+                        {{'devocionario.rejeitado' | translate}}
+                    </mat-chip>
+                </mat-chip-list>
+            </td>
+        </app-column>
+    </app-table>
+
+    <div acoesEsquerda>
+        <command-button type="submit" color="primary"  >{{'global.salvar' | translate}}</command-button>
+    </div>
+</app-form>
