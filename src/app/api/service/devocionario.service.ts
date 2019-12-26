@@ -12,8 +12,12 @@ export class DevocionarioService extends AbstractApiService {
   consulta(dataInicio?: Date, dataTermino?: Date, pagina?: number, total?: number): Observable<BuscaPaginada<DiaDevocionario>> {
     return this.doGet('/devocionario', {
       params: {
-        dataInicio: dataInicio ? [<string>moment(dataInicio).format("YYYY-MM-DDTHH:mm:ss.SSSZZ")] : [],
-        dataTermino: dataTermino ? [<string>moment(dataTermino).format("YYYY-MM-DDTHH:mm:ss.SSSZZ")] : [],
+        dataInicio: dataInicio ? [<string>moment(
+            new Date(dataInicio.getFullYear(), dataInicio.getMonth(), dataInicio.getDate(), 0, 0, 0)
+        ).format("YYYY-MM-DDTHH:mm:ss.SSSZZ")] : [],
+        dataTermino: dataTermino ? [<string>moment(
+            new Date(dataTermino.getFullYear(), dataTermino.getMonth(), dataTermino.getDate(), 23, 59, 59)
+        ).format("YYYY-MM-DDTHH:mm:ss.SSSZZ")] : [],
         pagina: pagina ? [`${pagina}`] : [],
         total: total ? [`${total}`] : []
       }
