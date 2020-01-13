@@ -32,6 +32,10 @@ import {ComponentesModule} from '../../componentes/componentes.module';
                         {
                             label: `colaborador.tabs.list`,
                             state: './'
+                        },
+                        {
+                            label: `colaborador.tabs.acesso_recente`,
+                            state: './acesso-recente'
                         }
                     ]
                 },
@@ -40,9 +44,22 @@ import {ComponentesModule} from '../../componentes/componentes.module';
                         path: '',
                         component: ConsultaComponent,
                         data: {
+                            acessoRecente: false,
                             tabs: [
                                 {
                                     label: `colaborador.tabs.list`
+                                },
+                            ]
+                        }
+                    },
+                    {
+                        path: 'acesso-recente',
+                        component: ConsultaComponent,
+                        data: {
+                            acessoRecente: true,
+                            tabs: [
+                                {
+                                    label: `colaborador.tabs.acesso_recente`
                                 },
                             ]
                         }

@@ -27,13 +27,14 @@ export class ColaboradorService extends AbstractApiService {
         super(pathBase, httpClient);
     }
 
-    consulta(nome?: string, email?: string, perfil?: Array<number>,
+    consulta(nome?: string, email?: string, perfil?: Array<number>, acessoRecente?: boolean,
              pagina?: number, total?: number, pendentes?: boolean): Observable<BuscaPaginada<Colaborador>> {
         return this.doGet('/colaborador', {
             params: {
                 nome: nome ? [nome] : [],
                 email: email ? [email] : [],
                 perfil: perfil ? <string[]> perfil.map(p => `${p}`) : [],
+                acessoRecente: acessoRecente ? [String(acessoRecente)] : [],
                 pagina: pagina ? [`${pagina}`] : [],
                 total: total ? [`${total}`] : [],
                 pendentes: pendentes ? [`${pendentes}`] : []
@@ -101,12 +102,12 @@ export class ColaboradorService extends AbstractApiService {
         return this.doPost(`/colaborador/lotacao`, categoria);
     }
 
-    exportar() {
+    exportar(acessoRecente?: boolean) {
         const dispositivo = this.dispositivoService.uuid;
         const empresa = this.empresasUsuarioService.atual.empresa.chave;
         const token = this.tokenService.token;
 
-        const dialog = window.open(`${this.pathBase}/colaborador/exportar.xls?Dispositivo=${dispositivo}&Empresa=${empresa}&Authorization=${token}`);
+        const dialog = window.open(`${this.pathBase}/colaborador/exportar.xls?acessoRecente=${!!acessoRecente}&Dispositivo=${dispositivo}&Empresa=${empresa}&Authorization=${token}`);
 
         dialog.onload = () => dialog.close();
     }

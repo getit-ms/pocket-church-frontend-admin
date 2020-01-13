@@ -49,6 +49,7 @@ export class ConsultaComponent implements AfterViewInit {
       this.filtro.nome,
       this.filtro.email,
       undefined,
+      undefined,
       event.pagina,
       this.filtro.tamanhoPagina,
       this.filtro.pendentes

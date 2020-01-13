@@ -92,4 +92,11 @@
 
     <loader [component]="true" ></loader>
   </div>
+
+  <div acoesEsquerda *ngIf="filtro.acessoRecente">
+    <command-button (click)="exportar()" theme="stroked" >
+      <mat-icon fontSet="fa" fontIcon="fa-file-excel-o"></mat-icon>
+      {{'contato.exportar_contatos' | translate}}
+    </command-button>
+  </div>
 </app-form>

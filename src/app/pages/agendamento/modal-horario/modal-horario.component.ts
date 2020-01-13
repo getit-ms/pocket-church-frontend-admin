@@ -41,7 +41,7 @@ export class ModalHorarioComponent implements OnInit {
     }
 
     async buscaColaborador(filtro) {
-        let colaboradores = await this.colaboradorService.consulta(filtro, undefined, undefined, 1, 50).toPromise();
+        let colaboradores = await this.colaboradorService.consulta(filtro, undefined, undefined, undefined, 1, 50).toPromise();
 
         this.colaboradores = colaboradores.resultados;
     }
