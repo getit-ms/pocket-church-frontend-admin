@@ -62,7 +62,7 @@ export class DiasComponent implements OnInit {
                     this.dataInicio,
                     this.dataTermino,
                     1,
-                    31
+                    32
                 ).pipe(take(1)).toPromise();
 
                 if (resultado.resultados) {

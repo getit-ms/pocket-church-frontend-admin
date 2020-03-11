@@ -37,6 +37,17 @@
             </td>
         </app-column>
 
+        <app-column name="agendado">
+            <th *appColumnHeader class="agendado">{{'devocionario.agendado' | translate}}</th>
+            <td *appCell="let dia;let idx = index" class="agendado">
+                <form-control *ngIf="dia.arquivo">
+                    <select-boolean-slider name="agendado{{idx}}"
+                                           [(ngModel)]="dia.agendado"
+                    ></select-boolean-slider>
+                </form-control>
+            </td>
+        </app-column>
+
         <app-column name="status">
             <th *appColumnHeader class="status">{{'devocionario.status' | translate}}</th>
             <td *appCell="let dia" class="status">
@@ -59,6 +70,6 @@
     </app-table>
 
     <div acoesEsquerda>
-        <command-button type="submit" color="primary"  >{{'global.salvar' | translate}}</command-button>
+        <command-button type="submit" color="primary">{{'global.salvar' | translate}}</command-button>
     </div>
 </app-form>
