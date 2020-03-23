@@ -60,7 +60,7 @@
     <div class="col">
 
       <div *ngFor="let rede of redesSociais">
-        <i class="rs fa fa-{{rede}} fa-pull-left"></i>
+        <i class="rs fa fa-{{rede === 'youtube' ? 'youtube-play' : rede}} fa-pull-left"></i>
         <div class="row">
           <form-control class="col">
             <input-text [placeholder]="'institucional.' + rede | translate"
