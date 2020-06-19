@@ -1,0 +1,126 @@
+<p>{{'campo_evento.explicacao' | translate}}</p>
+
+<div class="row">
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.nome'| translate"
+                    [ngModel]="'Nome'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.tipo'| translate"
+                    [ngModel]="'Texto'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.formato'| translate"
+                    [ngModel]="'Nenhum'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.validacao.validacoes'| translate"
+                    [ngModel]="'Obrigatório; Máximo de caracteres: 150'" disabled></input-text>
+    </form-control>
+</div>
+
+<div class="row">
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.nome'| translate"
+                    [ngModel]="'E-mail'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.tipo'| translate"
+                    [ngModel]="'Texto'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.formato'| translate"
+                    [ngModel]="'Nenhum'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.validacao.validacoes'| translate"
+                    [ngModel]="'Obrigatório; E-mail; Máximo de caracteres: 150'" disabled></input-text>
+    </form-control>
+</div>
+
+<div class="row">
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.nome'| translate"
+                    [ngModel]="'Telefone'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.tipo'| translate"
+                    [ngModel]="'Texto'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.formato'| translate"
+                    [ngModel]="'Telefone'" disabled></input-text>
+    </form-control>
+    <form-control class="col-md-3">
+        <input-text [placeholder]="'campo_evento.validacao.validacoes'| translate"
+                    [ngModel]="'Obrigatório'" disabled></input-text>
+    </form-control>
+</div>
+
+<div class="row" *ngFor="let campo of campos; let idx = index">
+    <form-control class="col-md-3 nome">
+        <input-text [placeholder]="'campo_evento.nome'| translate"
+                    (change)="notifyChanges()"
+                    [disabled]="disabled" required maxlength="150"
+                    name="nome{{idx}}" [(ngModel)]="campo.nome"></input-text>
+
+        <button mat-icon-button *ngIf="!disabled" type="button"
+                [matTooltip]="'global.excluir' | translate"
+                (click)="remover(campo)">
+            <mat-icon>close</mat-icon>
+        </button>
+    </form-control>
+    <form-control class="col-md-3">
+        <select-option [placeholder]="'campo_evento.tipo.tipo'| translate"
+                       [disabled]="disabled" required
+                       (change)="notifyChanges()"
+                       name="tipo{{idx}}" [(ngModel)]="campo.tipo">
+            <opcao-item [label]="'campo_evento.tipo.texto' | translate" valor="TEXTO"></opcao-item>
+            <opcao-item [label]="'campo_evento.tipo.data' | translate" valor="DATA"></opcao-item>
+            <opcao-item [label]="'campo_evento.tipo.numero' | translate" valor="NUMERO"></opcao-item>
+            <opcao-item [label]="'campo_evento.tipo.multipla_escolha' | translate"
+                        valor="MULTIPLA_ESCOLHA"></opcao-item>
+            <opcao-item [label]="'campo_evento.tipo.anexo' | translate" valor="ANEXO"></opcao-item>
+        </select-option>
+    </form-control>
+    <form-control class="col-md-3"
+                  *ngIf="campo.tipo === 'TEXTO' || campo.tipo === 'NUMERO' || campo.tipo === 'ANEXO'">
+        <select-option [placeholder]="'campo_evento.formato.formato'| translate"
+                       [disabled]="disabled" required
+                       (change)="notifyChanges()"
+                       name="formato{{idx}}" [(ngModel)]="campo.formato">
+            <opcao-item [label]="'campo_evento.formato.nenhum' | translate" valor="NENHUM"></opcao-item>
+            <opcao-item [label]="'campo_evento.formato.cep' | translate" valor="CEP"
+                        *ngIf="campo.tipo === 'TEXTO'"></opcao-item>
+            <opcao-item [label]="'campo_evento.formato.cpf_cnpj' | translate" valor="CPF_CNPJ"
+                        *ngIf="campo.tipo === 'TEXTO'"></opcao-item>
+            <opcao-item [label]="'campo_evento.formato.telefone' | translate" valor="TELEFONE"
+                        *ngIf="campo.tipo === 'TEXTO'"></opcao-item>
+            <opcao-item [label]="'campo_evento.formato.numero_inteiro' | translate" valor="NUMERO_INTEIRO"
+                        *ngIf="campo.tipo === 'NUMERO'"></opcao-item>
+            <opcao-item [label]="'campo_evento.formato.numero_real' | translate" valor="REAL"
+                        *ngIf="campo.tipo === 'NUMERO'"></opcao-item>
+            <opcao-item [label]="'campo_evento.formato.monetario' | translate" valor="MONETARIO"
+                        *ngIf="campo.tipo === 'NUMERO'"></opcao-item>
+            <opcao-item [label]="'campo_evento.formato.imagem' | translate" valor="IMAGEM"
+                        *ngIf="campo.tipo === 'ANEXO'"></opcao-item>
+        </select-option>
+    </form-control>
+    <form-control class="col-md-3" *ngIf="campo.tipo === 'MULTIPLA_ESCOLHA'">
+        <app-input-opcoes [label]="'campo_evento.opcoes'| translate" required
+                          (change)="notifyChanges()"
+                          name="opcoes" [(ngModel)]="campo.opcoes"></app-input-opcoes>
+    </form-control>
+    <form-control class="col-md-3">
+        <app-input-validacoes [placeholder]="'campo_evento.validacao.validacoes'| translate"
+                              [tipo]="campo.tipo" [formato]="campo.formato"
+                              (change)="notifyChanges()"
+                              name="validacao" [(ngModel)]="campo.validacao"></app-input-validacoes>
+    </form-control>
+</div>
+
+<button mat-stroked-button (click)="adicionar()"
+        type="button" *ngIf="!disabled">
+    <mat-icon>add</mat-icon>
+    {{'campo_evento.adicionar_campo'| translate}}
+</button>

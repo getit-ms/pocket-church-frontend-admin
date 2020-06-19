@@ -42,6 +42,18 @@
     </div>
   </ng-container>
 
+  <div class="text-right">
+    <a href="https://www.youtube.com/static?template=terms" target="_blank">
+      {{'youtube.terms' | translate}}
+    </a>
+
+    |
+
+    <a href="https://myaccount.google.com/accountlinking" target="_blank">
+      {{'youtube.google_security_settings_page' | translate}}
+    </a>
+  </div>
+
   <div acoesEsquerda>
     <command-button type="submit" *ngIf="configuracao?.configurado" color="primary">
       {{'global.salvar' | translate}}

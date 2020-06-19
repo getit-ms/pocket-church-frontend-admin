@@ -1,31 +1,31 @@
 <div class="outer-form">
   <app-form (acao)="adicionar()">
-    <h3>{{'evento.inscricao.nova_inscricao' | translate}}</h3>
+    <h3>{{'culto.inscricao.nova_inscricao' | translate}}</h3>
 
     <div class="row">
       <form-control class="col-md-4">
-        <input-text [placeholder]="'evento.inscricao.nome_inscrito'| translate"
+        <input-text [placeholder]="'culto.inscricao.nome_inscrito'| translate"
                     required maxlength="250"
                     name="nomeInscrito" [(ngModel)]="inscricao.nomeInscrito"
         ></input-text>
       </form-control>
 
       <form-control class="col-md-4">
-        <input-text [placeholder]="'evento.inscricao.email_inscrito'| translate"
+        <input-text [placeholder]="'culto.inscricao.email_inscrito'| translate"
                     required maxlength="250" email
                     name="emailInscrito" [(ngModel)]="inscricao.emailInscrito"
         ></input-text>
       </form-control>
 
       <form-control class="col-md-4">
-        <input-telefone [placeholder]="'evento.inscricao.telefone_inscrito'| translate" required
+        <input-telefone [placeholder]="'culto.inscricao.telefone_inscrito'| translate" required
                         name="telefoneInscrito" [(ngModel)]="inscricao.telefoneInscrito"
         ></input-telefone>
       </form-control>
     </div>
 
-    <div class="row" *ngIf="evento?.campos?.length">
-      <form-control class="col-md-4" *ngFor="let campo of evento.campos">
+    <div class="row" *ngIf="culto?.campos?.length">
+      <form-control class="col-md-4" *ngFor="let campo of culto.campos">
         <app-input-campo-evento name="{{campo.id}}" [campo]="campo"
                                 [(ngModel)]="inscricao.valores[campo.nome]"
         ></app-input-campo-evento>

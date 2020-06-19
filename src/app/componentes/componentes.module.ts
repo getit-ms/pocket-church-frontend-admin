@@ -17,6 +17,15 @@ import {InputPhotouploadComponent} from './input-photoupload/input-photoupload.c
 import {TranslateModule} from '@ngx-translate/core';
 import {FileUploadValidatorDirective} from "./input-fileupload/input-fileupload-validator.directive";
 import {InputTelefonesValidatorDirective} from "./input-telefones/input-telefones-validator.directive";
+import { InputCamposEventoComponent } from './input-campos-evento/input-campos-evento.component';
+import {InputOpcoesComponent} from "./input-opcoes/input-opcoes.component";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { InputValidacoesComponent } from './input-validacoes/input-validacoes.component';
+import { ModalEdicaoValidacoesComponent } from './input-validacoes/modal-edicao-validacoes/modal-edicao-validacoes.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { InputCamposEventoValidatorDirective } from './input-campos-evento/input-campos-evento-validator.directive';
+import { InputCampoEventoComponent } from './input-campo-evento/input-campo-evento.component';
+import { OutputValoresInscricaoComponent } from './output-valores-inscricao/output-valores-inscricao.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +34,14 @@ import {InputTelefonesValidatorDirective} from "./input-telefones/input-telefone
         InputFileUploadComponent,
         InputPhotouploadComponent,
         FileUploadValidatorDirective,
-        InputTelefonesValidatorDirective
+        InputTelefonesValidatorDirective,
+        InputCamposEventoComponent,
+        InputOpcoesComponent,
+        InputValidacoesComponent,
+        ModalEdicaoValidacoesComponent,
+        InputCamposEventoValidatorDirective,
+        InputCampoEventoComponent,
+        OutputValoresInscricaoComponent
     ],
     imports: [
         CommonModule,
@@ -39,7 +55,9 @@ import {InputTelefonesValidatorDirective} from "./input-telefones/input-telefone
         MatProgressBarModule,
         MatProgressSpinnerModule,
         InfraDataModule,
-        InfraFormularioModule
+        InfraFormularioModule,
+        MatTooltipModule,
+        MatDialogModule
     ],
     exports: [
         ImagemComponent,
@@ -47,7 +65,14 @@ import {InputTelefonesValidatorDirective} from "./input-telefones/input-telefone
         InputFileUploadComponent,
         InputPhotouploadComponent,
         FileUploadValidatorDirective,
-        InputTelefonesValidatorDirective
+        InputTelefonesValidatorDirective,
+        InputCamposEventoComponent,
+        InputCamposEventoValidatorDirective,
+        InputCampoEventoComponent,
+        OutputValoresInscricaoComponent
+    ],
+    entryComponents: [
+        ModalEdicaoValidacoesComponent
     ]
 })
 export class ComponentesModule {

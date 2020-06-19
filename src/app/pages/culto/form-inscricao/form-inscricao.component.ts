@@ -17,7 +17,7 @@ export class FormInscricaoComponent implements OnInit {
     @ViewChild(FormComponent) form: FormComponent;
     @ViewChild('loader') loader: LoaderComponent;
 
-    @Input() ebd: Evento;
+    @Input() culto: Evento;
     @Output() inscritoAdicionado = new EventEmitter<InscricaoEvento>();
 
     constructor(
@@ -29,7 +29,7 @@ export class FormInscricaoComponent implements OnInit {
 
     async adicionar() {
       let inscricao = await this.loader.listen(this.eventoService.realizarInscricao(
-          this.ebd.id,
+          this.culto.id,
           [this.inscricao]
       )).toPromise();
 

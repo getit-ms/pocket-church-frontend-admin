@@ -35,6 +35,7 @@ export class PocketChurchMenuProviderService implements MenuProvider {
     'MANTER_AGENDA',
     'MANTER_EVENTOS',
     'MANTER_EBD',
+    'MANTER_INSCRICAO_CULTO',
     'CONFIGURAR_FLICKR',
     'CONFIGURAR_VIDEOS_FACEBOOK',
     'CONFIGURAR_YOUTUBE',

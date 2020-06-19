@@ -12,7 +12,7 @@ import {LoaderComponent, Mensageria, TipoMensagem} from "@gafs/infra-core";
 })
 export class FormInscricaoComponent implements OnInit {
 
-    inscricao: InscricaoEvento = {};
+    inscricao: InscricaoEvento = {valores: {}};
 
     @ViewChild(FormComponent) form: FormComponent;
     @ViewChild('loader') loader: LoaderComponent;
@@ -33,7 +33,7 @@ export class FormInscricaoComponent implements OnInit {
           [this.inscricao]
       )).toPromise();
 
-      this.inscricao = {};
+      this.inscricao = {valores: {}};
       this.form.reset();
       this.inscritoAdicionado.emit(inscricao);
 

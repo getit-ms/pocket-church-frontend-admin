@@ -1,0 +1,104 @@
+<div mat-dialog-title>
+    {{data.placeholder | translate}}
+</div>
+
+<app-form (acao)="aplicar()">
+    <p>{{'campo_evento.validacao.explicacao' | translate}}</p>
+
+    <form-control>
+        <select-boolean-slider [label]="'campo_evento.validacao.obrigatorio' | translate"
+                               name="obrigatorio" [(ngModel)]="validacoes.OBRIGATORIO"
+        ></select-boolean-slider>
+        <small>{{'campo_evento.validacao.obrigatorio_dica' | translate}}</small>
+    </form-control>
+
+    <ng-container *ngIf="data.tipo === 'TEXTO' && data.formato === 'NENHUM'">
+        <br/>
+
+        <div class="row">
+            <form-control class="col-md-6">
+                <input-text type="number" [placeholder]="'campo_evento.validacao.comprimento_minimo' | translate"
+                            name="comprimentoMinimo" [(ngModel)]="validacoes.COMPRIMENTO_MINIMO"
+                ></input-text>
+                <small>{{'campo_evento.validacao.comprimento_minimo_dica' | translate}}</small>
+            </form-control>
+
+            <form-control class="col-md-6">
+                <input-text type="number" [placeholder]="'campo_evento.validacao.comprimento_maximo' | translate"
+                            name="comprimentoMaximo" [(ngModel)]="validacoes.COMPRIMENTO_MAXIMO"
+                ></input-text>
+                <small>{{'campo_evento.validacao.comprimento_maximo_dica' | translate}}</small>
+            </form-control>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="data.tipo === 'NUMERO' && data.formato !== 'MONETARIO'">
+        <br/>
+
+        <div class="row">
+            <form-control class="col-md-6">
+                <input-text type="number" [placeholder]="'campo_evento.validacao.minimo' | translate"
+                            name="minimo" [(ngModel)]="validacoes.VALOR_MINIMO"
+                ></input-text>
+                <small>{{'campo_evento.validacao.valor_minimo_dica' | translate}}</small>
+            </form-control>
+
+            <form-control class="col-md-6">
+                <input-text type="number" [placeholder]="'campo_evento.validacao.maximo' | translate"
+                            name="maximo" [(ngModel)]="validacoes.VALOR_MAXIMO"
+                ></input-text>
+                <small>{{'campo_evento.validacao.valor_maximo_dica' | translate}}</small>
+            </form-control>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="data.tipo === 'NUMERO' && data.formato === 'MONETARIO'">
+        <br/>
+
+        <div class="row">
+            <form-control class="col-md-6">
+                <input-monetario [placeholder]="'campo_evento.validacao.minimo' | translate"
+                                 name="minimo" [(ngModel)]="validacoes.VALOR_MINIMO"
+                ></input-monetario>
+                <small>{{'campo_evento.validacao.valor_minimo_dica' | translate}}</small>
+            </form-control>
+
+            <form-control class="col-md-6">
+                <input-monetario [placeholder]="'campo_evento.validacao.maximo' | translate"
+                                 name="maximo" [(ngModel)]="validacoes.VALOR_MAXIMO"
+                ></input-monetario>
+                <small>{{'campo_evento.validacao.valor_maximo_dica' | translate}}</small>
+            </form-control>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="data.tipo === 'DATA'">
+        <br/>
+
+        <div class="row">
+            <form-control class="col-md-6">
+                <input-data [placeholder]="'campo_evento.validacao.minimo' | translate"
+                            name="minimo" [(ngModel)]="validacoes.VALOR_MINIMO"
+                ></input-data>
+                <small>{{'campo_evento.validacao.valor_minimo_dica' | translate}}</small>
+            </form-control>
+
+            <form-control class="col-md-6">
+                <input-data [placeholder]="'campo_evento.validacao.maximo' | translate"
+                            name="maximo" [(ngModel)]="validacoes.VALOR_MAXIMO"
+                ></input-data>
+                <small>{{'campo_evento.validacao.valor_maximo_dica' | translate}}</small>
+            </form-control>
+        </div>
+
+    </ng-container>
+    <div acoes>
+        <button mat-raised-button color="primary" type="submit">
+            {{'global.aplicar' | translate}}
+        </button>
+
+        <button mat-button type="button" (click)="cancelar()">
+            {{'global.cancelar' | translate}}
+        </button>
+    </div>
+</app-form>

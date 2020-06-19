@@ -25,7 +25,7 @@ export class EventoService extends AbstractApiService {
         super(pathBase, httpClient);
     }
 
-    consulta(tipo: 'EVENTO' | 'EBD' = 'EVENTO', pagina?: number, total?: number): Observable<BuscaPaginada<Evento>> {
+    consulta(tipo: 'EVENTO' | 'EBD' | 'CULTO' = 'EVENTO', pagina?: number, total?: number): Observable<BuscaPaginada<Evento>> {
         return this.doGet('/evento', {
             params: {
                 tipo: [tipo],
@@ -62,7 +62,7 @@ export class EventoService extends AbstractApiService {
         dialog.onload = () => dialog.close();
     }
 
-    exportarInscricoes(tipo: 'EVENTO' | 'EBD') {
+    exportarInscricoes(tipo: 'EVENTO' | 'EBD' | 'CULTO') {
         const dispositivo = this.dispositivoService.uuid;
         const igreja = this.igrejasUsuarioService.atual.igreja.chave;
         const token = this.tokenService.token;

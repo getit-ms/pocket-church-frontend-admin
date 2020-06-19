@@ -1,0 +1,18 @@
+<mat-form-field>
+  <mat-chip-list #chipList>
+    <mat-chip
+            *ngFor="let opcao of value"
+            [removable]="!disabled"
+            (removed)="remove(opcao)">
+      {{opcao}}
+      <mat-icon matChipRemove *ngIf="!disabled">cancel</mat-icon>
+    </mat-chip>
+    <input [placeholder]="label"
+           name="inputOpcao" [(ngModel)]="novaOpcao"
+           [disabled]="disabled" maxlength="150"
+           [matChipInputFor]="chipList"
+           [matChipInputAddOnBlur]="true"
+           (matChipInputTokenEnd)="add()" />
+  </mat-chip-list>
+  <mat-hint>{{'campo_evento.adicionar_opcoes' | translate}}</mat-hint>
+</mat-form-field>

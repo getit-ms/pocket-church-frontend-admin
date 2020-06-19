@@ -1,0 +1,68 @@
+<app-form>
+  <div class="resultados">
+    <app-table (paginacao)="busca($event)" [pagina]="cultos">
+
+      <app-column name="culto">
+        <th *appColumnHeader>{{'culto.cultos' | translate}}</th>
+        <td *appCell="let culto" class="culto">
+          <h2>{{culto.nome}}</h2>
+          <p>{{culto.dataHoraInicio | date:'dd MMM yyyy'}} - {{culto.dataHoraTermino | date:'dd MMM yyyy'}}</p>
+
+          <mat-chip-list>
+            <mat-chip *ngIf="culto.inscricoesAbertas && culto.vagasRestantes == 1" color="primary" selected>
+              {{'culto.inscricao.uma_vaga_restante' | translate }}
+            </mat-chip>
+            <mat-chip *ngIf="culto.inscricoesAbertas && culto.vagasRestantes > 1" color="primary" selected>
+              {{'culto.inscricao.vagas_restante' | translate:{vagas: culto.vagasRestantes} }}
+            </mat-chip>
+            <mat-chip *ngIf="culto.inscricoesFuturas" color="accent" selected>
+              <mat-icon fontSet="fa" fontIcon="fa-clock-o"></mat-icon>
+              {{'culto.inscricao.inscricoes_nao_iniciadas' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="culto.inscricoesAbertas && culto.vagasRestantes == 0" color="basic" selected>
+              {{'culto.inscricao.vagas_esgotadas' | translate}}
+            </mat-chip>
+            <mat-chip *ngIf="culto.inscricoesPassadas" color="basic" selected>
+              {{'culto.inscricao.inscricoes_encerradas' | translate}}
+            </mat-chip>
+          </mat-chip-list>
+        </td>
+      </app-column>
+
+      <app-column name="comandos">
+        <th *appColumnHeader class="cmd"></th>
+        <td *appCell="let culto" class="cmd" >
+          <command-button routerLink="./{{culto.id}}/detail" theme="icon"
+                          [matTooltip]="'global.detalhar' | translate">
+            <mat-icon>search</mat-icon>
+          </command-button>
+          <command-button routerLink="./inscricao/{{culto.id}}" theme="icon"
+                          [matTooltip]="'culto.inscricoes' | translate">
+            <mat-icon>format_list_bulleted</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{culto.id}}/update" theme="icon"
+                          [matTooltip]="'global.editar' | translate">
+            <mat-icon>edit</mat-icon>
+          </command-button>
+          <command-button routerLink="./{{culto.id}}/copy" theme="icon"
+                          [matTooltip]="'global.copiar' | translate">
+            <mat-icon>file_copy</mat-icon>
+          </command-button>
+          <command-button (click)="excluir(culto)" theme="icon"
+                          [matTooltip]="'global.excluir' | translate">
+            <mat-icon>delete</mat-icon>
+          </command-button>
+        </td>
+      </app-column>
+    </app-table>
+
+    <loader [component]="true" ></loader>
+  </div>
+
+  <div acoesEsquerda>
+    <command-button (click)="exportarInscricoes()" theme="stroked" >
+      <mat-icon fontSet="fa" fontIcon="fa-file-excel-o"></mat-icon>
+      {{'culto.exportar_inscritos' | translate}}
+    </command-button>
+  </div>
+</app-form>

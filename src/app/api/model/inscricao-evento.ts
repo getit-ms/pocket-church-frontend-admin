@@ -9,4 +9,5 @@ export interface InscricaoEvento {
     data?: Date;
     confirmada?: boolean;
     pendente?: boolean;
+    valores?: { [key: string]: string };
 }

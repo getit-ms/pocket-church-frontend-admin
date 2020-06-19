@@ -24,6 +24,14 @@
       </form-control>
     </div>
 
+    <div class="row" *ngIf="ebd?.campos?.length">
+      <form-control class="col-md-4" *ngFor="let campo of ebd.campos">
+        <app-input-campo-evento name="{{campo.id}}" [campo]="campo"
+                                [(ngModel)]="inscricao.valores[campo.nome]"
+        ></app-input-campo-evento>
+      </form-control>
+    </div>
+
     <div acoesEsquerda>
       <command-button type="submit" theme="stroked" >{{'global.salvar' | translate}}</command-button>
     </div>

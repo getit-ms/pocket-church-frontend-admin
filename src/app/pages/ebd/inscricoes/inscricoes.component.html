@@ -1,20 +1,20 @@
 <app-form>
-  <form-control>
-    <input-text [placeholder]="'ebd.nome'| translate"
-                name="nome" [ngModel]="ebd?.nome" disabled></input-text>
-  </form-control>
-
-  <div class="row">
-    <form-control class="col-sm-6">
-      <input-data [placeholder]="'ebd.data_hora_inicio' | translate" type="datetime"
-                  name="dataHoraInicio" [ngModel]="ebd?.dataHoraInicio" disabled></input-data>
+    <form-control>
+        <input-text [placeholder]="'ebd.nome'| translate"
+                    name="nome" [ngModel]="ebd?.nome" disabled></input-text>
     </form-control>
 
-    <form-control class="col-sm-6">
-      <input-data [placeholder]="'ebd.data_hora_termino' | translate" type="datetime"
-                  name="dataHoraTermino" [ngModel]="ebd?.dataHoraTermino" disabled></input-data>
-    </form-control>
-  </div>
+    <div class="row">
+        <form-control class="col-sm-6">
+            <input-data [placeholder]="'ebd.data_hora_inicio' | translate" type="datetime"
+                        name="dataHoraInicio" [ngModel]="ebd?.dataHoraInicio" disabled></input-data>
+        </form-control>
+
+        <form-control class="col-sm-6">
+            <input-data [placeholder]="'ebd.data_hora_termino' | translate" type="datetime"
+                        name="dataHoraTermino" [ngModel]="ebd?.dataHoraTermino" disabled></input-data>
+        </form-control>
+    </div>
 </app-form>
 
 <app-form-inscricao [ebd]="ebd" (inscritoAdicionado)="busca()"></app-form-inscricao>
@@ -22,65 +22,80 @@
 <hr/>
 
 <div class="resultados">
-  <app-table (paginacao)="busca($event)" [pagina]="inscricoes">
-    <app-column name="indice">
-      <th *appColumnHeader class="idx"></th>
-      <td *appCell="let inscricao" class="idx" >
-        <h3>{{ (inscricoes.pagina - 1) * filtro.tamanhoPagina + inscricoes.resultados.indexOf(inscricao) + 1 }}</h3>
-      </td>
-    </app-column>
+    <app-table (paginacao)="busca($event)" [pagina]="inscricoes">
+        <app-column name="indice">
+            <th *appColumnHeader class="idx"></th>
+            <td *appCell="let inscricao" class="idx">
+                <h3>{{ (inscricoes.pagina - 1) * filtro.tamanhoPagina + inscricoes.resultados.indexOf(inscricao) + 1 }}</h3>
+            </td>
+        </app-column>
 
-    <app-column name="inscricao">
-      <th *appColumnHeader>{{'ebd.inscricao.inscricao' | translate}}</th>
-      <td *appCell="let inscricao" class="inscricao">
-        <h2>{{inscricao.nomeInscrito}}</h2>
-        <p>{{inscricao.emailInscrito}} | {{inscricao.telefoneInscrito | telefone}}</p>
-        <p>{{inscricao.data | date:'dd MMM yyyy HH:mm'}}</p>
+        <app-column name="inscricao">
+            <th *appColumnHeader>{{'ebd.inscricao.inscricao' | translate}}</th>
+            <td *appCell="let inscricao" class="inscricao">
+                <h2>{{inscricao.nomeInscrito}}</h2>
+                <fieldset>
+                    <legend>{{'ebd.inscricao.informacoes' | translate}}</legend>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <strong>{{'ebd.inscricao.email_inscrito' | translate}}</strong><br/>
+                            {{inscricao.emailInscrito}}
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <strong>{{'ebd.inscricao.telefone_inscrito' | translate}}</strong><br/>
+                            {{inscricao.telefoneInscrito | telefone}}
+                        </div>
+                    </div>
+                    <app-output-valores-inscricao [valores]="inscricao.valores"></app-output-valores-inscricao>
+                </fieldset>
 
-        <mat-chip-list>
-          <mat-chip *ngIf="inscricao.confirmada" color="primary" selected>
-            {{'ebd.inscricao.status.CONFIRMADA' | translate }}
-          </mat-chip>
-          <mat-chip *ngIf="inscricao.pendente" color="accent" selected>
-            {{'ebd.inscricao.status.PENDENTE' | translate }}
-          </mat-chip>
-        </mat-chip-list>
-      </td>
-    </app-column>
+                <small>{{inscricao.data | date:'dd MMM yyyy HH:mm'}}</small>
 
-    <app-column name="comandos">
-      <th *appColumnHeader class="cmd">
-        <command-button theme="icon" (click)="exportar('pdf')"
-                        [matTooltip]="'global.exportar_pdf' | translate">
-          <mat-icon fontSet="fa" fontIcon="fa-file-pdf-o"></mat-icon>
-        </command-button>
-        <command-button theme="icon" (click)="exportar('xls')"
-                        [matTooltip]="'global.exportar_excel' | translate">
-          <mat-icon fontSet="fa" fontIcon="fa-file-excel-o"></mat-icon>
-        </command-button>
-        <command-button theme="icon" (click)="exportar('docx')"
-                        [matTooltip]="'global.exportar_word' | translate">
-          <mat-icon fontSet="fa" fontIcon="fa-file-word-o"></mat-icon>
-        </command-button>
-      </th>
-      <td *appCell="let inscricao" class="cmd" >
-        <command-button (click)="confirmar(inscricao)" *ngIf="inscricao.pendente" theme="icon"
-                        [matTooltip]="'global.confirmar' | translate">
-          <mat-icon>check</mat-icon>
-        </command-button>
-        <command-button (click)="cancelar(inscricao)" theme="icon"
-                        [matTooltip]="'global.cancelar' | translate">
-          <mat-icon>close</mat-icon>
-        </command-button>
-      </td>
-    </app-column>
-  </app-table>
+                <mat-chip-list>
+                    <mat-chip *ngIf="inscricao.confirmada" color="primary" selected>
+                        {{'ebd.inscricao.status.CONFIRMADA' | translate }}
+                    </mat-chip>
+                    <mat-chip *ngIf="inscricao.pendente" color="accent" selected>
+                        {{'ebd.inscricao.status.PENDENTE' | translate }}
+                    </mat-chip>
+                </mat-chip-list>
+            </td>
+        </app-column>
 
-  <loader [component]="true" #loader ></loader>
+        <app-column name="comandos">
+            <th *appColumnHeader class="cmd">
+                <command-button theme="icon" (click)="exportar('pdf')"
+                                [matTooltip]="'global.exportar_pdf' | translate">
+                    <mat-icon fontSet="fa" fontIcon="fa-file-pdf-o"></mat-icon>
+                </command-button>
+                <command-button theme="icon" (click)="exportar('xls')"
+                                [matTooltip]="'global.exportar_excel' | translate">
+                    <mat-icon fontSet="fa" fontIcon="fa-file-excel-o"></mat-icon>
+                </command-button>
+                <command-button theme="icon" (click)="exportar('docx')"
+                                [matTooltip]="'global.exportar_word' | translate">
+                    <mat-icon fontSet="fa" fontIcon="fa-file-word-o"></mat-icon>
+                </command-button>
+            </th>
+            <td *appCell="let inscricao" class="cmd">
+                <command-button (click)="confirmar(inscricao)" *ngIf="inscricao.pendente" theme="icon"
+                                [matTooltip]="'global.confirmar' | translate">
+                    <mat-icon>check</mat-icon>
+                </command-button>
+                <command-button (click)="cancelar(inscricao)" theme="icon"
+                                [matTooltip]="'global.cancelar' | translate">
+                    <mat-icon>close</mat-icon>
+                </command-button>
+            </td>
+        </app-column>
+    </app-table>
+
+    <loader [component]="true" #loader></loader>
 </div>
 
 <app-form>
-  <div acoesEsquerda>
-    <command-button type="button" theme="default" routerLink="../../" >{{'global.voltar' | translate}}</command-button>
-  </div>
+    <div acoesEsquerda>
+        <command-button type="button" theme="default"
+                        routerLink="../../">{{'global.voltar' | translate}}</command-button>
+    </div>
 </app-form>

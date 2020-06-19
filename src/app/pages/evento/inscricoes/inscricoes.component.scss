@@ -3,6 +3,23 @@ app-table {
   td.inscricao {
     position: relative;
 
+    fieldset {
+      border: 1px solid rgba(0, 0, 0, .12);
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+
+      legend {
+        font-size: 14px;
+        display: inline;
+        width: auto;
+        padding: 0 5px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+    }
+
     mat-chip-list {
       margin: 15px;
       position: absolute;

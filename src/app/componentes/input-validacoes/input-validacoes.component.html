@@ -1,0 +1,11 @@
+<div class="validacoes">
+  <input-text readonly
+          [placeholder]="placeholder" [disabled]="disabled"
+          [ngModel]="apresentacaoValidacoes"></input-text>
+
+  <button mat-icon-button type="button"
+          (click)="editar()" >
+    <mat-icon *ngIf="!disabled">edit</mat-icon>
+    <mat-icon *ngIf="disabled">search</mat-icon>
+  </button>
+</div>

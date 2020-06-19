@@ -1,0 +1,55 @@
+<input-text *ngIf="campo.tipo === 'TEXTO'"
+            [placeholder]="campo.nome"
+            [disabled]="disabled"
+            [required]="campo.validacao?.OBRIGATORIO"
+            [maxlength]="campo.validacao?.COMPRIMENTO_MAXIMO"
+            [minlength]="campo.validacao?.COMPRIMENTO_MINIMO"
+            [(ngModel)]="value"
+></input-text>
+
+<input-text *ngIf="campo.tipo === 'NUMERO' && campo.formato !== 'MONETARIO'"
+            type="number" [placeholder]="campo.nome"
+            [disabled]="disabled"
+            [required]="campo.validacao?.OBRIGATORIO"
+            [valorMinimo]="campo.validacao?.VALOR_MINIMO"
+            [valorMaximo]="campo.validacao?.VALOR_MAXIMO"
+            [(ngModel)]="value"
+></input-text>
+
+<input-monetario
+        *ngIf="campo.tipo === 'NUMERO' && campo.formato === 'MONETARIO'"
+        [placeholder]="campo.nome"
+        [disabled]="disabled"
+        [required]="campo.validacao?.OBRIGATORIO"
+        [valorMinimo]="campo.validacao?.VALOR_MINIMO"
+        [valorMaximo]="campo.validacao?.VALOR_MAXIMO"
+        [(ngModel)]="value"
+></input-monetario>
+
+<input-data
+        *ngIf="campo.tipo === 'DATA'"
+        [placeholder]="campo.nome"
+        [disabled]="disabled"
+        [required]="campo.validacao?.OBRIGATORIO"
+        [dataMin]="campo.validacao?.VALOR_MINIMO"
+        [dataMax]="campo.validacao?.VALOR_MAXIMO"
+        [(ngModel)]="value"
+></input-data>
+
+<input-fileupload
+        *ngIf="campo.tipo === 'ANEXO'"
+        [label]="campo.nome"
+        [disabled]="disabled"
+        [required]="campo.validacao?.OBRIGATORIO"
+        [accept]="campo.formato === 'IMAGEM' ? ['.jpeg','.jpg','.png'] : undefined"
+        [(ngModel)]="value"
+></input-fileupload>
+
+<select-option *ngIf="campo.tipo === 'MULTIPLA_ESCOLHA'"
+            [placeholder]="campo.nome"
+            [disabled]="disabled"
+            [required]="campo.validacao?.OBRIGATORIO"
+            [(ngModel)]="value">
+    <opcao-item *ngFor="let opcao of campo.opcoes"
+                [label]="opcao" [valor]="opcao"></opcao-item>
+</select-option>

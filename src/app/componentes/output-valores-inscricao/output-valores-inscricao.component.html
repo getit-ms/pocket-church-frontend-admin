@@ -1,0 +1,7 @@
+<div class="row" *ngIf="arrayValores?.length">
+    <div class="col-md-6 col-lg-4" *ngFor="let val of arrayValores">
+        <strong>{{val.label}}: </strong><br/>
+        {{val.valor}}
+    </div>
+</div>
+

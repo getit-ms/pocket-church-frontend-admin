@@ -171,6 +171,10 @@ const routes: Routes = [
                         loadChildren: './pages/evento/evento.module#EventoModule'
                     },
                     {
+                        path: 'culto',
+                        loadChildren: './pages/culto/culto.module#CultoModule'
+                    },
+                    {
                         path: 'ebd',
                         loadChildren: './pages/ebd/ebd.module#EBDModule'
                     },
