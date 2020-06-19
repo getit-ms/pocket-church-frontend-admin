@@ -27,7 +27,7 @@
     <div class="row" *ngIf="ebd?.campos?.length">
       <form-control class="col-md-4" *ngFor="let campo of ebd.campos">
         <app-input-campo-evento name="{{campo.id}}" [campo]="campo"
-                                [(ngModel)]="inscricao.valores[campo.nome]"
+                                [(ngModel)]="valoresInscricao[campo.id]"
         ></app-input-campo-evento>
       </form-control>
     </div>

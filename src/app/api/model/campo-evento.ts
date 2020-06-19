@@ -1,3 +1,5 @@
+import {Arquivo} from "./arquivo";
+
 export enum TipoCampoEvento {
     TEXTO = 'TEXTO',
     DATA = 'DATA',

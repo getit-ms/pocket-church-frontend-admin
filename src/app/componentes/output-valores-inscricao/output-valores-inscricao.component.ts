@@ -1,9 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-interface Valor {
-    label: string;
-    valor: string;
-}
+import {Arquivo} from "../../api/model/arquivo";
+import {ValorInscricaoEvento} from "../../api/model/inscricao-evento";
 
 @Component({
     selector: 'app-output-valores-inscricao',
@@ -12,25 +9,9 @@ interface Valor {
 })
 export class OutputValoresInscricaoComponent implements OnInit {
 
-    $valores: Array<Valor> = [];
+    @Input() valores:Array<ValorInscricaoEvento> = [];
 
     constructor() {
-    }
-
-    @Input() set valores(valores: any) {
-        this.$valores = [];
-        if (valores) {
-            for (const k of Object.keys(valores)) {
-                this.$valores.push({
-                    label: k,
-                    valor: valores[k]
-                });
-            }
-        }
-    }
-
-    get arrayValores() {
-        return this.$valores;
     }
 
     ngOnInit() {

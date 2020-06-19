@@ -1,4 +1,15 @@
 import {Membro} from "./membro";
+import {Arquivo} from "./arquivo";
+import {FormatoCampoEvento} from "./campo-evento";
+
+export interface ValorInscricaoEvento {
+    nome?: string;
+    formato?: FormatoCampoEvento;
+    valorTexto: string;
+    valorNumero: any;
+    valorData: Date;
+    valorAnexo: Arquivo;
+}
 
 export interface InscricaoEvento {
     id?: number;
@@ -9,5 +20,5 @@ export interface InscricaoEvento {
     data?: Date;
     confirmada?: boolean;
     pendente?: boolean;
-    valores?: { [key: string]: string };
+    valores?: Array<ValorInscricaoEvento>;
 }
