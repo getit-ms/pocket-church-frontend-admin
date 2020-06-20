@@ -26,6 +26,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { InputCamposEventoValidatorDirective } from './input-campos-evento/input-campos-evento-validator.directive';
 import { InputCampoEventoComponent } from './input-campo-evento/input-campo-evento.component';
 import { OutputValoresInscricaoComponent } from './output-valores-inscricao/output-valores-inscricao.component';
+import { DownloadArquivoDirective } from './download-arquivo.directive';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { OutputValoresInscricaoComponent } from './output-valores-inscricao/outp
         ModalEdicaoValidacoesComponent,
         InputCamposEventoValidatorDirective,
         InputCampoEventoComponent,
-        OutputValoresInscricaoComponent
+        OutputValoresInscricaoComponent,
+        DownloadArquivoDirective
     ],
     imports: [
         CommonModule,

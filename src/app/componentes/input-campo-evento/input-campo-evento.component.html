@@ -41,7 +41,7 @@
         [label]="campo.nome"
         [disabled]="disabled"
         [required]="campo.validacao?.OBRIGATORIO"
-        [accept]="campo.formato === 'IMAGEM' ? ['.jpeg','.jpg','.png'] : undefined"
+        [accept]="campo.formato === 'IMAGEM' ? ['jpeg','jpg','png'] : undefined"
         [(ngModel)]="value"
 ></input-fileupload>
 

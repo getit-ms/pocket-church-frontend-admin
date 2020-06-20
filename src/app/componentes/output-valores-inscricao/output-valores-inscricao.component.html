@@ -37,7 +37,9 @@
         </ng-container>
 
         <ng-container *ngIf="val.valorAnexo">
-            <input-fileupload disabled [ngModel]="val.valorAnexo"></input-fileupload>
+            <a href="javascript:void(0)" [appDownloadArquivo]="val.valorAnexo">
+                {{val.valorAnexo.nome}}
+            </a>
         </ng-container>
     </div>
 </div>
