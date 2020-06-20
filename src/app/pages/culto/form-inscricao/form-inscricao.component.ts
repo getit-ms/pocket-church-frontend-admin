@@ -43,7 +43,7 @@ export class FormInscricaoComponent implements OnInit {
                             campo.tipo === TipoCampoEvento.MULTIPLA_ESCOLHA ? this.valoresInscricao[k] : undefined,
                 valorNumero: campo.tipo === TipoCampoEvento.NUMERO ? this.valoresInscricao[k] : undefined,
                 valorData: campo.tipo === TipoCampoEvento.DATA ? this.valoresInscricao[k] : undefined,
-                valorArquivo: campo.tipo === TipoCampoEvento.ANEXO ? this.valoresInscricao[k] : undefined,
+                valorAnexo: campo.tipo === TipoCampoEvento.ANEXO ? this.valoresInscricao[k] : undefined,
             });
         }
 
