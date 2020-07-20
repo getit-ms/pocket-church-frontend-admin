@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Arquivo} from "../../api/model/arquivo";
 import {ValorInscricaoEvento} from "../../api/model/inscricao-evento";
 
 @Component({

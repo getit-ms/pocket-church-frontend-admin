@@ -3,10 +3,10 @@
         <strong>{{val.nome}}: </strong><br/>
 
         <ng-container *ngIf="val.valorNumero || val.valorNumero === 0">
-            <ng-container *ngIf="val.formato === 'VALOR_INTEIRO'">
+            <ng-container *ngIf="val.formato === 'NUMERO_INTEIRO'">
                 {{val.valorNumero | number:'0.0-0'}}
             </ng-container>
-            <ng-container *ngIf="val.formato === 'VALOR_REAL'">
+            <ng-container *ngIf="val.formato === 'NUMERO_REAL'">
                 {{val.valorNumero | number:'0.2-2'}}
             </ng-container>
             <ng-container *ngIf="val.formato === 'MONETARIO'">
