@@ -34,8 +34,12 @@ export class EdicaoComponent extends AbstractFormComponent<Evento> implements Af
             .subscribe(evento => {
                 this.entidade = evento;
 
-                if (this.activatedRoute.snapshot.data.copy) {
+                if (this.activatedRoute.firstChild.snapshot.data.copy) {
                     this.entidade.id = undefined;
+
+                    if (this.entidade.campos) {
+                        this.entidade.campos.forEach(campo => campo.id = undefined);
+                    }
                 }
             });
     }
