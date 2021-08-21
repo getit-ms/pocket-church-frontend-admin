@@ -30,6 +30,7 @@ export class PocketChurchMenuProviderService implements MenuProvider {
     'ENVIAR_NOTIFICACOES',
     'MANTER_VERSICULOS_DIARIOS',
     'MANTER_PLANOS_LEITURA_BIBLICA',
+    'MANTER_TERMO_ACEITE',
     'MANTER_VOTACOES',
     'CONSULTAR_PEDIDOS_ORACAO',
     'MANTER_AGENDA',

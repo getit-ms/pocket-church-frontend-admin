@@ -1,0 +1,20 @@
+<app-form (acao)="salvar()">
+
+    <div>{{'termo_aceite.explicacao' | translate}}</div>
+    <br/>
+    <form-control>
+        <label>{{'termo_aceite.termo_aceite' | translate}}</label>
+        <input-editor required name="texto" [(ngModel)]="termoAceite.termo">
+        </input-editor>
+    </form-control>
+
+    <div acoesEsquerda>
+        <command-button type="submit" color="primary">{{'global.salvar' | translate}}</command-button>
+        <command-button type="button" theme="stroked" color="primary"
+                        (click)="salvarExigeNovoAceite()"
+                        [matTooltip]="'termo_aceite.explicacao_novo_aceite' | translate">
+            {{'termo_aceite.salvar_exigir_novo_aceite' | translate}}
+        </command-button>
+    </div>
+
+</app-form>

@@ -206,6 +206,10 @@ const routes: Routes = [
                         path: 'devocionario',
                         loadChildren: './pages/devocionario/devocionario.module#DevocionarioModule'
                     },
+                    {
+                        path: 'termo-aceite',
+                        loadChildren: './pages/termo-aceite/termo-aceite.module#TermoAceiteModule'
+                    },
                 ]
             },
         ]
