@@ -38,7 +38,7 @@ export class EdicaoComponent extends AbstractFormComponent<Audio> implements Aft
     const principal = await this.sessaoService.principal.pipe(take(1)).toPromise();
 
     if (!this.entidade.id) {
-      this.entidade.autor = principal.membro.nome;
+      this.entidade.autoria = principal.membro.nome;
     }
   }
 

@@ -4,7 +4,7 @@ import {CategoriaAudio} from './categoria-audio';
 export interface Audio {
   id?: number;
   nome?: string;
-  autor?: string;
+  autoria?: string;
   descricao?: string;
   categoria?: CategoriaAudio;
   tipo?: 'LOCAL';
