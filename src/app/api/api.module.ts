@@ -32,6 +32,7 @@ import {CalendarioService} from "./service/calendario.service";
 import {ChamadoService} from "./service/chamado.service";
 import {DevocionarioService} from "./service/devocionario.service";
 import {TermoAceiteService} from "./service/termo-aceite.service";
+import {BannerService} from "./service/banner.service";
 
 @NgModule({
     declarations: [],
@@ -71,6 +72,7 @@ import {TermoAceiteService} from "./service/termo-aceite.service";
         ChamadoService,
         DevocionarioService,
         TermoAceiteService,
+        BannerService,
     ]
 })
 export class ApiModule { }

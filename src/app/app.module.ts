@@ -210,6 +210,10 @@ const routes: Routes = [
                         path: 'termo-aceite',
                         loadChildren: './pages/termo-aceite/termo-aceite.module#TermoAceiteModule'
                     },
+                    {
+                        path: 'banner',
+                        loadChildren: './pages/banner/banner.module#BannerModule'
+                    },
                 ]
             },
         ]

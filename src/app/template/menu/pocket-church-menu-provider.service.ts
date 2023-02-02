@@ -42,7 +42,8 @@ export class PocketChurchMenuProviderService implements MenuProvider {
     'CONFIGURAR_YOUTUBE',
     'CONFIGURAR_GOOGLE_CALENDAR',
     'CONFIGURAR',
-    'ABERTURA_CHAMADO_SUPORTE'
+    'ABERTURA_CHAMADO_SUPORTE',
+    'MANTER_BANNERS'
   ];
 
   menus(): Observable<Array<MenuItem>> {

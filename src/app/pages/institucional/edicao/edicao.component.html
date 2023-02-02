@@ -38,36 +38,13 @@
     </form-control>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <div class="divulgacao">
-        <img [imagemSrc]="institucional.divulgacao" />
-      </div>
-
-      <p>{{'institucional.instrucoes_imagem_divulgacao' | translate}}</p>
-
-      <form-control>
-        <input-fileupload [label]="'institucional.imagem_divulgacao' | translate"
-                          [accept]="['jpeg','jpg','gif','png']" name="divulgacao"
-                          [(ngModel)]="institucional.divulgacao"></input-fileupload>
+  <div *ngFor="let rede of redesSociais">
+    <i class="rs fa fa-{{rede === 'youtube' ? 'youtube-play' : rede}} fa-pull-left"></i>
+    <div class="row">
+      <form-control class="col">
+        <input-text [placeholder]="'institucional.' + rede | translate"
+                    [name]="rede" [(ngModel)]="institucional.redesSociais[rede]"></input-text>
       </form-control>
-
-      <form-control>
-        <input-textarea [rows]="4"
-                        [placeholder]="'institucional.instrucoes_para_imagem' | translate" ></input-textarea>
-      </form-control>
-    </div>
-    <div class="col">
-
-      <div *ngFor="let rede of redesSociais">
-        <i class="rs fa fa-{{rede === 'youtube' ? 'youtube-play' : rede}} fa-pull-left"></i>
-        <div class="row">
-          <form-control class="col">
-            <input-text [placeholder]="'institucional.' + rede | translate"
-                        [name]="rede" [(ngModel)]="institucional.redesSociais[rede]"></input-text>
-          </form-control>
-        </div>
-      </div>
     </div>
   </div>
 

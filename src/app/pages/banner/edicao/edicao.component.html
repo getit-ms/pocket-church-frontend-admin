@@ -1,0 +1,20 @@
+<app-form (acao)="salvar()">
+
+  <form-control>
+    <input-fileupload [label]="'banner.arquivo_banner' | translate" required
+                      [accept]="['jpeg','jpg','png']"
+                      name="banner" [(ngModel)]="banner.banner" >
+    </input-fileupload>
+  </form-control>
+
+  <form-control>
+    <input-text [placeholder]="'banner.link_externo' | translate"
+                name="linkExterno" [(ngModel)]="banner.linkExterno" ></input-text>
+  </form-control>
+
+  <div acoesEsquerda>
+    <command-button type="submit" color="primary" *ngIf="edicao" >{{'global.salvar' | translate}}</command-button>
+    <command-button type="button" theme="default" routerLink="../" >{{(edicao ? 'global.cancelar' : 'global.voltar') | translate}}</command-button>
+  </div>
+
+</app-form>

@@ -1,0 +1,27 @@
+app-table {
+
+  td.banner {
+    img  {
+      height: 150px;
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  app-table {
+    td.banner {
+      position: unset;
+
+      mat-chip-list {
+        position: unset;
+      }
+    }
+  }
+}
+
+.resultados {
+  position: relative;
+  margin: 0 -16px;
+  padding: 0 16px;
+}
+
